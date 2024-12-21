@@ -1,4 +1,4 @@
-﻿using MonsterFactory.Monsters;
+﻿using ProjectReptile.Weapons;
 using ProjectReptile.Monsters;
 using System;
 using System.Collections.Generic;
@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile
 {
-    internal class EnemyFactory
+    internal class WeaponFactory
     {
-        public static Enemy CreateEnemy()
+        public static Weapon CreateWeapon()
         {
             Random random = new Random();
 
@@ -19,11 +19,11 @@ namespace ProjectReptile
             switch (enemy)
             {
                 case 1:
-                    return new Cultist_1();
+                    return new Torch();
                     break;
 
                 case 2:
-                    return new ProtoShoggoth();
+                    return new Pitchfork();
                     break;
             }
             return null;

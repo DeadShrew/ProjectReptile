@@ -1,4 +1,5 @@
-﻿using ProjectReptile.Monsters;
+﻿using ProjectReptile.Landmarks;
+using ProjectReptile.Monsters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,6 @@ namespace ProjectReptile
 {
     internal class GameState
     {
-
         public int rows = 3;
         public int columns  = 3;
         public int[,] dungeon;
@@ -37,17 +37,37 @@ namespace ProjectReptile
             foreach (Enemy enemy in EnemyList)
             {
                 Console.WriteLine("I am a " + enemy.EnemyName + " and my location is " + enemy.LocationX +"," + enemy.LocationY);
+                Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon.Name);
             }       
         }
 
         public void GenerateMonsterLocation()
         {
+            List<Tuple<int, int>> occupiedLocations = new List<Tuple<int, int>>();
+
             foreach (Enemy enemy in EnemyList)
             {
-                int x = random.Next(1, rows + 1);
-                int y = random.Next(1, columns + 1);
-                enemy.SetEnemyLocation(x, y);
+                bool isPositionOccupied = true;
+                int x = 0, y = 0;
 
+                while (isPositionOccupied)
+                {
+                    x = random.Next(1, rows + 1); 
+                    y = random.Next(1, columns + 1); 
+
+                    isPositionOccupied = false;
+                    foreach (var occupiedLocation in occupiedLocations)
+                    {
+                        if (occupiedLocation.Item1 == x && occupiedLocation.Item2 == y)
+                        {
+                            isPositionOccupied = true;
+                            break;
+                        }
+                    }
+                }
+
+                enemy.SetEnemyLocation(x, y);
+                occupiedLocations.Add(Tuple.Create(x, y));
             }
         }
     }

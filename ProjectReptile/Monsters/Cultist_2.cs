@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace MonsterFactory.Monsters
 {
-    public class Cultist_1 : Enemy
+    public class Cultist_2 : Enemy
     {
-        public Cultist_1()
+        public Cultist_2()
         {
             Random random = new Random();
 
@@ -24,6 +24,6 @@ namespace MonsterFactory.Monsters
             this.Gold = 0 + random.Next(0, 1);
             this.ThreatLevel = 0;
             this.EnemyName = "cultist";
-        }  
+        }
     }
 }

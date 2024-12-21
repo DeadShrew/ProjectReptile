@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectReptile
+namespace ProjectReptile.Landmarks
 {
     public abstract class Landmark : Encounter
     {
