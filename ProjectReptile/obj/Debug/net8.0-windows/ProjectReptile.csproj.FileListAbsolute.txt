@@ -1,0 +1,16 @@
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\bin\Debug\net8.0-windows\ProjectReptile.exe
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\bin\Debug\net8.0-windows\ProjectReptile.deps.json
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\bin\Debug\net8.0-windows\ProjectReptile.runtimeconfig.json
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\bin\Debug\net8.0-windows\ProjectReptile.dll
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\bin\Debug\net8.0-windows\ProjectReptile.pdb
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.Form1.resources
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.csproj.GenerateResource.cache
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.AssemblyInfoInputs.cache
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.AssemblyInfo.cs
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.csproj.CoreCompileInputs.cache
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.dll
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\refint\ProjectReptile.dll
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.pdb
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.genruntimeconfig.cache
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ref\ProjectReptile.dll
