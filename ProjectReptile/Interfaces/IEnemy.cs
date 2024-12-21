@@ -8,5 +8,8 @@ namespace ProjectReptile.Interfaces
 {
     internal interface IEnemy
     {
+        void SetEnemyLocation(int x, int y);
+
+        Tuple<int, int> GetEnemyLocation();
     }
 }

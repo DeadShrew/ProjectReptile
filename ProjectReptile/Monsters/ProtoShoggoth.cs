@@ -1,14 +1,12 @@
-﻿using ProjectReptile.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MonsterFactory.Monsters
+namespace ProjectReptile.Monsters
 {
-    public class Cultist_1 : IEncounter, IEnemy
+    internal class ProtoShoggoth
     {
 
         public int Power;
@@ -24,7 +22,7 @@ namespace MonsterFactory.Monsters
         public string EnemyName;
 
 
-        public Cultist_1()
+        public ProtoShoggoth()
         {
             Random random = new Random();
 
@@ -39,23 +37,9 @@ namespace MonsterFactory.Monsters
             throw new NotImplementedException();
         }
 
-        public void SetEnemyLocation(int x, int y)
+        public void GenerateNewLocation()
         {
-            LocationX = x; 
-            LocationY = y;
-        }
-
-        public Tuple <int, int> GetEnemyLocation()
-        {
-            int x = LocationX;
-            int y = LocationY;
-
-            return Tuple.Create(x, y);
-        }
-
-        public int GetEnemyLocationY()
-        {
-            return LocationY;
+            throw new NotImplementedException();
         }
 
         public void ResetForNewGame()

@@ -10,8 +10,6 @@ namespace ProjectReptile.Interfaces
     {
         internal interface IEncounter
         {
-            void GenerateNewLocation();
-
             void EncounterCheck();
 
             void ResetForNewGame();

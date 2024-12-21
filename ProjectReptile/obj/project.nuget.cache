@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "DfAVQ8Fv+N9RkcgWq2/Fb1m9MD3cmtwe15U2to0D7Ufk10nJNfOblmqLUpSuscp7wPmem1Vlx4FW//HsZO4AlQ==",
+  "dgSpecHash": "gcMjNzfAppEYVmo2PIDgi2Pqu6Ic7kYhLByRE95A/JuIxaG/HWk7atNd3kF62Yz5YifgqNDstWRbS6KE6cqtKA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\ProjectReptile.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ym3438\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\ym3438\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\ym3438\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\ym3438\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
+  ],
   "logs": []
 }
