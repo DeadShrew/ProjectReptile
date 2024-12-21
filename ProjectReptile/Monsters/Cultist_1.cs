@@ -1,4 +1,5 @@
-﻿using ProjectReptile.Interfaces;
+﻿using ProjectReptile;
+using ProjectReptile.Monsters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,22 +9,8 @@ using System.Threading.Tasks;
 
 namespace MonsterFactory.Monsters
 {
-    public class Cultist_1 : IEncounter, IEnemy
+    public class Cultist_1 : Enemy
     {
-
-        public int Power;
-        public int Constitution;
-        public int Dexterity;
-        public int Armor;
-        public int Gold;
-        public int ThreatLevel;
-        public int LocationX;
-        public int LocationY;
-        public bool IsIntelligent;
-        public bool IsNegotiable;
-        public string EnemyName;
-
-
         public Cultist_1()
         {
             Random random = new Random();
@@ -32,35 +19,9 @@ namespace MonsterFactory.Monsters
             this.Constitution = 15 + random.Next(-2, 2);
             this.Dexterity = 15;
             this.Armor = 15;
-        }
-
-        public void EncounterCheck()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetEnemyLocation(int x, int y)
-        {
-            LocationX = x; 
-            LocationY = y;
-        }
-
-        public Tuple <int, int> GetEnemyLocation()
-        {
-            int x = LocationX;
-            int y = LocationY;
-
-            return Tuple.Create(x, y);
-        }
-
-        public int GetEnemyLocationY()
-        {
-            return LocationY;
-        }
-
-        public void ResetForNewGame()
-        {
-            throw new NotImplementedException();
-        }
+            this.Gold = 0 + random.Next(0, 1);
+            this.ThreatLevel = 0;
+            this.EnemyName = "cultist";
+        }  
     }
 }

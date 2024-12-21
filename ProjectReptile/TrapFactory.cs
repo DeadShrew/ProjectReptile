@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile
 {
-    internal class TrapFactory
+    internal class TrapFactory : Encounter
     {
     }
 }

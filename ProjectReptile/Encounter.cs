@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectReptile.Interfaces
+namespace ProjectReptile
 {
-    internal interface ILandmark
+    public abstract class Encounter
     {
+        void EncounterCheck() { }
+
+        void ResetForNewGame() { }
     }
 }

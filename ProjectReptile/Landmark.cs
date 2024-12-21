@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile
 {
-    internal class MonsterFactory
+    public abstract class Landmark : Encounter
     {
     }
 }

@@ -6,22 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile.Monsters
 {
-    internal class ProtoShoggoth
+    public class ProtoShoggoth : Enemy
     {
-
-        public int Power;
-        public int Constitution;
-        public int Dexterity;
-        public int Armor;
-        public int Gold;
-        public int ThreatLevel;
-        public int LocationX;
-        public int LocationY;
-        public bool IsIntelligent;
-        public bool IsNegotiable;
-        public string EnemyName;
-
-
         public ProtoShoggoth()
         {
             Random random = new Random();
@@ -30,21 +16,9 @@ namespace ProjectReptile.Monsters
             this.Constitution = 15 + random.Next(-2, 2);
             this.Dexterity = 15;
             this.Armor = 15;
-        }
-
-        public void EncounterCheck()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GenerateNewLocation()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ResetForNewGame()
-        {
-            throw new NotImplementedException();
+            this.Gold = 0 + random.Next(0, 1);
+            this.ThreatLevel = 0;
+            this.EnemyName = "proto-shoggoth";
         }
     }
 }
