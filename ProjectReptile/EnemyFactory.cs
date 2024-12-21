@@ -19,7 +19,7 @@ namespace ProjectReptile
             switch (enemy)
             {
                 case 1:
-                    return new Cultist_1();
+                    return new Cultist();
                     break;
 
                 case 2:

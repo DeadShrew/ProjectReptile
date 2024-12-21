@@ -37,7 +37,7 @@ namespace ProjectReptile
             foreach (Enemy enemy in EnemyList)
             {
                 Console.WriteLine("I am a " + enemy.EnemyName + " and my location is " + enemy.LocationX +"," + enemy.LocationY);
-                Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon.Name);
+                Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon);
             }       
         }
 

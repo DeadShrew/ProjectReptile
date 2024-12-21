@@ -14,7 +14,7 @@ namespace ProjectReptile
         {
             Random random = new Random();
 
-            int enemy = random.Next(1, 3);
+            int enemy = random.Next(1, 6);
 
             switch (enemy)
             {
@@ -24,6 +24,18 @@ namespace ProjectReptile
 
                 case 2:
                     return new Pitchfork();
+                    break;
+
+                case 3:
+                    return new Machete();
+                    break;
+
+                case 4:
+                    return new Club();
+                    break;
+
+                case 5:
+                    return new Whip();
                     break;
             }
             return null;
