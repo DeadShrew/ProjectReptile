@@ -34,21 +34,16 @@ namespace ProjectReptile
             //GenerateLandMarks(); 
 
             GenerateEnemyLocations();
-            //GenerateTrapLocations();
+            GenerateTrapLocations();
             //GenerateLandmarkLocations();
 
-            foreach (Enemy enemy in EnemyList)
-            {   
-                Console.WriteLine("I am a " + enemy.EnemyName + " and my location is " + enemy.LocationX +"," + enemy.LocationY);
-                Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon);
+            AddEnemiesToEncounterList();
+            AddTrapsToEncounterList();
 
-                EncounterList.AddLast(enemy);
-            }
-
-            foreach (Encounter encounter in EncounterList)
+            /*foreach (Encounter encounter in EncounterList)
             {
-               // Console.WriteLine("my location is " + encounter.LocationX + "," + encounter.LocationY); 
-            }
+               Console.WriteLine("my location is " + encounter.LocationX + "," + encounter.LocationY); 
+            }*/
 
             foreach(Enemy enemy in EnemyList)
             {
@@ -80,17 +75,51 @@ namespace ProjectReptile
             }
         }
 
-        //Traps spawn on same parcels sometimes. Needs to be fixed with its own location generating method. 
         public void GenerateTraps(int rows, int columns)
         {
-            for (int j = 0; j < columns + 1; j++)
+            for (int i = 0; i < columns + 1; i++)
             {
-                Trap trap = new Trap(0 + random.Next(1, rows + 1), random.Next(1, rows + 1));
-                TrapList.AddLast(trap);
+                TrapList.AddLast(new Trap());
             }
+        }
+
+        public void GenerateTrapLocations()
+        {
+            List<Tuple<int, int>> occupiedLocations = new List<Tuple<int, int>>();
 
             foreach (Trap trap in TrapList)
             {
+
+                bool isPositionOccupied = true;
+                int x = 0, y = 0;
+
+                while (isPositionOccupied)
+                {
+                    x = random.Next(1, rows + 1);
+                    y = random.Next(1, columns + 1);
+
+                    isPositionOccupied = false;
+                    foreach (var occupiedLocation in occupiedLocations)
+                    {
+                        if (occupiedLocation.Item1 == x && occupiedLocation.Item2 == y)
+                        {
+                            isPositionOccupied = true;
+                            break;
+                        }
+                    }
+                }
+
+                trap.SetLocation(x, y);
+                occupiedLocations.Add(Tuple.Create(x, y));
+            }
+        }
+
+        public void AddTrapsToEncounterList()
+        {
+            foreach (Trap trap in TrapList)
+            {
+                Console.WriteLine("I am a trap and my location is " + trap.LocationX + "," + trap.LocationY);
+               
                 EncounterList.AddLast(trap);
             }
         }
@@ -135,6 +164,17 @@ namespace ProjectReptile
                 enemy.SetLocation(x, y);
                 occupiedLocations.Add(Tuple.Create(x, y));
             }
-        } 
+        }
+        
+        public void AddEnemiesToEncounterList()
+        {
+            foreach (Enemy enemy in EnemyList)
+            {
+                Console.WriteLine("I am a " + enemy.EnemyName + " and my location is " + enemy.LocationX + "," + enemy.LocationY);
+                Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon);
+
+                EncounterList.AddLast(enemy);
+            }
+        }
     }
 }

@@ -8,12 +8,8 @@ namespace ProjectReptile
 {
     internal class Trap : Encounter
     {
-        public Trap (int x, int y)
+        public Trap ()
         {
-           LocationX = x;
-           LocationY = y;
-
-            Console.WriteLine("I am a trap and my location is " + LocationX + ", " + LocationY);
         }
         
     }
