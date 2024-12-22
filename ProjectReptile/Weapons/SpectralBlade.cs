@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile.Weapons
 {
-    public abstract class Weapon : Item
+    internal class SpectralBlade
     {
-        public int Power;
-        public bool TwoHanded;
-        public bool Magical; 
-        public string Name;
     }
 }

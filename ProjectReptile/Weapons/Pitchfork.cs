@@ -10,7 +10,7 @@ namespace ProjectReptile.Weapons
     {
         public Pitchfork()
         {
-            this.Power = 1;
+            this.Power = 6;
             this.TwoHanded = true;
             this.Name = "pitchfork"; 
         }

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile.Weapons
 {
-    internal class Dagger
+    internal class Dagger : Weapon
     {
+        public Dagger()
+        {
+            this.Power = 1;
+            this.TwoHanded = false;
+            this.Name = "dagger";
+        }
     }
 }

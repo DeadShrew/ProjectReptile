@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile.Weapons
 {
-    internal class Club : Weapon
+    internal class RitualMace : Weapon
     {
-        public Club()
+        public RitualMace()
         {
-            this.Power = 1;
+            this.Power = 5;
             this.TwoHanded = false;
-            this.Name = "club";
+            this.Name = "ritual mace";
         }
     }
 }

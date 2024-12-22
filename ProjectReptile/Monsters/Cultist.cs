@@ -16,7 +16,7 @@ namespace MonsterFactory.Monsters
         {
             Random random = new Random();
 
-            this.equippedWeapon = WeaponFactory.CreateWeapon();
+            this.equippedWeapon = WeaponFactory.CreateWeaponForCultist();
             this.Power = 15 + equippedWeapon.Power;
             this.Constitution = 15 + random.Next(-2, 2);
             this.Dexterity = 15;

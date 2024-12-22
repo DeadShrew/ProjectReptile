@@ -8,8 +8,26 @@ namespace ProjectReptile
 {
     public abstract class Encounter
     {
+
+        public int LocationX;
+        public int LocationY;
+
         void EncounterCheck() { }
 
         void ResetForNewGame() { }
+
+        public Tuple<int, int> GetLocation()
+        {
+            int x = LocationX;
+            int y = LocationY;
+
+            return Tuple.Create(x, y);
+        }
+
+        public void SetLocation(int x, int y)
+        {
+            LocationX = x;
+            LocationY = y;
+        }
     }
 }

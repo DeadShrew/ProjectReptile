@@ -10,7 +10,7 @@ namespace ProjectReptile.Weapons
     {
         public Machete()
         {
-            this.Power = 1;
+            this.Power = 5;
             this.TwoHanded = false;
             this.Name = "machete";
         }

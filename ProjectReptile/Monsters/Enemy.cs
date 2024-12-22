@@ -17,25 +17,9 @@ namespace ProjectReptile.Monsters
         public int Armor;
         public int Gold;
         public int ThreatLevel;
-        public int LocationX;
-        public int LocationY;
         public bool IsIntelligent;
         public bool IsNegotiable;
         public string EnemyName;
-
-        public Tuple<int, int> GetEnemyLocation()
-        {
-            int x = LocationX;
-            int y = LocationY;
-
-            return Tuple.Create(x, y);
-        }
-
-        public void SetEnemyLocation(int x, int y)
-        {
-            LocationX = x;
-            LocationY = y;
-        }
 
     }
 }

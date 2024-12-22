@@ -16,37 +16,72 @@ namespace ProjectReptile
         public int columns  = 3;
         public int[,] dungeon;
 
-        LinkedList<Enemy> EnemyList = new LinkedList<Enemy>();  
-        LinkedList<Landmark> LandmarkList = new LinkedList<Landmark>();
-        LinkedList<Trap> TrapList = new LinkedList<Trap>();
+        LinkedList<Encounter> EncounterList = new LinkedList<Encounter>();
+        LinkedList<Enemy> EnemyList = new LinkedList<Enemy>();
+        LinkedList<Parcel> ParcelList = new LinkedList<Parcel>();
+        LinkedList<Landmark>LandmarkList = new LinkedList<Landmark>();
+
 
         Random random = new Random();
 
         public GameState()
         {
-            int monsterAmount= random.Next(1, 6);
+
+            GenerateEnemies();
+            GenerateParcels(rows, columns);
+            //GenerateTraps();
+            //GenerateLandMarks(); 
+
+            GenerateEnemyLocations();
+            
+
+            foreach (Enemy enemy in EnemyList)
+            {   
+                Console.WriteLine("I am a " + enemy.EnemyName + " and my location is " + enemy.LocationX +"," + enemy.LocationY);
+                Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon);
+
+                EncounterList.AddLast(enemy);
+            }
+            
+            foreach (Encounter encounter in EncounterList)
+            {
+                Console.WriteLine(encounter.GetLocation());
+            }
+        }
+
+        public void GenerateParcels(int rows, int columns)
+        {
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Parcel parcel = new Parcel(i, j);
+                    ParcelList.AddLast(parcel);
+                    EncounterList.AddLast(parcel); 
+                }
+            }
+
+
+        }
+
+        public void GenerateEnemies()
+        {
+            int monsterAmount = random.Next(1, 6);
             dungeon = new int[rows, columns];
 
             for (int i = 0; i < monsterAmount; i++)
             {
                 EnemyList.AddLast(EnemyFactory.CreateEnemy());
             }
-
-            GenerateMonsterLocation();
-
-            foreach (Enemy enemy in EnemyList)
-            {
-                Console.WriteLine("I am a " + enemy.EnemyName + " and my location is " + enemy.LocationX +"," + enemy.LocationY);
-                Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon);
-            }       
         }
 
-        public void GenerateMonsterLocation()
+        public void GenerateEnemyLocations()
         {
             List<Tuple<int, int>> occupiedLocations = new List<Tuple<int, int>>();
 
             foreach (Enemy enemy in EnemyList)
-            {
+            {   
+
                 bool isPositionOccupied = true;
                 int x = 0, y = 0;
 
@@ -66,9 +101,9 @@ namespace ProjectReptile
                     }
                 }
 
-                enemy.SetEnemyLocation(x, y);
+                enemy.SetLocation(x, y);
                 occupiedLocations.Add(Tuple.Create(x, y));
             }
-        }
+        } 
     }
 }

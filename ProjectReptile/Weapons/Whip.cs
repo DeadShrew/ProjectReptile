@@ -10,9 +10,9 @@ namespace ProjectReptile.Weapons
     {
         public Whip()
         {
-            this.Power = 1;
+            this.Power = 4;
             this.TwoHanded = true;
-            this.Name = "pitchfork";
+            this.Name = "whip";
         }
     }
 }
