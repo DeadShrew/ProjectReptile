@@ -8,8 +8,6 @@ namespace ProjectReptile
 {
     public class Parcel : Encounter
     {
-        public int LocationX;
-        public int LocationY;
         public LinkedList<Item> ItemList; 
 
         public Parcel(int x, int y) 
@@ -18,7 +16,7 @@ namespace ProjectReptile
             LocationY = y;
             ItemList = new LinkedList<Item>();
 
-            Console.WriteLine("My location is " + LocationX  + ", " + LocationY);
+            Console.WriteLine("I am a parcel and my location is " + LocationX + ", " + LocationY);
         }
     }
 }

@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile
 {
-    internal class Trap
+    internal class Trap : Encounter
     {
-        public int LocationX; 
-        public int LocationY;
         public Trap (int x, int y)
         {
            LocationX = x;
            LocationY = y;
+
+            Console.WriteLine("I am a trap and my location is " + LocationX + ", " + LocationY);
         }
+        
     }
 }

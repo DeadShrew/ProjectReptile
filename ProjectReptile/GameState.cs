@@ -12,13 +12,14 @@ namespace ProjectReptile
 {
     internal class GameState
     {
-        public int rows = 3;
-        public int columns  = 3;
+        public int rows = 4;
+        public int columns  = 4;
         public int[,] dungeon;
 
         LinkedList<Encounter> EncounterList = new LinkedList<Encounter>();
         LinkedList<Enemy> EnemyList = new LinkedList<Enemy>();
         LinkedList<Parcel> ParcelList = new LinkedList<Parcel>();
+        LinkedList<Trap> TrapList = new LinkedList<Trap>();
         LinkedList<Landmark>LandmarkList = new LinkedList<Landmark>();
 
 
@@ -29,11 +30,12 @@ namespace ProjectReptile
 
             GenerateEnemies();
             GenerateParcels(rows, columns);
-            //GenerateTraps();
+            GenerateTraps(rows, columns);
             //GenerateLandMarks(); 
 
             GenerateEnemyLocations();
-            
+            //GenerateTrapLocations();
+            //GenerateLandmarkLocations();
 
             foreach (Enemy enemy in EnemyList)
             {   
@@ -42,26 +44,55 @@ namespace ProjectReptile
 
                 EncounterList.AddLast(enemy);
             }
-            
+
             foreach (Encounter encounter in EncounterList)
             {
-                Console.WriteLine(encounter.GetLocation());
+               // Console.WriteLine("my location is " + encounter.LocationX + "," + encounter.LocationY); 
             }
+
+            foreach(Enemy enemy in EnemyList)
+            {
+                foreach (Trap trap in TrapList)
+                {
+                    if (enemy.LocationX == trap.LocationX && enemy.LocationY == trap.LocationY)  
+                    {
+                        Console.WriteLine("Boom! at space " + enemy.GetLocation().ToString()); 
+                    }
+                }
+            }
+        
         }
 
         public void GenerateParcels(int rows, int columns)
         {
-            for (int i = 0; i < rows; i++)
+            for (int i = 0; i < rows + 1; i++)
             {
-                for (int j = 0; j < columns; j++)
+                for (int j = 0; j < columns+ 1; j++)
                 {
                     Parcel parcel = new Parcel(i, j);
-                    ParcelList.AddLast(parcel);
-                    EncounterList.AddLast(parcel); 
+                    ParcelList.AddLast(parcel); 
                 }
             }
 
+            foreach(Parcel parcel in ParcelList)
+            {
+                EncounterList.AddLast(parcel); 
+            }
+        }
 
+        //Traps spawn on same parcels sometimes. Needs to be fixed with its own location generating method. 
+        public void GenerateTraps(int rows, int columns)
+        {
+            for (int j = 0; j < columns + 1; j++)
+            {
+                Trap trap = new Trap(0 + random.Next(1, rows + 1), random.Next(1, rows + 1));
+                TrapList.AddLast(trap);
+            }
+
+            foreach (Trap trap in TrapList)
+            {
+                EncounterList.AddLast(trap);
+            }
         }
 
         public void GenerateEnemies()
