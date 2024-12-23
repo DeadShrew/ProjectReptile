@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectReptile
+namespace ProjectReptile.AbstractClasses
 {
     public class Parcel : Encounter
     {
-        public LinkedList<Item> ItemList; 
+        public LinkedList<Item> ItemList;
 
-        public Parcel(int x, int y) 
+        public Parcel(int x, int y)
         {
             LocationX = x;
             LocationY = y;

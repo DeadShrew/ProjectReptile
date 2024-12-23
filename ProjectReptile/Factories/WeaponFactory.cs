@@ -1,12 +1,12 @@
 ﻿using ProjectReptile.Weapons;
-using ProjectReptile.Monsters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectReptile.AbstractClasses;
 
-namespace ProjectReptile
+namespace ProjectReptile.Factories
 {
     internal class WeaponFactory
     {
@@ -41,13 +41,13 @@ namespace ProjectReptile
                 case 6:
                     return new TotemClub();
                     break;
-                    
+
                 case 7:
                     return new Whip();
                     break;
             }
 
-            return null; 
+            return null;
         }
         public static Weapon CreateWeapon()
         {

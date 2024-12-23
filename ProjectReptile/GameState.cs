@@ -1,5 +1,5 @@
-﻿using ProjectReptile.Landmarks;
-using ProjectReptile.Monsters;
+﻿using ProjectReptile.AbstractClasses;
+using ProjectReptile.Factories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,18 +27,18 @@ namespace ProjectReptile
 
         public GameState()
         {
-
-            GenerateEnemies();
             GenerateParcels(rows, columns);
+            GenerateEnemies();
             GenerateTraps(rows, columns);
-            //GenerateLandMarks(); 
+            GenerateLandmarks(); 
 
             GenerateEnemyLocations();
             GenerateTrapLocations();
-            //GenerateLandmarkLocations();
+            GenerateLandmarkLocations();
 
             AddEnemiesToEncounterList();
             AddTrapsToEncounterList();
+            AddLandmarksToEncounterList();
 
             /*foreach (Encounter encounter in EncounterList)
             {
@@ -72,6 +72,59 @@ namespace ProjectReptile
             foreach(Parcel parcel in ParcelList)
             {
                 EncounterList.AddLast(parcel); 
+            }
+        }
+
+        public void GenerateEnemies()
+        {
+            int monsterAmount = random.Next(1, 6);
+            dungeon = new int[rows, columns];
+
+            for (int i = 0; i < monsterAmount; i++)
+            {
+                EnemyList.AddLast(EnemyFactory.CreateEnemy());
+            }
+        }
+
+        public void GenerateEnemyLocations()
+        {
+            List<Tuple<int, int>> occupiedLocations = new List<Tuple<int, int>>();
+
+            foreach (Enemy enemy in EnemyList)
+            {
+
+                bool isPositionOccupied = true;
+                int x = 0, y = 0;
+
+                while (isPositionOccupied)
+                {
+                    x = random.Next(1, rows + 1);
+                    y = random.Next(1, columns + 1);
+
+                    isPositionOccupied = false;
+                    foreach (var occupiedLocation in occupiedLocations)
+                    {
+                        if (occupiedLocation.Item1 == x && occupiedLocation.Item2 == y)
+                        {
+                            isPositionOccupied = true;
+                            break;
+                        }
+                    }
+                }
+
+                enemy.SetLocation(x, y);
+                occupiedLocations.Add(Tuple.Create(x, y));
+            }
+        }
+
+        public void AddEnemiesToEncounterList()
+        {
+            foreach (Enemy enemy in EnemyList)
+            {
+                Console.WriteLine("I am a " + enemy.Name + " and my location is " + enemy.LocationX + "," + enemy.LocationY);
+                Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon);
+
+                EncounterList.AddLast(enemy);
             }
         }
 
@@ -124,31 +177,31 @@ namespace ProjectReptile
             }
         }
 
-        public void GenerateEnemies()
+        public void GenerateLandmarks()
         {
-            int monsterAmount = random.Next(1, 6);
+            int landmarkAmount = random.Next(1, 6);
             dungeon = new int[rows, columns];
 
-            for (int i = 0; i < monsterAmount; i++)
+            for (int i = 0; i < landmarkAmount; i++)
             {
-                EnemyList.AddLast(EnemyFactory.CreateEnemy());
+                LandmarkList.AddLast(LandmarkFactory.CreateLandmark());
             }
         }
 
-        public void GenerateEnemyLocations()
+        public void GenerateLandmarkLocations()
         {
             List<Tuple<int, int>> occupiedLocations = new List<Tuple<int, int>>();
 
-            foreach (Enemy enemy in EnemyList)
-            {   
+            foreach (Landmark landmark in LandmarkList)
+            {
 
                 bool isPositionOccupied = true;
                 int x = 0, y = 0;
 
                 while (isPositionOccupied)
                 {
-                    x = random.Next(1, rows + 1); 
-                    y = random.Next(1, columns + 1); 
+                    x = random.Next(1, rows + 1);
+                    y = random.Next(1, columns + 1);
 
                     isPositionOccupied = false;
                     foreach (var occupiedLocation in occupiedLocations)
@@ -161,19 +214,18 @@ namespace ProjectReptile
                     }
                 }
 
-                enemy.SetLocation(x, y);
+                landmark.SetLocation(x, y);
                 occupiedLocations.Add(Tuple.Create(x, y));
             }
         }
-        
-        public void AddEnemiesToEncounterList()
-        {
-            foreach (Enemy enemy in EnemyList)
-            {
-                Console.WriteLine("I am a " + enemy.EnemyName + " and my location is " + enemy.LocationX + "," + enemy.LocationY);
-                Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon);
 
-                EncounterList.AddLast(enemy);
+        public void AddLandmarksToEncounterList()
+        {
+            foreach (Landmark landmark in LandmarkList)
+            {
+                Console.WriteLine("I am a " + landmark.Name + " and my location is " + landmark.LocationX + "," + landmark.LocationY);
+                
+                EncounterList.AddLast(landmark);
             }
         }
     }

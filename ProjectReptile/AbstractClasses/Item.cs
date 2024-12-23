@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectReptile
+namespace ProjectReptile.AbstractClasses
 {
-    internal class TrapFactory : Encounter
+    public abstract class Item
     {
     }
 }

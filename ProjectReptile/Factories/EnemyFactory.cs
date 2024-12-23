@@ -1,12 +1,13 @@
-﻿using MonsterFactory.Monsters;
-using ProjectReptile.Monsters;
+﻿
+using ProjectReptile.AbstractClasses;
+using ProjectReptile.Enemies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectReptile
+namespace ProjectReptile.Factories
 {
     internal class EnemyFactory
     {
@@ -27,6 +28,7 @@ namespace ProjectReptile
                     break;
             }
             return null;
+            }
         }
     }
-}
+

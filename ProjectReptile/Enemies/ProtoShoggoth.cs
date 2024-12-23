@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectReptile.AbstractClasses;
 
-namespace ProjectReptile.Monsters
+namespace ProjectReptile.Enemies
 {
     public class ProtoShoggoth : Enemy
     {
@@ -18,7 +19,7 @@ namespace ProjectReptile.Monsters
             this.Armor = 15;
             this.Gold = 0 + random.Next(0, 1);
             this.ThreatLevel = 0;
-            this.EnemyName = "proto-shoggoth";
+            this.Name = "proto-shoggoth";
         }
     }
 }
