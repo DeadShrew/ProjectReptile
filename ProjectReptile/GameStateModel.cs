@@ -10,10 +10,12 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile
 {
-    internal class GameState
+    internal class GameStateModel
     {
         public int rows = Settings.Rows;
         public int columns  = Settings.Rows;
+
+        public Player player; 
 
         LinkedList<Encounter> EncounterList = new LinkedList<Encounter>();
         LinkedList<Enemy> EnemyList = new LinkedList<Enemy>();
@@ -23,9 +25,8 @@ namespace ProjectReptile
 
         Random random = new Random();
 
-        public GameState()
+        public GameStateModel()
         {
-
             GenerateParcels(rows, columns);
             GenerateEnemies();
             GenerateTraps(rows, columns);
@@ -39,12 +40,9 @@ namespace ProjectReptile
             AddTrapsToEncounterList();
             AddLandmarksToEncounterList();
 
-            /*foreach (Encounter encounter in EncounterList)
-            {
-               Console.WriteLine("my location is " + encounter.LocationX + "," + encounter.LocationY); 
-            }*/
+            player = new Player();
 
-            foreach(Enemy enemy in EnemyList)
+            foreach (Enemy enemy in EnemyList)
             {
                 foreach (Trap trap in TrapList)
                 {
@@ -223,6 +221,14 @@ namespace ProjectReptile
                 Console.WriteLine("I am a " + landmark.Name + " and my location is " + landmark.LocationX + "," + landmark.LocationY);
                 
                 EncounterList.AddLast(landmark);
+            }
+        }
+
+        public void EncounterCheck()
+        {
+            foreach (Enemy enemy in EnemyList)
+            {
+                enemy.EncounterCheck(player); 
             }
         }
     }

@@ -5,16 +5,14 @@ namespace ProjectReptile
 {
     public partial class Form1 : Form
     {
-
-        private Player player;
-        private GameState gameState;
+        private GameStateModel gameState;
         static int Spacing = 2;
         static int GridSize = 37;
         public Form1()
         {
             InitializeComponent();
-            player = new Player();
-            gameState = new GameState();
+            
+            gameState = new GameStateModel();
         }
 
         
@@ -29,7 +27,7 @@ namespace ProjectReptile
             {
                 for (int j = 0; j < gameState.columns + 1; j++)
                 {
-                    if (player.LocationX == i && player.LocationY == j)
+                    if (gameState.player.LocationX == i && gameState.player.LocationY == j)
                     {
                         g.FillRectangle(myDrawingBrush2, Spacing + i * GridSize, Spacing + j * GridSize, GridSize - Spacing, GridSize - Spacing); ;
                     }
@@ -45,30 +43,34 @@ namespace ProjectReptile
 
         private void button1_Click(object sender, EventArgs e)
         {
-            player.MovePlayerUp(); 
+            gameState.player.MovePlayerUp(); 
+            gameState.EncounterCheck();
             this.Refresh();
-            Console.WriteLine("My location is " + player.LocationY + ", " + player.LocationX); 
+            Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX); 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            player.MovePlayerDown();
+            gameState.player.MovePlayerDown();
+            gameState.EncounterCheck();
             this.Refresh();
-            Console.WriteLine("My location is " + player.LocationY + ", " + player.LocationX);
+            Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            player.MovePlayerLeft();
+            gameState.player.MovePlayerLeft();
+            gameState.EncounterCheck();
             this.Refresh();
-            Console.WriteLine("My location is " + player.LocationY + ", " + player.LocationX);
+            Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            player.MovePlayerRight();
+            gameState.player.MovePlayerRight();
+            gameState.EncounterCheck();
             this.Refresh();
-            Console.WriteLine("My location is " + player.LocationY + ", " + player.LocationX);
+            Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
         }
     }
 }

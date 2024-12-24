@@ -27,7 +27,6 @@ namespace ProjectReptile
             {
                 LocationY = Settings.Rows;
             }
-            Console.WriteLine("My location is " + this.LocationX + ", " + this.LocationY);
         }
 
         public void MovePlayerDown()
@@ -40,7 +39,6 @@ namespace ProjectReptile
             {
                 LocationY = 0;
             }
-            Console.WriteLine("My location is " + this.LocationX + ", " + this.LocationY);
         }
 
         public void MovePlayerLeft()
@@ -53,7 +51,6 @@ namespace ProjectReptile
             {
                 LocationX = Settings.Columns;
             }
-            Console.WriteLine("My location is " + this.LocationX + ", " + this.LocationY);
         }
 
         public void MovePlayerRight()
@@ -66,7 +63,6 @@ namespace ProjectReptile
             {
                 LocationX = 0; 
             }
-            Console.WriteLine("My location is " + this.LocationX + ", " + this.LocationY);
         }
     }
 }
