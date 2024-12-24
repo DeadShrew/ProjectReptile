@@ -12,9 +12,9 @@ namespace ProjectReptile
 {
     internal class GameState
     {
-        public int rows = 4;
-        public int columns  = 4;
-        public int[,] dungeon;
+        public static int rows = 4;
+        public static int columns  = 4;
+        //public int[,]? dungeon;
 
         LinkedList<Encounter> EncounterList = new LinkedList<Encounter>();
         LinkedList<Enemy> EnemyList = new LinkedList<Enemy>();
@@ -22,11 +22,12 @@ namespace ProjectReptile
         LinkedList<Trap> TrapList = new LinkedList<Trap>();
         LinkedList<Landmark>LandmarkList = new LinkedList<Landmark>();
 
-
         Random random = new Random();
 
         public GameState()
         {
+            Player player = new Player();
+
             GenerateParcels(rows, columns);
             GenerateEnemies();
             GenerateTraps(rows, columns);
@@ -78,7 +79,6 @@ namespace ProjectReptile
         public void GenerateEnemies()
         {
             int monsterAmount = random.Next(1, 6);
-            dungeon = new int[rows, columns];
 
             for (int i = 0; i < monsterAmount; i++)
             {
@@ -180,7 +180,6 @@ namespace ProjectReptile
         public void GenerateLandmarks()
         {
             int landmarkAmount = random.Next(1, 6);
-            dungeon = new int[rows, columns];
 
             for (int i = 0; i < landmarkAmount; i++)
             {
