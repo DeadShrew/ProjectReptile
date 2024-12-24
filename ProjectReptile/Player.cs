@@ -18,5 +18,29 @@ namespace ProjectReptile
             LocationY = random.Next(1, 6);
 
         }
+
+        public static void MovePlayerUp()
+        {
+            Player.LocationY--;
+
+        }
+
+        public static void MovePlayerDown()
+        {
+            Player.LocationY++;
+
+        }
+
+        public static void MovePlayerLeft()
+        {
+            Player.LocationX--;
+
+        }
+
+        public static void MovePlayerRight()
+        {
+            Player.LocationX++;
+
+        }
     }
 }
