@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectReptile
+{
+    internal class Settings
+    {
+        public static int Rows = 4;
+        public static int Columns = 4;
+    }
+}

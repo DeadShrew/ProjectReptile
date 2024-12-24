@@ -12,9 +12,8 @@ namespace ProjectReptile
 {
     internal class GameState
     {
-        public static int rows = 4;
-        public static int columns  = 4;
-        //public int[,]? dungeon;
+        public int rows = Settings.Rows;
+        public int columns  = Settings.Rows;
 
         LinkedList<Encounter> EncounterList = new LinkedList<Encounter>();
         LinkedList<Enemy> EnemyList = new LinkedList<Enemy>();
@@ -26,7 +25,6 @@ namespace ProjectReptile
 
         public GameState()
         {
-            Player player = new Player();
 
             GenerateParcels(rows, columns);
             GenerateEnemies();

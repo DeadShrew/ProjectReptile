@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectReptile.AbstractClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,41 +7,66 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile
 {
-    internal class Player
+    public class Player : Encounter
     {
-        public static int LocationX; 
-        public static int LocationY;
-
+        
         Random random = new Random();
         public Player()
         {
-            LocationX = random.Next(1, 6);
-            LocationY = random.Next(1, 6);
-
+            LocationX = random.Next(1, Settings.Columns);
+            LocationY = random.Next(1, Settings.Rows);
         }
 
-        public static void MovePlayerUp()
+        public void MovePlayerUp()
         {
-            Player.LocationY--;
-
+            if (LocationY > 0)
+            {
+                LocationY--;
+            }
+            else if (LocationY == 0)
+            {
+                LocationY = Settings.Rows;
+            }
+            Console.WriteLine("My location is " + this.LocationX + ", " + this.LocationY);
         }
 
-        public static void MovePlayerDown()
+        public void MovePlayerDown()
         {
-            Player.LocationY++;
-
+            if (LocationY < Settings.Rows)
+            {
+                LocationY++;
+            }
+            else if (LocationY == Settings.Rows)
+            {
+                LocationY = 0;
+            }
+            Console.WriteLine("My location is " + this.LocationX + ", " + this.LocationY);
         }
 
-        public static void MovePlayerLeft()
+        public void MovePlayerLeft()
         {
-            Player.LocationX--;
-
+            if (LocationX > 0)
+            {
+                LocationX--;
+            }
+            else if (LocationX == 0)
+            {
+                LocationX = Settings.Columns;
+            }
+            Console.WriteLine("My location is " + this.LocationX + ", " + this.LocationY);
         }
 
-        public static void MovePlayerRight()
+        public void MovePlayerRight()
         {
-            Player.LocationX++;
-
+            if (LocationX < Settings.Columns)
+            {
+                LocationX++;
+            }
+            else if (LocationX == Settings.Columns)
+            {
+                LocationX = 0; 
+            }
+            Console.WriteLine("My location is " + this.LocationX + ", " + this.LocationY);
         }
     }
 }
