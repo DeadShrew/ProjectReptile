@@ -1,6 +1,6 @@
 ﻿namespace ProjectReptile
 {
-    partial class Form1
+    partial class ViewForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -86,7 +86,7 @@
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
+            Load += ViewForm_Load;
             Paint += MapGrid;
             ResumeLayout(false);
         }

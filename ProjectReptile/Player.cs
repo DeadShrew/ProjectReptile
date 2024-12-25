@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile
 {
-    public class Player : Encounter
+    public class Player 
     {
-        
+        public int LocationX;
+        public int LocationY; 
         Random random = new Random();
         public Player()
         {

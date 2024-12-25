@@ -12,7 +12,7 @@ namespace ProjectReptile.AbstractClasses
         public int LocationX;
         public int LocationY;
 
-        void EncounterCheck() { }
+        public abstract void EncounterCheck(Player player); 
 
         void ResetForNewGame() { }
 

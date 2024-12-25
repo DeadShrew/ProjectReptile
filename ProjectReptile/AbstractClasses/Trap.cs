@@ -12,5 +12,12 @@ namespace ProjectReptile.AbstractClasses
         {
         }
 
+        public override void EncounterCheck(Player player)
+        {
+            if (player.LocationX == this.LocationX && player.LocationY == this.LocationY)
+            {
+                Console.WriteLine("The player has encountered a trap. Boom!");
+            }
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace ProjectReptile.AbstractClasses
         public bool IsNegotiable;
         public string Name;
 
-        public void EncounterCheck(Player player)
+        public override void EncounterCheck(Player player)
         {
             if(player.LocationX == this.LocationX && player.LocationY == this.LocationY)
                 {

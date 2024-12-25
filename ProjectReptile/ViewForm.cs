@@ -1,27 +1,27 @@
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Windows.Forms; 
 
 namespace ProjectReptile
 {
-    public partial class Form1 : Form
+    public partial class ViewForm : Form
     {
         private GameStateModel gameState;
         static int Spacing = 2;
         static int GridSize = 37;
-        public Form1()
+        public ViewForm()
         {
             InitializeComponent();
             
             gameState = new GameStateModel();
         }
 
-        
-
         private void MapGrid(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Brush myDrawingBrush = new SolidBrush(Color.Cyan);
-            Brush myDrawingBrush2 = new SolidBrush(Color.Bisque);
+            Brush myDrawingBrush = new SolidBrush(Color.Chocolate);
+            Brush myDrawingBrush2 = new SolidBrush(Color.DarkGreen);
+            Brush myDrawingBrush3 = new SolidBrush(Color.Brown);
             g.FillRectangle(myDrawingBrush, 0, 0, GridSize * (gameState.rows + 1) + Spacing, GridSize * (gameState.columns + 1) + Spacing);
             for (int i = 0; i < gameState.rows + 1; i++)
             {
@@ -29,16 +29,19 @@ namespace ProjectReptile
                 {
                     if (gameState.player.LocationX == i && gameState.player.LocationY == j)
                     {
-                        g.FillRectangle(myDrawingBrush2, Spacing + i * GridSize, Spacing + j * GridSize, GridSize - Spacing, GridSize - Spacing); ;
+                        g.FillRectangle(myDrawingBrush2, Spacing + i * GridSize, Spacing + j * GridSize, GridSize - Spacing, GridSize - Spacing);
+                    } else if (gameState.ParcelList.Select(o => o.LocationY).Contains(i))
+                    {
+                        g.FillRectangle(myDrawingBrush3, Spacing + i * GridSize, Spacing + j * GridSize, GridSize - Spacing, GridSize - Spacing);
                     }
 
                 }
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void ViewForm_Load(object sender, EventArgs e)
         {
-
+            gameState.EncounterCheck();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -18,5 +18,10 @@ namespace ProjectReptile.AbstractClasses
 
             Console.WriteLine("I am a parcel and my location is " + LocationX + ", " + LocationY);
         }
+
+        public override void EncounterCheck(Player player)
+        {
+            
+        }
     }
 }

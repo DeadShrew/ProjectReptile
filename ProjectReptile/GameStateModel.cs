@@ -17,11 +17,11 @@ namespace ProjectReptile
 
         public Player player; 
 
-        LinkedList<Encounter> EncounterList = new LinkedList<Encounter>();
-        LinkedList<Enemy> EnemyList = new LinkedList<Enemy>();
-        LinkedList<Parcel> ParcelList = new LinkedList<Parcel>();
-        LinkedList<Trap> TrapList = new LinkedList<Trap>();
-        LinkedList<Landmark>LandmarkList = new LinkedList<Landmark>();
+        public LinkedList<Encounter> EncounterList = new LinkedList<Encounter>();
+        public LinkedList<Enemy> EnemyList = new LinkedList<Enemy>();
+        public LinkedList<Parcel> ParcelList = new LinkedList<Parcel>();
+        public LinkedList<Trap> TrapList = new LinkedList<Trap>();
+        public LinkedList<Landmark>LandmarkList = new LinkedList<Landmark>();
 
         Random random = new Random();
 
@@ -117,7 +117,7 @@ namespace ProjectReptile
         {
             foreach (Enemy enemy in EnemyList)
             {
-                Console.WriteLine("I am a " + enemy.Name + " and my location is " + enemy.LocationX + "," + enemy.LocationY);
+                Console.WriteLine("I am a " + enemy.Name + " and my location is " + enemy.LocationY + "," + enemy.LocationX);
                 Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon);
 
                 EncounterList.AddLast(enemy);
@@ -226,9 +226,9 @@ namespace ProjectReptile
 
         public void EncounterCheck()
         {
-            foreach (Enemy enemy in EnemyList)
+            foreach (Encounter encounter in EncounterList)
             {
-                enemy.EncounterCheck(player); 
+                encounter.EncounterCheck(player); 
             }
         }
     }
