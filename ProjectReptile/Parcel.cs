@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectReptile.AbstractClasses;
 
-namespace ProjectReptile.AbstractClasses
+namespace ProjectReptile
 {
     public class Parcel : Encounter
     {
+        public bool IsRevealed = false; 
         public LinkedList<Item> ItemList;
 
         public Parcel(int x, int y)
@@ -21,7 +23,11 @@ namespace ProjectReptile.AbstractClasses
 
         public override void EncounterCheck(Player player)
         {
-            
+            if (player.LocationX == LocationX && player.LocationY == LocationY)
+                {
+                    Console.WriteLine("Parcel :" + LocationY + ", " + LocationX + "has been occupied. Revealed = " + IsRevealed);
+                    this.IsRevealed = true;
+                }
         }
     }
 }
