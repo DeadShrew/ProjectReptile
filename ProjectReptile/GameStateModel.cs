@@ -27,7 +27,6 @@ namespace ProjectReptile
 
         public GameStateModel()
         {
-            GenerateParcels(rows, columns);
             GenerateEnemies();
             GenerateTraps(rows, columns);
             GenerateLandmarks(); 
@@ -48,28 +47,20 @@ namespace ProjectReptile
                 {
                     if (enemy.LocationX == trap.LocationX && enemy.LocationY == trap.LocationY)  
                     {
-                        Console.WriteLine("Boom! at space " + enemy.GetLocation().ToString()); 
+                        //Console.WriteLine("Boom! at space " + enemy.GetLocation().ToString()); 
                     }
                 }
             }
         
         }
 
-        public void GenerateParcels(int rows, int columns)
+        public void GenerateParcel(int x, int y)
         {
-            for (int i = 0; i < rows + 1; i++)
+            if (!ParcelList.Any(o => o.LocationX == x && o.LocationY == y))
             {
-                for (int j = 0; j < columns+ 1; j++)
-                {
-                    Parcel parcel = new Parcel(i, j);
-                    ParcelList.AddLast(parcel); 
-                }
-            }
-
-            foreach(Parcel parcel in ParcelList)
-            {
-                EncounterList.AddLast(parcel); 
-            }
+                Parcel parcel = new Parcel(x, y);
+                ParcelList.AddLast(parcel);
+            }       
         }
 
         public void GenerateEnemies()
@@ -117,8 +108,8 @@ namespace ProjectReptile
         {
             foreach (Enemy enemy in EnemyList)
             {
-                Console.WriteLine("I am a " + enemy.Name + " and my location is " + enemy.LocationY + "," + enemy.LocationX);
-                Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon);
+                //Console.WriteLine("I am a " + enemy.Name + " and my location is " + enemy.LocationY + "," + enemy.LocationX);
+                //Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon);
 
                 EncounterList.AddLast(enemy);
             }
@@ -167,7 +158,7 @@ namespace ProjectReptile
         {
             foreach (Trap trap in TrapList)
             {
-                Console.WriteLine("I am a trap and my location is " + trap.LocationX + "," + trap.LocationY);
+                //Console.WriteLine("I am a trap and my location is " + trap.LocationX + "," + trap.LocationY);
                
                 EncounterList.AddLast(trap);
             }
@@ -218,7 +209,7 @@ namespace ProjectReptile
         {
             foreach (Landmark landmark in LandmarkList)
             {
-                Console.WriteLine("I am a " + landmark.Name + " and my location is " + landmark.LocationX + "," + landmark.LocationY);
+                //Console.WriteLine("I am a " + landmark.Name + " and my location is " + landmark.LocationX + "," + landmark.LocationY);
                 
                 EncounterList.AddLast(landmark);
             }

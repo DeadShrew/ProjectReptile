@@ -20,6 +20,7 @@ namespace ProjectReptile
         private void MapGrid(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
+            Color color = Color.Chocolate;
             Brush myDrawingBrush = new SolidBrush(Color.Chocolate);
             Brush myDrawingBrush2 = new SolidBrush(Color.DarkGreen);
             Brush myDrawingBrush3 = new SolidBrush(Color.Brown);
@@ -33,22 +34,21 @@ namespace ProjectReptile
                     {
                         g.FillRectangle(myDrawingBrush2, Spacing + i * GridSize, Spacing + j * GridSize, GridSize - Spacing, GridSize - Spacing);
 
-                    } else if (gameState.ParcelList.Select(o => o.LocationX).Contains(i) && gameState.ParcelList.Select(o => o.LocationY).Contains(j))
-                     
+                    } else if (gameState.ParcelList.Any(o => o.LocationX == i && o.LocationY == j))
                     {
                         g.FillRectangle(myDrawingBrush3, Spacing + i * GridSize, Spacing + j * GridSize, GridSize - Spacing, GridSize - Spacing);
                     }
 
-                    /*for (int n = 0; n < gameState.rows; n++)
+                    for (int n = 0; n < gameState.rows + 1; n++)
                     {
-                        for (int m = 0; m < gameState.columns; m++)
+                        for (int m = 0; m < gameState.columns + 1; m++)
                         {
-                            if (gameState.player.LocationX == i && gameState.player.LocationX == j)
+                            if (gameState.ParcelList.Any(o => o.LocationX == n && o.LocationY == m))
                             {
-                                g.DrawString("0", drawFont, myDrawingBrush, n * GridSize + 10, m * GridSize + 10);
+                                g.DrawString("0", drawFont, myDrawingBrush, n * GridSize + 10, m * GridSize + 8);
                             }
                         }
-                    }*/
+                    }
 
                 }
             }
@@ -57,38 +57,43 @@ namespace ProjectReptile
         private void ViewForm_Load(object sender, EventArgs e)
         {
             gameState.EncounterCheck();
+            gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            gameState.player.MovePlayerUp(); 
+            gameState.player.MovePlayerUp();
+            gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY); 
             gameState.EncounterCheck();
             this.Refresh();
-            Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX); 
+            //Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX); 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             gameState.player.MovePlayerDown();
+            gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.EncounterCheck();
             this.Refresh();
-            Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
+            //Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             gameState.player.MovePlayerLeft();
+            gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.EncounterCheck();
             this.Refresh();
-            Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
+            //Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             gameState.player.MovePlayerRight();
+            gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.EncounterCheck();
             this.Refresh();
-            Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
+            //Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
         }
     }
 }

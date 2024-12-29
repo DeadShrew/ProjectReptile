@@ -10,12 +10,12 @@ namespace ProjectReptile
     public class Parcel : Encounter
     {
         public bool IsRevealed = false; 
-        public LinkedList<Item> ItemList;
+        public LinkedList<Item> ItemList; 
 
         public Parcel(int x, int y)
         {
             LocationX = x;
-            LocationY = y;
+            LocationY = y; 
             ItemList = new LinkedList<Item>();
 
             Console.WriteLine("I am a parcel and my location is " + LocationX + ", " + LocationY);

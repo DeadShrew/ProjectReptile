@@ -74,7 +74,7 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
-            // Form1
+            // ViewForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -84,7 +84,8 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Name = "Form1";
+            DoubleBuffered = true;
+            Name = "ViewForm";
             Text = "Form1";
             Load += ViewForm_Load;
             Paint += MapGrid;
