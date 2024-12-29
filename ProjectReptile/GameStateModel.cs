@@ -63,6 +63,51 @@ namespace ProjectReptile
             }       
         }
 
+        public void ParcelTrapProximityCheck()
+        {
+            foreach (Parcel parcel in ParcelList)
+            {
+                foreach(Trap trap in TrapList)
+                {
+                    if (parcel.TrapsChecked == false)
+                    {
+                        if(trap.LocationX == parcel.LocationX + 1 && trap.LocationY == parcel.LocationY)
+                        {
+                            parcel.AdjacentTraps++;
+                        }
+
+                        if (trap.LocationX == parcel.LocationX - 1 && trap.LocationY == parcel.LocationY)
+                        {
+                            parcel.AdjacentTraps++;
+                        }
+
+                        if (trap.LocationY == parcel.LocationY + 1 && trap.LocationX == parcel.LocationX)
+                        {
+                            parcel.AdjacentTraps++;
+                        }
+
+                        if (trap.LocationY == parcel.LocationY - 1 & trap.LocationX == parcel.LocationX)
+                        {
+                            parcel.AdjacentTraps++;
+                        }
+                        parcel.TrapsChecked = true;
+                        Console.WriteLine(parcel.AdjacentTraps);
+                    }
+                }
+            }
+        }
+
+        public Parcel GetParcelByCoordinates(int x, int y) 
+        {
+            foreach (Parcel parcel in ParcelList)
+            {
+                if (parcel.LocationX == x && parcel.LocationY == y)
+                {
+                    return parcel;
+                }
+            } return null; 
+        }
+
         public void GenerateEnemies()
         {
             int monsterAmount = random.Next(1, 6);

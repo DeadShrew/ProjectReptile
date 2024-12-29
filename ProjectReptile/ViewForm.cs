@@ -17,6 +17,7 @@ namespace ProjectReptile
             gameState = new GameStateModel();
         }
 
+        
         private void MapGrid(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -45,7 +46,7 @@ namespace ProjectReptile
                         {
                             if (gameState.ParcelList.Any(o => o.LocationX == n && o.LocationY == m))
                             {
-                                g.DrawString("0", drawFont, myDrawingBrush, n * GridSize + 10, m * GridSize + 8);
+                                g.DrawString(gameState.GetParcelByCoordinates(n, m).AdjacentTraps.ToString(), drawFont, myDrawingBrush, n * GridSize + 10, m * GridSize + 8);
                             }
                         }
                     }
@@ -53,18 +54,22 @@ namespace ProjectReptile
                 }
             }
         }
-
+        
         private void ViewForm_Load(object sender, EventArgs e)
         {
             gameState.EncounterCheck();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
+            gameState.ParcelTrapProximityCheck();
+            this.Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             gameState.player.MovePlayerUp();
-            gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY); 
+            gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
+            gameState.ParcelTrapProximityCheck();
             gameState.EncounterCheck();
+            
             this.Refresh();
             //Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX); 
         }
@@ -73,6 +78,7 @@ namespace ProjectReptile
         {
             gameState.player.MovePlayerDown();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
+            gameState.ParcelTrapProximityCheck();
             gameState.EncounterCheck();
             this.Refresh();
             //Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
@@ -82,6 +88,7 @@ namespace ProjectReptile
         {
             gameState.player.MovePlayerLeft();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
+            gameState.ParcelTrapProximityCheck();
             gameState.EncounterCheck();
             this.Refresh();
             //Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
@@ -91,6 +98,7 @@ namespace ProjectReptile
         {
             gameState.player.MovePlayerRight();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
+            gameState.ParcelTrapProximityCheck();
             gameState.EncounterCheck();
             this.Refresh();
             //Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);

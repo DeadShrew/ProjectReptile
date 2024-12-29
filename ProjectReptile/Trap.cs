@@ -16,16 +16,6 @@ namespace ProjectReptile
         {
         }
         
-        public void TrapCheck(LinkedList<Trap> trapList) //<-Needs work
-        {
-            foreach (Trap trap in trapList)
-            {
-                if (this.LocationY == (trap.LocationY +- 1)) {
-
-                }
-            }
-        }
-
         public override void EncounterCheck(Player player)
         {
             if (player.LocationX == LocationX && player.LocationY == LocationY)
