@@ -60,6 +60,7 @@ namespace ProjectReptile
             {
                 Parcel parcel = new Parcel(x, y);
                 ParcelList.AddLast(parcel);
+                EncounterList.AddLast(parcel); 
             }       
         }
 
@@ -70,31 +71,47 @@ namespace ProjectReptile
                 foreach(Trap trap in TrapList)
                 {
                     if (parcel.TrapsChecked == false)
-                    {
+                    { 
                         if(trap.LocationX == parcel.LocationX + 1 && trap.LocationY == parcel.LocationY)
                         {
                             parcel.AdjacentTraps++;
                         }
-
                         if (trap.LocationX == parcel.LocationX - 1 && trap.LocationY == parcel.LocationY)
                         {
                             parcel.AdjacentTraps++;
                         }
-
                         if (trap.LocationY == parcel.LocationY + 1 && trap.LocationX == parcel.LocationX)
                         {
                             parcel.AdjacentTraps++;
                         }
-
                         if (trap.LocationY == parcel.LocationY - 1 & trap.LocationX == parcel.LocationX)
                         {
                             parcel.AdjacentTraps++;
                         }
-                        parcel.TrapsChecked = true;
-                        Console.WriteLine(parcel.AdjacentTraps);
-                    }
+                        
+                        if (trap.LocationX == parcel.LocationX - Settings.Rows + 1 && trap.LocationY == parcel.LocationY)
+                        {
+                            parcel.AdjacentTraps++;
+                        }
+                        
+                        if (trap.LocationX == parcel.LocationX + Settings.Rows - 1 && trap.LocationY == parcel.LocationY)
+                        {
+                            parcel.AdjacentTraps++;
+                        }
+                        
+                        if (trap.LocationY == parcel.LocationY - Settings.Columns + 1 && trap.LocationX == parcel.LocationX)
+                        {
+                            parcel.AdjacentTraps++;
+                        }
+
+                        if (trap.LocationY == parcel.LocationY + Settings.Rows - 1 && trap.LocationX == parcel.LocationX)
+                        {
+                            parcel.AdjacentTraps++;
+                        }
+                    }  
                 }
-            }
+                parcel.TrapsChecked = true;
+            } 
         }
 
         public Parcel GetParcelByCoordinates(int x, int y) 
@@ -130,8 +147,8 @@ namespace ProjectReptile
 
                 while (isPositionOccupied)
                 {
-                    x = random.Next(1, rows + 1);
-                    y = random.Next(1, columns + 1);
+                    x = random.Next(0, rows);
+                    y = random.Next(0, columns);
 
                     isPositionOccupied = false;
                     foreach (var occupiedLocation in occupiedLocations)
@@ -162,7 +179,7 @@ namespace ProjectReptile
 
         public void GenerateTraps(int rows, int columns)
         {
-            for (int i = 0; i < columns + 1; i++)
+            for (int i = 0; i < columns; i++)
             {
                 TrapList.AddLast(new Trap());
             }
@@ -180,8 +197,8 @@ namespace ProjectReptile
 
                 while (isPositionOccupied)
                 {
-                    x = random.Next(1, rows + 1);
-                    y = random.Next(1, columns + 1);
+                    x = random.Next(0, rows);
+                    y = random.Next(0, columns);
 
                     isPositionOccupied = false;
                     foreach (var occupiedLocation in occupiedLocations)
@@ -231,8 +248,8 @@ namespace ProjectReptile
 
                 while (isPositionOccupied)
                 {
-                    x = random.Next(1, rows + 1);
-                    y = random.Next(1, columns + 1);
+                    x = random.Next(0, rows);
+                    y = random.Next(0, columns);
 
                     isPositionOccupied = false;
                     foreach (var occupiedLocation in occupiedLocations)

@@ -14,8 +14,8 @@ namespace ProjectReptile
         Random random = new Random();
         public Player()
         {
-            LocationX = random.Next(1, Settings.Columns);
-            LocationY = random.Next(1, Settings.Rows);
+            LocationX = random.Next(0, Settings.Columns);
+            LocationY = random.Next(0, Settings.Rows);
         }
 
         public void MovePlayerUp()
@@ -26,17 +26,17 @@ namespace ProjectReptile
             }
             else if (LocationY == 0)
             {
-                LocationY = Settings.Rows;
+                LocationY = Settings.Rows -1;
             }
         }
 
         public void MovePlayerDown()
         {
-            if (LocationY < Settings.Rows)
+            if (LocationY < Settings.Rows -1)
             {
                 LocationY++;
             }
-            else if (LocationY == Settings.Rows)
+            else if (LocationY == Settings.Rows - 1)
             {
                 LocationY = 0;
             }
@@ -50,17 +50,17 @@ namespace ProjectReptile
             }
             else if (LocationX == 0)
             {
-                LocationX = Settings.Columns;
+                LocationX = Settings.Columns -1;
             }
         }
 
         public void MovePlayerRight()
         {
-            if (LocationX < Settings.Columns)
+            if (LocationX < Settings.Columns - 1)
             {
                 LocationX++;
             }
-            else if (LocationX == Settings.Columns)
+            else if (LocationX >= Settings.Columns - 1)
             {
                 LocationX = 0; 
             }

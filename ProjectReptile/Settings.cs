@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile
 {
-    internal class Settings
+    internal record Settings
     {
-        public static int Rows = 4;
-        public static int Columns = 4;
+        public static int Rows = 5;
+        public static int Columns = 5;
     }
 }
