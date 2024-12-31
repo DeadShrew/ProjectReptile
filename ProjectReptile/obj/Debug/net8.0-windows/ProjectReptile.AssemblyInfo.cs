@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjectReptile")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22df82f942472909d5c71655819b1e6d75391755")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b39daebedc22de5d9d1d8a9d2132ed4716f8f26c")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjectReptile")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjectReptile")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

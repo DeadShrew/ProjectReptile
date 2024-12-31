@@ -33,14 +33,15 @@ namespace ProjectReptile
             {
                 for (int j = 0; j < gameState.columns; j++)
                 {
-                    if (gameState.player.LocationX == i && gameState.player.LocationY == j)
+                    if (gameState.player.LocationX == i && gameState.player.LocationY == j && !gameState.TrapList.Any(o => o.LocationX == i && o.LocationY == j))
                     {
                         g.FillRectangle(myDrawingBrush2, Spacing + i * GridSize, Spacing + j * GridSize, GridSize - Spacing, GridSize - Spacing);
 
-                    } else if (gameState.ParcelList.Any(o => o.LocationX == i && o.LocationY == j))
+                    } else if (gameState.ParcelList.Any(o => o.LocationX == i && o.LocationY == j) && !gameState.TrapList.Any(o => o.LocationX == i && o.LocationY == j))
                     {
-                        g.FillRectangle(myDrawingBrush3, Spacing + i * GridSize, Spacing + j * GridSize, GridSize - Spacing, GridSize - Spacing);
-                    } else if (gameState.TrapList.Any(o => o.LocationX == i && o.LocationY == j) && !gameState.ParcelList.Any(o => o.LocationX == i && o.LocationY == j))
+                        g.FillRectangle(myDrawingBrush3, Spacing + i * GridSize, Spacing + j * GridSize, GridSize - Spacing, GridSize - Spacing); 
+                    } else if (gameState.TrapList.Any(o => o.LocationX == i && o.LocationY == j) && 
+                        (gameState.ParcelList.Any(o => o.LocationX == i && o.LocationY == j) || (gameState.player.LocationX == i && gameState.player.LocationY == j)))
                     {
                         g.FillRectangle(myDrawingBrush4, Spacing + i * GridSize, Spacing + j * GridSize, GridSize - Spacing, GridSize - Spacing);
                     }
