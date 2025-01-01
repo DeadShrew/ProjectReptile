@@ -10,7 +10,9 @@ namespace ProjectReptile
     public class Player 
     {
         public int LocationX;
-        public int LocationY; 
+        public int LocationY;
+        public bool InCombat;
+
         Random random = new Random();
         public Player()
         {

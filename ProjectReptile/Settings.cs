@@ -8,6 +8,7 @@ namespace ProjectReptile
 {
     internal record Settings
     {
+        public static int TrapAmount = 10; 
         public static int Rows = 10;
         public static int Columns = 10;
     }

@@ -1,19 +1,12 @@
 ﻿using ProjectReptile.AbstractClasses;
 using ProjectReptile.Factories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectReptile
 {
     internal class GameStateModel
     {
         public int rows = Settings.Rows;
-        public int columns  = Settings.Rows;
+        public int columns  = Settings.Columns;
 
         public Player player; 
 
@@ -40,18 +33,6 @@ namespace ProjectReptile
             AddLandmarksToEncounterList();
 
             player = new Player();
-
-            foreach (Enemy enemy in EnemyList)
-            {
-                foreach (Trap trap in TrapList)
-                {
-                    if (enemy.LocationX == trap.LocationX && enemy.LocationY == trap.LocationY)  
-                    {
-                        //Console.WriteLine("Boom! at space " + enemy.GetLocation().ToString()); 
-                    }
-                }
-            }
-        
         }
 
         public void GenerateParcel(int x, int y)
@@ -147,8 +128,8 @@ namespace ProjectReptile
 
                 while (isPositionOccupied)
                 {
-                    x = random.Next(0, rows);
-                    y = random.Next(0, columns);
+                    x = random.Next(0, columns);
+                    y = random.Next(0, rows);
 
                     isPositionOccupied = false;
                     foreach (var occupiedLocation in occupiedLocations)
@@ -170,16 +151,13 @@ namespace ProjectReptile
         {
             foreach (Enemy enemy in EnemyList)
             {
-                //Console.WriteLine("I am a " + enemy.Name + " and my location is " + enemy.LocationY + "," + enemy.LocationX);
-                //Console.WriteLine("My Power is " + enemy.Power + " and my equipped weapon is a " + enemy.equippedWeapon);
-
                 EncounterList.AddLast(enemy);
             }
         }
 
         public void GenerateTraps(int rows, int columns)
         {
-            for (int i = 0; i < columns; i++)
+            for (int i = 0; i < Settings.TrapAmount; i++)
             {
                 TrapList.AddLast(new Trap());
             }
@@ -197,9 +175,9 @@ namespace ProjectReptile
 
                 while (isPositionOccupied)
                 {
-                    x = random.Next(0, rows);
-                    y = random.Next(0, columns);
-
+                    x = random.Next(0, columns);
+                    y = random.Next(0, rows);
+                    
                     isPositionOccupied = false;
                     foreach (var occupiedLocation in occupiedLocations)
                     {
@@ -219,9 +197,7 @@ namespace ProjectReptile
         public void AddTrapsToEncounterList()
         {
             foreach (Trap trap in TrapList)
-            {
-                //Console.WriteLine("I am a trap and my location is " + trap.LocationX + "," + trap.LocationY);
-               
+            {           
                 EncounterList.AddLast(trap);
             }
         }
@@ -248,8 +224,8 @@ namespace ProjectReptile
 
                 while (isPositionOccupied)
                 {
-                    x = random.Next(0, rows);
-                    y = random.Next(0, columns);
+                    x = random.Next(0, columns);
+                    y = random.Next(0, rows);
 
                     isPositionOccupied = false;
                     foreach (var occupiedLocation in occupiedLocations)
@@ -270,9 +246,7 @@ namespace ProjectReptile
         public void AddLandmarksToEncounterList()
         {
             foreach (Landmark landmark in LandmarkList)
-            {
-                //Console.WriteLine("I am a " + landmark.Name + " and my location is " + landmark.LocationX + "," + landmark.LocationY);
-                
+            {              
                 EncounterList.AddLast(landmark);
             }
         }

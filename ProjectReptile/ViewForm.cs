@@ -1,8 +1,3 @@
-using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Runtime.InteropServices;
-using System.Windows.Forms; 
-
 namespace ProjectReptile
 {
     public partial class ViewForm : Form
@@ -28,10 +23,10 @@ namespace ProjectReptile
             Brush myDrawingBrush4 = new SolidBrush(Color.DarkRed);
             Brush myDrawingBrush5 = new SolidBrush(Color.Black);
             Font drawFont = new Font("Arial", 16);
-            g.FillRectangle(myDrawingBrush, 0, 0, GridSize * (gameState.rows) + Spacing, GridSize * (gameState.columns) + Spacing);
-            for (int i = 0; i < gameState.rows; i++)
+            g.FillRectangle(myDrawingBrush, 0, 0, GridSize * (gameState.columns) + Spacing, GridSize * (gameState.rows) + Spacing);
+            for (int i = 0; i < gameState.columns; i++)
             {
-                for (int j = 0; j < gameState.columns; j++)
+                for (int j = 0; j < gameState.rows; j++)
                 {
                     if (gameState.player.LocationX == i && gameState.player.LocationY == j && !gameState.TrapList.Any(o => o.LocationX == i && o.LocationY == j))
                     {
@@ -46,9 +41,9 @@ namespace ProjectReptile
                         g.FillRectangle(myDrawingBrush4, Spacing + i * GridSize, Spacing + j * GridSize, GridSize - Spacing, GridSize - Spacing);
                     }
 
-                    for (int n = 0; n < gameState.rows; n++)
+                    for (int n = 0; n < gameState.columns; n++)
                     {
-                        for (int m = 0; m < gameState.columns; m++)
+                        for (int m = 0; m < gameState.rows; m++)
                         {
                             if (gameState.ParcelList.Any(o => o.LocationX == n && o.LocationY == m))
                             {
@@ -76,7 +71,6 @@ namespace ProjectReptile
             gameState.EncounterCheck();
             
             this.Refresh();
-            //Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX); 
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -86,7 +80,6 @@ namespace ProjectReptile
             gameState.ParcelTrapProximityCheck();
             gameState.EncounterCheck();
             this.Refresh();
-            //Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -96,7 +89,6 @@ namespace ProjectReptile
             gameState.ParcelTrapProximityCheck();
             gameState.EncounterCheck();
             this.Refresh();
-            //Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -106,7 +98,6 @@ namespace ProjectReptile
             gameState.ParcelTrapProximityCheck();
             gameState.EncounterCheck();
             this.Refresh();
-            //Console.WriteLine("My location is " + gameState.player.LocationY + ", " + gameState.player.LocationX);
         }
     }
 }

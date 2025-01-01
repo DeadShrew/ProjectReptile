@@ -9,13 +9,10 @@ namespace ProjectReptile
 {
     internal class Trap : Encounter
     {
-
         public int AdjacentTraps; 
 
-        public Trap()
-        {
-        }
-        
+        public Trap() { }
+       
         public override void EncounterCheck(Player player)
         {
             if (player.LocationX == LocationX && player.LocationY == LocationY)
