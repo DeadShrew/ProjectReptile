@@ -15,7 +15,7 @@ namespace ProjectReptile
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new ViewForm());
+            Application.Run(new MainForm());
 
 
         }

@@ -14,4 +14,5 @@ C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-wind
 C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.genruntimeconfig.cache
 C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ref\ProjectReptile.dll
 C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.sourcelink.json
-C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.ViewForm.resources
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.MainForm.resources
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.StatsAndInvForm.resources
