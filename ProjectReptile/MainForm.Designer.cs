@@ -39,6 +39,10 @@
             TalkButton = new Button();
             StatsAndInvButton = new Button();
             GetItemButton = new Button();
+            menuStrip1 = new MenuStrip();
+            gameToolStripMenuItem = new ToolStripMenuItem();
+            helpToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // UpButton
@@ -84,7 +88,7 @@
             // AttackButton
             // 
             AttackButton.Location = new Point(540, 203);
-            AttackButton.Name = "Attack_Button";
+            AttackButton.Name = "AttackButton";
             AttackButton.Size = new Size(75, 23);
             AttackButton.TabIndex = 4;
             AttackButton.Text = "Attack";
@@ -151,7 +155,28 @@
             GetItemButton.UseVisualStyleBackColor = true;
             GetItemButton.Click += GetItemButton_Click;
             // 
-            // ViewForm
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { gameToolStripMenuItem, helpToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 12;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // gameToolStripMenuItem
+            // 
+            gameToolStripMenuItem.Name = "gameToolStripMenuItem";
+            gameToolStripMenuItem.Size = new Size(50, 20);
+            gameToolStripMenuItem.Text = "Game";
+            // 
+            // helpToolStripMenuItem
+            // 
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(44, 20);
+            helpToolStripMenuItem.Text = "Help";
+            // 
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -168,12 +193,17 @@
             Controls.Add(DownButton);
             Controls.Add(LeftButton);
             Controls.Add(RightButton);
+            Controls.Add(menuStrip1);
             DoubleBuffered = true;
-            Name = "ViewForm";
+            MainMenuStrip = menuStrip1;
+            Name = "MainForm";
             Text = "Form1";
             Load += ViewForm_Load;
             Paint += MapGrid;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -189,5 +219,8 @@
         private Button TalkButton;
         private Button StatsAndInvButton;
         private Button GetItemButton;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem gameToolStripMenuItem;
+        private ToolStripMenuItem helpToolStripMenuItem;
     }
 }

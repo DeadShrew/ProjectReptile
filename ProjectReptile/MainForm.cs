@@ -16,7 +16,6 @@ namespace ProjectReptile
         private void MapGrid(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Color color = Color.Chocolate;
             Brush myDrawingBrush = new SolidBrush(Color.Chocolate);
             Brush myDrawingBrush2 = new SolidBrush(Color.DarkGreen);
             Brush myDrawingBrush3 = new SolidBrush(Color.Brown);
@@ -134,7 +133,9 @@ namespace ProjectReptile
 
         private void StatsAndInvButton_Click(object sender, EventArgs e)
         {
-            var statsAndInvForm = StatsAndInvForm.GetInstance(); 
+            var statsAndInvForm = StatsAndInvForm.GetInstance();
+            statsAndInvForm.StartPosition = FormStartPosition.Manual;
+            statsAndInvForm.Location = new System.Drawing.Point(this.Right - 480, this.Top);
             statsAndInvForm.BringToFront();
             statsAndInvForm.ShowDialog();
         }
