@@ -8,5 +8,12 @@ namespace ProjectReptile.AbstractClasses
 {
     public abstract class Item
     {
+        public string Name;
+        public string TrueName;
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

@@ -12,12 +12,16 @@ namespace ProjectReptile
         public int LocationX;
         public int LocationY;
         public bool InCombat;
+        public bool AtLandmark; 
+
+        public LinkedList<Item> ItemList;
 
         Random random = new Random();
         public Player()
         {
             LocationX = random.Next(0, Settings.Columns);
             LocationY = random.Next(0, Settings.Rows);
+            ItemList = new LinkedList<Item>();
         }
 
         public void MovePlayerUp()

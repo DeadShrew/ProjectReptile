@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectReptile.Factories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,8 @@ namespace ProjectReptile.AbstractClasses
 {
     public abstract class Landmark : Encounter
     {
-        public string Name;
+        public string ?Name;
+        public bool Searched;
 
         public override void EncounterCheck(Player player)
         {
@@ -16,6 +18,20 @@ namespace ProjectReptile.AbstractClasses
             {
                 Console.WriteLine("The player has encountered a " + this.Name);
             }
+        }
+
+        public Item? SearchLandmark()
+        {
+            if (Searched == false) {
+
+                Item item = ItemFactory.CreateItem();
+
+                Searched = true;
+                Console.WriteLine("You found a " + item.Name + "!");
+
+                return item;
+            }
+            return null; 
         }
     }
 }

@@ -42,12 +42,14 @@
             menuStrip1 = new MenuStrip();
             gameToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
+            MapGridPanel = new Panel();
+            ParcelItemList = new ListBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // UpButton
             // 
-            UpButton.Location = new Point(381, 357);
+            UpButton.Location = new Point(381, 462);
             UpButton.Name = "UpButton";
             UpButton.Size = new Size(75, 23);
             UpButton.TabIndex = 0;
@@ -57,7 +59,7 @@
             // 
             // DownButton
             // 
-            DownButton.Location = new Point(381, 415);
+            DownButton.Location = new Point(381, 500);
             DownButton.Name = "DownButton";
             DownButton.Size = new Size(75, 23);
             DownButton.TabIndex = 1;
@@ -67,7 +69,7 @@
             // 
             // LeftButton
             // 
-            LeftButton.Location = new Point(331, 386);
+            LeftButton.Location = new Point(300, 480);
             LeftButton.Name = "LeftButton";
             LeftButton.Size = new Size(75, 23);
             LeftButton.TabIndex = 2;
@@ -77,7 +79,7 @@
             // 
             // RightButton
             // 
-            RightButton.Location = new Point(433, 386);
+            RightButton.Location = new Point(459, 480);
             RightButton.Name = "RightButton";
             RightButton.Size = new Size(75, 23);
             RightButton.TabIndex = 3;
@@ -87,7 +89,7 @@
             // 
             // AttackButton
             // 
-            AttackButton.Location = new Point(540, 203);
+            AttackButton.Location = new Point(621, 319);
             AttackButton.Name = "AttackButton";
             AttackButton.Size = new Size(75, 23);
             AttackButton.TabIndex = 4;
@@ -97,7 +99,7 @@
             // 
             // DefendButton
             // 
-            DefendButton.Location = new Point(621, 203);
+            DefendButton.Location = new Point(702, 319);
             DefendButton.Name = "DefendButton";
             DefendButton.Size = new Size(75, 23);
             DefendButton.TabIndex = 5;
@@ -107,7 +109,7 @@
             // 
             // SorceryButton
             // 
-            SorceryButton.Location = new Point(702, 203);
+            SorceryButton.Location = new Point(783, 319);
             SorceryButton.Name = "SorceryButton";
             SorceryButton.Size = new Size(75, 23);
             SorceryButton.TabIndex = 6;
@@ -117,7 +119,7 @@
             // 
             // SearchButton
             // 
-            SearchButton.Location = new Point(540, 232);
+            SearchButton.Location = new Point(621, 348);
             SearchButton.Name = "SearchButton";
             SearchButton.Size = new Size(75, 23);
             SearchButton.TabIndex = 7;
@@ -127,7 +129,7 @@
             // 
             // TalkButton
             // 
-            TalkButton.Location = new Point(621, 232);
+            TalkButton.Location = new Point(702, 348);
             TalkButton.Name = "TalkButton";
             TalkButton.Size = new Size(75, 23);
             TalkButton.TabIndex = 8;
@@ -137,7 +139,7 @@
             // 
             // StatsAndInvButton
             // 
-            StatsAndInvButton.Location = new Point(540, 325);
+            StatsAndInvButton.Location = new Point(621, 447);
             StatsAndInvButton.Name = "StatsAndInvButton";
             StatsAndInvButton.Size = new Size(237, 23);
             StatsAndInvButton.TabIndex = 10;
@@ -147,7 +149,7 @@
             // 
             // GetItemButton
             // 
-            GetItemButton.Location = new Point(702, 270);
+            GetItemButton.Location = new Point(783, 390);
             GetItemButton.Name = "GetItemButton";
             GetItemButton.Size = new Size(75, 23);
             GetItemButton.TabIndex = 11;
@@ -160,7 +162,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { gameToolStripMenuItem, helpToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(884, 24);
             menuStrip1.TabIndex = 12;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -176,12 +178,32 @@
             helpToolStripMenuItem.Size = new Size(44, 20);
             helpToolStripMenuItem.Text = "Help";
             // 
+            // MapGridPanel
+            // 
+            MapGridPanel.Location = new Point(43, 82);
+            MapGridPanel.Name = "MapGridPanel";
+            MapGridPanel.Size = new Size(301, 301);
+            MapGridPanel.TabIndex = 13;
+            MapGridPanel.Paint += MapGridPanel_Paint;
+            // 
+            // ParcelItemList
+            // 
+            ParcelItemList.FormattingEnabled = true;
+            ParcelItemList.ItemHeight = 15;
+            ParcelItemList.Location = new Point(621, 377);
+            ParcelItemList.Name = "ParcelItemList";
+            ParcelItemList.Size = new Size(156, 64);
+            ParcelItemList.TabIndex = 14;
+            ParcelItemList.SelectedIndexChanged += ParcelItemList_SelectedIndexChanged;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GrayText;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(884, 636);
+            Controls.Add(ParcelItemList);
+            Controls.Add(MapGridPanel);
             Controls.Add(GetItemButton);
             Controls.Add(StatsAndInvButton);
             Controls.Add(TalkButton);
@@ -199,7 +221,6 @@
             Name = "MainForm";
             Text = "Form1";
             Load += ViewForm_Load;
-            Paint += MapGrid;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -222,5 +243,7 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem gameToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
+        private Panel MapGridPanel;
+        private ListBox ParcelItemList;
     }
 }

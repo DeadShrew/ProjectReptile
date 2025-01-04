@@ -251,6 +251,21 @@ namespace ProjectReptile
             }
         }
 
+        public void SearchLandmarks()
+        {
+            foreach (Landmark landmark in LandmarkList) {
+                
+               foreach (Parcel parcel in ParcelList)
+                {
+                    if (parcel.LocationX == landmark.LocationX && parcel.LocationY == landmark.LocationY 
+                        && player.LocationX == landmark.LocationX && player.LocationY == landmark.LocationY)
+                    {
+                        parcel.ItemList.AddLast(landmark.SearchLandmark());                      
+                    }
+                }
+            }
+        }
+
         public void EncounterCheck()
         {
             foreach (Encounter encounter in EncounterList)

@@ -11,6 +11,5 @@ namespace ProjectReptile.AbstractClasses
         public int Power;
         public bool TwoHanded;
         public bool Magical;
-        public string Name;
     }
 }
