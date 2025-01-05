@@ -102,19 +102,31 @@ namespace ProjectReptile
 
         private void GetItemButton_Click(object sender, EventArgs e)
         {
+            if (ParcelItemList != null)
+            {
+                Item item = (Item)ParcelItemList.SelectedItem;
+                
+                ParcelItemList.Items.Remove(item);
 
+                gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).ItemList.Remove(item);
+
+                gameState.player.ItemList.AddLast(item);
+
+                this.Refresh(); 
+            }
         }
 
         private void StatsAndInvButton_Click(object sender, EventArgs e)
         {
-            var statsAndInvForm = StatsAndInvForm.GetInstance();
+            /*var statsAndInvForm = StatsAndInvForm.GetInstance();
             statsAndInvForm.StartPosition = FormStartPosition.Manual;
             statsAndInvForm.Location = new System.Drawing.Point(this.Right - 480, this.Top);
             statsAndInvForm.BringToFront();
-            statsAndInvForm.ShowDialog();
+            statsAndInvForm.ShowDialog();*/
+
+            var statsAndInvForm = new StatsAndInvForm(gameState);
+            statsAndInvForm.Show();
         }
-
-
 
         private void RemoveItemsFromListBox()
         {
@@ -130,9 +142,16 @@ namespace ProjectReptile
             {
                 if (gameState.player.LocationX == parcel.LocationX && gameState.player.LocationY == parcel.LocationY)
                 {
-                    foreach(Item item in parcel.ItemList)
+                    foreach(Item item in gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).ItemList)
                     {
-                        ParcelItemList.Items.Add(item.ToString());
+                        //this is bad and should be replaced with disabling the search button
+                        try
+                        {
+                            ParcelItemList.Items.Add(item);
+                        } catch (Exception ex)
+                        {
+
+                        }
                     }
                 } 
             }

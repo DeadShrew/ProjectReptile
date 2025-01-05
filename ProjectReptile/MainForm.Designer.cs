@@ -180,7 +180,7 @@
             // 
             // MapGridPanel
             // 
-            MapGridPanel.Location = new Point(43, 82);
+            MapGridPanel.Location = new Point(39, 52);
             MapGridPanel.Name = "MapGridPanel";
             MapGridPanel.Size = new Size(301, 301);
             MapGridPanel.TabIndex = 13;

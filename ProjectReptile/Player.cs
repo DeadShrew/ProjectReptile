@@ -1,4 +1,5 @@
 ﻿using ProjectReptile.AbstractClasses;
+using ProjectReptile.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,9 @@ namespace ProjectReptile
             LocationX = random.Next(0, Settings.Columns);
             LocationY = random.Next(0, Settings.Rows);
             ItemList = new LinkedList<Item>();
+
+            //Test Item
+            ItemList.AddLast(new Potion());
         }
 
         public void MovePlayerUp()
