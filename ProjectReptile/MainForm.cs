@@ -5,7 +5,7 @@ namespace ProjectReptile
 {
     public partial class MainForm : Form
     {
-        private GameStateModel gameState;
+        public GameStateModel gameState;
         static int Spacing = 1;
         static int GridSize = 30;
         public MainForm()
@@ -22,8 +22,9 @@ namespace ProjectReptile
 
         private void ViewForm_Load(object sender, EventArgs e)
         {
+            RemoveItemsFromListBox();
             gameState.EncounterCheck();
-            ParcelItemListRefresh();
+            AddParcelItemsToListbox();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
             this.Refresh();
@@ -31,41 +32,44 @@ namespace ProjectReptile
 
         private void UpButton_Click(object sender, EventArgs e)
         {
+            RemoveItemsFromListBox();
             gameState.player.MovePlayerUp();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
-            ParcelItemListRefresh();
+            AddParcelItemsToListbox();
             gameState.EncounterCheck();
-
             this.Refresh();
         }
 
         private void DownButton_Click(object sender, EventArgs e)
         {
+            RemoveItemsFromListBox();
             gameState.player.MovePlayerDown();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
-            ParcelItemListRefresh();
+            AddParcelItemsToListbox();
             gameState.EncounterCheck();
             this.Refresh();
         }
 
         private void LeftButton_Click(object sender, EventArgs e)
         {
+            RemoveItemsFromListBox();
             gameState.player.MovePlayerLeft();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
-            ParcelItemListRefresh();
+            AddParcelItemsToListbox();
             gameState.EncounterCheck();
             this.Refresh();
         }
 
         private void RightButton_Click(object sender, EventArgs e)
         {
+            RemoveItemsFromListBox();
             gameState.player.MovePlayerRight();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
-            ParcelItemListRefresh();
+            AddParcelItemsToListbox();
             gameState.EncounterCheck();
             this.Refresh();
         }
@@ -88,7 +92,7 @@ namespace ProjectReptile
         private void SearchButton_Click(object sender, EventArgs e)
         {
             gameState.SearchLandmarks();
-            ParcelItemListRefresh();
+            AddParcelItemsToListbox();
         }
 
         private void TalkButton_Click(object sender, EventArgs e)
@@ -101,11 +105,6 @@ namespace ProjectReptile
 
         }
 
-        private void ParcelItemList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void StatsAndInvButton_Click(object sender, EventArgs e)
         {
             var statsAndInvForm = StatsAndInvForm.GetInstance();
@@ -115,7 +114,17 @@ namespace ProjectReptile
             statsAndInvForm.ShowDialog();
         }
 
-        private void ParcelItemListRefresh()
+
+
+        private void RemoveItemsFromListBox()
+        {
+            for(int i = 0; i < ParcelItemList.Items.Count; i++)
+            {
+                ParcelItemList.Items.RemoveAt(i);
+            }
+        }
+
+        private void AddParcelItemsToListbox()
         {
             foreach (Parcel parcel in gameState.ParcelList)
             {
@@ -125,10 +134,7 @@ namespace ProjectReptile
                     {
                         ParcelItemList.Items.Add(item.ToString());
                     }
-                } else if (gameState.player.LocationX != parcel.LocationX && gameState.player.LocationY != parcel.LocationY)
-                {
-                  
-                }
+                } 
             }
         }
 
@@ -168,7 +174,7 @@ namespace ProjectReptile
                             {
                                 if (gameState.ParcelList.Any(o => o.LocationX == n && o.LocationY == m))
                                 {
-                                    g.DrawString(gameState.GetParcelByCoordinates(n, m).AdjacentTraps.ToString(), drawFont, myDrawingBrush, n * GridSize + 10, m * GridSize + 8);
+                                    g.DrawString(gameState.GetParcelByCoordinates(n, m).AdjacentTraps.ToString(), drawFont, myDrawingBrush, n * GridSize + 5, m * GridSize + 5);
                                 }
                             }
                         }

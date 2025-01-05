@@ -3,7 +3,7 @@ using ProjectReptile.Factories;
 
 namespace ProjectReptile
 {
-    internal class GameStateModel
+    public class GameStateModel
     {
         public int rows = Settings.Rows;
         public int columns  = Settings.Columns;

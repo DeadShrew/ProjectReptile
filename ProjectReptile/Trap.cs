@@ -7,7 +7,7 @@ using ProjectReptile.AbstractClasses;
 
 namespace ProjectReptile
 {
-    internal class Trap : Encounter
+    public class Trap : Encounter
     {
         public int AdjacentTraps; 
 

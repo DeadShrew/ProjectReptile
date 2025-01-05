@@ -194,7 +194,6 @@
             ParcelItemList.Name = "ParcelItemList";
             ParcelItemList.Size = new Size(156, 64);
             ParcelItemList.TabIndex = 14;
-            ParcelItemList.SelectedIndexChanged += ParcelItemList_SelectedIndexChanged;
             // 
             // MainForm
             // 

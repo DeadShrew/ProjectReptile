@@ -14,21 +14,26 @@ namespace ProjectReptile
     public partial class StatsAndInvForm : Form
     {
         private static StatsAndInvForm instance;
-        public static StatsAndInvForm GetInstance() 
-        { 
+        public static StatsAndInvForm GetInstance()
+        {
             {
                 if (instance == null || instance.IsDisposed)
                     instance = new StatsAndInvForm();
                 return instance;
             }
         }
-        
+
         public StatsAndInvForm()
         {
             InitializeComponent();
         }
 
         private void StatsAndInvForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PlayerInventoryListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

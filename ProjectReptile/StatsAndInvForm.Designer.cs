@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
+            PlayerInventoryListbox = new ListBox();
             SuspendLayout();
             // 
             // label1
@@ -40,11 +41,22 @@
             label1.TabIndex = 0;
             label1.Text = "woooooooooooooooooooooow";
             // 
+            // PlayerInventoryListbox
+            // 
+            PlayerInventoryListbox.FormattingEnabled = true;
+            PlayerInventoryListbox.ItemHeight = 15;
+            PlayerInventoryListbox.Location = new Point(293, 279);
+            PlayerInventoryListbox.Name = "PlayerInventoryListbox";
+            PlayerInventoryListbox.Size = new Size(120, 94);
+            PlayerInventoryListbox.TabIndex = 1;
+            PlayerInventoryListbox.SelectedIndexChanged += PlayerInventoryListbox_SelectedIndexChanged;
+            // 
             // StatsAndInvForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(469, 450);
+            Controls.Add(PlayerInventoryListbox);
             Controls.Add(label1);
             Name = "StatsAndInvForm";
             Text = "StatsAndInvForm";
@@ -56,5 +68,6 @@
         #endregion
 
         private Label label1;
+        private ListBox PlayerInventoryListbox;
     }
 }
