@@ -74,6 +74,11 @@ namespace ProjectReptile
             this.Refresh();
         }
 
+        private void FleeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void AttackButton_Click(object sender, EventArgs e)
         {
 
@@ -105,14 +110,14 @@ namespace ProjectReptile
             if (ParcelItemList != null)
             {
                 Item item = (Item)ParcelItemList.SelectedItem;
-                
+
                 ParcelItemList.Items.Remove(item);
 
                 gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).ItemList.Remove(item);
 
                 gameState.player.ItemList.AddLast(item);
 
-                this.Refresh(); 
+                this.Refresh();
             }
         }
 
@@ -130,7 +135,7 @@ namespace ProjectReptile
 
         private void RemoveItemsFromListBox()
         {
-            for(int i = 0; i < ParcelItemList.Items.Count; i++)
+            for (int i = 0; i < ParcelItemList.Items.Count; i++)
             {
                 ParcelItemList.Items.RemoveAt(i);
             }
@@ -142,18 +147,19 @@ namespace ProjectReptile
             {
                 if (gameState.player.LocationX == parcel.LocationX && gameState.player.LocationY == parcel.LocationY)
                 {
-                    foreach(Item item in gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).ItemList)
+                    foreach (Item item in gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).ItemList)
                     {
                         //this is bad and should be replaced with disabling the search button
                         try
                         {
                             ParcelItemList.Items.Add(item);
-                        } catch (Exception ex)
+                        }
+                        catch (Exception ex)
                         {
 
                         }
                     }
-                } 
+                }
             }
         }
 

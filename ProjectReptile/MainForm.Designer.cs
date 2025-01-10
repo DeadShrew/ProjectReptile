@@ -44,12 +44,30 @@
             helpToolStripMenuItem = new ToolStripMenuItem();
             MapGridPanel = new Panel();
             ParcelItemList = new ListBox();
+            MovementPanel = new Panel();
+            ParcelInfoLabel = new Label();
+            EnemyInfoLabel = new Label();
+            PlayerConsoleTextBox = new TextBox();
+            FleeButton = new Button();
+            ParcelContentsPanel = new Panel();
+            LandmarkPictureBox = new PictureBox();
+            EnemyPictureBox = new PictureBox();
+            EnemyStrengthLabel = new Label();
+            PlayerStrengthLabel = new Label();
+            PlayerGoldLabel = new Label();
+            EnemyThreatLabel = new Label();
+            PlayerThreadLabel = new Label();
+            DirectionAndCoordinatesLabel = new Label();
             menuStrip1.SuspendLayout();
+            MovementPanel.SuspendLayout();
+            ParcelContentsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)LandmarkPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)EnemyPictureBox).BeginInit();
             SuspendLayout();
             // 
             // UpButton
             // 
-            UpButton.Location = new Point(381, 462);
+            UpButton.Location = new Point(87, 27);
             UpButton.Name = "UpButton";
             UpButton.Size = new Size(75, 23);
             UpButton.TabIndex = 0;
@@ -59,7 +77,7 @@
             // 
             // DownButton
             // 
-            DownButton.Location = new Point(381, 500);
+            DownButton.Location = new Point(87, 98);
             DownButton.Name = "DownButton";
             DownButton.Size = new Size(75, 23);
             DownButton.TabIndex = 1;
@@ -69,7 +87,7 @@
             // 
             // LeftButton
             // 
-            LeftButton.Location = new Point(300, 480);
+            LeftButton.Location = new Point(3, 61);
             LeftButton.Name = "LeftButton";
             LeftButton.Size = new Size(75, 23);
             LeftButton.TabIndex = 2;
@@ -79,7 +97,7 @@
             // 
             // RightButton
             // 
-            RightButton.Location = new Point(459, 480);
+            RightButton.Location = new Point(168, 61);
             RightButton.Name = "RightButton";
             RightButton.Size = new Size(75, 23);
             RightButton.TabIndex = 3;
@@ -89,7 +107,7 @@
             // 
             // AttackButton
             // 
-            AttackButton.Location = new Point(621, 319);
+            AttackButton.Location = new Point(608, 192);
             AttackButton.Name = "AttackButton";
             AttackButton.Size = new Size(75, 23);
             AttackButton.TabIndex = 4;
@@ -99,7 +117,7 @@
             // 
             // DefendButton
             // 
-            DefendButton.Location = new Point(702, 319);
+            DefendButton.Location = new Point(689, 192);
             DefendButton.Name = "DefendButton";
             DefendButton.Size = new Size(75, 23);
             DefendButton.TabIndex = 5;
@@ -109,7 +127,7 @@
             // 
             // SorceryButton
             // 
-            SorceryButton.Location = new Point(783, 319);
+            SorceryButton.Location = new Point(770, 192);
             SorceryButton.Name = "SorceryButton";
             SorceryButton.Size = new Size(75, 23);
             SorceryButton.TabIndex = 6;
@@ -119,7 +137,7 @@
             // 
             // SearchButton
             // 
-            SearchButton.Location = new Point(621, 348);
+            SearchButton.Location = new Point(608, 221);
             SearchButton.Name = "SearchButton";
             SearchButton.Size = new Size(75, 23);
             SearchButton.TabIndex = 7;
@@ -129,7 +147,7 @@
             // 
             // TalkButton
             // 
-            TalkButton.Location = new Point(702, 348);
+            TalkButton.Location = new Point(689, 221);
             TalkButton.Name = "TalkButton";
             TalkButton.Size = new Size(75, 23);
             TalkButton.TabIndex = 8;
@@ -139,7 +157,7 @@
             // 
             // StatsAndInvButton
             // 
-            StatsAndInvButton.Location = new Point(621, 447);
+            StatsAndInvButton.Location = new Point(608, 330);
             StatsAndInvButton.Name = "StatsAndInvButton";
             StatsAndInvButton.Size = new Size(237, 23);
             StatsAndInvButton.TabIndex = 10;
@@ -149,7 +167,7 @@
             // 
             // GetItemButton
             // 
-            GetItemButton.Location = new Point(783, 390);
+            GetItemButton.Location = new Point(770, 260);
             GetItemButton.Name = "GetItemButton";
             GetItemButton.Size = new Size(75, 23);
             GetItemButton.TabIndex = 11;
@@ -162,7 +180,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { gameToolStripMenuItem, helpToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(884, 24);
+            menuStrip1.Size = new Size(869, 24);
             menuStrip1.TabIndex = 12;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -180,7 +198,7 @@
             // 
             // MapGridPanel
             // 
-            MapGridPanel.Location = new Point(39, 52);
+            MapGridPanel.Location = new Point(49, 74);
             MapGridPanel.Name = "MapGridPanel";
             MapGridPanel.Size = new Size(301, 301);
             MapGridPanel.TabIndex = 13;
@@ -190,17 +208,168 @@
             // 
             ParcelItemList.FormattingEnabled = true;
             ParcelItemList.ItemHeight = 15;
-            ParcelItemList.Location = new Point(621, 377);
+            ParcelItemList.Location = new Point(608, 260);
             ParcelItemList.Name = "ParcelItemList";
             ParcelItemList.Size = new Size(156, 64);
             ParcelItemList.TabIndex = 14;
+            // 
+            // MovementPanel
+            // 
+            MovementPanel.BackColor = SystemColors.Info;
+            MovementPanel.Controls.Add(UpButton);
+            MovementPanel.Controls.Add(LeftButton);
+            MovementPanel.Controls.Add(RightButton);
+            MovementPanel.Controls.Add(DownButton);
+            MovementPanel.Location = new Point(356, 192);
+            MovementPanel.Name = "MovementPanel";
+            MovementPanel.Size = new Size(246, 132);
+            MovementPanel.TabIndex = 15;
+            // 
+            // ParcelInfoLabel
+            // 
+            ParcelInfoLabel.BackColor = SystemColors.GradientActiveCaption;
+            ParcelInfoLabel.BorderStyle = BorderStyle.FixedSingle;
+            ParcelInfoLabel.Location = new Point(26, 392);
+            ParcelInfoLabel.Name = "ParcelInfoLabel";
+            ParcelInfoLabel.Size = new Size(819, 23);
+            ParcelInfoLabel.TabIndex = 16;
+            ParcelInfoLabel.Text = "ParcelInfoLabel";
+            // 
+            // EnemyInfoLabel
+            // 
+            EnemyInfoLabel.BackColor = SystemColors.GradientActiveCaption;
+            EnemyInfoLabel.BorderStyle = BorderStyle.FixedSingle;
+            EnemyInfoLabel.ForeColor = SystemColors.ControlText;
+            EnemyInfoLabel.Location = new Point(26, 415);
+            EnemyInfoLabel.Name = "EnemyInfoLabel";
+            EnemyInfoLabel.Size = new Size(819, 23);
+            EnemyInfoLabel.TabIndex = 17;
+            EnemyInfoLabel.Text = "EnemyInfoLabel";
+            // 
+            // PlayerConsoleTextBox
+            // 
+            PlayerConsoleTextBox.Location = new Point(26, 441);
+            PlayerConsoleTextBox.Multiline = true;
+            PlayerConsoleTextBox.Name = "PlayerConsoleTextBox";
+            PlayerConsoleTextBox.ScrollBars = ScrollBars.Vertical;
+            PlayerConsoleTextBox.Size = new Size(819, 100);
+            PlayerConsoleTextBox.TabIndex = 18;
+            // 
+            // FleeButton
+            // 
+            FleeButton.Location = new Point(770, 163);
+            FleeButton.Name = "FleeButton";
+            FleeButton.Size = new Size(75, 23);
+            FleeButton.TabIndex = 19;
+            FleeButton.Text = "Flee";
+            FleeButton.UseVisualStyleBackColor = true;
+            FleeButton.Click += FleeButton_Click;
+            // 
+            // ParcelContentsPanel
+            // 
+            ParcelContentsPanel.BackColor = SystemColors.Highlight;
+            ParcelContentsPanel.Controls.Add(LandmarkPictureBox);
+            ParcelContentsPanel.Controls.Add(EnemyPictureBox);
+            ParcelContentsPanel.Location = new Point(356, 74);
+            ParcelContentsPanel.Name = "ParcelContentsPanel";
+            ParcelContentsPanel.Size = new Size(246, 112);
+            ParcelContentsPanel.TabIndex = 20;
+            // 
+            // LandmarkPictureBox
+            // 
+            LandmarkPictureBox.BackColor = SystemColors.Control;
+            LandmarkPictureBox.Location = new Point(145, 20);
+            LandmarkPictureBox.Name = "LandmarkPictureBox";
+            LandmarkPictureBox.Size = new Size(74, 69);
+            LandmarkPictureBox.TabIndex = 1;
+            LandmarkPictureBox.TabStop = false;
+            // 
+            // EnemyPictureBox
+            // 
+            EnemyPictureBox.BackColor = SystemColors.Control;
+            EnemyPictureBox.Location = new Point(28, 20);
+            EnemyPictureBox.Name = "EnemyPictureBox";
+            EnemyPictureBox.Size = new Size(75, 69);
+            EnemyPictureBox.TabIndex = 0;
+            EnemyPictureBox.TabStop = false;
+            // 
+            // EnemyStrengthLabel
+            // 
+            EnemyStrengthLabel.BackColor = SystemColors.Highlight;
+            EnemyStrengthLabel.BorderStyle = BorderStyle.FixedSingle;
+            EnemyStrengthLabel.ForeColor = SystemColors.ActiveCaptionText;
+            EnemyStrengthLabel.Location = new Point(617, 74);
+            EnemyStrengthLabel.Name = "EnemyStrengthLabel";
+            EnemyStrengthLabel.Size = new Size(119, 23);
+            EnemyStrengthLabel.TabIndex = 21;
+            EnemyStrengthLabel.Text = "EnemyStrengthLabel";
+            // 
+            // PlayerStrengthLabel
+            // 
+            PlayerStrengthLabel.BackColor = SystemColors.GradientActiveCaption;
+            PlayerStrengthLabel.BorderStyle = BorderStyle.FixedSingle;
+            PlayerStrengthLabel.Location = new Point(617, 97);
+            PlayerStrengthLabel.Name = "PlayerStrengthLabel";
+            PlayerStrengthLabel.Size = new Size(119, 23);
+            PlayerStrengthLabel.TabIndex = 22;
+            PlayerStrengthLabel.Text = "PlayerStrengthLabel";
+            // 
+            // PlayerGoldLabel
+            // 
+            PlayerGoldLabel.BackColor = SystemColors.GradientActiveCaption;
+            PlayerGoldLabel.BorderStyle = BorderStyle.FixedSingle;
+            PlayerGoldLabel.Location = new Point(617, 121);
+            PlayerGoldLabel.Name = "PlayerGoldLabel";
+            PlayerGoldLabel.Size = new Size(119, 23);
+            PlayerGoldLabel.TabIndex = 23;
+            PlayerGoldLabel.Text = "PlayerGoldLabel";
+            // 
+            // EnemyThreatLabel
+            // 
+            EnemyThreatLabel.BackColor = SystemColors.MenuHighlight;
+            EnemyThreatLabel.Location = new Point(740, 74);
+            EnemyThreatLabel.Name = "EnemyThreatLabel";
+            EnemyThreatLabel.Size = new Size(105, 23);
+            EnemyThreatLabel.TabIndex = 24;
+            EnemyThreatLabel.Text = "EnemyThreatLabel";
+            // 
+            // PlayerThreadLabel
+            // 
+            PlayerThreadLabel.BackColor = SystemColors.GradientActiveCaption;
+            PlayerThreadLabel.BorderStyle = BorderStyle.FixedSingle;
+            PlayerThreadLabel.Location = new Point(740, 97);
+            PlayerThreadLabel.Name = "PlayerThreadLabel";
+            PlayerThreadLabel.Size = new Size(105, 23);
+            PlayerThreadLabel.TabIndex = 25;
+            PlayerThreadLabel.Text = "PlayerThreatLabel";
+            // 
+            // DirectionAndCoordinatesLabel
+            // 
+            DirectionAndCoordinatesLabel.BackColor = SystemColors.HotTrack;
+            DirectionAndCoordinatesLabel.Location = new Point(49, 33);
+            DirectionAndCoordinatesLabel.Name = "DirectionAndCoordinatesLabel";
+            DirectionAndCoordinatesLabel.Size = new Size(301, 23);
+            DirectionAndCoordinatesLabel.TabIndex = 26;
+            DirectionAndCoordinatesLabel.Text = "DirectionAndCoordinatesLabel";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GrayText;
-            ClientSize = new Size(884, 636);
+            ClientSize = new Size(869, 559);
+            Controls.Add(DirectionAndCoordinatesLabel);
+            Controls.Add(PlayerThreadLabel);
+            Controls.Add(EnemyThreatLabel);
+            Controls.Add(PlayerGoldLabel);
+            Controls.Add(PlayerStrengthLabel);
+            Controls.Add(EnemyStrengthLabel);
+            Controls.Add(ParcelContentsPanel);
+            Controls.Add(FleeButton);
+            Controls.Add(PlayerConsoleTextBox);
+            Controls.Add(EnemyInfoLabel);
+            Controls.Add(ParcelInfoLabel);
+            Controls.Add(MovementPanel);
             Controls.Add(ParcelItemList);
             Controls.Add(MapGridPanel);
             Controls.Add(GetItemButton);
@@ -210,10 +379,6 @@
             Controls.Add(SorceryButton);
             Controls.Add(DefendButton);
             Controls.Add(AttackButton);
-            Controls.Add(UpButton);
-            Controls.Add(DownButton);
-            Controls.Add(LeftButton);
-            Controls.Add(RightButton);
             Controls.Add(menuStrip1);
             DoubleBuffered = true;
             MainMenuStrip = menuStrip1;
@@ -222,6 +387,10 @@
             Load += ViewForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            MovementPanel.ResumeLayout(false);
+            ParcelContentsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)LandmarkPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)EnemyPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -244,5 +413,19 @@
         private ToolStripMenuItem helpToolStripMenuItem;
         private Panel MapGridPanel;
         private ListBox ParcelItemList;
+        private Panel MovementPanel;
+        private Label ParcelInfoLabel;
+        private Label EnemyInfoLabel;
+        private TextBox PlayerConsoleTextBox;
+        private Button FleeButton;
+        private Panel ParcelContentsPanel;
+        private PictureBox LandmarkPictureBox;
+        private PictureBox EnemyPictureBox;
+        private Label EnemyStrengthLabel;
+        private Label PlayerStrengthLabel;
+        private Label PlayerGoldLabel;
+        private Label EnemyThreatLabel;
+        private Label PlayerThreadLabel;
+        private Label DirectionAndCoordinatesLabel;
     }
 }
