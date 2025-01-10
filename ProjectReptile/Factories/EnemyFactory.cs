@@ -21,11 +21,9 @@ namespace ProjectReptile.Factories
             {
                 case 1:
                     return new Cultist();
-                    break;
 
                 case 2:
                     return new ProtoShoggoth();
-                    break;
             }
             return null;
             }

@@ -1,5 +1,7 @@
 using ProjectReptile.AbstractClasses;
+using System;
 using System.Reflection;
+using System.Text;
 
 namespace ProjectReptile
 {
@@ -22,55 +24,80 @@ namespace ProjectReptile
 
         private void ViewForm_Load(object sender, EventArgs e)
         {
+            DisableActionButtons();
+            ClearPlayerConsole();
             RemoveItemsFromListBox();
             gameState.EncounterCheck();
             AddParcelItemsToListbox();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
+            EnableActionButtons();
+            UpdatePlayerConsole();
+            UpdateParcelInfoLabel();
             this.Refresh();
         }
 
         private void UpButton_Click(object sender, EventArgs e)
         {
+            DisableActionButtons();
+            ClearPlayerConsole();
             RemoveItemsFromListBox();
             gameState.player.MovePlayerUp();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
+            EnableActionButtons();
+            UpdatePlayerConsole();
+            UpdateParcelInfoLabel();
             this.Refresh();
         }
 
         private void DownButton_Click(object sender, EventArgs e)
         {
+            DisableActionButtons();
+            ClearPlayerConsole();
             RemoveItemsFromListBox();
             gameState.player.MovePlayerDown();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
+            EnableActionButtons();
+            UpdatePlayerConsole();
+            UpdateParcelInfoLabel();
             this.Refresh();
         }
 
         private void LeftButton_Click(object sender, EventArgs e)
         {
+            DisableActionButtons();
+            ClearPlayerConsole();
             RemoveItemsFromListBox();
             gameState.player.MovePlayerLeft();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
+            EnableActionButtons();
+            UpdatePlayerConsole();
+            UpdateParcelInfoLabel();
             this.Refresh();
         }
 
         private void RightButton_Click(object sender, EventArgs e)
         {
+            DisableActionButtons();
+            ClearPlayerConsole();
             RemoveItemsFromListBox();
             gameState.player.MovePlayerRight();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
+            EnableActionButtons();
+            UpdatePlayerConsole();
+            UpdateParcelInfoLabel();
             this.Refresh();
         }
 
@@ -98,6 +125,8 @@ namespace ProjectReptile
         {
             gameState.SearchLandmarks();
             AddParcelItemsToListbox();
+            UpdateParcelInfoLabel();
+            UpdatePlayerConsole();
         }
 
         private void TalkButton_Click(object sender, EventArgs e)
@@ -113,9 +142,13 @@ namespace ProjectReptile
 
                 ParcelItemList.Items.Remove(item);
 
-                gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).ItemList.Remove(item);
+                gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).ItemList.Remove(item);               
 
                 gameState.player.ItemList.AddLast(item);
+
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("You have picked up a " + item.Name + ".");
+
+                UpdatePlayerConsole(); 
 
                 this.Refresh();
             }
@@ -133,6 +166,44 @@ namespace ProjectReptile
             statsAndInvForm.Show();
         }
 
+        private void DisableActionButtons()
+        {
+            AttackButton.Enabled = false;
+            DefendButton.Enabled = false;
+            SorceryButton.Enabled = false;
+            TalkButton.Enabled = false;
+            SearchButton.Enabled = false;
+            FleeButton.Enabled = false;
+        }
+
+        private void EnableActionButtons()
+        {
+            foreach (Enemy enemy in gameState.EnemyList)
+            {
+                if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY && enemy.IsAlive == true)
+                {
+                    AttackButton.Enabled = true;
+                }
+            }
+
+            foreach (Enemy enemy in gameState.EnemyList)
+            {
+                if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY
+                    && enemy.IsAlive == true && enemy.IsIntelligent == true && enemy.IsNegotiable == true)
+                {
+                    TalkButton.Enabled = true;
+                }
+            }
+
+            foreach (Landmark landmark in gameState.LandmarkList)
+            {
+                if (landmark.LocationX == gameState.player.LocationX && landmark.LocationY == gameState.player.LocationY && landmark.Searched == false)
+                {
+                    SearchButton.Enabled = true;
+                }
+            }
+        }
+
         private void RemoveItemsFromListBox()
         {
             for (int i = 0; i < ParcelItemList.Items.Count; i++)
@@ -143,24 +214,69 @@ namespace ProjectReptile
 
         private void AddParcelItemsToListbox()
         {
+            Item itemToRemove;
+
             foreach (Parcel parcel in gameState.ParcelList)
             {
                 if (gameState.player.LocationX == parcel.LocationX && gameState.player.LocationY == parcel.LocationY)
                 {
                     foreach (Item item in gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).ItemList)
                     {
-                        //this is bad and should be replaced with disabling the search button
                         try
                         {
                             ParcelItemList.Items.Add(item);
+                            SearchButton.Enabled = false;
                         }
                         catch (Exception ex)
-                        {
-
+                        {        
+                            
                         }
+                    }
+                } 
+            }
+        }
+
+        private void UpdateParcelInfoLabel()
+        {
+            foreach (Parcel parcel in gameState.ParcelList)
+            {
+                if (parcel.LocationX == gameState.player.LocationX && parcel.LocationY == gameState.player.LocationY)
+                {
+                    ParcelInfoLabel.Text = parcel.Description; 
+
+                }
+
+                foreach (Landmark landmark in gameState.LandmarkList)
+                {
+                    if (landmark.LocationX == parcel.LocationX && landmark.LocationY == parcel.LocationY && landmark.Searched == false)
+                    {
+                        ParcelInfoLabel.Text = ParcelInfoLabel.Text + " A " + landmark.Name + " is here.";   
+                    } else if (landmark.LocationX == parcel.LocationX && landmark.LocationY == parcel.LocationY && landmark.Searched == true)
+                    {
+                        ParcelInfoLabel.Text = ParcelInfoLabel.Text + " A searched " + landmark.Name + " is here.";
                     }
                 }
             }
+        }
+
+        private void UpdatePlayerConsole()
+        {
+            PlayerConsoleTextBox.Clear();
+
+            StringBuilder consoleText = new StringBuilder();
+
+            foreach (string message in GUIOutputManager.PlayerConsoleOutputList)
+            {
+                consoleText.AppendLine(message);
+            }
+
+            PlayerConsoleTextBox.Text = consoleText.ToString();
+        }
+
+        private void ClearPlayerConsole()
+        {
+            GUIOutputManager.PlayerConsoleOutputList.Clear();
+            PlayerConsoleTextBox?.Clear();
         }
 
         private void MapGridPanel_Paint(object sender, PaintEventArgs e)

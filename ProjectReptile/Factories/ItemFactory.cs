@@ -22,11 +22,9 @@ namespace ProjectReptile.Factories
             {
                 case 1:
                     return new Potion();
-                    break;
 
                 case 2:
                     return new BottleOfWater();
-                    break;
             }
             return null;
         }

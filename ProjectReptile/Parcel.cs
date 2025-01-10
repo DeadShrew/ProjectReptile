@@ -11,7 +11,9 @@ namespace ProjectReptile
     {
         public int AdjacentTraps;
         public LinkedList<Item> ItemList;
-        public bool TrapsChecked; 
+        public bool TrapsChecked;
+        public string Description;
+        Random random = new Random();
 
         public Parcel(int x, int y)
         {

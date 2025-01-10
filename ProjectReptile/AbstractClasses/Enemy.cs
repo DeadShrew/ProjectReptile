@@ -18,6 +18,7 @@ namespace ProjectReptile.AbstractClasses
         public int ThreatLevel;
         public bool IsIntelligent;
         public bool IsNegotiable;
+        public bool IsAlive;
         public string Name;
 
         public override void EncounterCheck(Player player)

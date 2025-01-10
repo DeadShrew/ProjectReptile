@@ -20,11 +20,9 @@ namespace ProjectReptile.Factories
             {
                 case 1:
                     return new Mausoleum();
-                    break;
 
                 case 2:
                     return new OpenGrave();
-                    break;
             }
             return null;
         }

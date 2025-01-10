@@ -11,6 +11,7 @@ namespace ProjectReptile.AbstractClasses
     {
         public string ?Name;
         public bool Searched;
+        public string ParcelInfoText; 
 
         public override void EncounterCheck(Player player)
         {
@@ -27,7 +28,7 @@ namespace ProjectReptile.AbstractClasses
                 Item item = ItemFactory.CreateItem();
 
                 Searched = true;
-                Console.WriteLine("You found a " + item.Name + "!");
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("A " +  item.Name + " is here.");
 
                 return item;
             }

@@ -17,7 +17,7 @@ namespace ProjectReptile
         {
             if (player.LocationX == LocationX && player.LocationY == LocationY)
             {
-                Console.WriteLine("The player has encountered a trap. Boom!");
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("You have entered a magic shock trap.");
             }
         }
     }

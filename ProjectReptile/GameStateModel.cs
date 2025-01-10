@@ -16,10 +16,13 @@ namespace ProjectReptile
         public LinkedList<Trap> TrapList = new LinkedList<Trap>();
         public LinkedList<Landmark>LandmarkList = new LinkedList<Landmark>();
 
+        public static List<string> ParcelDescriptionsList = new List<string>();
+
         Random random = new Random();
 
         public GameStateModel()
         {
+            InitializeParcelDescriptions(); 
             GenerateEnemies();
             GenerateTraps(rows, columns);
             GenerateLandmarks(); 
@@ -40,6 +43,9 @@ namespace ProjectReptile
             if (!ParcelList.Any(o => o.LocationX == x && o.LocationY == y))
             {
                 Parcel parcel = new Parcel(x, y);
+                var description = ParcelDescriptionsList[random.Next(0, ParcelDescriptionsList.Count)];
+                ParcelDescriptionsList.Remove(description);
+                parcel.Description = description;
                 ParcelList.AddLast(parcel);
                 EncounterList.AddLast(parcel); 
             }       
@@ -263,6 +269,42 @@ namespace ProjectReptile
                         parcel.ItemList.AddLast(landmark.SearchLandmark());                      
                     }
                 }
+            }
+        }
+
+        private void InitializeParcelDescriptions()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                ParcelDescriptionsList.Add("You are in a room with strange symbols on the walls.");
+                ParcelDescriptionsList.Add("You are in a hallway of roughly hewn stone.");
+                ParcelDescriptionsList.Add("You are in a hallway of fitted stone.");
+                ParcelDescriptionsList.Add("You are in a room with a smooth stone floor and walls. ");
+                ParcelDescriptionsList.Add("You are in a room with grotesque murals on the walls.");
+
+                ParcelDescriptionsList.Add("You are in a room with a low ceiling.");
+                ParcelDescriptionsList.Add("You are in a room with walls and floors of fitted stone.");
+                ParcelDescriptionsList.Add("You are in a hallway with a inlaid pattern on the floor.");
+                ParcelDescriptionsList.Add("You are in a room colored in a checker pattern.");
+                ParcelDescriptionsList.Add("You are in a room with rubble covering the floor.");
+
+                ParcelDescriptionsList.Add("You are in a room with a high, domed ceiling. ");
+                ParcelDescriptionsList.Add("You are in a room with a misty haze in it.");
+                ParcelDescriptionsList.Add("You are in a corridor which twists and winds.");
+                ParcelDescriptionsList.Add("You are in a corridor of narrow width and a low roof.");
+                ParcelDescriptionsList.Add("You are in a cavern with a light breeze blowing.");
+
+                ParcelDescriptionsList.Add("You are in a room with many stone pillars.");
+                ParcelDescriptionsList.Add("You are in a strangely shaped room of weird dimensions. ");
+                ParcelDescriptionsList.Add("You are in a room with many mirrors.");
+                ParcelDescriptionsList.Add("You are in a room with patches of glowing fungi.");
+                ParcelDescriptionsList.Add("You are in a cavern with many stalactites and stalagmites.");
+
+                ParcelDescriptionsList.Add("You are in a room with a polished marble floor and pillars.");
+                ParcelDescriptionsList.Add("You are in a room full of cobwebs and dust.");
+                ParcelDescriptionsList.Add("You are in a room with elaborate wood paneling.");
+                ParcelDescriptionsList.Add("You are in a room with many nooks and crannies.");
+                ParcelDescriptionsList.Add("You are in a cavern with glimmering minerals in the walls.");
             }
         }
 
