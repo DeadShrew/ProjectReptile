@@ -14,10 +14,10 @@ namespace ProjectReptile
 {
     public partial class StatsAndInvForm : Form
     {
-        GameStateModel gameState; 
+        GameStateModel gameState;
 
         //private static StatsAndInvForm instance;
-        
+
         /*public static StatsAndInvForm GetInstance()
         {
             {
@@ -35,7 +35,7 @@ namespace ProjectReptile
 
         private void StatsAndInvForm_Load(object sender, EventArgs e)
         {
-            GetPlayerInventory(gameState.player); 
+            GetPlayerInventory(gameState.player);
         }
 
         private void GetPlayerInventory(Player player)
@@ -48,6 +48,11 @@ namespace ProjectReptile
         private void PlayerInventoryListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void DoneButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

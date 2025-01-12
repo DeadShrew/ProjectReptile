@@ -136,7 +136,7 @@ namespace ProjectReptile
 
         private void GetItemButton_Click(object sender, EventArgs e)
         {
-            if (ParcelItemList != null)
+            if (ParcelItemList.SelectedItem != null)
             {
                 Item item = (Item)ParcelItemList.SelectedItem;
 
@@ -151,7 +151,7 @@ namespace ProjectReptile
                 UpdatePlayerConsole(); 
 
                 this.Refresh();
-            }
+            } 
         }
 
         private void StatsAndInvButton_Click(object sender, EventArgs e)
@@ -248,13 +248,21 @@ namespace ProjectReptile
 
                 foreach (Landmark landmark in gameState.LandmarkList)
                 {
-                    if (landmark.LocationX == parcel.LocationX && landmark.LocationY == parcel.LocationY && landmark.Searched == false)
+                    if (landmark.LocationX == parcel.LocationX && landmark.LocationY == parcel.LocationY && landmark.Searched == false
+                        && parcel.LocationX == gameState.player.LocationX && parcel.LocationY == gameState.player.LocationY)
                     {
                         ParcelInfoLabel.Text = ParcelInfoLabel.Text + " A " + landmark.Name + " is here.";   
-                    } else if (landmark.LocationX == parcel.LocationX && landmark.LocationY == parcel.LocationY && landmark.Searched == true)
+                    } else if (landmark.LocationX == parcel.LocationX && landmark.LocationY == parcel.LocationY && landmark.Searched == true
+                        && parcel.LocationX == gameState.player.LocationX && parcel.LocationY == gameState.player.LocationY)
                     {
                         ParcelInfoLabel.Text = ParcelInfoLabel.Text + " A searched " + landmark.Name + " is here.";
                     }
+                }
+
+                if (parcel.LocationX != gameState.player.LocationX && parcel.LocationY != gameState.player.LocationY)
+                {
+                    ParcelInfoLabel.Text = parcel.Description;
+
                 }
             }
         }
