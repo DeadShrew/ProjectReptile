@@ -238,32 +238,10 @@ namespace ProjectReptile
 
         private void UpdateParcelInfoLabel()
         {
-            foreach (Parcel parcel in gameState.ParcelList)
+            ParcelInfoLabel.Text = gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).Description; 
+            if (gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).LandmarkDescription != null )
             {
-                if (parcel.LocationX == gameState.player.LocationX && parcel.LocationY == gameState.player.LocationY)
-                {
-                    ParcelInfoLabel.Text = parcel.Description; 
-
-                }
-
-                foreach (Landmark landmark in gameState.LandmarkList)
-                {
-                    if (landmark.LocationX == parcel.LocationX && landmark.LocationY == parcel.LocationY && landmark.Searched == false
-                        && parcel.LocationX == gameState.player.LocationX && parcel.LocationY == gameState.player.LocationY)
-                    {
-                        ParcelInfoLabel.Text = ParcelInfoLabel.Text + " A " + landmark.Name + " is here.";   
-                    } else if (landmark.LocationX == parcel.LocationX && landmark.LocationY == parcel.LocationY && landmark.Searched == true
-                        && parcel.LocationX == gameState.player.LocationX && parcel.LocationY == gameState.player.LocationY)
-                    {
-                        ParcelInfoLabel.Text = ParcelInfoLabel.Text + " A searched " + landmark.Name + " is here.";
-                    }
-                }
-
-                if (parcel.LocationX != gameState.player.LocationX && parcel.LocationY != gameState.player.LocationY)
-                {
-                    ParcelInfoLabel.Text = parcel.Description;
-
-                }
+                ParcelInfoLabel.Text += gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).LandmarkDescription;
             }
         }
 

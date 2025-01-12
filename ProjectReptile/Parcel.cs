@@ -13,6 +13,7 @@ namespace ProjectReptile
         public LinkedList<Item> ItemList;
         public bool TrapsChecked;
         public string Description;
+        public string LandmarkDescription;
         Random random = new Random();
 
         public Parcel(int x, int y)

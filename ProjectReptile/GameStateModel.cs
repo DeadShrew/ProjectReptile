@@ -46,9 +46,18 @@ namespace ProjectReptile
                 var description = ParcelDescriptionsList[random.Next(0, ParcelDescriptionsList.Count)];
                 ParcelDescriptionsList.Remove(description);
                 parcel.Description = description;
+                
+                foreach(Landmark landmark in LandmarkList)
+                {
+                    if (landmark.LocationX == x && landmark.LocationY == y)
+                    {
+                        parcel.LandmarkDescription = " A " + landmark.Name + " is here.";
+                    }
+                }
+
                 ParcelList.AddLast(parcel);
                 EncounterList.AddLast(parcel); 
-            }       
+            }
         }
 
         public void ParcelTrapProximityCheck()
@@ -266,7 +275,8 @@ namespace ProjectReptile
                     if (parcel.LocationX == landmark.LocationX && parcel.LocationY == landmark.LocationY 
                         && player.LocationX == landmark.LocationX && player.LocationY == landmark.LocationY)
                     {
-                        parcel.ItemList.AddLast(landmark.SearchLandmark());                      
+                        parcel.ItemList.AddLast(landmark.SearchLandmark());
+                        parcel.LandmarkDescription = " A searched " + landmark.Name + " is here.";
                     }
                 }
             }

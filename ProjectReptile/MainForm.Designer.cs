@@ -67,9 +67,10 @@
             // 
             // UpButton
             // 
-            UpButton.Location = new Point(87, 27);
+            UpButton.Location = new Point(99, 36);
+            UpButton.Margin = new Padding(3, 4, 3, 4);
             UpButton.Name = "UpButton";
-            UpButton.Size = new Size(75, 23);
+            UpButton.Size = new Size(86, 31);
             UpButton.TabIndex = 0;
             UpButton.Text = "Up";
             UpButton.UseVisualStyleBackColor = true;
@@ -77,9 +78,10 @@
             // 
             // DownButton
             // 
-            DownButton.Location = new Point(87, 98);
+            DownButton.Location = new Point(99, 131);
+            DownButton.Margin = new Padding(3, 4, 3, 4);
             DownButton.Name = "DownButton";
-            DownButton.Size = new Size(75, 23);
+            DownButton.Size = new Size(86, 31);
             DownButton.TabIndex = 1;
             DownButton.Text = "Down";
             DownButton.UseVisualStyleBackColor = true;
@@ -87,9 +89,10 @@
             // 
             // LeftButton
             // 
-            LeftButton.Location = new Point(3, 61);
+            LeftButton.Location = new Point(3, 81);
+            LeftButton.Margin = new Padding(3, 4, 3, 4);
             LeftButton.Name = "LeftButton";
-            LeftButton.Size = new Size(75, 23);
+            LeftButton.Size = new Size(86, 31);
             LeftButton.TabIndex = 2;
             LeftButton.Text = "Left";
             LeftButton.UseVisualStyleBackColor = true;
@@ -97,9 +100,10 @@
             // 
             // RightButton
             // 
-            RightButton.Location = new Point(168, 61);
+            RightButton.Location = new Point(192, 81);
+            RightButton.Margin = new Padding(3, 4, 3, 4);
             RightButton.Name = "RightButton";
-            RightButton.Size = new Size(75, 23);
+            RightButton.Size = new Size(86, 31);
             RightButton.TabIndex = 3;
             RightButton.Text = "Right";
             RightButton.UseVisualStyleBackColor = true;
@@ -107,9 +111,10 @@
             // 
             // AttackButton
             // 
-            AttackButton.Location = new Point(608, 192);
+            AttackButton.Location = new Point(695, 256);
+            AttackButton.Margin = new Padding(3, 4, 3, 4);
             AttackButton.Name = "AttackButton";
-            AttackButton.Size = new Size(75, 23);
+            AttackButton.Size = new Size(86, 31);
             AttackButton.TabIndex = 4;
             AttackButton.Text = "Attack";
             AttackButton.UseVisualStyleBackColor = true;
@@ -117,9 +122,10 @@
             // 
             // DefendButton
             // 
-            DefendButton.Location = new Point(689, 192);
+            DefendButton.Location = new Point(787, 256);
+            DefendButton.Margin = new Padding(3, 4, 3, 4);
             DefendButton.Name = "DefendButton";
-            DefendButton.Size = new Size(75, 23);
+            DefendButton.Size = new Size(86, 31);
             DefendButton.TabIndex = 5;
             DefendButton.Text = "Defend";
             DefendButton.UseVisualStyleBackColor = true;
@@ -127,9 +133,10 @@
             // 
             // SorceryButton
             // 
-            SorceryButton.Location = new Point(770, 192);
+            SorceryButton.Location = new Point(880, 256);
+            SorceryButton.Margin = new Padding(3, 4, 3, 4);
             SorceryButton.Name = "SorceryButton";
-            SorceryButton.Size = new Size(75, 23);
+            SorceryButton.Size = new Size(86, 31);
             SorceryButton.TabIndex = 6;
             SorceryButton.Text = "Sorcery";
             SorceryButton.UseVisualStyleBackColor = true;
@@ -137,9 +144,10 @@
             // 
             // SearchButton
             // 
-            SearchButton.Location = new Point(608, 221);
+            SearchButton.Location = new Point(695, 295);
+            SearchButton.Margin = new Padding(3, 4, 3, 4);
             SearchButton.Name = "SearchButton";
-            SearchButton.Size = new Size(75, 23);
+            SearchButton.Size = new Size(86, 31);
             SearchButton.TabIndex = 7;
             SearchButton.Text = "Search";
             SearchButton.UseVisualStyleBackColor = true;
@@ -147,9 +155,10 @@
             // 
             // TalkButton
             // 
-            TalkButton.Location = new Point(689, 221);
+            TalkButton.Location = new Point(787, 295);
+            TalkButton.Margin = new Padding(3, 4, 3, 4);
             TalkButton.Name = "TalkButton";
-            TalkButton.Size = new Size(75, 23);
+            TalkButton.Size = new Size(86, 31);
             TalkButton.TabIndex = 8;
             TalkButton.Text = "Talk";
             TalkButton.UseVisualStyleBackColor = true;
@@ -157,9 +166,10 @@
             // 
             // StatsAndInvButton
             // 
-            StatsAndInvButton.Location = new Point(608, 330);
+            StatsAndInvButton.Location = new Point(695, 440);
+            StatsAndInvButton.Margin = new Padding(3, 4, 3, 4);
             StatsAndInvButton.Name = "StatsAndInvButton";
-            StatsAndInvButton.Size = new Size(237, 23);
+            StatsAndInvButton.Size = new Size(271, 31);
             StatsAndInvButton.TabIndex = 10;
             StatsAndInvButton.Text = "Statistics and Inventory";
             StatsAndInvButton.UseVisualStyleBackColor = true;
@@ -167,9 +177,10 @@
             // 
             // GetItemButton
             // 
-            GetItemButton.Location = new Point(770, 260);
+            GetItemButton.Location = new Point(880, 347);
+            GetItemButton.Margin = new Padding(3, 4, 3, 4);
             GetItemButton.Name = "GetItemButton";
-            GetItemButton.Size = new Size(75, 23);
+            GetItemButton.Size = new Size(86, 31);
             GetItemButton.TabIndex = 11;
             GetItemButton.Text = "Get Item";
             GetItemButton.UseVisualStyleBackColor = true;
@@ -177,40 +188,43 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { gameToolStripMenuItem, helpToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(869, 24);
+            menuStrip1.Padding = new Padding(7, 3, 0, 3);
+            menuStrip1.Size = new Size(993, 30);
             menuStrip1.TabIndex = 12;
             menuStrip1.Text = "menuStrip1";
             // 
             // gameToolStripMenuItem
             // 
             gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-            gameToolStripMenuItem.Size = new Size(50, 20);
+            gameToolStripMenuItem.Size = new Size(62, 24);
             gameToolStripMenuItem.Text = "Game";
             // 
             // helpToolStripMenuItem
             // 
             helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(44, 20);
+            helpToolStripMenuItem.Size = new Size(55, 24);
             helpToolStripMenuItem.Text = "Help";
             // 
             // MapGridPanel
             // 
-            MapGridPanel.Location = new Point(49, 74);
+            MapGridPanel.Location = new Point(56, 99);
+            MapGridPanel.Margin = new Padding(3, 4, 3, 4);
             MapGridPanel.Name = "MapGridPanel";
-            MapGridPanel.Size = new Size(301, 301);
+            MapGridPanel.Size = new Size(344, 401);
             MapGridPanel.TabIndex = 13;
             MapGridPanel.Paint += MapGridPanel_Paint;
             // 
             // ParcelItemList
             // 
             ParcelItemList.FormattingEnabled = true;
-            ParcelItemList.ItemHeight = 15;
-            ParcelItemList.Location = new Point(608, 260);
+            ParcelItemList.Location = new Point(695, 347);
+            ParcelItemList.Margin = new Padding(3, 4, 3, 4);
             ParcelItemList.Name = "ParcelItemList";
-            ParcelItemList.Size = new Size(156, 64);
+            ParcelItemList.Size = new Size(178, 84);
             ParcelItemList.TabIndex = 14;
             // 
             // MovementPanel
@@ -220,18 +234,19 @@
             MovementPanel.Controls.Add(LeftButton);
             MovementPanel.Controls.Add(RightButton);
             MovementPanel.Controls.Add(DownButton);
-            MovementPanel.Location = new Point(356, 192);
+            MovementPanel.Location = new Point(407, 256);
+            MovementPanel.Margin = new Padding(3, 4, 3, 4);
             MovementPanel.Name = "MovementPanel";
-            MovementPanel.Size = new Size(246, 132);
+            MovementPanel.Size = new Size(281, 176);
             MovementPanel.TabIndex = 15;
             // 
             // ParcelInfoLabel
             // 
             ParcelInfoLabel.BackColor = SystemColors.GradientActiveCaption;
             ParcelInfoLabel.BorderStyle = BorderStyle.FixedSingle;
-            ParcelInfoLabel.Location = new Point(26, 392);
+            ParcelInfoLabel.Location = new Point(30, 523);
             ParcelInfoLabel.Name = "ParcelInfoLabel";
-            ParcelInfoLabel.Size = new Size(819, 23);
+            ParcelInfoLabel.Size = new Size(936, 30);
             ParcelInfoLabel.TabIndex = 16;
             ParcelInfoLabel.Text = "ParcelInfoLabel";
             // 
@@ -240,26 +255,27 @@
             EnemyInfoLabel.BackColor = SystemColors.GradientActiveCaption;
             EnemyInfoLabel.BorderStyle = BorderStyle.FixedSingle;
             EnemyInfoLabel.ForeColor = SystemColors.ControlText;
-            EnemyInfoLabel.Location = new Point(26, 415);
+            EnemyInfoLabel.Location = new Point(30, 553);
             EnemyInfoLabel.Name = "EnemyInfoLabel";
-            EnemyInfoLabel.Size = new Size(819, 23);
+            EnemyInfoLabel.Size = new Size(936, 30);
             EnemyInfoLabel.TabIndex = 17;
-            EnemyInfoLabel.Text = "EnemyInfoLabel";
             // 
             // PlayerConsoleTextBox
             // 
-            PlayerConsoleTextBox.Location = new Point(26, 441);
+            PlayerConsoleTextBox.Location = new Point(30, 588);
+            PlayerConsoleTextBox.Margin = new Padding(3, 4, 3, 4);
             PlayerConsoleTextBox.Multiline = true;
             PlayerConsoleTextBox.Name = "PlayerConsoleTextBox";
             PlayerConsoleTextBox.ScrollBars = ScrollBars.Vertical;
-            PlayerConsoleTextBox.Size = new Size(819, 100);
+            PlayerConsoleTextBox.Size = new Size(935, 132);
             PlayerConsoleTextBox.TabIndex = 18;
             // 
             // FleeButton
             // 
-            FleeButton.Location = new Point(770, 163);
+            FleeButton.Location = new Point(880, 217);
+            FleeButton.Margin = new Padding(3, 4, 3, 4);
             FleeButton.Name = "FleeButton";
-            FleeButton.Size = new Size(75, 23);
+            FleeButton.Size = new Size(86, 31);
             FleeButton.TabIndex = 19;
             FleeButton.Text = "Flee";
             FleeButton.UseVisualStyleBackColor = true;
@@ -270,26 +286,29 @@
             ParcelContentsPanel.BackColor = SystemColors.Highlight;
             ParcelContentsPanel.Controls.Add(LandmarkPictureBox);
             ParcelContentsPanel.Controls.Add(EnemyPictureBox);
-            ParcelContentsPanel.Location = new Point(356, 74);
+            ParcelContentsPanel.Location = new Point(407, 99);
+            ParcelContentsPanel.Margin = new Padding(3, 4, 3, 4);
             ParcelContentsPanel.Name = "ParcelContentsPanel";
-            ParcelContentsPanel.Size = new Size(246, 112);
+            ParcelContentsPanel.Size = new Size(281, 149);
             ParcelContentsPanel.TabIndex = 20;
             // 
             // LandmarkPictureBox
             // 
             LandmarkPictureBox.BackColor = SystemColors.Control;
-            LandmarkPictureBox.Location = new Point(145, 20);
+            LandmarkPictureBox.Location = new Point(166, 27);
+            LandmarkPictureBox.Margin = new Padding(3, 4, 3, 4);
             LandmarkPictureBox.Name = "LandmarkPictureBox";
-            LandmarkPictureBox.Size = new Size(74, 69);
+            LandmarkPictureBox.Size = new Size(85, 92);
             LandmarkPictureBox.TabIndex = 1;
             LandmarkPictureBox.TabStop = false;
             // 
             // EnemyPictureBox
             // 
             EnemyPictureBox.BackColor = SystemColors.Control;
-            EnemyPictureBox.Location = new Point(28, 20);
+            EnemyPictureBox.Location = new Point(32, 27);
+            EnemyPictureBox.Margin = new Padding(3, 4, 3, 4);
             EnemyPictureBox.Name = "EnemyPictureBox";
-            EnemyPictureBox.Size = new Size(75, 69);
+            EnemyPictureBox.Size = new Size(86, 92);
             EnemyPictureBox.TabIndex = 0;
             EnemyPictureBox.TabStop = false;
             // 
@@ -298,9 +317,9 @@
             EnemyStrengthLabel.BackColor = SystemColors.Highlight;
             EnemyStrengthLabel.BorderStyle = BorderStyle.FixedSingle;
             EnemyStrengthLabel.ForeColor = SystemColors.ActiveCaptionText;
-            EnemyStrengthLabel.Location = new Point(617, 74);
+            EnemyStrengthLabel.Location = new Point(705, 99);
             EnemyStrengthLabel.Name = "EnemyStrengthLabel";
-            EnemyStrengthLabel.Size = new Size(119, 23);
+            EnemyStrengthLabel.Size = new Size(136, 30);
             EnemyStrengthLabel.TabIndex = 21;
             EnemyStrengthLabel.Text = "EnemyStrengthLabel";
             // 
@@ -308,9 +327,9 @@
             // 
             PlayerStrengthLabel.BackColor = SystemColors.GradientActiveCaption;
             PlayerStrengthLabel.BorderStyle = BorderStyle.FixedSingle;
-            PlayerStrengthLabel.Location = new Point(617, 97);
+            PlayerStrengthLabel.Location = new Point(705, 129);
             PlayerStrengthLabel.Name = "PlayerStrengthLabel";
-            PlayerStrengthLabel.Size = new Size(119, 23);
+            PlayerStrengthLabel.Size = new Size(136, 30);
             PlayerStrengthLabel.TabIndex = 22;
             PlayerStrengthLabel.Text = "PlayerStrengthLabel";
             // 
@@ -318,18 +337,18 @@
             // 
             PlayerGoldLabel.BackColor = SystemColors.GradientActiveCaption;
             PlayerGoldLabel.BorderStyle = BorderStyle.FixedSingle;
-            PlayerGoldLabel.Location = new Point(617, 121);
+            PlayerGoldLabel.Location = new Point(705, 161);
             PlayerGoldLabel.Name = "PlayerGoldLabel";
-            PlayerGoldLabel.Size = new Size(119, 23);
+            PlayerGoldLabel.Size = new Size(136, 30);
             PlayerGoldLabel.TabIndex = 23;
             PlayerGoldLabel.Text = "PlayerGoldLabel";
             // 
             // EnemyThreatLabel
             // 
             EnemyThreatLabel.BackColor = SystemColors.MenuHighlight;
-            EnemyThreatLabel.Location = new Point(740, 74);
+            EnemyThreatLabel.Location = new Point(846, 99);
             EnemyThreatLabel.Name = "EnemyThreatLabel";
-            EnemyThreatLabel.Size = new Size(105, 23);
+            EnemyThreatLabel.Size = new Size(120, 31);
             EnemyThreatLabel.TabIndex = 24;
             EnemyThreatLabel.Text = "EnemyThreatLabel";
             // 
@@ -337,27 +356,27 @@
             // 
             PlayerThreadLabel.BackColor = SystemColors.GradientActiveCaption;
             PlayerThreadLabel.BorderStyle = BorderStyle.FixedSingle;
-            PlayerThreadLabel.Location = new Point(740, 97);
+            PlayerThreadLabel.Location = new Point(846, 129);
             PlayerThreadLabel.Name = "PlayerThreadLabel";
-            PlayerThreadLabel.Size = new Size(105, 23);
+            PlayerThreadLabel.Size = new Size(120, 30);
             PlayerThreadLabel.TabIndex = 25;
             PlayerThreadLabel.Text = "PlayerThreatLabel";
             // 
             // DirectionAndCoordinatesLabel
             // 
             DirectionAndCoordinatesLabel.BackColor = SystemColors.HotTrack;
-            DirectionAndCoordinatesLabel.Location = new Point(49, 33);
+            DirectionAndCoordinatesLabel.Location = new Point(56, 44);
             DirectionAndCoordinatesLabel.Name = "DirectionAndCoordinatesLabel";
-            DirectionAndCoordinatesLabel.Size = new Size(301, 23);
+            DirectionAndCoordinatesLabel.Size = new Size(344, 31);
             DirectionAndCoordinatesLabel.TabIndex = 26;
             DirectionAndCoordinatesLabel.Text = "DirectionAndCoordinatesLabel";
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GrayText;
-            ClientSize = new Size(869, 559);
+            ClientSize = new Size(993, 745);
             Controls.Add(DirectionAndCoordinatesLabel);
             Controls.Add(PlayerThreadLabel);
             Controls.Add(EnemyThreatLabel);
@@ -382,6 +401,7 @@
             Controls.Add(menuStrip1);
             DoubleBuffered = true;
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "MainForm";
             Text = "Form1";
             Load += ViewForm_Load;

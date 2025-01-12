@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "N5viUt78/34gaGOxk4AghWJ2DNQSCw1CdC78Km54C3n4cCBqKREsDpPxcoSsy8lHxPyuKfJbxR1/fM/WzG907Q==",
+  "dgSpecHash": "K/ujs9rnI0c=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\ProjectReptile.csproj",
+  "projectFilePath": "C:\\Users\\edwin\\source\\repos\\ProjectReptile\\ProjectReptile\\ProjectReptile\\ProjectReptile.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ym3438\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\ym3438\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
-    "C:\\Users\\ym3438\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
-    "C:\\Users\\ym3438\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
+    "C:\\Users\\edwin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\edwin\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\edwin\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\edwin\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }
