@@ -14,6 +14,7 @@ namespace ProjectReptile
         public bool TrapsChecked;
         public string Description;
         public string LandmarkDescription;
+        public string EnemyDescription;
         Random random = new Random();
 
         public Parcel(int x, int y)

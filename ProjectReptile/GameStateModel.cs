@@ -55,6 +55,15 @@ namespace ProjectReptile
                     }
                 }
 
+                foreach (Enemy enemy in EnemyList)
+                {
+                    if (enemy.LocationX == x && enemy.LocationY == y)
+                    {
+                        parcel.EnemyDescription = " A " + enemy.Name + " is here.";
+                        Console.WriteLine("meow");
+                    }
+                }
+
                 ParcelList.AddLast(parcel);
                 EncounterList.AddLast(parcel); 
             }

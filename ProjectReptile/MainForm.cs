@@ -50,6 +50,7 @@ namespace ProjectReptile
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
+            UpdateEnemyInfoLabel();
             this.Refresh();
         }
 
@@ -66,6 +67,7 @@ namespace ProjectReptile
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
+            UpdateEnemyInfoLabel();
             this.Refresh();
         }
 
@@ -82,6 +84,7 @@ namespace ProjectReptile
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
+            UpdateEnemyInfoLabel();
             this.Refresh();
         }
 
@@ -98,6 +101,7 @@ namespace ProjectReptile
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
+            UpdateEnemyInfoLabel();
             this.Refresh();
         }
 
@@ -156,12 +160,6 @@ namespace ProjectReptile
 
         private void StatsAndInvButton_Click(object sender, EventArgs e)
         {
-            /*var statsAndInvForm = StatsAndInvForm.GetInstance();
-            statsAndInvForm.StartPosition = FormStartPosition.Manual;
-            statsAndInvForm.Location = new System.Drawing.Point(this.Right - 480, this.Top);
-            statsAndInvForm.BringToFront();
-            statsAndInvForm.ShowDialog();*/
-
             var statsAndInvForm = new StatsAndInvForm(gameState);
             statsAndInvForm.Show();
         }
@@ -242,6 +240,15 @@ namespace ProjectReptile
             if (gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).LandmarkDescription != null )
             {
                 ParcelInfoLabel.Text += gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).LandmarkDescription;
+            }
+        }
+
+        private void UpdateEnemyInfoLabel()
+        {
+            EnemyInfoLabel.Text = "";
+            if (gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).EnemyDescription != null)
+            {
+                EnemyInfoLabel.Text += gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).EnemyDescription;
             }
         }
 
