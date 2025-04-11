@@ -12,8 +12,11 @@ namespace ProjectReptile
     {
         public int LocationX;
         public int LocationY;
+        public int Strength = 14;
+        public int Gold = 10;
         public bool InCombat;
         public bool AtLandmark; 
+        
 
         public LinkedList<Item> ItemList;
 

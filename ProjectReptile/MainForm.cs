@@ -34,6 +34,8 @@ namespace ProjectReptile
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
+            UpdateEnemyInfoLabelsAndGUI();
+            UpdatePlayerInfoLabelsAndGUI();
             this.Refresh();
         }
 
@@ -50,7 +52,8 @@ namespace ProjectReptile
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
-            UpdateEnemyInfoLabel();
+            UpdateEnemyInfoLabelsAndGUI();
+            UpdatePlayerInfoLabelsAndGUI();
             this.Refresh();
         }
 
@@ -67,7 +70,8 @@ namespace ProjectReptile
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
-            UpdateEnemyInfoLabel();
+            UpdateEnemyInfoLabelsAndGUI();
+            UpdatePlayerInfoLabelsAndGUI();
             this.Refresh();
         }
 
@@ -84,7 +88,8 @@ namespace ProjectReptile
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
-            UpdateEnemyInfoLabel();
+            UpdateEnemyInfoLabelsAndGUI();
+            UpdatePlayerInfoLabelsAndGUI();
             this.Refresh();
         }
 
@@ -101,7 +106,8 @@ namespace ProjectReptile
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
-            UpdateEnemyInfoLabel();
+            UpdateEnemyInfoLabelsAndGUI();
+            UpdatePlayerInfoLabelsAndGUI();
             this.Refresh();
         }
 
@@ -234,6 +240,12 @@ namespace ProjectReptile
             }
         }
 
+        private void UpdatePlayerInfoLabelsAndGUI()
+        {
+            PlayerStrengthLabel.Text = "Player Strength: " + gameState.player.Strength;
+            PlayerGoldLabel.Text = "Player Gold: " + gameState.player.Gold; 
+        }
+
         private void UpdateParcelInfoLabel()
         {
             ParcelInfoLabel.Text = gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).Description; 
@@ -243,12 +255,18 @@ namespace ProjectReptile
             }
         }
 
-        private void UpdateEnemyInfoLabel()
+        private void UpdateEnemyInfoLabelsAndGUI()
         {
             EnemyInfoLabel.Text = "";
+            EnemyStrengthLabel.Text = "Enemy Strength: ";  
+
             if (gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).EnemyDescription != null)
             {
                 EnemyInfoLabel.Text += gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).EnemyDescription;
+
+                EnemyStrengthLabel.Text = "Enemy Strength: " + gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).Strength.ToString();
+
+                //ADD WHATEVER IS GOING TO REPLACE PV HERE
             }
         }
 

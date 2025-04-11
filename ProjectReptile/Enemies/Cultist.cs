@@ -18,7 +18,7 @@ public class Cultist : Enemy
 
         this.equippedWeapon = WeaponFactory.CreateWeaponForCultist();
         this.Power = 15 + equippedWeapon.Power;
-        this.Constitution = 15 + random.Next(-2, 2);
+        this.Strength = 15 + random.Next(-2, 2);
         this.Dexterity = 15;
         this.Armor = 15;
         this.Gold = 0 + random.Next(0, 1);

@@ -1,5 +1,6 @@
 ﻿using ProjectReptile.AbstractClasses;
 using ProjectReptile.Factories;
+using System.Windows.Forms;
 
 namespace ProjectReptile
 {
@@ -119,6 +120,17 @@ namespace ProjectReptile
             } 
         }
 
+        public Enemy GetEnemyByCoordinates(int x, int y)
+        {
+            foreach (Enemy enemy in EnemyList)
+            {
+                if (enemy.LocationX == x && enemy.LocationY == y)
+                {
+                    return enemy;
+                }
+            }
+            return null;
+        }
         public Parcel GetParcelByCoordinates(int x, int y) 
         {
             foreach (Parcel parcel in ParcelList)

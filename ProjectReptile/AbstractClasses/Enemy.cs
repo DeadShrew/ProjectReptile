@@ -11,7 +11,7 @@ namespace ProjectReptile.AbstractClasses
         public Weapon equippedWeapon;
 
         public int Power;
-        public int Constitution;
+        public int Strength;
         public int Dexterity;
         public int Armor;
         public int Gold;

@@ -14,7 +14,7 @@ namespace ProjectReptile.Enemies
             Random random = new Random();
 
             this.Power = 15;
-            this.Constitution = 15 + random.Next(-2, 2);
+            this.Strength = 15 + random.Next(-2, 2);
             this.Dexterity = 15;
             this.Armor = 15;
             this.Gold = 0 + random.Next(0, 1);
