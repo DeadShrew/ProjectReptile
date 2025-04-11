@@ -13,9 +13,13 @@ namespace ProjectReptile
         public int LocationX;
         public int LocationY;
         public int Strength = 14;
+        public int Power = 1;
+        public int Armor = 1;
+        public int Dexterity = 2; 
         public int Gold = 10;
         public bool InCombat;
-        public bool AtLandmark; 
+        public bool AtLandmark;
+        public string MovedDir;
         
 
         public LinkedList<Item> ItemList;
@@ -33,6 +37,8 @@ namespace ProjectReptile
 
         public void MovePlayerUp()
         {
+            MovedDir = "N";
+
             if (LocationY > 0)
             {
                 LocationY--;
@@ -45,6 +51,8 @@ namespace ProjectReptile
 
         public void MovePlayerDown()
         {
+            MovedDir = "S";
+
             if (LocationY < Settings.Rows -1)
             {
                 LocationY++;
@@ -57,6 +65,8 @@ namespace ProjectReptile
 
         public void MovePlayerLeft()
         {
+            MovedDir = "W";
+
             if (LocationX > 0)
             {
                 LocationX--;
@@ -69,6 +79,8 @@ namespace ProjectReptile
 
         public void MovePlayerRight()
         {
+            MovedDir = "E";  
+
             if (LocationX < Settings.Columns - 1)
             {
                 LocationX++;

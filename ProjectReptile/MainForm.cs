@@ -242,8 +242,15 @@ namespace ProjectReptile
 
         private void UpdatePlayerInfoLabelsAndGUI()
         {
+            DirectionAndCoordinatesLabel.Text = "Moved Dir: " + gameState.player.MovedDir + " Curr Loc C: " + gameState.player.LocationX + " R: " + gameState.player.LocationY;  
             PlayerStrengthLabel.Text = "Player Strength: " + gameState.player.Strength;
-            PlayerGoldLabel.Text = "Player Gold: " + gameState.player.Gold; 
+            PlayerGoldLabel.Text = "Player Gold: " + gameState.player.Gold;
+            PlayerThreatLabel.Text = "Player PV: "; 
+
+            PlayerThreatLabel.Text = "Player PV: " + (gameState.player.Strength +
+                                                    gameState.player.Power +
+                                                    gameState.player.Armor +
+                                                    gameState.player.Dexterity).ToString();
         }
 
         private void UpdateParcelInfoLabel()
@@ -258,17 +265,46 @@ namespace ProjectReptile
         private void UpdateEnemyInfoLabelsAndGUI()
         {
             EnemyInfoLabel.Text = "";
-            EnemyStrengthLabel.Text = "Enemy Strength: ";  
+            EnemyStrengthLabel.Text = "Enemy Strength: ";
+            EnemyThreatLabel.Text = "Enemy PV: "; 
 
             if (gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).EnemyDescription != null)
             {
                 EnemyInfoLabel.Text += gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).EnemyDescription;
 
+                if (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedWeapon != null)
+                {
+                    EnemyInfoLabel.Text += " It has a " + gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedWeapon;
+                }
+
+                if (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedShield != null)
+                {
+                    EnemyInfoLabel.Text += ", " + gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedShield;
+                }
+
+                if (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedArmour != null)
+                {
+                    EnemyInfoLabel.Text += ", " + gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedArmour;
+
+                }
+
+                if (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedWeapon != null ||
+                       gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedShield != null ||
+                       gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedArmour != null)
+                {
+                    EnemyInfoLabel.Text += ".";
+                }
+
                 EnemyStrengthLabel.Text = "Enemy Strength: " + gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).Strength.ToString();
 
-                //ADD WHATEVER IS GOING TO REPLACE PV HERE
+                EnemyThreatLabel.Text = "Enemy PV: " + (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).Strength +
+                                                              gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).Power +
+                                                              gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).Armor +
+                                                              gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).Dexterity).ToString();
+
             }
         }
+
 
         private void UpdatePlayerConsole()
         {

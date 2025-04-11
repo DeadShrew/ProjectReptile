@@ -17,6 +17,11 @@ public class Cultist : Enemy
         Random random = new Random();
 
         this.equippedWeapon = WeaponFactory.CreateWeaponForCultist();
+        if (equippedWeapon.TwoHanded == false)
+        {
+            this.equippedShield = ShieldFactory.CreateShield(); 
+        }
+        this.equippedArmour = ArmourFactory.CreateArmor(); 
         this.Power = 15 + equippedWeapon.Power;
         this.Strength = 15 + random.Next(-2, 2);
         this.Dexterity = 15;

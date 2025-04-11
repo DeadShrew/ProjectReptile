@@ -1,0 +1,18 @@
+﻿using ProjectReptile.AbstractClasses;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectReptile.Shields
+{
+    class DragonShield : Shield
+    {
+        public DragonShield()
+        {
+            this.Armor = 4;
+            this.Name = "Dragon Shield"; 
+        }
+    }
+}

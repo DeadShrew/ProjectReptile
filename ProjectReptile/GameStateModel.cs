@@ -144,7 +144,7 @@ namespace ProjectReptile
 
         public void GenerateEnemies()
         {
-            int monsterAmount = random.Next(1, 6);
+            int monsterAmount = random.Next(10, 20);
 
             for (int i = 0; i < monsterAmount; i++)
             {

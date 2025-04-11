@@ -14,9 +14,9 @@ namespace ProjectReptile.Factories
         {
             Random random = new Random();
 
-            int enemy = random.Next(1, 8);
+            int weapon = random.Next(1, 8);
 
-            switch (enemy)
+            switch (weapon)
             {
                 case 1:
                     return new Torch();
@@ -46,9 +46,9 @@ namespace ProjectReptile.Factories
         {
             Random random = new Random();
 
-            int enemy = random.Next(1, 6);
+            int weapon = random.Next(1, 6);
 
-            switch (enemy)
+            switch (weapon)
             {
                 case 1:
                     return new Torch();
