@@ -20,7 +20,7 @@ namespace ProjectReptile.AbstractClasses
         public int ThreatLevel;
         public bool IsIntelligent;
         public bool IsNegotiable;
-        public bool IsAlive;
+        public bool IsAlive = true;
         public string Name;
 
         public override void EncounterCheck(Player player)
@@ -28,6 +28,7 @@ namespace ProjectReptile.AbstractClasses
             if(player.LocationX == this.LocationX && player.LocationY == this.LocationY)
                 {
                 Console.WriteLine("The player has encountered a " + this.Name);
+                player.InCombat = true;
             }
         }
     }

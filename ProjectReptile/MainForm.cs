@@ -187,13 +187,16 @@ namespace ProjectReptile
                 if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY && enemy.IsAlive == true)
                 {
                     AttackButton.Enabled = true;
+                    DefendButton.Enabled = true;
+                    SorceryButton.Enabled = true;
+                    FleeButton.Enabled = true; 
                 }
             }
 
             foreach (Enemy enemy in gameState.EnemyList)
             {
                 if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY
-                    && enemy.IsAlive == true && enemy.IsIntelligent == true && enemy.IsNegotiable == true)
+                    && enemy.IsAlive == true && enemy.IsIntelligent == true && enemy.IsNegotiable == true && gameState.player.InCombat == true)
                 {
                     TalkButton.Enabled = true;
                 }
@@ -251,6 +254,7 @@ namespace ProjectReptile
                                                     gameState.player.Power +
                                                     gameState.player.Armor +
                                                     gameState.player.Dexterity).ToString();
+
         }
 
         private void UpdateParcelInfoLabel()
