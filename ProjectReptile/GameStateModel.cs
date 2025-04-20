@@ -413,6 +413,7 @@ namespace ProjectReptile
             {
                 enemy.Strength = 0;
                 enemy.IsAlive = false;
+                GetParcelByCoordinates(player.LocationX, player.LocationY).EnemyDescription = "A dead " + enemy.Name + " is here"; 
             }
         }
 

@@ -285,17 +285,20 @@ namespace ProjectReptile
             {
                 EnemyInfoLabel.Text += gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).EnemyDescription;
 
-                if (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedWeapon != null)
+                if (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedWeapon != null &&
+                    (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).IsAlive == true))
                 {
                     EnemyInfoLabel.Text += " It has a " + gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedWeapon;
                 }
 
-                if (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedShield != null)
+                if (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedShield != null &&
+                    (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).IsAlive == true))
                 {
                     EnemyInfoLabel.Text += ", " + gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedShield;
                 }
 
-                if (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedArmour != null)
+                if (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedArmour != null &&
+                    (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).IsAlive == true))
                 {
                     EnemyInfoLabel.Text += ", " + gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedArmour;
 
