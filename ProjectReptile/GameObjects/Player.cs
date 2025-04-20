@@ -1,26 +1,30 @@
 ﻿using ProjectReptile.AbstractClasses;
 using ProjectReptile.Items;
+using ProjectReptile.Weapons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectReptile
+namespace ProjectReptile.GameObjects
 {
     public class Player 
     {
         public int LocationX;
         public int LocationY;
-        public int Strength = 14;
+        public int Strength = 20;
         public int Power = 1;
         public int Armor = 1;
-        public int Dexterity = 2; 
+        public int Dexterity = 18; 
         public int Gold = 10;
         public bool InCombat;
         public bool AtLandmark;
         public string MovedDir;
-        
+        public Weapon equippedWeapon = new RitualMace();
+        public Shield equippedShield;
+        public Armour equippedArmour;
+
 
         public LinkedList<Item> ItemList;
 

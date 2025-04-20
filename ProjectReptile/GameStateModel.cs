@@ -1,5 +1,6 @@
 ﻿using ProjectReptile.AbstractClasses;
 using ProjectReptile.Factories;
+using ProjectReptile.GameObjects;
 using System.Windows.Forms;
 
 namespace ProjectReptile
@@ -61,7 +62,6 @@ namespace ProjectReptile
                     if (enemy.LocationX == x && enemy.LocationY == y)
                     {
                         parcel.EnemyDescription = " A " + enemy.Name + " is here.";
-                        Console.WriteLine("meow");
                     }
                 }
 
@@ -336,6 +336,83 @@ namespace ProjectReptile
                 ParcelDescriptionsList.Add("You are in a room with elaborate wood paneling.");
                 ParcelDescriptionsList.Add("You are in a room with many nooks and crannies.");
                 ParcelDescriptionsList.Add("You are in a cavern with glimmering minerals in the walls.");
+            }
+        }
+
+        public void AttackEnemyOffensively()
+        {
+            Enemy enemy = GetEnemyByCoordinates(player.LocationX, player.LocationY);
+
+            int playerInitiativeRoll = random.Next(1, player.Dexterity + 1);
+            int enemyInitiativeRoll = random.Next(1, enemy.Dexterity + 1);
+
+            if (playerInitiativeRoll >= enemyInitiativeRoll)
+            {
+                PlayerAttack(enemy);
+
+                if (enemy.Strength > 0)
+                    EnemyAttack(enemy);
+            }
+            else
+            {
+                EnemyAttack(enemy);
+
+                if (enemy.Strength > 0)
+                    PlayerAttack(enemy);
+            }
+
+        }
+
+        public void PlayerAttack(Enemy enemy)
+        {
+            int diceRoll = random.Next(1, 7);
+            Console.WriteLine(diceRoll);
+            int damageRoll = random.Next(1, (int)(player.Strength * 0.666 + player.Power) + 1);
+
+            if (diceRoll > 1 && diceRoll < 6)
+            {
+                enemy.Strength -= Math.Max(0, damageRoll - enemy.Armor);
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("You have hit the " + enemy.Name + " for " + Math.Max(0, damageRoll - enemy.Armor) + " point(s).");
+            } else if (diceRoll > 5)
+            {
+                enemy.Strength -= damageRoll;
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("CRITICAL HIT! You have hit the " + enemy.Name + " for " + damageRoll + " point(s).");
+            } else if (diceRoll < 2)
+            {
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("You missed the " + enemy.Name + " with your " + player.equippedWeapon.Name + ".");
+            }
+        }
+
+        public void EnemyAttack(Enemy enemy)
+        {
+            int diceRoll = random.Next(1, 7);
+            Console.WriteLine(diceRoll);
+            int damageRoll = random.Next(1, (int)(enemy.Strength * 0.666 + enemy.Power) + 1);
+
+            if (diceRoll > 1 && diceRoll < 6)
+            {
+                player.Strength -= Math.Max(0, damageRoll - player.Armor);
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " hit you for " + Math.Max(0, damageRoll - player.Armor) + " point(s).");
+            }
+            else if (diceRoll > 5)
+            {
+                player.Strength -= damageRoll;
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("CRITICAL HIT! The " + enemy.Name + " hit you for " + damageRoll + " point(s)."); ;
+            }
+            else if (diceRoll < 2)
+            {
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " missed you with its attack.");
+            }
+        }
+
+        public void EnemyDeathCheck()
+        {
+            Enemy enemy = GetEnemyByCoordinates(player.LocationX, player.LocationY);
+
+            if (enemy.Strength <= 0) 
+            {
+                enemy.Strength = 0;
+                enemy.IsAlive = false;
             }
         }
 

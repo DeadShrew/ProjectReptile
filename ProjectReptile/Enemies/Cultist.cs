@@ -24,8 +24,8 @@ public class Cultist : Enemy
         this.equippedArmour = ArmourFactory.CreateArmor();
         this.IsIntelligent = true;
         this.IsNegotiable = true; 
-        this.Power = 15 + equippedWeapon.Power;
-        this.Strength = 15 + random.Next(-2, 2);
+        this.Power = equippedWeapon.Power;
+        this.Strength = 4 + random.Next(-2, 2);
         this.Dexterity = 15;
         this.Armor = 15;
         this.Gold = 0 + random.Next(0, 1);

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectReptile.AbstractClasses;
 
-namespace ProjectReptile
+namespace ProjectReptile.GameObjects
 {
     public class Parcel : Encounter
     {

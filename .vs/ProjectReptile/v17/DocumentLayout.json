@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\gamestatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,22 +28,22 @@
               "RelativeDocumentMoniker": "ProjectReptile\\GameStateModel.cs",
               "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\GameStateModel.cs",
               "RelativeToolTip": "ProjectReptile\\GameStateModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFIBAAAAAAAAAAAiwD8AAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T06:24:25.747Z",
+              "WhenOpened": "2025-04-16T05:48:40.175Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainForm.cs [Design]",
+              "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs",
               "RelativeDocumentMoniker": "ProjectReptile\\MainForm.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs [Design]",
-              "RelativeToolTip": "ProjectReptile\\MainForm.cs [Design]",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs",
+              "RelativeToolTip": "ProjectReptile\\MainForm.cs",
+              "ViewState": "AgIAAAABAAAAAAAAAAAAABYBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T05:58:03.711Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-04-16T05:43:39.542Z"
             }
           ]
         }

@@ -1,4 +1,5 @@
 using ProjectReptile.AbstractClasses;
+using ProjectReptile.GameObjects;
 using System;
 using System.Reflection;
 using System.Text;
@@ -118,7 +119,15 @@ namespace ProjectReptile
 
         private void AttackButton_Click(object sender, EventArgs e)
         {
-
+            gameState.AttackEnemyOffensively();
+            gameState.EnemyDeathCheck();
+            UpdatePlayerConsole();
+            UpdateParcelInfoLabel();
+            UpdateEnemyInfoLabelsAndGUI();
+            UpdatePlayerInfoLabelsAndGUI();
+            DisableActionButtons();
+            EnableActionButtons();
+            this.Refresh();
         }
 
         private void DefendButton_Click(object sender, EventArgs e)
@@ -251,9 +260,9 @@ namespace ProjectReptile
             PlayerThreatLabel.Text = "Player PV: "; 
 
             PlayerThreatLabel.Text = "Player PV: " + (gameState.player.Strength +
-                                                    gameState.player.Power +
-                                                    gameState.player.Armor +
-                                                    gameState.player.Dexterity).ToString();
+                                                      gameState.player.Power +
+                                                      gameState.player.Armor +
+                                                      gameState.player.Dexterity).ToString();
 
         }
 
@@ -322,6 +331,9 @@ namespace ProjectReptile
             }
 
             PlayerConsoleTextBox.Text = consoleText.ToString();
+
+            PlayerConsoleTextBox.SelectionStart = PlayerConsoleTextBox.Text.Length;
+            PlayerConsoleTextBox.ScrollToCaret();
         }
 
         private void ClearPlayerConsole()
