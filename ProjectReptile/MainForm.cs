@@ -121,8 +121,10 @@ namespace ProjectReptile
         {
             gameState.AttackEnemyOffensively();
             gameState.EnemyDeathCheck();
+            gameState.PlayerDeathCheck();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
+            AddParcelItemsToListbox();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
             DisableActionButtons();
@@ -132,7 +134,17 @@ namespace ProjectReptile
 
         private void DefendButton_Click(object sender, EventArgs e)
         {
-
+            gameState.AttackEnemyDefensively();
+            gameState.EnemyDeathCheck();
+            gameState.PlayerDeathCheck();
+            UpdatePlayerConsole();
+            UpdateParcelInfoLabel();
+            AddParcelItemsToListbox();
+            UpdateEnemyInfoLabelsAndGUI();
+            UpdatePlayerInfoLabelsAndGUI();
+            DisableActionButtons();
+            EnableActionButtons();
+            this.Refresh();
         }
 
         private void SorceryButton_Click(object sender, EventArgs e)
