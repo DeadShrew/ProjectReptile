@@ -37,6 +37,7 @@ namespace ProjectReptile
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
+            EngagementCheck();
             this.Refresh();
         }
 
@@ -55,6 +56,7 @@ namespace ProjectReptile
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
+            EngagementCheck();
             this.Refresh();
         }
 
@@ -73,6 +75,7 @@ namespace ProjectReptile
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
+            EngagementCheck();
             this.Refresh();
         }
 
@@ -91,6 +94,7 @@ namespace ProjectReptile
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
+            EngagementCheck();
             this.Refresh();
         }
 
@@ -109,12 +113,21 @@ namespace ProjectReptile
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
+            EngagementCheck();
             this.Refresh();
         }
 
         private void FleeButton_Click(object sender, EventArgs e)
-        {
-
+        {     
+            gameState.FleeAttempt();
+            DisableActionButtons();
+            EnableActionButtons();
+            UpdateParcelInfoLabel();
+            UpdatePlayerConsole();
+            UpdateEnemyInfoLabelsAndGUI();
+            UpdatePlayerInfoLabelsAndGUI();
+            ToggleMovementButtonsForCombat();
+            this.Refresh(); 
         }
 
         private void AttackButton_Click(object sender, EventArgs e)
@@ -129,6 +142,7 @@ namespace ProjectReptile
             UpdatePlayerInfoLabelsAndGUI();
             DisableActionButtons();
             EnableActionButtons();
+            EngagementCheck();
             this.Refresh();
         }
 
@@ -144,6 +158,7 @@ namespace ProjectReptile
             UpdatePlayerInfoLabelsAndGUI();
             DisableActionButtons();
             EnableActionButtons();
+            EngagementCheck();
             this.Refresh();
         }
 
@@ -201,11 +216,57 @@ namespace ProjectReptile
             FleeButton.Enabled = false;
         }
 
-        private void EnableActionButtons()
+        private void EnableMovementButtons()
+        {
+            UpButton.Enabled = true;
+            DownButton.Enabled = true;
+            LeftButton.Enabled = true;
+            RightButton.Enabled = true;
+        }
+
+        private void DisableMovementButtons()
+        {
+            UpButton.Enabled = false;
+            DownButton.Enabled = false;
+            LeftButton.Enabled = false;
+            RightButton.Enabled = false;
+        }
+
+        private void EngagementCheck()
         {
             foreach (Enemy enemy in gameState.EnemyList)
             {
                 if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY && enemy.IsAlive == true)
+                {
+                    gameState.player.InCombat = true; 
+
+                } else if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY && enemy.IsAlive == false)
+                {
+                    gameState.player.InCombat = false;
+
+                }
+            }
+
+            ToggleMovementButtonsForCombat();
+        }
+
+        private void ToggleMovementButtonsForCombat()
+        {
+            if (gameState.player.InCombat == true)
+            {
+                DisableMovementButtons();
+            }
+            else if (gameState.player.InCombat == false)
+            {
+                EnableMovementButtons();
+            }
+        }
+
+        private void EnableActionButtons()
+        {
+            foreach (Enemy enemy in gameState.EnemyList)
+            {
+                if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY && enemy.IsAlive == true && gameState.player.InCombat == true)
                 {
                     AttackButton.Enabled = true;
                     DefendButton.Enabled = true;

@@ -472,6 +472,21 @@ namespace ProjectReptile
             }
         }
 
+        public void FleeAttempt()
+        {
+            int diceRoll = random.Next(1, 7);
+
+            if (diceRoll > 2)
+            {
+                player.InCombat = false;
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("You have escaped."); 
+            } else if (diceRoll <= 2)
+            {
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("You have not escaped.");
+                EnemyAttack(GetEnemyByCoordinates(player.LocationX, player.LocationY)); 
+            }
+        }
+
         public void EnemyDeathCheck()
         {
             Enemy enemy = GetEnemyByCoordinates(player.LocationX, player.LocationY);
