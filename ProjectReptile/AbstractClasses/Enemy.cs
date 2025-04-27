@@ -30,7 +30,6 @@ namespace ProjectReptile.AbstractClasses
         {
             if(player.LocationX == this.LocationX && player.LocationY == this.LocationY)
                 {
-                Console.WriteLine("The player has encountered a " + this.Name);
                 player.InCombat = true;
             }
         }

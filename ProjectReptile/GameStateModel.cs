@@ -389,7 +389,6 @@ namespace ProjectReptile
         public void PlayerOffensiveAttack(Enemy enemy)
         {
             int diceRoll = random.Next(1, 7);
-            Console.WriteLine(diceRoll);
             int damageRoll = random.Next(1, (int)(player.Strength * 0.666 + player.Power) + 1);
 
             if (diceRoll > 1 && diceRoll < 6)
@@ -409,7 +408,6 @@ namespace ProjectReptile
         public void PlayerDefensiveAttack(Enemy enemy)
         {
             int diceRoll = random.Next(1, 7);
-            Console.WriteLine(diceRoll);
             int damageRoll = random.Next(1, (int)(player.Strength * 0.333 + player.Power) + 1);
 
             if (diceRoll > 1 && diceRoll < 6)
@@ -431,7 +429,6 @@ namespace ProjectReptile
         public void EnemyAttack(Enemy enemy)
         {
             int diceRoll = random.Next(1, 7);
-            Console.WriteLine(diceRoll);
             int damageRoll = random.Next(1, (int)(enemy.Strength * 0.666 + enemy.Power) + 1);
 
             if (diceRoll > 1 && diceRoll < 6)
@@ -453,7 +450,6 @@ namespace ProjectReptile
         public void BlockedEnemyAttack(Enemy enemy)
         {
             int diceRoll = random.Next(1, 7);
-            Console.WriteLine(diceRoll);
             int damageRoll = random.Next(1, (int)(enemy.Strength * 0.666 + enemy.Power) + 1);
 
             if (diceRoll > 4 && diceRoll < 6)

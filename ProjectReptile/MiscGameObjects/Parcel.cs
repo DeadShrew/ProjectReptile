@@ -22,15 +22,14 @@ namespace ProjectReptile.GameObjects
             LocationX = x;
             LocationY = y; 
             ItemList = new LinkedList<Item>();
-            Console.WriteLine("I am a parcel and my location is " + LocationX + ", " + LocationY);
         }
 
         public override void EncounterCheck(Player player)
         {
-            if (player.LocationX == LocationX && player.LocationY == LocationY)
-            {
-                Console.WriteLine("My adjacent trap count is: " + AdjacentTraps); 
-            }
+            //if (player.LocationX == LocationX && player.LocationY == LocationY)
+            //{
+            //    Console.WriteLine("My adjacent trap count is: " + AdjacentTraps); 
+            //}
                 
         }
 
