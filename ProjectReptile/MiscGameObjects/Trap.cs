@@ -18,7 +18,11 @@ namespace ProjectReptile
         {
             if (player.LocationX == LocationX && player.LocationY == LocationY)
             {
-                GUIOutputManager.PlayerConsoleOutputList.AddLast("You have entered a magic shock trap.");
+                Random random = new Random();
+                int trapDamage = random.Next(1, 13);
+
+                player.Strength = player.Strength - trapDamage;
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("You entered a magic shock trap which deals " + trapDamage + " damage.");
             }
         }
     }

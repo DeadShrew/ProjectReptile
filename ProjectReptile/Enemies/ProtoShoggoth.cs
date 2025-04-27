@@ -13,6 +13,10 @@ namespace ProjectReptile.Enemies
         {
             Random random = new Random();
 
+            string relativePath = "Images\\Proto-Shoggoth Test Image.png";
+            string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+
+            this.enemyIcon = Image.FromFile(fullPath);
             this.Power = 2;
             this.Strength = 4 + random.Next(-2, 2);
             this.Dexterity = 15;

@@ -9,6 +9,8 @@ namespace ProjectReptile.AbstractClasses
 {
     public abstract class Enemy : Encounter
     {
+        public Image enemyIcon; 
+
         public Weapon equippedWeapon;
         public Shield equippedShield;
         public Armour equippedArmour;

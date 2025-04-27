@@ -29,6 +29,7 @@ namespace ProjectReptile
             ClearPlayerConsole();
             RemoveItemsFromListBox();
             gameState.EncounterCheck();
+            gameState.PlayerDeathCheck();
             AddParcelItemsToListbox();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
@@ -51,6 +52,7 @@ namespace ProjectReptile
             gameState.ParcelTrapProximityCheck();
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
+            gameState.PlayerDeathCheck();
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
@@ -70,6 +72,7 @@ namespace ProjectReptile
             gameState.ParcelTrapProximityCheck();
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
+            gameState.PlayerDeathCheck();
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
@@ -89,6 +92,7 @@ namespace ProjectReptile
             gameState.ParcelTrapProximityCheck();
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
+            gameState.PlayerDeathCheck();
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
@@ -108,6 +112,7 @@ namespace ProjectReptile
             gameState.ParcelTrapProximityCheck();
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
+            gameState.PlayerDeathCheck();
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
@@ -127,6 +132,7 @@ namespace ProjectReptile
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
             ToggleMovementButtonsForCombat();
+            gameState.PlayerDeathCheck();
             this.Refresh(); 
         }
 
@@ -159,6 +165,7 @@ namespace ProjectReptile
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();
+            gameState.PlayerDeathCheck();
             this.Refresh();
         }
 
@@ -295,10 +302,7 @@ namespace ProjectReptile
 
         private void RemoveItemsFromListBox()
         {
-            for (int i = 0; i < ParcelItemList.Items.Count; i++)
-            {
-                ParcelItemList.Items.RemoveAt(i);
-            }
+            ParcelItemList.Items.Clear(); 
         }
 
         private void AddParcelItemsToListbox()
@@ -352,10 +356,19 @@ namespace ProjectReptile
         {
             EnemyInfoLabel.Text = "";
             EnemyStrengthLabel.Text = "Enemy Strength: ";
-            EnemyThreatLabel.Text = "Enemy PV: "; 
+            EnemyThreatLabel.Text = "Enemy PV: ";
+            EnemyPictureBox.Image = null;
+
+
 
             if (gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).EnemyDescription != null)
             {
+                if (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY) != null &&
+                    (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).IsAlive == true))
+                {
+                    EnemyPictureBox.Image = gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).enemyIcon;
+                }
+
                 EnemyInfoLabel.Text += gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).EnemyDescription;
 
                 if (gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).equippedWeapon != null &&

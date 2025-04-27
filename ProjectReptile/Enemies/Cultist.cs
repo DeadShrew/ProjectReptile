@@ -15,7 +15,10 @@ public class Cultist : Enemy
     public Cultist()
     {
         Random random = new Random();
+        string relativePath = "Images\\Mythos Cultist Test Image.png"; 
+        string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 
+        this.enemyIcon = Image.FromFile(fullPath);
         this.equippedWeapon = WeaponFactory.CreateWeaponForCultist();
         if (equippedWeapon.TwoHanded == false)
         {
