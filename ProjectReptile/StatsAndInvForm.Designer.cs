@@ -108,6 +108,7 @@
             UseItemButton.TabIndex = 4;
             UseItemButton.Text = "Use Item";
             UseItemButton.UseVisualStyleBackColor = true;
+            UseItemButton.Click += UseItemButton_Click;
             // 
             // UnuseItemButton
             // 

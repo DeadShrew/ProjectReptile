@@ -1,5 +1,7 @@
 ﻿using ProjectReptile.AbstractClasses;
+using ProjectReptile.Armor;
 using ProjectReptile.Items;
+using ProjectReptile.Shields;
 using ProjectReptile.Weapons;
 using System;
 using System.Collections.Generic;
@@ -14,14 +16,18 @@ namespace ProjectReptile.GameObjects
         public int LocationX;
         public int LocationY;
         public int Strength = 20;
-        public int Power = 1;
-        public int Armor = 1;
-        public int Dexterity = 18; 
+        public int MaxStrength = 20;
+        public int Weapon = 0;
+        public int Armor = 0;
+        public int Dexterity = 18;
+        public int MaxDexterity = 18;
+        public int Intelligence = 10;
+        public int ModifiedInt = 10;
         public int Gold = 10;
         public bool InCombat;
         public bool AtLandmark;
         public string MovedDir;
-        public Weapon equippedWeapon = new RitualMace();
+        public Weapon equippedWeapon;
         public Shield equippedShield;
         public Armour equippedArmour;
 
@@ -31,12 +37,56 @@ namespace ProjectReptile.GameObjects
         Random random = new Random();
         public Player()
         {
+            if (equippedWeapon != null)
+            {
+                this.Weapon = Weapon + equippedWeapon.Power;
+            }
+            if (equippedShield != null)
+            {
+                this.Armor = Armor + equippedShield.Armor;
+            }
+            if (equippedArmour != null)
+            {
+                this.Armor = Armor + equippedArmour.Armor;
+            }
+            
             LocationX = random.Next(0, Settings.Columns);
             LocationY = random.Next(0, Settings.Rows);
             ItemList = new LinkedList<Item>();
 
-            //Test Item
+            ItemList.AddLast(new TotemClub()); 
+            ItemList.AddLast(new SmallShield());
+            ItemList.AddLast(new LeatherArmor());
             ItemList.AddLast(new Potion());
+
+            this.equippedWeapon = (Weapon?)ItemList.FirstOrDefault(i => i is TotemClub); 
+            this.equippedShield = (Shield?)ItemList.FirstOrDefault(i => i is SmallShield);
+            this.equippedArmour = (Armour?)ItemList.FirstOrDefault(i => i is LeatherArmor);
+
+            this.equippedWeapon.IsEquipped = true;
+            this.equippedShield.IsEquipped = true;
+            this.equippedArmour.IsEquipped = true;
+
+            UpdatePlayerAfterEquipmentChange();
+        }
+
+        public void UpdatePlayerAfterEquipmentChange()
+        {
+            this.Weapon = 0;
+            this.Armor = 0;
+
+            if (equippedWeapon != null)
+            {
+                this.Weapon = Weapon + equippedWeapon.Power;
+            }
+            if (equippedShield != null)
+            {
+                this.Armor = Armor + equippedShield.Armor;
+            }
+            if (equippedArmour != null)
+            {
+                this.Armor = Armor + equippedArmour.Armor;
+            }
         }
 
         public void MovePlayerUp()

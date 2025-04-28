@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile.AbstractClasses
 {
-    public abstract class Weapon : Equipment
+    public abstract class Equipment : Item
     {
-        public int Power;
-        public bool TwoHanded;
-        public bool Magical;
+        public bool IsEquipped; 
     }
 }

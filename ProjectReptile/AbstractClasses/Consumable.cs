@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile.AbstractClasses
 {
-    public class Consumable : Item
+    public class Consumable : Equipment
     {
     }
 }

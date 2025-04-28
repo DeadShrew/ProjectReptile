@@ -337,7 +337,7 @@ namespace ProjectReptile
             PlayerThreatLabel.Text = "Player PV: "; 
 
             PlayerThreatLabel.Text = "Player PV: " + (gameState.player.Strength +
-                                                      gameState.player.Power +
+                                                      gameState.player.Weapon +
                                                       gameState.player.Armor +
                                                       gameState.player.Dexterity).ToString();
 

@@ -389,7 +389,7 @@ namespace ProjectReptile
         public void PlayerOffensiveAttack(Enemy enemy)
         {
             int diceRoll = random.Next(1, 7);
-            int damageRoll = random.Next(1, (int)(player.Strength * 0.666 + player.Power) + 1);
+            int damageRoll = random.Next(1, (int)(player.Strength * 0.666 + player.Weapon) + 1);
 
             if (diceRoll > 1 && diceRoll < 6)
             {
@@ -408,7 +408,7 @@ namespace ProjectReptile
         public void PlayerDefensiveAttack(Enemy enemy)
         {
             int diceRoll = random.Next(1, 7);
-            int damageRoll = random.Next(1, (int)(player.Strength * 0.333 + player.Power) + 1);
+            int damageRoll = random.Next(1, (int)(player.Strength * 0.333 + player.Weapon) + 1);
 
             if (diceRoll > 1 && diceRoll < 6)
             {
@@ -507,6 +507,12 @@ namespace ProjectReptile
                 if (enemy.equippedShield != null)
                 {
                     parcel.ItemList.AddLast(enemy.equippedShield);
+                }
+
+                if (enemy.Gold > 0)
+                {
+                    player.Gold += enemy.Gold;
+                    GUIOutputManager.PlayerConsoleOutputList.AddLast("You find " + enemy.Gold + " gold on the " + enemy.Name + ".");
                 }
             }
         }

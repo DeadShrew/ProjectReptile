@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile.AbstractClasses
 {
-    public abstract class Shield : Item
+    public abstract class Shield : Equipment
     {
         public int Armor;
     }

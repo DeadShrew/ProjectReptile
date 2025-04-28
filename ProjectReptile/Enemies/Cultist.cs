@@ -31,7 +31,7 @@ public class Cultist : Enemy
         this.Strength = 4 + random.Next(-2, 2);
         this.Dexterity = 15;
         this.Armor = 15;
-        this.Gold = 0 + random.Next(0, 1);
+        this.Gold = 3 + random.Next(-2, 2);
         this.ThreatLevel = 0;
         this.Name = "cultist";
     }  
