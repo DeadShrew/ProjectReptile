@@ -74,7 +74,7 @@ namespace ProjectReptile.GameObjects
             ItemList.AddLast(new TotemClub()); 
             ItemList.AddLast(new SmallShield());
             ItemList.AddLast(new LeatherArmor());
-            ItemList.AddLast(new Potion());
+            ItemList.AddLast(new RestorationPotion());
 
             this.equippedWeapon = (Weapon?)ItemList.FirstOrDefault(i => i is TotemClub); 
             this.equippedShield = (Shield?)ItemList.FirstOrDefault(i => i is SmallShield);

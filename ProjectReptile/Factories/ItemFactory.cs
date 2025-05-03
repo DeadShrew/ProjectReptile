@@ -21,7 +21,7 @@ namespace ProjectReptile.Factories
             switch (item)
             {
                 case 1:
-                    return new Potion();
+                    return new RestorationPotion();
 
                 case 2:
                     return new BottleOfWater();

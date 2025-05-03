@@ -251,9 +251,8 @@
             PlayerConsoleTextBox.Location = new Point(26, 441);
             PlayerConsoleTextBox.Multiline = true;
             PlayerConsoleTextBox.Name = "PlayerConsoleTextBox";
-            PlayerConsoleTextBox.ScrollBars = ScrollBars.Vertical;
             PlayerConsoleTextBox.ReadOnly = true;
-
+            PlayerConsoleTextBox.ScrollBars = ScrollBars.Vertical;
             PlayerConsoleTextBox.Size = new Size(819, 100);
             PlayerConsoleTextBox.TabIndex = 18;
             // 

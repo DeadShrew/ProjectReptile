@@ -123,6 +123,15 @@ namespace ProjectReptile
                 ArmourWornLabel.Text = "Armour Worn: " + gameState.player.equippedArmour.Name;
             }
 
+            if (item is Consumable)
+            {
+                Consumable consumable = (Consumable)item;
+                consumable.ConsumeItem(gameState.player);
+                gameState.player.ItemList.Remove(consumable);
+                PlayerInventoryListbox.Items.Clear(); 
+                GetPlayerInventory(gameState.player);  
+            }
+
             if (item is Equipment)
             {
                 Equipment equipment = (Equipment)item;
@@ -135,7 +144,7 @@ namespace ProjectReptile
 
             gameState.player.UpdatePlayerAfterEquipmentChange();
             UpdateStatsForm();
-            this.Refresh();
+            this.Refresh();           
         }
 
         private void UnuseItemButton_Click(object sender, EventArgs e)

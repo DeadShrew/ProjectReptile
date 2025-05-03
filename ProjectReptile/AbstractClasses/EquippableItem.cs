@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile.AbstractClasses
 {
-    public abstract class Consumable : Item
+    public abstract class EquippableItem : Equipment 
     {
-        public abstract void ConsumeItem(Player player);
+        public string Name;
+        public string TrueName;
+
+        public abstract void EquipItem(Player player);
 
     }
 }
+
