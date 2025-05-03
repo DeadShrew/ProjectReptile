@@ -7,12 +7,26 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile.Shields
 {
-    class NoShield : Shield
+    public class NoShield : Shield
     {
+        private static NoShield instance;
+
         public NoShield()
         {
             this.Armor = 0;
             this.Name = "";
+        }
+
+        public static NoShield GetInstance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new NoShield();
+                }
+                return instance;
+            }
         }
     }
 }

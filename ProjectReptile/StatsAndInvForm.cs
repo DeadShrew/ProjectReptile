@@ -108,15 +108,19 @@ namespace ProjectReptile
             if (item is Shield)
             {
                 Shield shield = (Shield)item;
+                gameState.player.equippedShield.IsEquipped = false;
                 gameState.player.equippedShield = shield;
                 shield.IsEquipped = true;
+                ReadyShieldLabel.Text = "Ready Shield: " + gameState.player.equippedShield.Name;
             }
 
             if (item is Armour)
             {
                 Armour armour = (Armour)item;
+                gameState.player.equippedArmour.IsEquipped = false;
                 gameState.player.equippedArmour = armour;
                 armour.IsEquipped = true;
+                ArmourWornLabel.Text = "Armour Worn: " + gameState.player.equippedArmour.Name;
             }
 
             if (item is Equipment)
@@ -142,7 +146,7 @@ namespace ProjectReptile
             {
                 gameState.player.equippedWeapon.IsEquipped = false;
                 Weapon weapon = (Weapon)item;                
-                gameState.player.equippedWeapon = new BareHands();
+                gameState.player.equippedWeapon = BareHands.GetInstance;
             }
 
             if (item is Shield && gameState.player.equippedShield.IsEquipped == true)
