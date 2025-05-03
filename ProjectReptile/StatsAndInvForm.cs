@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.DataFormats;
 using ProjectReptile.GameObjects;
+using ProjectReptile.Weapons;
+using ProjectReptile.Shields;
+using ProjectReptile.Armor;
 
 namespace ProjectReptile
 {
@@ -46,7 +49,7 @@ namespace ProjectReptile
             }
             if (gameState.player.equippedArmour != null)
             {
-                this.ArmourWormLabel.Text = "Armour Worn: " + gameState.player.equippedArmour.Name;
+                this.ArmourWornLabel.Text = "Armour Worn: " + gameState.player.equippedArmour.Name;
             }
         }
 
@@ -72,15 +75,16 @@ namespace ProjectReptile
 
                 if (equipment.IsEquipped == true)
                 {
-                    ItemStatusLabel.Text = "In Use"; 
+                    ItemStatusLabel.Text = "In Use";
 
-                } else if (equipment.IsEquipped == false) 
+                }
+                else if (equipment.IsEquipped == false)
                 {
-                    ItemStatusLabel.Text = ""; 
+                    ItemStatusLabel.Text = "";
                 }
             }
 
-            this.Refresh(); 
+            this.Refresh();
         }
 
         private void DoneButton_Click(object sender, EventArgs e)
@@ -95,8 +99,10 @@ namespace ProjectReptile
             if (item is Weapon)
             {
                 Weapon weapon = (Weapon)item;
+                gameState.player.equippedWeapon.IsEquipped = false;
                 gameState.player.equippedWeapon = weapon;
                 weapon.IsEquipped = true;
+                ReadyWeaponLabel.Text = "Ready Weapon: " + gameState.player.equippedWeapon.Name;
             }
 
             if (item is Shield)
@@ -112,7 +118,7 @@ namespace ProjectReptile
                 gameState.player.equippedArmour = armour;
                 armour.IsEquipped = true;
             }
-            
+
             if (item is Equipment)
             {
                 Equipment equipment = (Equipment)item;
@@ -120,6 +126,50 @@ namespace ProjectReptile
                 if (equipment.IsEquipped == true)
                 {
                     ItemStatusLabel.Text = "In Use";
+                }
+            }
+
+            gameState.player.UpdatePlayerAfterEquipmentChange();
+            UpdateStatsForm();
+            this.Refresh();
+        }
+
+        private void UnuseItemButton_Click(object sender, EventArgs e)
+        {
+            var item = PlayerInventoryListbox.SelectedItem;
+
+            if (item is Weapon && gameState.player.equippedWeapon.IsEquipped == true)
+            {
+                gameState.player.equippedWeapon.IsEquipped = false;
+                Weapon weapon = (Weapon)item;                
+                gameState.player.equippedWeapon = new BareHands();
+            }
+
+            if (item is Shield && gameState.player.equippedShield.IsEquipped == true)
+            {
+                gameState.player.equippedShield.IsEquipped = false;
+                Shield shield = (Shield)item;
+                gameState.player.equippedShield = new NoShield();
+            }
+
+            if (item is Armour && gameState.player.equippedArmour.IsEquipped == true)
+            {
+                gameState.player.equippedArmour.IsEquipped = false;
+                Armour armour = (Armour)item;
+                gameState.player.equippedArmour = new NoArmor();
+            }
+
+            if (item is Equipment)
+            {
+                Equipment equipment = (Equipment)item;
+
+                if (equipment.IsEquipped == true)
+                {
+                    ItemStatusLabel.Text = "In Use";
+                } 
+                else if (equipment.IsEquipped == false)
+                {
+                    ItemStatusLabel.Text = "";
                 }
             }
 

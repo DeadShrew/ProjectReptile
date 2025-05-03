@@ -42,7 +42,7 @@
             CollectedGoldLabel = new Label();
             ReadyWeaponLabel = new Label();
             ReadyShieldLabel = new Label();
-            ArmourWormLabel = new Label();
+            ArmourWornLabel = new Label();
             CurrentStrengthLabel = new Label();
             ModifiedDexLabel = new Label();
             ModifiedIntLabel = new Label();
@@ -118,6 +118,7 @@
             UnuseItemButton.TabIndex = 5;
             UnuseItemButton.Text = "Unuse Item";
             UnuseItemButton.UseVisualStyleBackColor = true;
+            UnuseItemButton.Click += UnuseItemButton_Click;
             // 
             // DropItemButton
             // 
@@ -194,12 +195,12 @@
             // 
             // ArmourWormLabel
             // 
-            ArmourWormLabel.AutoSize = true;
-            ArmourWormLabel.Location = new Point(60, 231);
-            ArmourWormLabel.Name = "ArmourWormLabel";
-            ArmourWormLabel.Size = new Size(83, 15);
-            ArmourWormLabel.TabIndex = 14;
-            ArmourWormLabel.Text = "Armour Worn:";
+            ArmourWornLabel.AutoSize = true;
+            ArmourWornLabel.Location = new Point(60, 231);
+            ArmourWornLabel.Name = "ArmourWormLabel";
+            ArmourWornLabel.Size = new Size(83, 15);
+            ArmourWornLabel.TabIndex = 14;
+            ArmourWornLabel.Text = "Armour Worn:";
             // 
             // CurrentStrengthLabel
             // 
@@ -347,7 +348,7 @@
             Controls.Add(ModifiedIntLabel);
             Controls.Add(ModifiedDexLabel);
             Controls.Add(CurrentStrengthLabel);
-            Controls.Add(ArmourWormLabel);
+            Controls.Add(ArmourWornLabel);
             Controls.Add(ReadyShieldLabel);
             Controls.Add(ReadyWeaponLabel);
             Controls.Add(CollectedGoldLabel);
@@ -385,7 +386,7 @@
         private Label CollectedGoldLabel;
         private Label ReadyWeaponLabel;
         private Label ReadyShieldLabel;
-        private Label ArmourWormLabel;
+        private Label ArmourWornLabel;
         private Label CurrentStrengthLabel;
         private Label ModifiedDexLabel;
         private Label ModifiedIntLabel;

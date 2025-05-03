@@ -40,17 +40,34 @@ namespace ProjectReptile.GameObjects
             if (equippedWeapon != null)
             {
                 this.Weapon = Weapon + equippedWeapon.Power;
+            } else
+            {
+                this.Weapon = 0; 
             }
+
             if (equippedShield != null)
             {
                 this.Armor = Armor + equippedShield.Armor;
+            } else if (equippedArmour != null)
+            {
+                this.Armor = equippedArmour.Armor;    
+            } else
+            {
+                this.Armor = 0;
             }
+
             if (equippedArmour != null)
             {
                 this.Armor = Armor + equippedArmour.Armor;
+            } else if (equippedShield != null)
+            {
+                this.Armor = equippedShield.Armor;
+            } else
+            {
+                this.Armor = 0;
             }
-            
-            LocationX = random.Next(0, Settings.Columns);
+
+                LocationX = random.Next(0, Settings.Columns);
             LocationY = random.Next(0, Settings.Rows);
             ItemList = new LinkedList<Item>();
 
