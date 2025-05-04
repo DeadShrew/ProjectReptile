@@ -10,6 +10,8 @@ namespace ProjectReptile.AbstractClasses
 {
     public abstract class Landmark : Encounter
     {
+        public Image landmarkIcon;
+
         public string ?Name;
         public bool Searched;
         public string ParcelInfoText; 
@@ -18,7 +20,7 @@ namespace ProjectReptile.AbstractClasses
         {
             if (player.LocationX == this.LocationX && player.LocationY == this.LocationY)
             {
-                Console.WriteLine("The player has encountered a " + this.Name);
+                //Console.WriteLine("The player has encountered a " + this.Name);
             }
         }
 

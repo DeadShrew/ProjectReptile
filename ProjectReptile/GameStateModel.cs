@@ -1,6 +1,7 @@
 ﻿using ProjectReptile.AbstractClasses;
 using ProjectReptile.Factories;
 using ProjectReptile.GameObjects;
+using ProjectReptile.MiscGameObjects;
 using System.Windows.Forms;
 
 namespace ProjectReptile
@@ -32,6 +33,9 @@ namespace ProjectReptile
             GenerateEnemyLocations();
             GenerateTrapLocations();
             GenerateLandmarkLocations();
+
+            GenerateGoldKey();
+            GenerateBossRoom();
 
             AddEnemiesToEncounterList();
             AddTrapsToEncounterList();
@@ -142,6 +146,18 @@ namespace ProjectReptile
             } return null; 
         }
 
+        public Landmark GetLandmarkByCoordinates(int x, int y)
+        {
+            foreach (Landmark landmark in LandmarkList)
+            {
+                if (landmark.LocationX == x && landmark.LocationY == y)
+                {
+                    return landmark;
+                }
+            }
+            return null;
+        }
+
         public void GenerateEnemies()
         {
             int monsterAmount = random.Next(10, 20);
@@ -240,7 +256,7 @@ namespace ProjectReptile
 
         public void GenerateLandmarks()
         {
-            int landmarkAmount = random.Next(1, 6);
+            int landmarkAmount = random.Next(1, 51);
 
             for (int i = 0; i < landmarkAmount; i++)
             {
@@ -301,6 +317,22 @@ namespace ProjectReptile
                     }
                 }
             }
+        }
+
+        public void GenerateGoldKey()
+        {
+            int x = random.Next(0, columns);
+            int y = random.Next(0, rows);
+
+            EncounterList.AddLast(new GoldKey(x, y));
+        }
+
+        public void GenerateBossRoom()
+        {
+            int x = random.Next(0, columns);
+            int y = random.Next(0, rows);
+
+            EncounterList.AddLast(new BossRoom(x, y));
         }
 
         private void InitializeParcelDescriptions()
@@ -492,6 +524,7 @@ namespace ProjectReptile
             {
                 enemy.Strength = 0;
                 enemy.IsAlive = false;
+                player.InCombat = false;/////////////////////////////////////
                 parcel.EnemyDescription = "A dead " + enemy.Name + " is here";
                 
                 if (enemy.equippedWeapon != null)

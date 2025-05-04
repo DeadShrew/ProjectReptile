@@ -11,7 +11,11 @@ namespace ProjectReptile.Landmarks
     {
         public OpenGrave() 
         {
-            this.Name = "open grave"; 
+            this.Name = "open grave";
+            string relativePath = "Images\\Mythos Cultist Test Image.png";
+            string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+
+            this.landmarkIcon = Image.FromFile(fullPath);
         }
     }
 }

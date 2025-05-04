@@ -39,6 +39,7 @@ namespace ProjectReptile
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
             EngagementCheck();
+            UpdateLandmarkGUI();
             this.Refresh();
         }
 
@@ -58,6 +59,7 @@ namespace ProjectReptile
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
+            UpdateLandmarkGUI();
             EngagementCheck();
             this.Refresh();
         }
@@ -78,6 +80,7 @@ namespace ProjectReptile
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
+            UpdateLandmarkGUI();
             EngagementCheck();
             this.Refresh();
         }
@@ -98,6 +101,7 @@ namespace ProjectReptile
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
+            UpdateLandmarkGUI();
             EngagementCheck();
             this.Refresh();
         }
@@ -118,12 +122,13 @@ namespace ProjectReptile
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
+            UpdateLandmarkGUI();
             EngagementCheck();
             this.Refresh();
         }
 
         private void FleeButton_Click(object sender, EventArgs e)
-        {     
+        {
             gameState.FleeAttempt();
             DisableActionButtons();
             EnableActionButtons();
@@ -133,7 +138,7 @@ namespace ProjectReptile
             UpdatePlayerInfoLabelsAndGUI();
             ToggleMovementButtonsForCombat();
             gameState.PlayerDeathCheck();
-            this.Refresh(); 
+            this.Refresh();
         }
 
         private void AttackButton_Click(object sender, EventArgs e)
@@ -177,6 +182,7 @@ namespace ProjectReptile
         private void SearchButton_Click(object sender, EventArgs e)
         {
             gameState.SearchLandmarks();
+            ParcelItemList.Items.Clear(); 
             AddParcelItemsToListbox();
             UpdateParcelInfoLabel();
             UpdatePlayerConsole();
@@ -195,16 +201,16 @@ namespace ProjectReptile
 
                 ParcelItemList.Items.Remove(item);
 
-                gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).ItemList.Remove(item);               
+                gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).ItemList.Remove(item);
 
                 gameState.player.ItemList.AddLast(item);
 
                 GUIOutputManager.PlayerConsoleOutputList.AddLast("You have picked up a " + item.Name + ".");
 
-                UpdatePlayerConsole(); 
+                UpdatePlayerConsole();
 
                 this.Refresh();
-            } 
+            }
         }
 
         private void StatsAndInvButton_Click(object sender, EventArgs e)
@@ -245,9 +251,10 @@ namespace ProjectReptile
             {
                 if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY && enemy.IsAlive == true)
                 {
-                    gameState.player.InCombat = true; 
+                    gameState.player.InCombat = true;
 
-                } else if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY && enemy.IsAlive == false)
+                }
+                else if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY && enemy.IsAlive == false)
                 {
                     gameState.player.InCombat = false;
 
@@ -278,7 +285,7 @@ namespace ProjectReptile
                     AttackButton.Enabled = true;
                     DefendButton.Enabled = true;
                     SorceryButton.Enabled = true;
-                    FleeButton.Enabled = true; 
+                    FleeButton.Enabled = true;
                 }
             }
 
@@ -293,7 +300,8 @@ namespace ProjectReptile
 
             foreach (Landmark landmark in gameState.LandmarkList)
             {
-                if (landmark.LocationX == gameState.player.LocationX && landmark.LocationY == gameState.player.LocationY && landmark.Searched == false)
+                if (landmark.LocationX == gameState.player.LocationX && landmark.LocationY == gameState.player.LocationY && landmark.Searched == false
+                    && gameState.player.InCombat == false)
                 {
                     SearchButton.Enabled = true;
                 }
@@ -302,7 +310,7 @@ namespace ProjectReptile
 
         private void RemoveItemsFromListBox()
         {
-            ParcelItemList.Items.Clear(); 
+            ParcelItemList.Items.Clear();
         }
 
         private void AddParcelItemsToListbox()
@@ -321,20 +329,20 @@ namespace ProjectReptile
                             SearchButton.Enabled = false;
                         }
                         catch (Exception ex)
-                        {        
-                            
+                        {
+
                         }
                     }
-                } 
+                }
             }
         }
 
         private void UpdatePlayerInfoLabelsAndGUI()
         {
-            DirectionAndCoordinatesLabel.Text = "Moved Dir: " + gameState.player.MovedDir + " Curr Loc C: " + gameState.player.LocationX + " R: " + gameState.player.LocationY;  
+            DirectionAndCoordinatesLabel.Text = "Moved Dir: " + gameState.player.MovedDir + " Curr Loc C: " + gameState.player.LocationX + " R: " + gameState.player.LocationY;
             PlayerStrengthLabel.Text = "Player Strength: " + gameState.player.Strength;
             PlayerGoldLabel.Text = "Player Gold: " + gameState.player.Gold;
-            PlayerThreatLabel.Text = "Player PV: "; 
+            PlayerThreatLabel.Text = "Player PV: ";
 
             PlayerThreatLabel.Text = "Player PV: " + (gameState.player.Strength +
                                                       gameState.player.Weapon +
@@ -345,10 +353,19 @@ namespace ProjectReptile
 
         private void UpdateParcelInfoLabel()
         {
-            ParcelInfoLabel.Text = gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).Description; 
-            if (gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).LandmarkDescription != null )
+            ParcelInfoLabel.Text = gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).Description;
+            if (gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).LandmarkDescription != null)
             {
                 ParcelInfoLabel.Text += gameState.GetParcelByCoordinates(gameState.player.LocationX, gameState.player.LocationY).LandmarkDescription;
+            }
+        }
+
+        private void UpdateLandmarkGUI()
+        {
+            LandmarkPictureBox.Image = null;
+            if (gameState.GetLandmarkByCoordinates(gameState.player.LocationX, gameState.player.LocationY) != null)
+            {
+                LandmarkPictureBox.Image = gameState.GetLandmarkByCoordinates(gameState.player.LocationX, gameState.player.LocationY).landmarkIcon;
             }
         }
 

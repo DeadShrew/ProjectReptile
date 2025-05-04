@@ -26,11 +26,12 @@ namespace ProjectReptile.GameObjects
         public int Gold = 10;
         public bool InCombat;
         public bool AtLandmark;
+        public bool GoldKeyFound = false;
         public string MovedDir;
         public Weapon equippedWeapon;
         public Shield equippedShield;
         public Armour equippedArmour;
-
+        public Tome equippedTome;
 
         public LinkedList<Item> ItemList;
 

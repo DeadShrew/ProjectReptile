@@ -50,6 +50,10 @@ namespace ProjectReptile
             {
                 this.ArmourWornLabel.Text = "Armour Worn: " + gameState.player.equippedArmour.Name;
             }
+            if (gameState.player.GoldKeyFound == true)
+            {
+                this.GoldKeyLabel.Text = "Gold Key found.";
+            }
         }
 
         private void StatsAndInvForm_Load(object sender, EventArgs e)
