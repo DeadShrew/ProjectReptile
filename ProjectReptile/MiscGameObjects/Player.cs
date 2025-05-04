@@ -67,7 +67,7 @@ namespace ProjectReptile.GameObjects
                 this.Armor = 0;
             }
 
-                LocationX = random.Next(0, Settings.Columns);
+            LocationX = random.Next(0, Settings.Columns);
             LocationY = random.Next(0, Settings.Rows);
             ItemList = new LinkedList<Item>();
 
@@ -75,6 +75,8 @@ namespace ProjectReptile.GameObjects
             ItemList.AddLast(new SmallShield());
             ItemList.AddLast(new LeatherArmor());
             ItemList.AddLast(new RestorationPotion());
+            ItemList.AddLast(new RingOfStrength());
+            ItemList.AddLast(new LensOfIdentity()); 
 
             this.equippedWeapon = (Weapon?)ItemList.FirstOrDefault(i => i is TotemClub); 
             this.equippedShield = (Shield?)ItemList.FirstOrDefault(i => i is SmallShield);

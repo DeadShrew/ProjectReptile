@@ -20,7 +20,6 @@ namespace ProjectReptile
     {
         GameStateModel gameState;
 
-
         public StatsAndInvForm(GameStateModel gameState)
         {
             InitializeComponent();
@@ -99,19 +98,38 @@ namespace ProjectReptile
             if (item is Weapon)
             {
                 Weapon weapon = (Weapon)item;
-                gameState.player.equippedWeapon.IsEquipped = false;
-                gameState.player.equippedWeapon = weapon;
-                weapon.IsEquipped = true;
-                ReadyWeaponLabel.Text = "Ready Weapon: " + gameState.player.equippedWeapon.Name;
+                if (weapon.TwoHanded == false)
+                {
+                    gameState.player.equippedWeapon.IsEquipped = false;
+                    gameState.player.equippedWeapon = weapon;
+                    weapon.IsEquipped = true;
+                    ReadyWeaponLabel.Text = "Ready Weapon: " + gameState.player.equippedWeapon.Name;
+                } else if (weapon.TwoHanded == true && gameState.player.equippedShield is NoShield)
+                {
+                    gameState.player.equippedWeapon.IsEquipped = false;
+                    gameState.player.equippedWeapon = weapon;
+                    weapon.IsEquipped = true;
+                    ReadyWeaponLabel.Text = "Ready Weapon: " + gameState.player.equippedWeapon.Name;
+                } else
+                {
+                    MessageBox.Show("You cannot equip a two-handed weapon while using a shield.");
+                }          
             }
 
             if (item is Shield)
             {
                 Shield shield = (Shield)item;
-                gameState.player.equippedShield.IsEquipped = false;
-                gameState.player.equippedShield = shield;
-                shield.IsEquipped = true;
-                ReadyShieldLabel.Text = "Ready Shield: " + gameState.player.equippedShield.Name;
+                if (gameState.player.equippedWeapon.TwoHanded == false)
+                {
+                    gameState.player.equippedShield.IsEquipped = false;
+                    gameState.player.equippedShield = shield;
+                    shield.IsEquipped = true;
+                    ReadyShieldLabel.Text = "Ready Shield: " + gameState.player.equippedShield.Name;
+                } else if (gameState.player.equippedWeapon.TwoHanded == true)
+                {
+                    MessageBox.Show("You cannot equip a shield while using a two-handed weapon.");
+                }
+                
             }
 
             if (item is Armour)
@@ -121,6 +139,15 @@ namespace ProjectReptile
                 gameState.player.equippedArmour = armour;
                 armour.IsEquipped = true;
                 ArmourWornLabel.Text = "Armour Worn: " + gameState.player.equippedArmour.Name;
+            }
+
+            if (item is EquippableItem)
+            {
+                EquippableItem equippableItem = (EquippableItem)item;
+                equippableItem.IsEquipped = true;
+                equippableItem.EquipItem(gameState.player);
+                PlayerInventoryListbox.Items.Clear();
+                GetPlayerInventory(gameState.player);
             }
 
             if (item is Consumable)
@@ -162,14 +189,21 @@ namespace ProjectReptile
             {
                 gameState.player.equippedShield.IsEquipped = false;
                 Shield shield = (Shield)item;
-                gameState.player.equippedShield = new NoShield();
+                gameState.player.equippedShield = NoShield.GetInstance;
             }
 
             if (item is Armour && gameState.player.equippedArmour.IsEquipped == true)
             {
                 gameState.player.equippedArmour.IsEquipped = false;
                 Armour armour = (Armour)item;
-                gameState.player.equippedArmour = new NoArmor();
+                gameState.player.equippedArmour = NoArmor.GetInstance;
+            }
+
+            if (item is EquippableItem)
+            {
+                EquippableItem equippableItem = (EquippableItem)item;
+                equippableItem.IsEquipped = false;
+                equippableItem.UnEquipItem(gameState.player);
             }
 
             if (item is Equipment)
