@@ -145,6 +145,15 @@ namespace ProjectReptile
                 ArmourWornLabel.Text = "Armour Worn: " + gameState.player.equippedArmour.Name;
             }
 
+            if (item is Tome)
+            {
+                Tome tome = (Tome)item;
+                tome.IsEquipped = true;
+                gameState.player.equippedTome = tome;
+                PlayerInventoryListbox.Items.Clear();
+                GetPlayerInventory(gameState.player);
+            }
+
             if (item is EquippableItem)
             {
                 EquippableItem equippableItem = (EquippableItem)item;
@@ -201,6 +210,15 @@ namespace ProjectReptile
                 gameState.player.equippedArmour.IsEquipped = false;
                 Armour armour = (Armour)item;
                 gameState.player.equippedArmour = NoArmor.GetInstance;
+            }
+
+            if (item is Tome)
+            {
+                Tome tome = (Tome)item;
+                tome.IsEquipped = false;
+                gameState.player.equippedTome = null;
+                PlayerInventoryListbox.Items.Clear();
+                GetPlayerInventory(gameState.player);
             }
 
             if (item is EquippableItem)

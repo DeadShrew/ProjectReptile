@@ -3,52 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\abstractclasses\\equippableitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\abstractclasses\\equippableitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\miscgameobjects\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\miscgameobjects\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\statsandinvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\statsandinvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\statsandinvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\projectreptile\\statsandinvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\statsandinvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\tomes\\necronomicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\tomes\\necronomicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\tomes\\bookofdagon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\tomes\\bookofdagon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\tomes\\blackbookofvalusia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\tomes\\blackbookofvalusia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\abstractclasses\\tome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\abstractclasses\\tome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\tomes\\bookofdagon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\tomes\\bookofdagon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\abstractclasses\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\abstractclasses\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\miscgameobjects\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\miscgameobjects\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\abstractclasses\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\abstractclasses\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\abstractclasses\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\abstractclasses\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\projectreptile.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\projectreptile.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\tomes\\necronomicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\tomes\\necronomicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,161 +42,104 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MiscGameObjects\\Player.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\MiscGameObjects\\Player.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MiscGameObjects\\Player.cs*",
-              "RelativeToolTip": "ProjectReptile\\MiscGameObjects\\Player.cs*",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwCEAAAAhAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "StatsAndInvForm.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\StatsAndInvForm.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\StatsAndInvForm.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\StatsAndInvForm.cs",
+              "RelativeToolTip": "ProjectReptile\\StatsAndInvForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANoAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T06:23:26.891Z",
+              "WhenOpened": "2025-05-04T16:50:29.363Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "BookOfDagon.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Tomes\\BookOfDagon.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\Tomes\\BookOfDagon.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Tomes\\BookOfDagon.cs",
+              "RelativeToolTip": "ProjectReptile\\Tomes\\BookOfDagon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:35:59.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Necronomicon.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Tomes\\Necronomicon.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\Tomes\\Necronomicon.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Tomes\\Necronomicon.cs",
+              "RelativeToolTip": "ProjectReptile\\Tomes\\Necronomicon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAowBAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:27:53.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "StatsAndInvForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\StatsAndInvForm.cs",
               "RelativeDocumentMoniker": "ProjectReptile\\StatsAndInvForm.cs",
               "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\StatsAndInvForm.cs [Design]",
               "RelativeToolTip": "ProjectReptile\\StatsAndInvForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T06:23:21.583Z",
+              "WhenOpened": "2025-05-04T06:23:21.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\MainForm.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs [Design]*",
+              "RelativeToolTip": "ProjectReptile\\MainForm.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:25:05.119Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BlackBookOfValusia.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Tomes\\BlackBookOfValusia.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\Tomes\\BlackBookOfValusia.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Tomes\\BlackBookOfValusia.cs",
-              "RelativeToolTip": "ProjectReptile\\Tomes\\BlackBookOfValusia.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\MainForm.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs*",
+              "RelativeToolTip": "ProjectReptile\\MainForm.cs*",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAAALcAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T05:51:25.034Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BookOfDagon.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Tomes\\BookOfDagon.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\Tomes\\BookOfDagon.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Tomes\\BookOfDagon.cs",
-              "RelativeToolTip": "ProjectReptile\\Tomes\\BookOfDagon.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T05:33:30.193Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Necronomicon.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Tomes\\Necronomicon.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\Tomes\\Necronomicon.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Tomes\\Necronomicon.cs",
-              "RelativeToolTip": "ProjectReptile\\Tomes\\Necronomicon.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T05:26:36.911Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Equipment.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\AbstractClasses\\Equipment.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\AbstractClasses\\Equipment.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\AbstractClasses\\Equipment.cs",
-              "RelativeToolTip": "ProjectReptile\\AbstractClasses\\Equipment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T05:21:11.122Z",
+              "WhenOpened": "2025-05-04T16:25:08.014Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Tome.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\AbstractClasses\\Tome.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\AbstractClasses\\Tome.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\AbstractClasses\\Tome.cs",
-              "RelativeToolTip": "ProjectReptile\\AbstractClasses\\Tome.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MiscGameObjects\\Player.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\MiscGameObjects\\Player.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MiscGameObjects\\Player.cs",
+              "RelativeToolTip": "ProjectReptile\\MiscGameObjects\\Player.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAqwFMAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T05:21:39.569Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-04T16:37:25.684Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Item.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\AbstractClasses\\Item.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\AbstractClasses\\Item.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\AbstractClasses\\Item.cs",
-              "RelativeToolTip": "ProjectReptile\\AbstractClasses\\Item.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "BlackBookOfValusia.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Tomes\\BlackBookOfValusia.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\Tomes\\BlackBookOfValusia.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Tomes\\BlackBookOfValusia.cs",
+              "RelativeToolTip": "ProjectReptile\\Tomes\\BlackBookOfValusia.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA1wCEAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T05:21:22.925Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EquippableItem.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\AbstractClasses\\EquippableItem.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\AbstractClasses\\EquippableItem.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\AbstractClasses\\EquippableItem.cs",
-              "RelativeToolTip": "ProjectReptile\\AbstractClasses\\EquippableItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T05:20:13.679Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Weapon.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\AbstractClasses\\Weapon.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\AbstractClasses\\Weapon.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\AbstractClasses\\Weapon.cs",
-              "RelativeToolTip": "ProjectReptile\\AbstractClasses\\Weapon.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T05:20:07.706Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ProjectReptile",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\ProjectReptile.csproj",
-              "RelativeDocumentMoniker": "ProjectReptile\\ProjectReptile.csproj",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\ProjectReptile.csproj",
-              "RelativeToolTip": "ProjectReptile\\ProjectReptile.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-04T05:18:47.741Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MainForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\MainForm.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs [Design]",
-              "RelativeToolTip": "ProjectReptile\\MainForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T04:02:31.917Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-05-04T16:42:29.675Z"
             }
           ]
         }

@@ -500,6 +500,16 @@ namespace ProjectReptile
             }
         }
 
+        public void UseSorcery()
+        {
+            Player player = this.player;
+            Enemy enemy = GetEnemyByCoordinates(player.LocationX, player.LocationY);
+
+            player.equippedTome.CastSorcery(player, enemy);
+
+            //add custom spell effects inside tome
+        }
+
         public void FleeAttempt()
         {
             int diceRoll = random.Next(1, 7);

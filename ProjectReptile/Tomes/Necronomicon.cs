@@ -1,4 +1,5 @@
 ﻿using ProjectReptile.AbstractClasses;
+using ProjectReptile.GameObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,13 @@ namespace ProjectReptile.Tomes
         {
             this.Name = "arcane tome";
             this.TrueName = "Necronomicon";
+            this.NonCombative = false;
         }
-        public override void CastSorcery()
+
+        public override void CastSorcery(Player player, Enemy enemy)
         {
-            throw new NotImplementedException();
+            enemy.Strength = enemy.Strength - 5;
+            GUIOutputManager.PlayerConsoleOutputList.AddLast("You blasted that lil guy"); 
         }
     }
 }

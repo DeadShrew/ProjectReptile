@@ -2,6 +2,7 @@
 using ProjectReptile.Armor;
 using ProjectReptile.Items;
 using ProjectReptile.Shields;
+using ProjectReptile.Tomes;
 using ProjectReptile.Weapons;
 using System;
 using System.Collections.Generic;
@@ -77,7 +78,10 @@ namespace ProjectReptile.GameObjects
             ItemList.AddLast(new LeatherArmor());
             ItemList.AddLast(new RestorationPotion());
             ItemList.AddLast(new RingOfStrength());
-            ItemList.AddLast(new LensOfIdentity()); 
+            ItemList.AddLast(new LensOfIdentity());
+            ItemList.AddLast(new Necronomicon());
+            ItemList.AddLast(new BookOfDagon());
+            ItemList.AddLast(new BlackBookOfValusia()); 
 
             this.equippedWeapon = (Weapon?)ItemList.FirstOrDefault(i => i is TotemClub); 
             this.equippedShield = (Shield?)ItemList.FirstOrDefault(i => i is SmallShield);

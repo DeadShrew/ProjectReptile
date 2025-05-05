@@ -176,7 +176,20 @@ namespace ProjectReptile
 
         private void SorceryButton_Click(object sender, EventArgs e)
         {
-
+            gameState.UseSorcery();
+            if (gameState.player.InCombat == true) { gameState.EnemyDeathCheck(); }
+            gameState.PlayerDeathCheck();
+            UpdatePlayerConsole();
+            UpdateParcelInfoLabel();
+            ParcelItemList.Items.Clear(); 
+            AddParcelItemsToListbox();
+            UpdateEnemyInfoLabelsAndGUI();
+            UpdatePlayerInfoLabelsAndGUI();
+            DisableActionButtons();
+            EnableActionButtons();
+            EngagementCheck();
+            gameState.PlayerDeathCheck();
+            this.Refresh();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -278,13 +291,17 @@ namespace ProjectReptile
 
         private void EnableActionButtons()
         {
+            if (gameState.player.equippedTome != null && (gameState.player.equippedTome.NonCombative == true || gameState.player.InCombat == true))
+            {
+                SorceryButton.Enabled = true; 
+            }
+
             foreach (Enemy enemy in gameState.EnemyList)
             {
                 if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY && enemy.IsAlive == true && gameState.player.InCombat == true)
                 {
                     AttackButton.Enabled = true;
-                    DefendButton.Enabled = true;
-                    SorceryButton.Enabled = true;
+                    DefendButton.Enabled = true;                   
                     FleeButton.Enabled = true;
                 }
             }

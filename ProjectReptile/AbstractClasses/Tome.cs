@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectReptile.GameObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,20 @@ namespace ProjectReptile.AbstractClasses
 {
     public abstract class Tome : Equipment
     {
-        public abstract void CastSorcery();
-  
+        public bool NonCombative; 
+
+        public override string ToString()
+        {
+            if (GlobalStateManager.LensEquipped == false)
+            {
+                return Name;
+            }
+            else
+            {
+                return TrueName;
+            }
+        }
+
+        public abstract void CastSorcery(Player player, Enemy enemy);
     }
 }

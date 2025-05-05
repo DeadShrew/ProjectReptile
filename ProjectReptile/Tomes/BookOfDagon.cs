@@ -1,4 +1,5 @@
 ﻿using ProjectReptile.AbstractClasses;
+using ProjectReptile.GameObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,14 @@ namespace ProjectReptile.Tomes
         {
             this.Name = "arcane tome";
             this.TrueName = "Book of Dagon";
+            this.NonCombative = true;
         }
 
-        public override void CastSorcery()
+        public override void CastSorcery(Player player, Enemy enemy)
         {
-            throw new NotImplementedException();
+            if (player.Strength < player.MaxStrength)
+            player.Strength += 1;
+            GUIOutputManager.PlayerConsoleOutputList.AddLast("You have healed some health!"); 
         }
     }
 }
