@@ -560,16 +560,6 @@ namespace ProjectReptile
             }
         }
 
-        public void PlayerDeathCheck()
-        {
-            if (player.Strength <= 0)
-            {
-                player.Strength = 0;
-                var defeatForm = new DefeatForm();
-                defeatForm.Show();
-            }
-        }
-
         public void EncounterCheck()
         {
             foreach (Encounter encounter in EncounterList)

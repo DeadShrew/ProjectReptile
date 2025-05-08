@@ -30,6 +30,7 @@
         {
             DefeatLabel = new Label();
             ExitButton = new Button();
+            NewGameButton = new Button();
             SuspendLayout();
             // 
             // DefeatLabel
@@ -44,7 +45,7 @@
             // 
             // ExitButton
             // 
-            ExitButton.Location = new Point(216, 201);
+            ExitButton.Location = new Point(288, 225);
             ExitButton.Name = "ExitButton";
             ExitButton.Size = new Size(75, 23);
             ExitButton.TabIndex = 1;
@@ -52,11 +53,22 @@
             ExitButton.UseVisualStyleBackColor = true;
             ExitButton.Click += ExitButton_Click;
             // 
+            // NewGameButton
+            // 
+            NewGameButton.Location = new Point(158, 225);
+            NewGameButton.Name = "NewGameButton";
+            NewGameButton.Size = new Size(79, 23);
+            NewGameButton.TabIndex = 2;
+            NewGameButton.Text = "NEW GAME";
+            NewGameButton.UseVisualStyleBackColor = true;
+            NewGameButton.Click += NewGameButton_Click;
+            // 
             // DefeatForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(514, 326);
+            Controls.Add(NewGameButton);
             Controls.Add(ExitButton);
             Controls.Add(DefeatLabel);
             Name = "DefeatForm";
@@ -69,5 +81,6 @@
 
         private Label DefeatLabel;
         private Button ExitButton;
+        private Button NewGameButton;
     }
 }

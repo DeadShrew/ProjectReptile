@@ -13,44 +13,47 @@ using ProjectReptile.GameObjects;
 using ProjectReptile.Weapons;
 using ProjectReptile.Shields;
 using ProjectReptile.Armor;
+using System.Collections;
 
 namespace ProjectReptile
 {
     public partial class StatsAndInvForm : Form
     {
-        GameStateModel gameState;
+        GameStateModel _gameState;
+        MainForm _mainForm;
 
-        public StatsAndInvForm(GameStateModel gameState)
+        public StatsAndInvForm(GameStateModel gameState, MainForm mainForm)
         {
             InitializeComponent();
-            this.gameState = gameState;
+            this._gameState = gameState;
+            this._mainForm = mainForm;
             UpdateStatsForm();
         }
 
         private void UpdateStatsForm()
         {
-            this.MaxStrengthTextBoxLabel.Text = gameState.player.MaxStrength.ToString();
-            this.MaxDexTextBoxLabel.Text = gameState.player.MaxDexterity.ToString();
-            this.IntelligenceTextBoxLabel.Text = gameState.player.Intelligence.ToString();
-            this.CurrentStrengthTextBoxLabel.Text = gameState.player.Strength.ToString();
-            this.ModifiedTextBoxLabel.Text = gameState.player.Dexterity.ToString();
-            this.ModifiedIntTextBoxLabel.Text = gameState.player.ModifiedInt.ToString();
-            this.GoldTextBoxLabel.Text = gameState.player.Gold.ToString();
-            this.WeaponTextBoxLabel.Text = gameState.player.Weapon.ToString();
-            this.ArmourTextBoxLabel.Text = gameState.player.Armor.ToString();
-            if (gameState.player.equippedWeapon != null)
+            this.MaxStrengthTextBoxLabel.Text = _gameState.player.MaxStrength.ToString();
+            this.MaxDexTextBoxLabel.Text = _gameState.player.MaxDexterity.ToString();
+            this.IntelligenceTextBoxLabel.Text = _gameState.player.Intelligence.ToString();
+            this.CurrentStrengthTextBoxLabel.Text = _gameState.player.Strength.ToString();
+            this.ModifiedTextBoxLabel.Text = _gameState.player.Dexterity.ToString();
+            this.ModifiedIntTextBoxLabel.Text = _gameState.player.ModifiedInt.ToString();
+            this.GoldTextBoxLabel.Text = _gameState.player.Gold.ToString();
+            this.WeaponTextBoxLabel.Text = _gameState.player.Weapon.ToString();
+            this.ArmourTextBoxLabel.Text = _gameState.player.Armor.ToString();
+            if (_gameState.player.equippedWeapon != null)
             {
-                this.ReadyWeaponLabel.Text = "Ready Weapon: " + gameState.player.equippedWeapon.Name;
+                this.ReadyWeaponLabel.Text = "Ready Weapon: " + _gameState.player.equippedWeapon.Name;
             }
-            if (gameState.player.equippedShield != null)
+            if (_gameState.player.equippedShield != null)
             {
-                this.ReadyShieldLabel.Text = "Ready Shield: " + gameState.player.equippedShield.Name;
+                this.ReadyShieldLabel.Text = "Ready Shield: " + _gameState.player.equippedShield.Name;
             }
-            if (gameState.player.equippedArmour != null)
+            if (_gameState.player.equippedArmour != null)
             {
-                this.ArmourWornLabel.Text = "Armour Worn: " + gameState.player.equippedArmour.Name;
+                this.ArmourWornLabel.Text = "Armour Worn: " + _gameState.player.equippedArmour.Name;
             }
-            if (gameState.player.GoldKeyFound == true)
+            if (_gameState.player.GoldKeyFound == true)
             {
                 this.GoldKeyLabel.Text = "Gold Key found.";
             }
@@ -58,7 +61,7 @@ namespace ProjectReptile
 
         private void StatsAndInvForm_Load(object sender, EventArgs e)
         {
-            GetPlayerInventory(gameState.player);
+            GetPlayerInventory(_gameState.player);
         }
 
         private void GetPlayerInventory(Player player)
@@ -93,6 +96,7 @@ namespace ProjectReptile
         private void DoneButton_Click(object sender, EventArgs e)
         {
             this.Close();
+            _mainForm.Refresh();
         }
 
         private void UseItemButton_Click(object sender, EventArgs e)
@@ -104,72 +108,75 @@ namespace ProjectReptile
                 Weapon weapon = (Weapon)item;
                 if (weapon.TwoHanded == false)
                 {
-                    gameState.player.equippedWeapon.IsEquipped = false;
-                    gameState.player.equippedWeapon = weapon;
+                    _gameState.player.equippedWeapon.IsEquipped = false;
+                    _gameState.player.equippedWeapon = weapon;
                     weapon.IsEquipped = true;
-                    ReadyWeaponLabel.Text = "Ready Weapon: " + gameState.player.equippedWeapon.Name;
-                } else if (weapon.TwoHanded == true && gameState.player.equippedShield is NoShield)
+                    ReadyWeaponLabel.Text = "Ready Weapon: " + _gameState.player.equippedWeapon.Name;
+                }
+                else if (weapon.TwoHanded == true && _gameState.player.equippedShield is NoShield)
                 {
-                    gameState.player.equippedWeapon.IsEquipped = false;
-                    gameState.player.equippedWeapon = weapon;
+                    _gameState.player.equippedWeapon.IsEquipped = false;
+                    _gameState.player.equippedWeapon = weapon;
                     weapon.IsEquipped = true;
-                    ReadyWeaponLabel.Text = "Ready Weapon: " + gameState.player.equippedWeapon.Name;
-                } else
+                    ReadyWeaponLabel.Text = "Ready Weapon: " + _gameState.player.equippedWeapon.Name;
+                }
+                else
                 {
                     MessageBox.Show("You cannot equip a two-handed weapon while using a shield.");
-                }          
+                }
             }
 
             if (item is Shield)
             {
                 Shield shield = (Shield)item;
-                if (gameState.player.equippedWeapon.TwoHanded == false)
+                if (_gameState.player.equippedWeapon.TwoHanded == false)
                 {
-                    gameState.player.equippedShield.IsEquipped = false;
-                    gameState.player.equippedShield = shield;
+                    _gameState.player.equippedShield.IsEquipped = false;
+                    _gameState.player.equippedShield = shield;
                     shield.IsEquipped = true;
-                    ReadyShieldLabel.Text = "Ready Shield: " + gameState.player.equippedShield.Name;
-                } else if (gameState.player.equippedWeapon.TwoHanded == true)
+                    ReadyShieldLabel.Text = "Ready Shield: " + _gameState.player.equippedShield.Name;
+                }
+                else if (_gameState.player.equippedWeapon.TwoHanded == true)
                 {
                     MessageBox.Show("You cannot equip a shield while using a two-handed weapon.");
                 }
-                
+
             }
 
             if (item is Armour)
             {
                 Armour armour = (Armour)item;
-                gameState.player.equippedArmour.IsEquipped = false;
-                gameState.player.equippedArmour = armour;
+                _gameState.player.equippedArmour.IsEquipped = false;
+                _gameState.player.equippedArmour = armour;
                 armour.IsEquipped = true;
-                ArmourWornLabel.Text = "Armour Worn: " + gameState.player.equippedArmour.Name;
+                ArmourWornLabel.Text = "Armour Worn: " + _gameState.player.equippedArmour.Name;
             }
 
             if (item is Tome)
             {
                 Tome tome = (Tome)item;
                 tome.IsEquipped = true;
-                gameState.player.equippedTome = tome;
+                _gameState.player.equippedTome = tome;
                 PlayerInventoryListbox.Items.Clear();
-                GetPlayerInventory(gameState.player);
+                GetPlayerInventory(_gameState.player);
             }
 
             if (item is EquippableItem)
             {
                 EquippableItem equippableItem = (EquippableItem)item;
                 equippableItem.IsEquipped = true;
-                equippableItem.EquipItem(gameState.player);
+                equippableItem.EquipItem(_gameState.player);
                 PlayerInventoryListbox.Items.Clear();
-                GetPlayerInventory(gameState.player);
+                GetPlayerInventory(_gameState.player);
             }
 
             if (item is Consumable)
             {
                 Consumable consumable = (Consumable)item;
-                consumable.ConsumeItem(gameState.player);
-                gameState.player.ItemList.Remove(consumable);
-                PlayerInventoryListbox.Items.Clear(); 
-                GetPlayerInventory(gameState.player);  
+                consumable.ConsumeItem(_gameState.player);
+                _gameState.player.ItemList.Remove(consumable);
+                PlayerInventoryListbox.Items.Clear();
+                GetPlayerInventory(_gameState.player);
             }
 
             if (item is Equipment)
@@ -182,50 +189,52 @@ namespace ProjectReptile
                 }
             }
 
-            gameState.player.UpdatePlayerAfterEquipmentChange();
+            _gameState.player.UpdatePlayerAfterEquipmentChange();
             UpdateStatsForm();
-            this.Refresh();           
+            this.Refresh();
+            _mainForm.Invoke((MethodInvoker)(() => _mainForm.UpdatePlayerInfoLabelsAndGUI()));
+            _mainForm.Invoke((MethodInvoker)(() => _mainForm.NewGameFormRefresh()));
         }
 
         private void UnuseItemButton_Click(object sender, EventArgs e)
         {
             var item = PlayerInventoryListbox.SelectedItem;
 
-            if (item is Weapon && gameState.player.equippedWeapon.IsEquipped == true)
+            if (item is Weapon && _gameState.player.equippedWeapon.IsEquipped == true)
             {
-                gameState.player.equippedWeapon.IsEquipped = false;
-                Weapon weapon = (Weapon)item;                
-                gameState.player.equippedWeapon = BareHands.GetInstance;
+                _gameState.player.equippedWeapon.IsEquipped = false;
+                Weapon weapon = (Weapon)item;
+                _gameState.player.equippedWeapon = BareHands.GetInstance;
             }
 
-            if (item is Shield && gameState.player.equippedShield.IsEquipped == true)
+            if (item is Shield && _gameState.player.equippedShield.IsEquipped == true)
             {
-                gameState.player.equippedShield.IsEquipped = false;
+                _gameState.player.equippedShield.IsEquipped = false;
                 Shield shield = (Shield)item;
-                gameState.player.equippedShield = NoShield.GetInstance;
+                _gameState.player.equippedShield = NoShield.GetInstance;
             }
 
-            if (item is Armour && gameState.player.equippedArmour.IsEquipped == true)
+            if (item is Armour && _gameState.player.equippedArmour.IsEquipped == true)
             {
-                gameState.player.equippedArmour.IsEquipped = false;
+                _gameState.player.equippedArmour.IsEquipped = false;
                 Armour armour = (Armour)item;
-                gameState.player.equippedArmour = NoArmor.GetInstance;
+                _gameState.player.equippedArmour = NoArmor.GetInstance;
             }
 
             if (item is Tome)
             {
                 Tome tome = (Tome)item;
                 tome.IsEquipped = false;
-                gameState.player.equippedTome = null;
+                _gameState.player.equippedTome = null;
                 PlayerInventoryListbox.Items.Clear();
-                GetPlayerInventory(gameState.player);
+                GetPlayerInventory(_gameState.player);
             }
 
             if (item is EquippableItem)
             {
                 EquippableItem equippableItem = (EquippableItem)item;
                 equippableItem.IsEquipped = false;
-                equippableItem.UnEquipItem(gameState.player);
+                equippableItem.UnEquipItem(_gameState.player);
             }
 
             if (item is Equipment)
@@ -235,15 +244,109 @@ namespace ProjectReptile
                 if (equipment.IsEquipped == true)
                 {
                     ItemStatusLabel.Text = "In Use";
-                } 
+                }
                 else if (equipment.IsEquipped == false)
                 {
                     ItemStatusLabel.Text = "";
                 }
             }
 
-            gameState.player.UpdatePlayerAfterEquipmentChange();
+            _gameState.player.UpdatePlayerAfterEquipmentChange();
             UpdateStatsForm();
+            this.Refresh();
+            _mainForm.Invoke((MethodInvoker)(() => _mainForm.UpdatePlayerInfoLabelsAndGUI()));
+            _mainForm.Invoke((MethodInvoker)(() => _mainForm.NewGameFormRefresh()));
+        }
+
+        private void DropItemButton_Click(object sender, EventArgs e)
+        {
+            var selectedItem = PlayerInventoryListbox.SelectedItem as Item;
+
+            if (selectedItem != null && selectedItem is Weapon)
+            {
+                if (selectedItem == _gameState.player.equippedWeapon)
+                {
+                    MessageBox.Show("You must unequip the selected weapon before it can be dropped. "); 
+                } else
+                {
+                    var node = _gameState.player.ItemList.Find(selectedItem);
+                    if (node != null)
+                    {
+                        _gameState.player.ItemList.Remove(node);
+
+                    }
+                }
+            }
+
+            if (selectedItem != null && selectedItem is Shield)
+            {
+                if (selectedItem == _gameState.player.equippedShield)
+                {
+                    MessageBox.Show("You must unequip the selected shield before it can be dropped. ");
+                }
+                else
+                {
+                    var node = _gameState.player.ItemList.Find(selectedItem);
+                    if (node != null)
+                    {
+                        _gameState.player.ItemList.Remove(node);
+
+                    }
+                }
+            }
+
+            if (selectedItem != null && selectedItem is Armour)
+            {
+                if (selectedItem == _gameState.player.equippedArmour)
+                {
+                    MessageBox.Show("You must unequip the selected armour before it can be dropped. ");
+                }
+                else
+                {
+                    var node = _gameState.player.ItemList.Find(selectedItem);
+                    if (node != null)
+                    {
+                        _gameState.player.ItemList.Remove(node);
+
+                    }
+                }
+            }
+
+            if (selectedItem != null && selectedItem is Tome tome)
+            {
+                if (tome.IsEquipped == true)
+                {
+                    MessageBox.Show("You must unequip the selected tome before it can be dropped. ");
+                }
+                else if (tome.IsEquipped == false)
+                {
+                    var node = _gameState.player.ItemList.Find(selectedItem);
+                    if (node != null)
+                    {
+                        _gameState.player.ItemList.Remove(node);
+
+                    }
+                }
+            }
+
+            if (selectedItem != null && selectedItem is EquippableItem equippableItem)
+            {
+                if (equippableItem.IsEquipped == true)
+                {
+                    MessageBox.Show("You must unequip the selected item before it can be dropped. ");
+                } else if (equippableItem.IsEquipped == false)
+                {
+                    var node = _gameState.player.ItemList.Find(selectedItem);
+                    if (node != null)
+                    {
+                        _gameState.player.ItemList.Remove(node);
+
+                    }
+                } 
+            }
+
+            PlayerInventoryListbox.Items.Clear();
+            GetPlayerInventory(_gameState.player);
             this.Refresh();
         }
     }

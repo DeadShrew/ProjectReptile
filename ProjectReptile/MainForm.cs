@@ -1,6 +1,7 @@
 using ProjectReptile.AbstractClasses;
 using ProjectReptile.GameObjects;
 using System;
+using System.Numerics;
 using System.Reflection;
 using System.Text;
 
@@ -29,7 +30,7 @@ namespace ProjectReptile
             ClearPlayerConsole();
             RemoveItemsFromListBox();
             gameState.EncounterCheck();
-            gameState.PlayerDeathCheck();
+            PlayerDeathCheck();
             AddParcelItemsToListbox();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
@@ -53,7 +54,7 @@ namespace ProjectReptile
             gameState.ParcelTrapProximityCheck();
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
-            gameState.PlayerDeathCheck();
+            PlayerDeathCheck();
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
@@ -74,7 +75,7 @@ namespace ProjectReptile
             gameState.ParcelTrapProximityCheck();
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
-            gameState.PlayerDeathCheck();
+            PlayerDeathCheck();
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
@@ -95,7 +96,7 @@ namespace ProjectReptile
             gameState.ParcelTrapProximityCheck();
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
-            gameState.PlayerDeathCheck();
+            PlayerDeathCheck();
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
@@ -116,7 +117,7 @@ namespace ProjectReptile
             gameState.ParcelTrapProximityCheck();
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
-            gameState.PlayerDeathCheck();
+            PlayerDeathCheck();
             EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
@@ -137,7 +138,7 @@ namespace ProjectReptile
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
             ToggleMovementButtonsForCombat();
-            gameState.PlayerDeathCheck();
+            PlayerDeathCheck();
             this.Refresh();
         }
 
@@ -145,7 +146,7 @@ namespace ProjectReptile
         {
             gameState.AttackEnemyOffensively();
             gameState.EnemyDeathCheck();
-            gameState.PlayerDeathCheck();
+            PlayerDeathCheck();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             AddParcelItemsToListbox();
@@ -161,7 +162,7 @@ namespace ProjectReptile
         {
             gameState.AttackEnemyDefensively();
             gameState.EnemyDeathCheck();
-            gameState.PlayerDeathCheck();
+            PlayerDeathCheck();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             AddParcelItemsToListbox();
@@ -170,7 +171,7 @@ namespace ProjectReptile
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();
-            gameState.PlayerDeathCheck();
+            PlayerDeathCheck();
             this.Refresh();
         }
 
@@ -178,7 +179,7 @@ namespace ProjectReptile
         {
             gameState.UseSorcery();
             if (gameState.player.InCombat == true) { gameState.EnemyDeathCheck(); }
-            gameState.PlayerDeathCheck();
+            PlayerDeathCheck();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             ParcelItemList.Items.Clear(); 
@@ -188,7 +189,7 @@ namespace ProjectReptile
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();
-            gameState.PlayerDeathCheck();
+            PlayerDeathCheck();
             this.Refresh();
         }
 
@@ -228,11 +229,22 @@ namespace ProjectReptile
 
         private void StatsAndInvButton_Click(object sender, EventArgs e)
         {
-            var statsAndInvForm = new StatsAndInvForm(gameState);
+            var statsAndInvForm = new StatsAndInvForm(gameState, this);
+
+            statsAndInvForm.TopLevel = false;
+           
+            this.Controls.Add(statsAndInvForm);
+
+            statsAndInvForm.WindowState = FormWindowState.Minimized;
             statsAndInvForm.Show();
+            statsAndInvForm.WindowState = FormWindowState.Normal;
+
+            statsAndInvForm.BringToFront();
+            statsAndInvForm.Activate();
+            statsAndInvForm.Focus();
         }
 
-        private void DisableActionButtons()
+        public void DisableActionButtons()
         {
             AttackButton.Enabled = false;
             DefendButton.Enabled = false;
@@ -242,7 +254,7 @@ namespace ProjectReptile
             FleeButton.Enabled = false;
         }
 
-        private void EnableMovementButtons()
+        public void EnableMovementButtons()
         {
             UpButton.Enabled = true;
             DownButton.Enabled = true;
@@ -354,7 +366,7 @@ namespace ProjectReptile
             }
         }
 
-        private void UpdatePlayerInfoLabelsAndGUI()
+        public void UpdatePlayerInfoLabelsAndGUI()
         {
             DirectionAndCoordinatesLabel.Text = "Moved Dir: " + gameState.player.MovedDir + " Curr Loc C: " + gameState.player.LocationX + " R: " + gameState.player.LocationY;
             PlayerStrengthLabel.Text = "Player Strength: " + gameState.player.Strength;
@@ -463,6 +475,37 @@ namespace ProjectReptile
         {
             GUIOutputManager.PlayerConsoleOutputList.Clear();
             PlayerConsoleTextBox?.Clear();
+        }
+
+
+        public void PlayerDeathCheck()
+        {
+            if (gameState.player.Strength <= 0)
+            {
+                gameState.player.Strength = 0;
+                var defeatForm = new DefeatForm(this);
+                defeatForm.Show();
+            }
+        }
+        
+        public void NewGameFormRefresh()
+        {
+            DisableActionButtons();
+            ClearPlayerConsole();
+            RemoveItemsFromListBox();
+            gameState.EncounterCheck();
+            PlayerDeathCheck();
+            AddParcelItemsToListbox();
+            gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
+            gameState.ParcelTrapProximityCheck();
+            EnableActionButtons();
+            UpdatePlayerConsole();
+            UpdateParcelInfoLabel();
+            UpdateEnemyInfoLabelsAndGUI();
+            UpdatePlayerInfoLabelsAndGUI();
+            EngagementCheck();
+            UpdateLandmarkGUI();
+            this.Refresh(); 
         }
 
         private void MapGridPanel_Paint(object sender, PaintEventArgs e)

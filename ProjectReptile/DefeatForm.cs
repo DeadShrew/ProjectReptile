@@ -12,14 +12,26 @@ namespace ProjectReptile
 {
     public partial class DefeatForm : Form
     {
-        public DefeatForm()
+        private MainForm _mainForm;  
+
+
+        public DefeatForm(MainForm mainForm)
         {
             InitializeComponent();
+            _mainForm = mainForm;
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void NewGameButton_Click(object sender, EventArgs e)
+        {
+            _mainForm.gameState = new GameStateModel();
+            _mainForm.Invoke((MethodInvoker)(() => _mainForm.NewGameFormRefresh()));
+            this.Refresh();
+            this.Dispose();
         }
     }
 }

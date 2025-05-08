@@ -128,6 +128,7 @@
             DropItemButton.TabIndex = 6;
             DropItemButton.Text = "Drop Item";
             DropItemButton.UseVisualStyleBackColor = true;
+            DropItemButton.Click += DropItemButton_Click;
             // 
             // CharNameTextBoxLabel
             // 
@@ -193,11 +194,11 @@
             ReadyShieldLabel.TabIndex = 13;
             ReadyShieldLabel.Text = "Ready Shield:";
             // 
-            // ArmourWormLabel
+            // ArmourWornLabel
             // 
             ArmourWornLabel.AutoSize = true;
             ArmourWornLabel.Location = new Point(60, 231);
-            ArmourWornLabel.Name = "ArmourWormLabel";
+            ArmourWornLabel.Name = "ArmourWornLabel";
             ArmourWornLabel.Size = new Size(83, 15);
             ArmourWornLabel.TabIndex = 14;
             ArmourWornLabel.Text = "Armour Worn:";
@@ -332,7 +333,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(469, 450);
+            AutoValidate = AutoValidate.EnableAllowFocusChange;
+            ClientSize = new Size(479, 456);
+            ControlBox = false;
             Controls.Add(ModifiedIntTextBoxLabel);
             Controls.Add(ModifiedTextBoxLabel);
             Controls.Add(CurrentStrengthTextBoxLabel);
@@ -363,7 +366,11 @@
             Controls.Add(DoneButton);
             Controls.Add(PlayerInventoryListbox);
             Controls.Add(CharacterNameLabel);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Location = new Point(385, 97);
+            MaximizeBox = false;
             Name = "StatsAndInvForm";
+            StartPosition = FormStartPosition.Manual;
             Text = "StatsAndInvForm";
             Load += StatsAndInvForm_Load;
             ResumeLayout(false);
