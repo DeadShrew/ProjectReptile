@@ -4,6 +4,9 @@
     <Compile Update="DefeatForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="NegotiationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

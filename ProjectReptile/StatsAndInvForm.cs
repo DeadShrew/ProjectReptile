@@ -19,15 +19,31 @@ namespace ProjectReptile
 {
     public partial class StatsAndInvForm : Form
     {
+        private static StatsAndInvForm _instance;
+        private static readonly object _lock = new object();
+
         GameStateModel _gameState;
         MainForm _mainForm;
 
-        public StatsAndInvForm(GameStateModel gameState, MainForm mainForm)
+        private StatsAndInvForm(GameStateModel gameState, MainForm mainForm)
         {
             InitializeComponent();
+            CharNameTextBoxLabel.Text = GlobalStateManager.PlayerName;
             this._gameState = gameState;
             this._mainForm = mainForm;
             UpdateStatsForm();
+        }
+
+        public static StatsAndInvForm GetInstance(GameStateModel gameState, MainForm mainForm)
+        {
+            lock (_lock)
+            {
+                if (_instance == null || _instance.IsDisposed)
+                {
+                    _instance = new StatsAndInvForm(gameState, mainForm);
+                }
+                return _instance;
+            }
         }
 
         private void UpdateStatsForm()

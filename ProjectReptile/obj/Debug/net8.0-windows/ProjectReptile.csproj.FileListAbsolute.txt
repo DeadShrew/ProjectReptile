@@ -35,3 +35,4 @@ C:\Users\edwin\source\repos\ProjectReptile\ProjectReptile\ProjectReptile\obj\Deb
 C:\Users\edwin\source\repos\ProjectReptile\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.genruntimeconfig.cache
 C:\Users\edwin\source\repos\ProjectReptile\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ref\ProjectReptile.dll
 C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.DefeatForm.resources
+C:\Users\ym3438\source\repos\ProjectReptile\ProjectReptile\obj\Debug\net8.0-windows\ProjectReptile.NegotiationForm.resources

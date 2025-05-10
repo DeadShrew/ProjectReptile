@@ -4,6 +4,7 @@ using System;
 using System.Numerics;
 using System.Reflection;
 using System.Text;
+using Timer = System.Windows.Forms.Timer;
 
 namespace ProjectReptile
 {
@@ -20,8 +21,11 @@ namespace ProjectReptile
             | BindingFlags.Instance | BindingFlags.NonPublic, null,
             MapGridPanel, new object[] { true });
 
-            gameState = new GameStateModel();
-
+            gameState = new GameStateModel(this);
+            StatsAndInvButton.Enabled = false;
+            DisableActionButtons();
+            this.IntroPanel.Enabled = true;           
+            
         }
 
         private void ViewForm_Load(object sender, EventArgs e)
@@ -34,13 +38,14 @@ namespace ProjectReptile
             AddParcelItemsToListbox();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
-            EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
             EngagementCheck();
             UpdateLandmarkGUI();
+            NegotiationCheck();
+            EnableActionButtons();
             this.Refresh();
         }
 
@@ -55,13 +60,14 @@ namespace ProjectReptile
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
             PlayerDeathCheck();
-            EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
             UpdateLandmarkGUI();
             EngagementCheck();
+            NegotiationCheck();
+            EnableActionButtons();
             this.Refresh();
         }
 
@@ -76,13 +82,14 @@ namespace ProjectReptile
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
             PlayerDeathCheck();
-            EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
             UpdateLandmarkGUI();
             EngagementCheck();
+            NegotiationCheck();
+            EnableActionButtons();
             this.Refresh();
         }
 
@@ -97,13 +104,14 @@ namespace ProjectReptile
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
             PlayerDeathCheck();
-            EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
             UpdateLandmarkGUI();
             EngagementCheck();
+            NegotiationCheck();
+            EnableActionButtons();
             this.Refresh();
         }
 
@@ -118,13 +126,14 @@ namespace ProjectReptile
             AddParcelItemsToListbox();
             gameState.EncounterCheck();
             PlayerDeathCheck();
-            EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
             UpdateLandmarkGUI();
             EngagementCheck();
+            NegotiationCheck();
+            EnableActionButtons();
             this.Refresh();
         }
 
@@ -143,7 +152,7 @@ namespace ProjectReptile
         }
 
         private void AttackButton_Click(object sender, EventArgs e)
-        {
+        {         
             gameState.AttackEnemyOffensively();
             gameState.EnemyDeathCheck();
             PlayerDeathCheck();
@@ -152,6 +161,7 @@ namespace ProjectReptile
             AddParcelItemsToListbox();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
+            gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).IsNegotiable = false;
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();
@@ -168,10 +178,10 @@ namespace ProjectReptile
             AddParcelItemsToListbox();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
+            gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).IsNegotiable = false;
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();
-            PlayerDeathCheck();
             this.Refresh();
         }
 
@@ -182,21 +192,21 @@ namespace ProjectReptile
             PlayerDeathCheck();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
-            ParcelItemList.Items.Clear(); 
+            ParcelItemList.Items.Clear();
             AddParcelItemsToListbox();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
+            gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).IsNegotiable = false;
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();
-            PlayerDeathCheck();
             this.Refresh();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
             gameState.SearchLandmarks();
-            ParcelItemList.Items.Clear(); 
+            ParcelItemList.Items.Clear();
             AddParcelItemsToListbox();
             UpdateParcelInfoLabel();
             UpdatePlayerConsole();
@@ -204,6 +214,9 @@ namespace ProjectReptile
 
         private void TalkButton_Click(object sender, EventArgs e)
         {
+            var negotiationForm = new NegotiationForm(this);
+            negotiationForm.Show();
+            negotiationForm.BringToFront();
 
         }
 
@@ -229,19 +242,17 @@ namespace ProjectReptile
 
         private void StatsAndInvButton_Click(object sender, EventArgs e)
         {
-            var statsAndInvForm = new StatsAndInvForm(gameState, this);
+            var statsForm = StatsAndInvForm.GetInstance(gameState, this);
+            statsForm.Show();
+            statsForm.BringToFront();
 
-            statsAndInvForm.TopLevel = false;
-           
-            this.Controls.Add(statsAndInvForm);
+        }
 
-            statsAndInvForm.WindowState = FormWindowState.Minimized;
-            statsAndInvForm.Show();
-            statsAndInvForm.WindowState = FormWindowState.Normal;
-
-            statsAndInvForm.BringToFront();
-            statsAndInvForm.Activate();
-            statsAndInvForm.Focus();
+        private void EnterButton_Click(object sender, EventArgs e)
+        {
+            GlobalStateManager.PlayerName = CharNameTextBox.Text;
+            IntroPanel.Dispose();
+            StatsAndInvButton.Enabled = true;
         }
 
         public void DisableActionButtons()
@@ -272,6 +283,7 @@ namespace ProjectReptile
 
         private void EngagementCheck()
         {
+
             foreach (Enemy enemy in gameState.EnemyList)
             {
                 if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY && enemy.IsAlive == true)
@@ -289,6 +301,32 @@ namespace ProjectReptile
             ToggleMovementButtonsForCombat();
         }
 
+        private void NegotiationCheck()
+        {
+            Random random = new Random();
+            Player player = gameState.player;
+
+            if (gameState.GetEnemyByCoordinates(player.LocationX, player.LocationY) != null)
+            {
+                Enemy enemy = gameState.GetEnemyByCoordinates(player.LocationX, player.LocationY);
+
+                if (enemy.IsIntelligent == true)
+                {
+
+                    int negotiationRole = random.Next(1, gameState.player.ModifiedInt + 1);
+
+                    if (negotiationRole > 5)
+                    {
+                        enemy.IsNegotiable = true;
+                    }
+                    else if (negotiationRole < 5)
+                    {
+                        enemy.IsNegotiable = false;
+                    }
+                }
+            }
+        }
+
         private void ToggleMovementButtonsForCombat()
         {
             if (gameState.player.InCombat == true)
@@ -301,11 +339,11 @@ namespace ProjectReptile
             }
         }
 
-        private void EnableActionButtons()
+        public void EnableActionButtons()
         {
             if (gameState.player.equippedTome != null && (gameState.player.equippedTome.NonCombative == true || gameState.player.InCombat == true))
             {
-                SorceryButton.Enabled = true; 
+                SorceryButton.Enabled = true;
             }
 
             foreach (Enemy enemy in gameState.EnemyList)
@@ -313,7 +351,7 @@ namespace ProjectReptile
                 if (enemy.LocationX == gameState.player.LocationX && enemy.LocationY == gameState.player.LocationY && enemy.IsAlive == true && gameState.player.InCombat == true)
                 {
                     AttackButton.Enabled = true;
-                    DefendButton.Enabled = true;                   
+                    DefendButton.Enabled = true;
                     FleeButton.Enabled = true;
                 }
             }
@@ -454,7 +492,7 @@ namespace ProjectReptile
         }
 
 
-        private void UpdatePlayerConsole()
+        public void UpdatePlayerConsole()
         {
             PlayerConsoleTextBox.Clear();
 
@@ -487,7 +525,7 @@ namespace ProjectReptile
                 defeatForm.Show();
             }
         }
-        
+
         public void NewGameFormRefresh()
         {
             DisableActionButtons();
@@ -505,7 +543,7 @@ namespace ProjectReptile
             UpdatePlayerInfoLabelsAndGUI();
             EngagementCheck();
             UpdateLandmarkGUI();
-            this.Refresh(); 
+            this.Refresh();
         }
 
         private void MapGridPanel_Paint(object sender, PaintEventArgs e)
@@ -551,6 +589,48 @@ namespace ProjectReptile
                     }
                 }
             }
+        }
+
+        public void ShakeForm()
+        {
+            var original = this.Location;
+            var rnd = new Random();
+            int shakeAmplitude = 5;
+            int shakeDuration = 300;
+            int interval = 50;
+
+            Timer timer = new Timer { Interval = interval };
+            int elapsed = 0;
+
+            timer.Tick += (s, e) =>
+            {
+                if (elapsed >= shakeDuration)
+                {
+                    timer.Stop();
+                    this.Location = original;
+                    return;
+                }
+
+                this.Location = new Point(
+                    original.X + rnd.Next(-shakeAmplitude, shakeAmplitude),
+                    original.Y + rnd.Next(-shakeAmplitude, shakeAmplitude)
+                );
+                elapsed += interval;
+            };
+
+            timer.Start();
+        }
+
+        private void startNewGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.gameState = new GameStateModel(this);
+            this.NewGameFormRefresh();
+            this.Refresh();
+        }
+
+        private void quitGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

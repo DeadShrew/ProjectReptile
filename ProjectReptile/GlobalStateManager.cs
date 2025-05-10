@@ -9,5 +9,7 @@ namespace ProjectReptile
     public static class GlobalStateManager
     {
         public static bool LensEquipped = false;
+        public static string PlayerName = "Rolf";
+
     }
 }

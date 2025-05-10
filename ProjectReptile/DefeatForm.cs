@@ -28,7 +28,7 @@ namespace ProjectReptile
 
         private void NewGameButton_Click(object sender, EventArgs e)
         {
-            _mainForm.gameState = new GameStateModel();
+            _mainForm.gameState = new GameStateModel(_mainForm);
             _mainForm.Invoke((MethodInvoker)(() => _mainForm.NewGameFormRefresh()));
             this.Refresh();
             this.Dispose();

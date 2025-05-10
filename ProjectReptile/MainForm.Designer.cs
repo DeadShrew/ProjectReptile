@@ -41,6 +41,9 @@
             GetItemButton = new Button();
             menuStrip1 = new MenuStrip();
             gameToolStripMenuItem = new ToolStripMenuItem();
+            startNewGameToolStripMenuItem = new ToolStripMenuItem();
+            replayGameToolStripMenuItem = new ToolStripMenuItem();
+            quitGameToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
             MapGridPanel = new Panel();
             ParcelItemList = new ListBox();
@@ -58,11 +61,17 @@
             EnemyThreatLabel = new Label();
             PlayerThreatLabel = new Label();
             DirectionAndCoordinatesLabel = new Label();
+            IntroPanel = new Panel();
+            EnterButton = new Button();
+            CharNameTextBox = new TextBox();
+            EnterNameLabel = new Label();
+            TitleLabel = new Label();
             menuStrip1.SuspendLayout();
             MovementPanel.SuspendLayout();
             ParcelContentsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)LandmarkPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)EnemyPictureBox).BeginInit();
+            IntroPanel.SuspendLayout();
             SuspendLayout();
             // 
             // UpButton
@@ -104,6 +113,7 @@
             RightButton.Text = "Right";
             RightButton.UseVisualStyleBackColor = true;
             RightButton.Click += RightButton_Click;
+            this.AcceptButton = RightButton;
             // 
             // AttackButton
             // 
@@ -187,9 +197,32 @@
             // 
             // gameToolStripMenuItem
             // 
+            gameToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { startNewGameToolStripMenuItem, replayGameToolStripMenuItem, quitGameToolStripMenuItem });
             gameToolStripMenuItem.Name = "gameToolStripMenuItem";
             gameToolStripMenuItem.Size = new Size(50, 20);
             gameToolStripMenuItem.Text = "Game";
+            // 
+            // startNewGameToolStripMenuItem
+            // 
+            startNewGameToolStripMenuItem.Name = "startNewGameToolStripMenuItem";
+            startNewGameToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
+            startNewGameToolStripMenuItem.Size = new Size(202, 22);
+            startNewGameToolStripMenuItem.Text = "Start New Game";
+            startNewGameToolStripMenuItem.Click += startNewGameToolStripMenuItem_Click;
+            // 
+            // replayGameToolStripMenuItem
+            // 
+            replayGameToolStripMenuItem.Name = "replayGameToolStripMenuItem";
+            replayGameToolStripMenuItem.Size = new Size(202, 22);
+            replayGameToolStripMenuItem.Text = "Replay Game";
+            // 
+            // quitGameToolStripMenuItem
+            // 
+            quitGameToolStripMenuItem.Name = "quitGameToolStripMenuItem";
+            quitGameToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Q;
+            quitGameToolStripMenuItem.Size = new Size(202, 22);
+            quitGameToolStripMenuItem.Text = "Quit Game";
+            quitGameToolStripMenuItem.Click += quitGameToolStripMenuItem_Click;
             // 
             // helpToolStripMenuItem
             // 
@@ -353,12 +386,62 @@
             DirectionAndCoordinatesLabel.TabIndex = 26;
             DirectionAndCoordinatesLabel.Text = "DirectionAndCoordinatesLabel";
             // 
+            // IntroPanel
+            // 
+            IntroPanel.BackColor = Color.DarkGray;
+            IntroPanel.Controls.Add(EnterButton);
+            IntroPanel.Controls.Add(CharNameTextBox);
+            IntroPanel.Controls.Add(EnterNameLabel);
+            IntroPanel.Controls.Add(TitleLabel);
+            IntroPanel.Location = new Point(212, 43);
+            IntroPanel.Name = "IntroPanel";
+            IntroPanel.Size = new Size(450, 462);
+            IntroPanel.TabIndex = 27;
+            // 
+            // EnterButton
+            // 
+            EnterButton.Location = new Point(198, 293);
+            EnterButton.Name = "EnterButton";
+            EnterButton.Size = new Size(75, 23);
+            EnterButton.TabIndex = 3;
+            EnterButton.Text = "Enter";
+            EnterButton.UseVisualStyleBackColor = true;
+            EnterButton.Click += EnterButton_Click;
+            this.AcceptButton = EnterButton;
+            // 
+            // CharNameTextBox
+            // 
+            CharNameTextBox.Location = new Point(238, 262);
+            CharNameTextBox.Name = "CharNameTextBox";
+            CharNameTextBox.Size = new Size(100, 23);
+            CharNameTextBox.TabIndex = 2;
+            // 
+            // EnterNameLabel
+            // 
+            EnterNameLabel.AutoSize = true;
+            EnterNameLabel.Location = new Point(160, 270);
+            EnterNameLabel.Name = "EnterNameLabel";
+            EnterNameLabel.Size = new Size(72, 15);
+            EnterNameLabel.TabIndex = 1;
+            EnterNameLabel.Text = "Enter Name:";
+            // 
+            // TitleLabel
+            // 
+            TitleLabel.AutoSize = true;
+            TitleLabel.Font = new Font("Courier New", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TitleLabel.Location = new Point(58, 80);
+            TitleLabel.Name = "TitleLabel";
+            TitleLabel.Size = new Size(332, 40);
+            TitleLabel.TabIndex = 0;
+            TitleLabel.Text = "PROJECT REPTILE";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GrayText;
             ClientSize = new Size(869, 559);
+            Controls.Add(IntroPanel);
             Controls.Add(DirectionAndCoordinatesLabel);
             Controls.Add(PlayerThreatLabel);
             Controls.Add(EnemyThreatLabel);
@@ -392,6 +475,8 @@
             ParcelContentsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)LandmarkPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)EnemyPictureBox).EndInit();
+            IntroPanel.ResumeLayout(false);
+            IntroPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -428,5 +513,13 @@
         private Label EnemyThreatLabel;
         private Label PlayerThreatLabel;
         private Label DirectionAndCoordinatesLabel;
+        private Panel IntroPanel;
+        private Label EnterNameLabel;
+        private Label TitleLabel;
+        private Button EnterButton;
+        private TextBox CharNameTextBox;
+        private ToolStripMenuItem startNewGameToolStripMenuItem;
+        private ToolStripMenuItem replayGameToolStripMenuItem;
+        private ToolStripMenuItem quitGameToolStripMenuItem;
     }
 }
