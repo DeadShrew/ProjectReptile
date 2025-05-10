@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectReptile.AbstractClasses
 {
-    class FireEnemy : Enemy
+    public class FireEnemy : Enemy
     {
     }
 }

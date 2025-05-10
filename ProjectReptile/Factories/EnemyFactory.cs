@@ -15,7 +15,7 @@ namespace ProjectReptile.Factories
         {
             Random random = new Random();
 
-            int enemy = random.Next(1, 4);
+            int enemy = random.Next(1, 6);
 
             switch (enemy)
             {
@@ -26,8 +26,15 @@ namespace ProjectReptile.Factories
                     return new ProtoShoggoth();
 
                 case 3:
-                    return new CosmicColor(); 
+                    return new CosmicColor();
+
+                case 4:
+                    return new SnakeFamiliar();
+
+                case 5:
+                    return new FireVampire();
             }
+
             return null;
             }
         }

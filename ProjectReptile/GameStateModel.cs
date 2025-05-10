@@ -397,7 +397,41 @@ namespace ProjectReptile
                     if (enemy.Strength > 0)
                         PlayerOffensiveAttack(enemy);
                 }
-            } 
+            }
+            else if (enemy is PoisonEnemy)
+            {
+                if (playerInitiativeRoll >= enemyInitiativeRoll)
+                {
+                    PlayerOffensiveAttack(enemy);
+
+                    if (enemy.Strength > 0)
+                        PoisonEnemyAttack(enemy);
+                }
+                else
+                {
+                    PoisonEnemyAttack(enemy);
+
+                    if (enemy.Strength > 0)
+                        PlayerOffensiveAttack(enemy);
+                }
+            }
+            else if (enemy is FireEnemy)
+            {
+                if (playerInitiativeRoll >= enemyInitiativeRoll)
+                {
+                    PlayerOffensiveAttack(enemy);
+
+                    if (enemy.Strength > 0)
+                        FireEnemyAttack(enemy);
+                }
+                else
+                {
+                    FireEnemyAttack(enemy);
+
+                    if (enemy.Strength > 0)
+                        PlayerOffensiveAttack(enemy);
+                }
+            }
             else
             {
                 if (playerInitiativeRoll >= enemyInitiativeRoll)
@@ -440,7 +474,39 @@ namespace ProjectReptile
                     if (enemy.Strength > 0)
                         PlayerDefensiveAttack(enemy);
                 }
-            } 
+            } else if (enemy is PoisonEnemy)
+            {
+                if (playerInitiativeRoll >= enemyInitiativeRoll)
+                {
+                    PlayerDefensiveAttack(enemy);
+
+                    if (enemy.Strength > 0)
+                        BlockedPoisonEnemyAttack(enemy);
+                }
+                else
+                {
+                    BlockedPoisonEnemyAttack(enemy);
+
+                    if (enemy.Strength > 0)
+                        PlayerDefensiveAttack(enemy);
+                }
+            } else if (enemy is FireEnemy)
+            {
+                if (playerInitiativeRoll >= enemyInitiativeRoll)
+                {
+                    PlayerDefensiveAttack(enemy);
+
+                    if (enemy.Strength > 0)
+                        BlockedFireEnemyAttack(enemy);
+                }
+                else
+                {
+                    BlockedFireEnemyAttack(enemy);
+
+                    if (enemy.Strength > 0)
+                        PlayerDefensiveAttack(enemy);
+                }
+            }
             else
             {
                 if (playerInitiativeRoll >= enemyInitiativeRoll)
@@ -465,6 +531,8 @@ namespace ProjectReptile
             int diceRoll = random.Next(1, 7);
             int damageRoll = random.Next(1, (int)(player.Strength * 0.666 + player.Weapon) + 1);
 
+            PoisonedCheck();
+
             if (diceRoll > 1 && diceRoll < 6)
             {
                 enemy.Strength -= Math.Max(0, damageRoll - enemy.Armor);
@@ -483,6 +551,8 @@ namespace ProjectReptile
         {
             int diceRoll = random.Next(1, 7);
             int damageRoll = random.Next(1, (int)(player.Strength * 0.333 + player.Weapon) + 1);
+
+            PoisonedCheck();
 
             if (diceRoll > 1 && diceRoll < 6)
             {
@@ -600,10 +670,116 @@ namespace ProjectReptile
             }
         }
 
+        public void PoisonEnemyAttack(Enemy enemy)
+        {
+            int diceRoll = random.Next(1, 7);
+            int damageRoll = random.Next(1, (int)(enemy.Strength * 0.666 + enemy.Power) + 1);
+
+            if (diceRoll > 1 && diceRoll < 6)
+            {
+                int damageRemainder = Math.Max(0, damageRoll - player.Armor);
+                player.Strength -= damageRemainder;
+                if (damageRemainder > 0) { _mainForm.ShakeForm(); }
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " hit you for " + damageRemainder + " point(s).");
+            }
+            else if (diceRoll > 5)
+            {
+                int damageRemainder = Math.Max(0, damageRoll - player.Armor);
+                player.Strength -= damageRemainder;
+                player.IsPoisoned = true;
+                if (damageRemainder > 0) { _mainForm.ShakeForm(); }
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " poisoned you and hit you for " + Math.Max(0, damageRoll - player.Armor) + " point(s).");
+            }
+            else if (diceRoll < 2)
+            {
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " missed you with its attack.");
+            }
+        }
+
+        public void BlockedPoisonEnemyAttack(Enemy enemy)
+        {
+            int diceRoll = random.Next(1, 7);
+            int damageRoll = random.Next(1, (int)(enemy.Strength * 0.666 + enemy.Power) + 1);
+
+            if (diceRoll > 4 && diceRoll < 6)
+            {
+                int damageRemainder = Math.Max(0, damageRoll - player.Armor);
+                player.Strength -= damageRemainder;
+                if (damageRemainder > 0) { _mainForm.ShakeForm(); }
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " hit you for " + Math.Max(0, damageRoll - player.Armor) + " point(s).");
+            }
+            else if (diceRoll > 5)
+            {
+                int damageRemainder = Math.Max(0, damageRoll - player.Armor);
+                player.Strength -= damageRemainder;
+                player.IsPoisoned = true;
+                if (damageRemainder > 0) { _mainForm.ShakeForm(); }
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " poisoned you and hit you for " + Math.Max(0, damageRoll - player.Armor) + " point(s).");
+            }
+            else if (diceRoll < 4)
+            {
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " missed you with its attack.");
+            }
+        }
+
+        public void FireEnemyAttack(Enemy enemy)
+        {
+            int diceRoll = random.Next(1, 7);
+            int damageRoll = random.Next(1, (int)(enemy.Strength * 0.666 + enemy.Power) + 1);
+
+            if (diceRoll > 1 && diceRoll < 6)
+            {
+                int damageRemainder = Math.Max(0, damageRoll - player.Armor);
+                player.Strength -= damageRemainder;
+                if (damageRemainder > 0) { _mainForm.ShakeForm(); }
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " hit you for " + damageRemainder + " point(s) with its fiery attack.");
+            }
+            else if (diceRoll > 5)
+            {
+                int damageRemainder = Math.Max(0, damageRoll - player.Armor);
+                player.Strength -= damageRemainder;
+                player.IsBurning = true;
+                if (damageRemainder > 0) { _mainForm.ShakeForm(); }
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " set you aflame and hit you for " + Math.Max(0, damageRoll - player.Armor) + " point(s).") ;
+            }
+            else if (diceRoll < 2)
+            {
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " missed you with its attack.");
+            }
+        }
+
+        public void BlockedFireEnemyAttack(Enemy enemy)
+        {
+            int diceRoll = random.Next(1, 7);
+            int damageRoll = random.Next(1, (int)(enemy.Strength * 0.666 + enemy.Power) + 1);
+
+            if (diceRoll > 4 && diceRoll < 6)
+            {
+                int damageRemainder = Math.Max(0, damageRoll - player.Armor);
+                player.Strength -= damageRemainder;
+                if (damageRemainder > 0) { _mainForm.ShakeForm(); }
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " hit you for " + Math.Max(0, damageRoll - player.Armor) + " point(s) with its fiery attack.");
+            }
+            else if (diceRoll > 5)
+            {
+                int damageRemainder = Math.Max(0, damageRoll - player.Armor);
+                player.Strength -= damageRemainder;
+                player.IsBurning = true;
+                if (damageRemainder > 0) { _mainForm.ShakeForm(); }
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " set you aflame and hit you for " + Math.Max(0, damageRoll - player.Armor) + " point(s).");
+            }
+            else if (diceRoll < 4)
+            {
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("The " + enemy.Name + " missed you with its attack.");
+            }
+        }
+
         public void UseSorcery()
         {
             Player player = this.player;
             Enemy enemy = GetEnemyByCoordinates(player.LocationX, player.LocationY);
+
+            PoisonedCheck();
 
             player.equippedTome.CastSorcery(player, enemy);
 
@@ -622,6 +798,25 @@ namespace ProjectReptile
             {
                 GUIOutputManager.PlayerConsoleOutputList.AddLast("You have not escaped.");
                 EnemyAttack(GetEnemyByCoordinates(player.LocationX, player.LocationY)); 
+            }
+        }
+
+        public void PoisonedCheck()
+        {
+            if (player.IsPoisoned == true)
+            {
+                player.Strength -= 1;
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("You have taken 1 poison damage.");
+            }
+        }
+
+        public void BurningCheck()
+        {
+            if (player.IsBurning == true)
+            {
+                int burnDamage = random.Next(1, 4);
+                player.Strength -= burnDamage;
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("You have taken " + burnDamage + " damage as you burn.");
             }
         }
 
@@ -662,6 +857,8 @@ namespace ProjectReptile
 
         public void EncounterCheck()
         {
+            PoisonedCheck();
+
             foreach (Encounter encounter in EncounterList)
             {
                 encounter.EncounterCheck(player); 

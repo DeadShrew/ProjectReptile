@@ -28,6 +28,8 @@ namespace ProjectReptile.GameObjects
         public bool InCombat;
         public bool AtLandmark;
         public bool GoldKeyFound = false;
+        public bool IsPoisoned = false;
+        public bool IsBurning = false;
         public string MovedDir;
         public Weapon equippedWeapon;
         public Shield equippedShield;
