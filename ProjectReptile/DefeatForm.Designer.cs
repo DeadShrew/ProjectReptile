@@ -31,6 +31,7 @@
             DefeatLabel = new Label();
             ExitButton = new Button();
             NewGameButton = new Button();
+            ReplayButton = new Button();
             SuspendLayout();
             // 
             // DefeatLabel
@@ -45,7 +46,7 @@
             // 
             // ExitButton
             // 
-            ExitButton.Location = new Point(288, 225);
+            ExitButton.Location = new Point(334, 225);
             ExitButton.Name = "ExitButton";
             ExitButton.Size = new Size(75, 23);
             ExitButton.TabIndex = 1;
@@ -55,7 +56,7 @@
             // 
             // NewGameButton
             // 
-            NewGameButton.Location = new Point(158, 225);
+            NewGameButton.Location = new Point(117, 225);
             NewGameButton.Name = "NewGameButton";
             NewGameButton.Size = new Size(79, 23);
             NewGameButton.TabIndex = 2;
@@ -63,11 +64,22 @@
             NewGameButton.UseVisualStyleBackColor = true;
             NewGameButton.Click += NewGameButton_Click;
             // 
+            // ReplayButton
+            // 
+            ReplayButton.Location = new Point(227, 225);
+            ReplayButton.Name = "ReplayButton";
+            ReplayButton.Size = new Size(75, 23);
+            ReplayButton.TabIndex = 3;
+            ReplayButton.Text = "REPLAY";
+            ReplayButton.UseVisualStyleBackColor = true;
+            ReplayButton.Click += ReplayButton_Click;
+            // 
             // DefeatForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(514, 326);
+            Controls.Add(ReplayButton);
             Controls.Add(NewGameButton);
             Controls.Add(ExitButton);
             Controls.Add(DefeatLabel);
@@ -82,5 +94,6 @@
         private Label DefeatLabel;
         private Button ExitButton;
         private Button NewGameButton;
+        private Button ReplayButton;
     }
 }

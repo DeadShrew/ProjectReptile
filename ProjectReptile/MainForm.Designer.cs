@@ -59,6 +59,9 @@
             PlayerConsoleTextBox = new TextBox();
             FleeButton = new Button();
             ParcelContentsPanel = new Panel();
+            EnemiesLabel = new Label();
+            TerrainLabel = new Label();
+            RoomContentsLabel = new Label();
             LandmarkPictureBox = new PictureBox();
             EnemyPictureBox = new PictureBox();
             EnemyStrengthLabel = new Label();
@@ -77,42 +80,58 @@
             // 
             // UpButton
             // 
-            UpButton.Location = new Point(87, 27);
+            UpButton.BackColor = Color.YellowGreen;
+            UpButton.BackgroundImage = (Image)resources.GetObject("UpButton.BackgroundImage");
+            UpButton.BackgroundImageLayout = ImageLayout.Stretch;
+            UpButton.FlatStyle = FlatStyle.Popup;
+            UpButton.Location = new Point(94, 31);
             UpButton.Name = "UpButton";
-            UpButton.Size = new Size(75, 23);
+            UpButton.Size = new Size(85, 85);
             UpButton.TabIndex = 0;
             UpButton.Text = "Up";
-            UpButton.UseVisualStyleBackColor = true;
+            UpButton.UseVisualStyleBackColor = false;
             UpButton.Click += UpButton_Click;
             // 
             // DownButton
             // 
-            DownButton.Location = new Point(87, 98);
+            DownButton.BackColor = Color.YellowGreen;
+            DownButton.BackgroundImage = (Image)resources.GetObject("DownButton.BackgroundImage");
+            DownButton.BackgroundImageLayout = ImageLayout.Stretch;
+            DownButton.FlatStyle = FlatStyle.Popup;
+            DownButton.Location = new Point(94, 136);
             DownButton.Name = "DownButton";
-            DownButton.Size = new Size(75, 23);
+            DownButton.Size = new Size(85, 85);
             DownButton.TabIndex = 1;
             DownButton.Text = "Down";
-            DownButton.UseVisualStyleBackColor = true;
+            DownButton.UseVisualStyleBackColor = false;
             DownButton.Click += DownButton_Click;
             // 
             // LeftButton
             // 
-            LeftButton.Location = new Point(3, 61);
+            LeftButton.BackColor = Color.YellowGreen;
+            LeftButton.BackgroundImage = (Image)resources.GetObject("LeftButton.BackgroundImage");
+            LeftButton.BackgroundImageLayout = ImageLayout.Stretch;
+            LeftButton.FlatStyle = FlatStyle.Popup;
+            LeftButton.Location = new Point(3, 88);
             LeftButton.Name = "LeftButton";
-            LeftButton.Size = new Size(75, 23);
+            LeftButton.Size = new Size(85, 85);
             LeftButton.TabIndex = 2;
             LeftButton.Text = "Left";
-            LeftButton.UseVisualStyleBackColor = true;
+            LeftButton.UseVisualStyleBackColor = false;
             LeftButton.Click += LeftButton_Click;
             // 
             // RightButton
             // 
-            RightButton.Location = new Point(168, 61);
+            RightButton.BackColor = Color.YellowGreen;
+            RightButton.BackgroundImage = (Image)resources.GetObject("RightButton.BackgroundImage");
+            RightButton.BackgroundImageLayout = ImageLayout.Stretch;
+            RightButton.FlatStyle = FlatStyle.Popup;
+            RightButton.Location = new Point(185, 88);
             RightButton.Name = "RightButton";
-            RightButton.Size = new Size(75, 23);
+            RightButton.Size = new Size(85, 85);
             RightButton.TabIndex = 3;
             RightButton.Text = "Right";
-            RightButton.UseVisualStyleBackColor = true;
+            RightButton.UseVisualStyleBackColor = false;
             RightButton.Click += RightButton_Click;
             // 
             // AttackButton
@@ -167,12 +186,15 @@
             // 
             // StatsAndInvButton
             // 
+            StatsAndInvButton.BackColor = Color.Black;
+            StatsAndInvButton.BackgroundImage = (Image)resources.GetObject("StatsAndInvButton.BackgroundImage");
+            StatsAndInvButton.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             StatsAndInvButton.Location = new Point(862, 316);
             StatsAndInvButton.Name = "StatsAndInvButton";
             StatsAndInvButton.Size = new Size(246, 23);
             StatsAndInvButton.TabIndex = 10;
             StatsAndInvButton.Text = "Statistics and Inventory";
-            StatsAndInvButton.UseVisualStyleBackColor = true;
+            StatsAndInvButton.UseVisualStyleBackColor = false;
             StatsAndInvButton.Click += StatsAndInvButton_Click;
             // 
             // GetItemButton
@@ -213,15 +235,17 @@
             // replayGameToolStripMenuItem
             // 
             replayGameToolStripMenuItem.Name = "replayGameToolStripMenuItem";
+            replayGameToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.R;
             replayGameToolStripMenuItem.Size = new Size(202, 22);
             replayGameToolStripMenuItem.Text = "Replay Game";
+            replayGameToolStripMenuItem.Click += replayGameToolStripMenuItem_Click;
             // 
             // quitGameToolStripMenuItem
             // 
             quitGameToolStripMenuItem.Name = "quitGameToolStripMenuItem";
             quitGameToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Q;
             quitGameToolStripMenuItem.Size = new Size(202, 22);
-            quitGameToolStripMenuItem.Text = "Quit Game";
+            quitGameToolStripMenuItem.Text = "Quit";
             quitGameToolStripMenuItem.Click += quitGameToolStripMenuItem_Click;
             // 
             // helpToolStripMenuItem
@@ -247,9 +271,9 @@
             IntroPanel.Controls.Add(CharNameTextBox);
             IntroPanel.Controls.Add(EnterNameLabel);
             IntroPanel.Controls.Add(TitleLabel);
-            IntroPanel.Location = new Point(378, 127);
+            IntroPanel.Location = new Point(366, 107);
             IntroPanel.Name = "IntroPanel";
-            IntroPanel.Size = new Size(468, 474);
+            IntroPanel.Size = new Size(479, 387);
             IntroPanel.TabIndex = 27;
             // 
             // EnterButton
@@ -308,33 +332,37 @@
             // MovementPanel
             // 
             MovementPanel.BackColor = Color.Brown;
+            MovementPanel.BackgroundImage = (Image)resources.GetObject("MovementPanel.BackgroundImage");
+            MovementPanel.BackgroundImageLayout = ImageLayout.Stretch;
             MovementPanel.Controls.Add(UpButton);
             MovementPanel.Controls.Add(LeftButton);
             MovementPanel.Controls.Add(RightButton);
             MovementPanel.Controls.Add(DownButton);
-            MovementPanel.Location = new Point(498, 285);
+            MovementPanel.Location = new Point(474, 223);
             MovementPanel.Name = "MovementPanel";
-            MovementPanel.Size = new Size(246, 132);
+            MovementPanel.Size = new Size(274, 224);
             MovementPanel.TabIndex = 15;
             // 
             // ParcelInfoLabel
             // 
             ParcelInfoLabel.BackColor = Color.LightCoral;
             ParcelInfoLabel.BorderStyle = BorderStyle.FixedSingle;
-            ParcelInfoLabel.Location = new Point(60, 479);
+            ParcelInfoLabel.Image = (Image)resources.GetObject("ParcelInfoLabel.Image");
+            ParcelInfoLabel.Location = new Point(120, 459);
             ParcelInfoLabel.Name = "ParcelInfoLabel";
-            ParcelInfoLabel.Size = new Size(1070, 23);
+            ParcelInfoLabel.Size = new Size(972, 23);
             ParcelInfoLabel.TabIndex = 16;
             ParcelInfoLabel.Text = "ParcelInfoLabel";
             // 
             // EnemyInfoLabel
             // 
-            EnemyInfoLabel.BackColor = Color.LightCoral;
+            EnemyInfoLabel.BackColor = Color.Gray;
             EnemyInfoLabel.BorderStyle = BorderStyle.FixedSingle;
             EnemyInfoLabel.ForeColor = SystemColors.ControlText;
-            EnemyInfoLabel.Location = new Point(60, 502);
+            EnemyInfoLabel.Image = (Image)resources.GetObject("EnemyInfoLabel.Image");
+            EnemyInfoLabel.Location = new Point(120, 493);
             EnemyInfoLabel.Name = "EnemyInfoLabel";
-            EnemyInfoLabel.Size = new Size(1070, 23);
+            EnemyInfoLabel.Size = new Size(972, 23);
             EnemyInfoLabel.TabIndex = 17;
             // 
             // PlayerConsoleTextBox
@@ -362,28 +390,71 @@
             // ParcelContentsPanel
             // 
             ParcelContentsPanel.BackColor = Color.Olive;
+            ParcelContentsPanel.BackgroundImage = (Image)resources.GetObject("ParcelContentsPanel.BackgroundImage");
+            ParcelContentsPanel.BackgroundImageLayout = ImageLayout.Stretch;
+            ParcelContentsPanel.Controls.Add(EnemiesLabel);
+            ParcelContentsPanel.Controls.Add(TerrainLabel);
+            ParcelContentsPanel.Controls.Add(RoomContentsLabel);
             ParcelContentsPanel.Controls.Add(LandmarkPictureBox);
             ParcelContentsPanel.Controls.Add(EnemyPictureBox);
-            ParcelContentsPanel.Location = new Point(461, 60);
+            ParcelContentsPanel.Location = new Point(442, 61);
             ParcelContentsPanel.Name = "ParcelContentsPanel";
-            ParcelContentsPanel.Size = new Size(318, 174);
+            ParcelContentsPanel.Size = new Size(337, 173);
             ParcelContentsPanel.TabIndex = 20;
+            // 
+            // EnemiesLabel
+            // 
+            EnemiesLabel.AutoSize = true;
+            EnemiesLabel.BackColor = Color.Transparent;
+            EnemiesLabel.Font = new Font("Segoe Script", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            EnemiesLabel.Location = new Point(226, 134);
+            EnemiesLabel.Name = "EnemiesLabel";
+            EnemiesLabel.Size = new Size(62, 19);
+            EnemiesLabel.TabIndex = 4;
+            EnemiesLabel.Text = "Enemies";
+            // 
+            // TerrainLabel
+            // 
+            TerrainLabel.AutoSize = true;
+            TerrainLabel.BackColor = Color.Transparent;
+            TerrainLabel.Font = new Font("Segoe Script", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TerrainLabel.Location = new Point(41, 134);
+            TerrainLabel.Name = "TerrainLabel";
+            TerrainLabel.Size = new Size(79, 19);
+            TerrainLabel.TabIndex = 3;
+            TerrainLabel.Text = "Landmarks";
+            // 
+            // RoomContentsLabel
+            // 
+            RoomContentsLabel.AutoSize = true;
+            RoomContentsLabel.BackColor = Color.Transparent;
+            RoomContentsLabel.Font = new Font("Segoe Script", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            RoomContentsLabel.Location = new Point(112, 3);
+            RoomContentsLabel.Name = "RoomContentsLabel";
+            RoomContentsLabel.Size = new Size(118, 19);
+            RoomContentsLabel.TabIndex = 2;
+            RoomContentsLabel.Text = "Local Encounters";
             // 
             // LandmarkPictureBox
             // 
             LandmarkPictureBox.BackColor = SystemColors.Control;
-            LandmarkPictureBox.Location = new Point(209, 47);
+            LandmarkPictureBox.BackgroundImage = (Image)resources.GetObject("LandmarkPictureBox.BackgroundImage");
+            LandmarkPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
+            LandmarkPictureBox.Location = new Point(35, 31);
             LandmarkPictureBox.Name = "LandmarkPictureBox";
-            LandmarkPictureBox.Size = new Size(74, 69);
+            LandmarkPictureBox.Size = new Size(100, 100);
             LandmarkPictureBox.TabIndex = 1;
             LandmarkPictureBox.TabStop = false;
             // 
             // EnemyPictureBox
             // 
             EnemyPictureBox.BackColor = SystemColors.Control;
-            EnemyPictureBox.Location = new Point(41, 47);
+            EnemyPictureBox.BackgroundImage = (Image)resources.GetObject("EnemyPictureBox.BackgroundImage");
+            EnemyPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
+            EnemyPictureBox.Location = new Point(206, 31);
             EnemyPictureBox.Name = "EnemyPictureBox";
-            EnemyPictureBox.Size = new Size(75, 69);
+            EnemyPictureBox.Size = new Size(100, 100);
+            EnemyPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             EnemyPictureBox.TabIndex = 0;
             EnemyPictureBox.TabStop = false;
             // 
@@ -392,6 +463,8 @@
             EnemyStrengthLabel.BackColor = Color.Brown;
             EnemyStrengthLabel.BorderStyle = BorderStyle.FixedSingle;
             EnemyStrengthLabel.ForeColor = SystemColors.ActiveCaptionText;
+            EnemyStrengthLabel.Image = (Image)resources.GetObject("EnemyStrengthLabel.Image");
+            EnemyStrengthLabel.ImageAlign = ContentAlignment.TopLeft;
             EnemyStrengthLabel.Location = new Point(862, 81);
             EnemyStrengthLabel.Name = "EnemyStrengthLabel";
             EnemyStrengthLabel.Size = new Size(119, 23);
@@ -402,6 +475,7 @@
             // 
             PlayerStrengthLabel.BackColor = Color.IndianRed;
             PlayerStrengthLabel.BorderStyle = BorderStyle.FixedSingle;
+            PlayerStrengthLabel.Image = (Image)resources.GetObject("PlayerStrengthLabel.Image");
             PlayerStrengthLabel.Location = new Point(862, 116);
             PlayerStrengthLabel.Name = "PlayerStrengthLabel";
             PlayerStrengthLabel.Size = new Size(119, 23);
@@ -412,6 +486,7 @@
             // 
             PlayerGoldLabel.BackColor = Color.IndianRed;
             PlayerGoldLabel.BorderStyle = BorderStyle.FixedSingle;
+            PlayerGoldLabel.Image = (Image)resources.GetObject("PlayerGoldLabel.Image");
             PlayerGoldLabel.Location = new Point(862, 150);
             PlayerGoldLabel.Name = "PlayerGoldLabel";
             PlayerGoldLabel.Size = new Size(119, 23);
@@ -421,6 +496,8 @@
             // EnemyThreatLabel
             // 
             EnemyThreatLabel.BackColor = Color.Firebrick;
+            EnemyThreatLabel.Image = (Image)resources.GetObject("EnemyThreatLabel.Image");
+            EnemyThreatLabel.ImageAlign = ContentAlignment.TopLeft;
             EnemyThreatLabel.Location = new Point(987, 81);
             EnemyThreatLabel.Name = "EnemyThreatLabel";
             EnemyThreatLabel.Size = new Size(105, 23);
@@ -431,6 +508,7 @@
             // 
             PlayerThreatLabel.BackColor = Color.IndianRed;
             PlayerThreatLabel.BorderStyle = BorderStyle.FixedSingle;
+            PlayerThreatLabel.Image = (Image)resources.GetObject("PlayerThreatLabel.Image");
             PlayerThreatLabel.Location = new Point(987, 116);
             PlayerThreatLabel.Name = "PlayerThreatLabel";
             PlayerThreatLabel.Size = new Size(105, 23);
@@ -440,6 +518,8 @@
             // DirectionAndCoordinatesLabel
             // 
             DirectionAndCoordinatesLabel.BackColor = Color.Brown;
+            DirectionAndCoordinatesLabel.Image = (Image)resources.GetObject("DirectionAndCoordinatesLabel.Image");
+            DirectionAndCoordinatesLabel.ImageAlign = ContentAlignment.TopLeft;
             DirectionAndCoordinatesLabel.Location = new Point(86, 81);
             DirectionAndCoordinatesLabel.Name = "DirectionAndCoordinatesLabel";
             DirectionAndCoordinatesLabel.Size = new Size(301, 23);
@@ -489,6 +569,7 @@
             IntroPanel.PerformLayout();
             MovementPanel.ResumeLayout(false);
             ParcelContentsPanel.ResumeLayout(false);
+            ParcelContentsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)LandmarkPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)EnemyPictureBox).EndInit();
             ResumeLayout(false);
@@ -535,5 +616,8 @@
         private ToolStripMenuItem startNewGameToolStripMenuItem;
         private ToolStripMenuItem replayGameToolStripMenuItem;
         private ToolStripMenuItem quitGameToolStripMenuItem;
+        private Label RoomContentsLabel;
+        private Label TerrainLabel;
+        private Label EnemiesLabel;
     }
 }

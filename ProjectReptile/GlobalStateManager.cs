@@ -10,6 +10,8 @@ namespace ProjectReptile
     {
         public static bool LensEquipped = false;
         public static string PlayerName = "Rolf";
+        public static int StartingLocationX;
+        public static int StartingLocationY;
 
     }
 }

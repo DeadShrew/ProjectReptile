@@ -16,6 +16,7 @@ namespace ProjectReptile.AbstractClasses
         public Armour equippedArmour;
 
         public int Power;
+        public int MaxStrength;
         public int Strength;
         public int Dexterity;
         public int Armor;

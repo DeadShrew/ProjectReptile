@@ -13,7 +13,7 @@ namespace ProjectReptile.Landmarks
         public Mausoleum() 
         {
             this.Name = "mausoleum";
-            string relativePath = "Images\\Mythos Cultist Test Image.png";
+            string relativePath = "QC_Assets\\Mausoleum.png";
             string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 
             this.landmarkIcon = Image.FromFile(fullPath);

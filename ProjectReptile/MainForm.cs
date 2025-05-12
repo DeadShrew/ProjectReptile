@@ -24,8 +24,8 @@ namespace ProjectReptile
             gameState = new GameStateModel(this);
             StatsAndInvButton.Enabled = false;
             DisableActionButtons();
-            this.IntroPanel.Enabled = true;           
-            
+            this.IntroPanel.Enabled = true;
+
         }
 
         private void ViewForm_Load(object sender, EventArgs e)
@@ -152,7 +152,7 @@ namespace ProjectReptile
         }
 
         private void AttackButton_Click(object sender, EventArgs e)
-        {         
+        {
             gameState.AttackEnemyOffensively();
             gameState.EnemyDeathCheck();
             PlayerDeathCheck();
@@ -631,6 +631,29 @@ namespace ProjectReptile
         private void quitGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void replayGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Enemy enemy in gameState.EnemyList)
+            {
+                enemy.Strength = enemy.MaxStrength;
+            }
+
+            foreach (Landmark landmark in gameState.LandmarkList)
+            {
+                landmark.Searched = false;
+            }
+
+            gameState.ParcelList.Clear();
+
+            gameState.player.Strength = 20;
+
+            gameState.player.LocationX = GlobalStateManager.StartingLocationX;
+            gameState.player.LocationY = GlobalStateManager.StartingLocationY;
+
+            NewGameFormRefresh();
+            this.Refresh();
         }
     }
 }

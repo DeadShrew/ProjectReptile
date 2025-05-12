@@ -14,21 +14,21 @@ namespace ProjectReptile.AbstractClasses
 
         public string ?Name;
         public bool Searched;
-        public string ParcelInfoText; 
+        public string ParcelInfoText;
+        public Item item;
+
+        public Landmark()
+        {
+            item = ItemFactory.CreateItem();
+        }
 
         public override void EncounterCheck(Player player)
         {
-            if (player.LocationX == this.LocationX && player.LocationY == this.LocationY)
-            {
-                //Console.WriteLine("The player has encountered a " + this.Name);
-            }
         }
 
         public Item? SearchLandmark()
         {
-            if (Searched == false) {
-
-                Item item = ItemFactory.CreateItem();
+            if (Searched == false) {            
 
                 Searched = true;
                 GUIOutputManager.PlayerConsoleOutputList.AddLast("A " +  item.Name + " is here.");

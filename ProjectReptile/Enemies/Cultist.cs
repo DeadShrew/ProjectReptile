@@ -15,8 +15,32 @@ public class Cultist : Enemy
     public Cultist()
     {
         Random random = new Random();
-        string relativePath = "Images\\Mythos Cultist Test Image.png"; 
-        string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+
+        string relativePath;
+
+        int cultistRole = random.Next(1, 5);
+
+        if (cultistRole == 1)
+        {
+            relativePath = "QC_Assets\\Cultist1Dagon.png";
+        } 
+        
+        else if (cultistRole == 2)
+        {
+            relativePath = "QC_Assets\\Cultist2Cthulu.png";
+        }
+
+        else if (cultistRole == 3)
+        {
+            relativePath = "QC_Assets\\CultPriest.png"; 
+        } 
+        else
+        {
+            relativePath = "QC_Assets\\Cultist4Occult.png";
+        }
+
+
+            string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 
         this.enemyIcon = Image.FromFile(fullPath);
         this.equippedWeapon = WeaponFactory.CreateWeaponForCultist();
@@ -29,6 +53,7 @@ public class Cultist : Enemy
         this.IsNegotiable = true; 
         this.Power = equippedWeapon.Power;
         this.Strength = 4 + random.Next(-2, 2);
+        this.MaxStrength = this.Strength; 
         this.Dexterity = 15;
         this.Armor = 15;
         this.Gold = 3 + random.Next(-2, 2);

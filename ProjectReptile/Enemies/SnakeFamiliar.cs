@@ -13,12 +13,13 @@ namespace ProjectReptile.Enemies
         {
             Random random = new Random();
 
-            string relativePath = "Images\\SnakeFamiliar.png";
+            string relativePath = "QC_Assets\\SnakeFamiliar.png";
             string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 
             this.enemyIcon = Image.FromFile(fullPath);
             this.Power = 2;
             this.Strength = 10 + random.Next(-2, 2);
+            this.MaxStrength = this.Strength;
             this.Dexterity = 15;
             this.Armor = 15;
             this.Gold = 0 + random.Next(0, 2);

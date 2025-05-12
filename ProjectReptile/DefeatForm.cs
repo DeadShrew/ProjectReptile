@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjectReptile.AbstractClasses;
+using ProjectReptile.GameObjects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +14,7 @@ namespace ProjectReptile
 {
     public partial class DefeatForm : Form
     {
-        private MainForm _mainForm;  
+        private MainForm _mainForm;
 
 
         public DefeatForm(MainForm mainForm)
@@ -29,6 +31,30 @@ namespace ProjectReptile
         private void NewGameButton_Click(object sender, EventArgs e)
         {
             _mainForm.gameState = new GameStateModel(_mainForm);
+            _mainForm.Invoke((MethodInvoker)(() => _mainForm.NewGameFormRefresh()));
+            this.Refresh();
+            this.Dispose();
+        }
+
+        private void ReplayButton_Click(object sender, EventArgs e)
+        {
+            foreach (Enemy enemy in _mainForm.gameState.EnemyList)
+            {
+                enemy.Strength = enemy.MaxStrength; 
+            }
+
+            foreach (Landmark landmark in _mainForm.gameState.LandmarkList)
+            {
+                landmark.Searched = false;
+            }
+
+            _mainForm.gameState.ParcelList.Clear();
+
+            _mainForm.gameState.player.Strength = 20;  
+
+            _mainForm.gameState.player.LocationX = GlobalStateManager.StartingLocationX;
+            _mainForm.gameState.player.LocationY = GlobalStateManager.StartingLocationY;
+
             _mainForm.Invoke((MethodInvoker)(() => _mainForm.NewGameFormRefresh()));
             this.Refresh();
             this.Dispose();

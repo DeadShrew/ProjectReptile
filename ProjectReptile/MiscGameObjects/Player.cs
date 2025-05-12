@@ -73,6 +73,10 @@ namespace ProjectReptile.GameObjects
 
             LocationX = random.Next(0, Settings.Columns);
             LocationY = random.Next(0, Settings.Rows);
+
+            GlobalStateManager.StartingLocationX = LocationX;
+            GlobalStateManager.StartingLocationY = LocationY;
+
             ItemList = new LinkedList<Item>();
 
             ItemList.AddLast(new TotemClub()); 
