@@ -11,7 +11,7 @@ namespace ProjectReptile
         public int rows = Settings.Rows;
         public int columns  = Settings.Columns;
 
-        public Player player; 
+        public Player player;
 
         public LinkedList<Encounter> EncounterList = new LinkedList<Encounter>();
         public LinkedList<Enemy> EnemyList = new LinkedList<Enemy>();
@@ -42,9 +42,26 @@ namespace ProjectReptile
             AddTrapsToEncounterList();
             AddLandmarksToEncounterList();
 
-            player = new Player();
+            GeneratedPlayer();
+
+            player = new Player(); 
 
             _mainForm = mainForm;
+        }
+
+        public void GeneratedPlayer()
+        {
+            int x = random.Next(0, 10);
+            int y = random.Next(0, 10); 
+
+            if (TrapList.Any(b => b.LocationX == x) && TrapList.Any(b => b.LocationY == y))
+            {
+                GeneratedPlayer();
+            } else
+            {
+                GlobalStateManager.StartingLocationX = x;
+                GlobalStateManager.StartingLocationY = y;
+            }        
         }
 
         public void GenerateParcel(int x, int y)

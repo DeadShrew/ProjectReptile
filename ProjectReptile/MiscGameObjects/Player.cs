@@ -73,11 +73,11 @@ namespace ProjectReptile.GameObjects
                 this.Armor = 0;
             }
 
-            LocationX = random.Next(0, Settings.Columns);
-            LocationY = random.Next(0, Settings.Rows);
+            LocationX = GlobalStateManager.StartingLocationX;
+            LocationY = GlobalStateManager.StartingLocationY;
 
-            GlobalStateManager.StartingLocationX = LocationX;
-            GlobalStateManager.StartingLocationY = LocationY;
+            //GlobalStateManager.StartingLocationX = LocationX;
+            //GlobalStateManager.StartingLocationY = LocationY;
 
             ItemList = new LinkedList<Item>();
 
