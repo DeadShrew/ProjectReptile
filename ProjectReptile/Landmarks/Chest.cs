@@ -1,0 +1,21 @@
+﻿using ProjectReptile.AbstractClasses;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectReptile.Landmarks
+{
+    public class Chest : Landmark
+    {
+        public Chest()
+        {
+            this.Name = "chest";
+            string relativePath = "QC_Assets\\Chest.png";
+            string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+
+            this.landmarkIcon = Image.FromFile(fullPath);
+        }
+    }
+}

@@ -14,7 +14,7 @@ namespace ProjectReptile.Factories
         {
             Random random = new Random();
 
-            int landmark = random.Next(1, 3);
+            int landmark = random.Next(1, 4);
 
             switch (landmark)
             {
@@ -23,6 +23,9 @@ namespace ProjectReptile.Factories
 
                 case 2:
                     return new OpenGrave();
+
+                case 3:
+                    return new Chest();
             }
             return null;
         }

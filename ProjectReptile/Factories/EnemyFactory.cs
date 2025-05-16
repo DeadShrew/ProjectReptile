@@ -15,7 +15,7 @@ namespace ProjectReptile.Factories
         {
             Random random = new Random();
 
-            int enemy = random.Next(1, 6);
+            int enemy = random.Next(1, 7);
 
             switch (enemy)
             {
@@ -33,6 +33,9 @@ namespace ProjectReptile.Factories
 
                 case 5:
                     return new FireVampire();
+
+                case 6:
+                    return new Shoggoth();
             }
 
             return null;
