@@ -104,6 +104,16 @@ namespace ProjectReptile
                 {
                     ItemStatusLabel.Text = "";
                 }
+
+                if (item is EquippableItem)
+                {
+                    EquippableItem equippableItem = (EquippableItem)item;
+
+                    if (equippableItem.IsEquipped == true && equippableItem.IsCursed == true && _gameState.player.IsCursed == true)
+                    {
+                        ItemStatusLabel.Text = "Cursed";
+                    }
+                }
             }
 
             this.Refresh();
@@ -205,6 +215,16 @@ namespace ProjectReptile
                 }
             }
 
+            if (item is EquippableItem)
+            {
+                EquippableItem equippableItem = (EquippableItem)item;
+
+                if (equippableItem.IsEquipped == true && equippableItem.IsCursed == true && _gameState.player.IsCursed == true)
+                {
+                    ItemStatusLabel.Text = "Cursed";
+                }
+            }
+
             _gameState.player.UpdatePlayerAfterEquipmentChange();
             UpdateStatsForm();
             this.Refresh();
@@ -249,8 +269,17 @@ namespace ProjectReptile
             if (item is EquippableItem)
             {
                 EquippableItem equippableItem = (EquippableItem)item;
-                equippableItem.IsEquipped = false;
-                equippableItem.UnEquipItem(_gameState.player);
+
+                if (equippableItem.IsCursed == true && _gameState.player.IsCursed == true)
+                {
+                    MessageBox.Show("You cannot unequip a cursed item until you are cleansed."); 
+
+                } else
+                {
+                    equippableItem.IsEquipped = false;
+                    equippableItem.UnEquipItem(_gameState.player);
+                }
+                
             }
 
             if (item is Equipment)
@@ -264,6 +293,16 @@ namespace ProjectReptile
                 else if (equipment.IsEquipped == false)
                 {
                     ItemStatusLabel.Text = "";
+                }
+            }
+
+            if (item is EquippableItem)
+            {
+                EquippableItem equippableItem = (EquippableItem)item;
+
+                if (equippableItem.IsEquipped == true && equippableItem.IsCursed == true && _gameState.player.IsCursed == true)
+                {
+                    ItemStatusLabel.Text = "Cursed";
                 }
             }
 

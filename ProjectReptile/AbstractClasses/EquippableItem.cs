@@ -10,6 +10,8 @@ namespace ProjectReptile.AbstractClasses
     public abstract class EquippableItem : Equipment
     {
 
+        public bool IsCursed = false;
+
         public override string ToString()
         {
             //return Name;

@@ -271,7 +271,7 @@
             IntroPanel.Controls.Add(CharNameTextBox);
             IntroPanel.Controls.Add(EnterNameLabel);
             IntroPanel.Controls.Add(TitleLabel);
-            IntroPanel.Location = new Point(366, 107);
+            IntroPanel.Location = new Point(365, 127);
             IntroPanel.Name = "IntroPanel";
             IntroPanel.Size = new Size(479, 387);
             IntroPanel.TabIndex = 27;
@@ -331,7 +331,7 @@
             // 
             // MovementPanel
             // 
-            MovementPanel.BackColor = Color.Brown;
+            MovementPanel.BackColor = Color.Transparent;
             MovementPanel.BackgroundImage = (Image)resources.GetObject("MovementPanel.BackgroundImage");
             MovementPanel.BackgroundImageLayout = ImageLayout.Stretch;
             MovementPanel.Controls.Add(UpButton);
@@ -389,7 +389,7 @@
             // 
             // ParcelContentsPanel
             // 
-            ParcelContentsPanel.BackColor = Color.Olive;
+            ParcelContentsPanel.BackColor = Color.Transparent;
             ParcelContentsPanel.BackgroundImage = (Image)resources.GetObject("ParcelContentsPanel.BackgroundImage");
             ParcelContentsPanel.BackgroundImageLayout = ImageLayout.Stretch;
             ParcelContentsPanel.Controls.Add(EnemiesLabel);

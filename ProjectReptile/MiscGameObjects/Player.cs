@@ -1,5 +1,6 @@
 ﻿using ProjectReptile.AbstractClasses;
 using ProjectReptile.Armor;
+using ProjectReptile.EquippableItems;
 using ProjectReptile.Items;
 using ProjectReptile.Shields;
 using ProjectReptile.Tomes;
@@ -30,6 +31,7 @@ namespace ProjectReptile.GameObjects
         public bool GoldKeyFound = false;
         public bool IsPoisoned = false;
         public bool IsBurning = false;
+        public bool IsCursed = false;
         public string MovedDir;
         public Weapon equippedWeapon;
         public Shield equippedShield;
@@ -87,7 +89,8 @@ namespace ProjectReptile.GameObjects
             ItemList.AddLast(new LensOfIdentity());
             ItemList.AddLast(new Necronomicon());
             ItemList.AddLast(new BookOfDagon());
-            ItemList.AddLast(new BlackBookOfValusia()); 
+            ItemList.AddLast(new BlackBookOfValusia());
+            ItemList.AddLast(new RingOfWeakness());
 
             this.equippedWeapon = (Weapon?)ItemList.FirstOrDefault(i => i is TotemClub); 
             this.equippedShield = (Shield?)ItemList.FirstOrDefault(i => i is SmallShield);
