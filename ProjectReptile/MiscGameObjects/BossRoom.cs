@@ -14,6 +14,7 @@ namespace ProjectReptile.MiscGameObjects
         {
             this.LocationX = x;
             this.LocationY = y;
+            Console.WriteLine("BossRoom Location = " + x + y);
         }
 
         public override void EncounterCheck(Player player)

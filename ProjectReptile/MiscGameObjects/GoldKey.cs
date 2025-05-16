@@ -13,6 +13,7 @@ namespace ProjectReptile
         {
             this.LocationX = x;
             this.LocationY = y;
+            Console.WriteLine("GoldKey Location = " + x + y);
         }
 
         public override void EncounterCheck(Player player)

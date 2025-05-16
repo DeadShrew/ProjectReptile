@@ -35,28 +35,28 @@ namespace ProjectReptile
             GenerateTrapLocations();
             GenerateLandmarkLocations();
 
-            GenerateGoldKey();
-            GenerateBossRoom();
-
             AddEnemiesToEncounterList();
             AddTrapsToEncounterList();
             AddLandmarksToEncounterList();
 
-            GeneratedPlayer();
+            GeneratedPlayerLocation();
 
-            player = new Player(); 
+            player = new Player();
+
+            GenerateGoldKey();
+            GenerateBossRoom();
 
             _mainForm = mainForm;
         }
 
-        public void GeneratedPlayer()
+        public void GeneratedPlayerLocation()
         {
             int x = random.Next(0, 10);
             int y = random.Next(0, 10); 
 
             if (TrapList.Any(b => b.LocationX == x) && TrapList.Any(b => b.LocationY == y))
             {
-                GeneratedPlayer();
+                GeneratedPlayerLocation();
             } else
             {
                 GlobalStateManager.StartingLocationX = x;
@@ -344,7 +344,16 @@ namespace ProjectReptile
             int x = random.Next(0, columns);
             int y = random.Next(0, rows);
 
-            EncounterList.AddLast(new GoldKey(x, y));
+            if (TrapList.Any(b => b.LocationX == x) && TrapList.Any(b => b.LocationY == y) ||
+                player.LocationX == x && player.LocationY == y)
+            {
+                GenerateGoldKey();
+            }
+            else
+            {
+
+                EncounterList.AddLast(new GoldKey(x, y));
+            }
         }
 
         public void GenerateBossRoom()
@@ -352,7 +361,17 @@ namespace ProjectReptile
             int x = random.Next(0, columns);
             int y = random.Next(0, rows);
 
-            EncounterList.AddLast(new BossRoom(x, y));
+            if (TrapList.Any(b => b.LocationX == x) && TrapList.Any(b => b.LocationY == y) ||
+                player.LocationX == x && player.LocationY == y ||
+                EncounterList.OfType<GoldKey>().FirstOrDefault().LocationX == x && EncounterList.OfType<GoldKey>().FirstOrDefault().LocationY == y)
+            {
+                GenerateBossRoom();
+            }
+            else
+            {
+
+                EncounterList.AddLast(new BossRoom(x, y));
+            }
         }
 
         private void InitializeParcelDescriptions()
