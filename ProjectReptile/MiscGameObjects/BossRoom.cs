@@ -21,11 +21,12 @@ namespace ProjectReptile.MiscGameObjects
         {
             if (this.LocationX == player.LocationX && this.LocationY == player.LocationY && player.GoldKeyFound != true)
             {
-                MessageBox.Show("You have found the dungeon exit. Find the key and finish the game here.");
+                MessageBox.Show("You have found the entrance to the inner sanctum. Find the gold key to enter.");
             }
             else if (this.LocationX == player.LocationX && this.LocationY == player.LocationY && player.GoldKeyFound == true)
             {
-                MessageBox.Show("You win thanks for playin");
+                DialogResult result = MessageBox.Show("The entrance to the inner sanctum is here. Do you wish to enter?", "Question", MessageBoxButtons.YesNo);
+
             }
         }
     }

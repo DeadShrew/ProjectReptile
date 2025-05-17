@@ -561,7 +561,7 @@
             DoubleBuffered = true;
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
-            Text = "Form1";
+            Text = "Project Reptile";
             Load += ViewForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
