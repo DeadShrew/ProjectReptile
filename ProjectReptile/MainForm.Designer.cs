@@ -271,7 +271,7 @@
             IntroPanel.Controls.Add(CharNameTextBox);
             IntroPanel.Controls.Add(EnterNameLabel);
             IntroPanel.Controls.Add(TitleLabel);
-            IntroPanel.Location = new Point(365, 127);
+            IntroPanel.Location = new Point(362, 107);
             IntroPanel.Name = "IntroPanel";
             IntroPanel.Size = new Size(479, 387);
             IntroPanel.TabIndex = 27;

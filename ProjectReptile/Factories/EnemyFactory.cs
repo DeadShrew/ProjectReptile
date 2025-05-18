@@ -39,7 +39,12 @@ namespace ProjectReptile.Factories
             }
 
             return null;
-            }
+        }
+
+        public static Enemy CreateMiniBoss()
+        {
+            return new Dagon();
         }
     }
+}
 

@@ -2,6 +2,8 @@
 using ProjectReptile.Factories;
 using ProjectReptile.GameObjects;
 using ProjectReptile.MiscGameObjects;
+using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ProjectReptile
@@ -39,24 +41,26 @@ namespace ProjectReptile
             AddTrapsToEncounterList();
             AddLandmarksToEncounterList();
 
-            GeneratedPlayerLocation();
+            GeneratePlayerLocation();
 
             player = new Player();
 
             GenerateGoldKey();
+            EnemyList.AddLast(EnemyFactory.CreateMiniBoss());
+            EnemyList.AddLast(new CultistAdept()); 
             GenerateBossRoom();
 
             _mainForm = mainForm;
         }
 
-        public void GeneratedPlayerLocation()
+        public void GeneratePlayerLocation()
         {
             int x = random.Next(0, 10);
             int y = random.Next(0, 10); 
 
             if (TrapList.Any(b => b.LocationX == x) && TrapList.Any(b => b.LocationY == y))
             {
-                GeneratedPlayerLocation();
+                GeneratePlayerLocation();
             } else
             {
                 GlobalStateManager.StartingLocationX = x;
@@ -369,8 +373,52 @@ namespace ProjectReptile
             }
             else
             {
-
                 EncounterList.AddLast(new BossRoom(x, y));
+
+                Parcel parcel = new Parcel(9, 10);
+                var description = "You are in a dark room with occult sigils on the walls. You are in the inner sanctum.";
+                parcel.Description = description;               
+
+                parcel.EnemyDescription = "A " + GetEnemyByCoordinates(9, 10).Name + " is here.";
+
+                ParcelList.AddLast(parcel);
+                EncounterList.AddLast(parcel);
+
+                Parcel parcel2 = new Parcel(10, 10);
+                var description2 = "You are in a dark room with occult sigils on the walls. You are in the inner sanctum.";
+                parcel.Description = description;
+
+                parcel.EnemyDescription = "A " + GetEnemyByCoordinates(10, 10).Name + " is here.";
+
+                ParcelList.AddLast(parcel);
+                EncounterList.AddLast(parcel);
+
+            }           
+        }
+
+        public void FinalBattleCheck(MainForm mainForm)
+        {
+            BossRoom bossRoom = EncounterList.OfType<BossRoom>().First();
+
+            if (bossRoom.LocationX == player.LocationX && bossRoom.LocationY == player.LocationY && player.GoldKeyFound != true)
+            {
+                MessageBox.Show("You have found the entrance to the inner sanctum. Find the gold key to enter.");
+            }
+            else if (bossRoom.LocationX == player.LocationX && bossRoom.LocationY == player.LocationY && player.GoldKeyFound == true)
+            {
+                DialogResult result = MessageBox.Show("The entrance to the inner sanctum is here. Do you wish to enter?", "Question", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.No)
+                {
+
+                }
+                else
+                {
+                    player.LocationX = 9;
+                    player.LocationY = 10;
+                    mainForm.NewGameFormRefresh(); 
+                }
+
             }
         }
 
@@ -485,6 +533,32 @@ namespace ProjectReptile
                         PlayerOffensiveAttack(enemy);
                 }
             }
+
+            if (enemy is MiniBoss && enemy.Strength <= 0)
+            {
+                DialogResult result = MessageBox.Show("You have driven the entity away. A large portal yawns before you. Do you wish to heal before you enter?", "Question", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.No)
+                {
+                    player.LocationX = 10;
+                    player.LocationY = 10;
+                    _mainForm.NewGameFormRefresh();
+                }
+                else
+                {
+                    StatsAndInvForm statsAndInvForm = StatsAndInvForm.GetInstance(this, _mainForm);
+                    statsAndInvForm.ShowDialog();
+
+                    player.LocationX = 10;
+                    player.LocationY = 10;
+                    _mainForm.NewGameFormRefresh();
+                }
+            }
+
+            if (enemy is Boss && enemy.Strength <= 0)
+            {
+                MessageBox.Show(" You win! Thanks for playing."); 
+            }
         }
 
         public void AttackEnemyDefensively()
@@ -560,7 +634,34 @@ namespace ProjectReptile
                         PlayerDefensiveAttack(enemy);
                 }
             }
+
+            if (enemy is MiniBoss && enemy.Strength <= 0)
+            {
+                DialogResult result = MessageBox.Show("You have driven the entity away. A large portal yawns before you. Do you wish to heal before you enter?", "Question", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.No)
+                {
+                    player.LocationX = 10;
+                    player.LocationY = 10;
+                    _mainForm.NewGameFormRefresh();
+                }
+                else
+                {
+                    StatsAndInvForm statsAndInvForm = StatsAndInvForm.GetInstance(this, _mainForm);
+                    statsAndInvForm.ShowDialog();
+
+                    player.LocationX = 10;
+                    player.LocationY = 10;
+                    _mainForm.NewGameFormRefresh();
+                }
+            }
+
+            if (enemy is Boss && enemy.Strength <= 0)
+            {
+                MessageBox.Show(" You win! Thanks for playing.");
+            }
         }
+        
 
         public void PlayerOffensiveAttack(Enemy enemy)
         {

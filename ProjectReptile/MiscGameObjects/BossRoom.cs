@@ -19,15 +19,7 @@ namespace ProjectReptile.MiscGameObjects
 
         public override void EncounterCheck(Player player)
         {
-            if (this.LocationX == player.LocationX && this.LocationY == player.LocationY && player.GoldKeyFound != true)
-            {
-                MessageBox.Show("You have found the entrance to the inner sanctum. Find the gold key to enter.");
-            }
-            else if (this.LocationX == player.LocationX && this.LocationY == player.LocationY && player.GoldKeyFound == true)
-            {
-                DialogResult result = MessageBox.Show("The entrance to the inner sanctum is here. Do you wish to enter?", "Question", MessageBoxButtons.YesNo);
-
-            }
+            
         }
     }
 }

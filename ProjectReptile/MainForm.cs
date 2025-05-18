@@ -25,7 +25,7 @@ namespace ProjectReptile
             StatsAndInvButton.Enabled = false;
             DisableActionButtons();
             this.IntroPanel.Enabled = true;
-
+            this.DoubleBuffered = true;
         }
 
         private void ViewForm_Load(object sender, EventArgs e)
@@ -69,6 +69,7 @@ namespace ProjectReptile
             NegotiationCheck();
             EnableActionButtons();
             this.Refresh();
+            gameState.FinalBattleCheck(this); 
         }
 
         private void DownButton_Click(object sender, EventArgs e)
@@ -91,6 +92,7 @@ namespace ProjectReptile
             NegotiationCheck();
             EnableActionButtons();
             this.Refresh();
+            gameState.FinalBattleCheck(this);
         }
 
         private void LeftButton_Click(object sender, EventArgs e)
@@ -113,6 +115,7 @@ namespace ProjectReptile
             NegotiationCheck();
             EnableActionButtons();
             this.Refresh();
+            gameState.FinalBattleCheck(this);
         }
 
         private void RightButton_Click(object sender, EventArgs e)
@@ -135,6 +138,7 @@ namespace ProjectReptile
             NegotiationCheck();
             EnableActionButtons();
             this.Refresh();
+            gameState.FinalBattleCheck(this);
         }
 
         private void FleeButton_Click(object sender, EventArgs e)
@@ -536,13 +540,14 @@ namespace ProjectReptile
             AddParcelItemsToListbox();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
-            EnableActionButtons();
+            //EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
-            EngagementCheck();
             UpdateLandmarkGUI();
+            EngagementCheck();
+            EnableActionButtons();
             this.Refresh();
         }
 
