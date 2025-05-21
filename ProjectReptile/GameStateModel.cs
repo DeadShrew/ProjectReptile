@@ -533,32 +533,6 @@ namespace ProjectReptile
                         PlayerOffensiveAttack(enemy);
                 }
             }
-
-            if (enemy is MiniBoss && enemy.Strength <= 0)
-            {
-                DialogResult result = MessageBox.Show("You have driven the entity away. A large portal yawns before you. Do you wish to heal before you enter?", "Question", MessageBoxButtons.YesNo);
-
-                if (result == DialogResult.No)
-                {
-                    player.LocationX = 10;
-                    player.LocationY = 10;
-                    _mainForm.NewGameFormRefresh();
-                }
-                else
-                {
-                    StatsAndInvForm statsAndInvForm = StatsAndInvForm.GetInstance(this, _mainForm);
-                    statsAndInvForm.ShowDialog();
-
-                    player.LocationX = 10;
-                    player.LocationY = 10;
-                    _mainForm.NewGameFormRefresh();
-                }
-            }
-
-            if (enemy is Boss && enemy.Strength <= 0)
-            {
-                MessageBox.Show(" You win! Thanks for playing."); 
-            }
         }
 
         public void AttackEnemyDefensively()
@@ -633,32 +607,6 @@ namespace ProjectReptile
                     if (enemy.Strength > 0)
                         PlayerDefensiveAttack(enemy);
                 }
-            }
-
-            if (enemy is MiniBoss && enemy.Strength <= 0)
-            {
-                DialogResult result = MessageBox.Show("You have driven the entity away. A large portal yawns before you. Do you wish to heal before you enter?", "Question", MessageBoxButtons.YesNo);
-
-                if (result == DialogResult.No)
-                {
-                    player.LocationX = 10;
-                    player.LocationY = 10;
-                    _mainForm.NewGameFormRefresh();
-                }
-                else
-                {
-                    StatsAndInvForm statsAndInvForm = StatsAndInvForm.GetInstance(this, _mainForm);
-                    statsAndInvForm.ShowDialog();
-
-                    player.LocationX = 10;
-                    player.LocationY = 10;
-                    _mainForm.NewGameFormRefresh();
-                }
-            }
-
-            if (enemy is Boss && enemy.Strength <= 0)
-            {
-                MessageBox.Show(" You win! Thanks for playing.");
             }
         }
         
@@ -954,6 +902,53 @@ namespace ProjectReptile
                 int burnDamage = random.Next(1, 4);
                 player.Strength -= burnDamage;
                 GUIOutputManager.PlayerConsoleOutputList.AddLast("You have taken " + burnDamage + " damage as you burn.");
+            }
+        }
+
+        public void CheckBossDefeatStatus()
+        {
+            Enemy enemy = GetEnemyByCoordinates(player.LocationX, player.LocationY);
+
+            if (enemy is MiniBoss && enemy.Strength <= 0)
+            {
+                DialogResult result = MessageBox.Show("You have driven the entity away. A large portal yawns before you. Do you wish to heal before you enter?", "Question", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.No)
+                {
+                    player.LocationX = 10;
+                    player.LocationY = 10;
+
+                    MessageBox.Show("You have interrupted the lead cultist as she opens the portal back to your home plane! She blasts you with a withering blast of pure magic!");
+
+                    int magicDamage = random.Next(3, 11);
+                    player.Strength -= magicDamage;
+
+                    GUIOutputManager.PlayerConsoleOutputList.AddLast("You have been blasted for " + magicDamage + " points!"); 
+
+                    _mainForm.NewGameFormRefresh();
+                }
+                else
+                {
+                    StatsAndInvForm statsAndInvForm = StatsAndInvForm.GetInstance(this, _mainForm);
+                    statsAndInvForm.ShowDialog();
+
+                    player.LocationX = 10;
+                    player.LocationY = 10;
+
+                    MessageBox.Show("You have interrupted the lead cultist as she opens the portal back to your home plane! She blasts you with a withering blast of pure magic!");
+
+                    int magicDamage = random.Next(3, 11);
+                    player.Strength -= magicDamage;
+
+                    GUIOutputManager.PlayerConsoleOutputList.AddLast("You have been blasted for " + magicDamage + " points!");
+
+                    _mainForm.NewGameFormRefresh();
+                }
+            }
+
+            if (enemy is Boss && enemy.Strength <= 0)
+            {
+                MessageBox.Show(" You win! Thanks for playing.");
             }
         }
 

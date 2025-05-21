@@ -169,6 +169,7 @@ namespace ProjectReptile
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();
+            gameState.CheckBossDefeatStatus();
             this.Refresh();
         }
 
@@ -186,6 +187,7 @@ namespace ProjectReptile
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();
+            gameState.CheckBossDefeatStatus();
             this.Refresh();
         }
 
@@ -204,6 +206,7 @@ namespace ProjectReptile
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();
+            gameState.CheckBossDefeatStatus(); 
             this.Refresh();
         }
 
@@ -247,6 +250,18 @@ namespace ProjectReptile
         private void StatsAndInvButton_Click(object sender, EventArgs e)
         {
             var statsForm = StatsAndInvForm.GetInstance(gameState, this);
+
+            statsForm.StartPosition = FormStartPosition.Manual;
+
+            int offsetX = 700;
+            int offsetY = 290;
+
+            statsForm.Location = new Point(this.Location.X + offsetX, this.Location.Y + offsetY);
+
+            // Optional: Set the parent (owner) form
+            statsForm.Owner = this;
+
+
             statsForm.Show();
             statsForm.BringToFront();
 
@@ -540,7 +555,7 @@ namespace ProjectReptile
             AddParcelItemsToListbox();
             gameState.GenerateParcel(gameState.player.LocationX, gameState.player.LocationY);
             gameState.ParcelTrapProximityCheck();
-            //EnableActionButtons();
+            EnableActionButtons();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             UpdateEnemyInfoLabelsAndGUI();
@@ -659,6 +674,18 @@ namespace ProjectReptile
 
             NewGameFormRefresh();
             this.Refresh();
+        }
+
+        public class BufferedPanel : Panel
+        {
+            public BufferedPanel()
+            {
+                this.DoubleBuffered = true;
+                this.SetStyle(ControlStyles.AllPaintingInWmPaint |
+                              ControlStyles.UserPaint |
+                              ControlStyles.OptimizedDoubleBuffer, true);
+                this.UpdateStyles();
+            }
         }
     }
 }

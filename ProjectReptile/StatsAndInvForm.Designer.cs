@@ -65,7 +65,7 @@
             // 
             CharacterNameLabel.AutoSize = true;
             CharacterNameLabel.BackColor = Color.Transparent;
-            CharacterNameLabel.Font = new Font("Segoe Script", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CharacterNameLabel.Font = new Font("Segoe Script", 14.25F);
             CharacterNameLabel.Location = new Point(61, 15);
             CharacterNameLabel.Name = "CharacterNameLabel";
             CharacterNameLabel.Size = new Size(185, 30);
@@ -390,7 +390,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(479, 456);
+            ClientSize = new Size(479, 486);
             ControlBox = false;
             Controls.Add(ModifiedIntTextBoxLabel);
             Controls.Add(ModifiedTextBoxLabel);
@@ -423,7 +423,7 @@
             Controls.Add(PlayerInventoryListbox);
             Controls.Add(CharacterNameLabel);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Location = new Point(385, 97);
+            Location = new Point(385, 400);
             MaximizeBox = false;
             Name = "StatsAndInvForm";
             StartPosition = FormStartPosition.Manual;

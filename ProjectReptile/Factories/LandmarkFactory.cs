@@ -14,7 +14,7 @@ namespace ProjectReptile.Factories
         {
             Random random = new Random();
 
-            int landmark = random.Next(1, 4);
+            int landmark = random.Next(1, 17);
 
             switch (landmark)
             {
@@ -26,6 +26,46 @@ namespace ProjectReptile.Factories
 
                 case 3:
                     return new Chest();
+
+                case 4:
+                    return new BloodstainedAltar();
+
+                case 5:
+                    return new BogShanty();
+
+                case 6:
+                    return new CrudeAltar();
+
+                case 7:
+                    return new FirePit();
+
+                case 8:
+                    return new GarbagePit();
+
+                case 9:
+                    return new Grove();
+
+                case 10:
+                    return new OccultChest();
+
+                case 11:
+                    return new OtherworldlyStatue();
+
+                case 12:
+                    return new SeanceTable();
+
+                case 13:
+                    return new Shrine();
+
+                case 14:
+                    return new WatchTower();
+
+                case 15:
+                    return new WaterfallHideout();
+
+                case 16:
+                    return new WaterWheel();
+
             }
             return null;
         }
