@@ -18,8 +18,7 @@ namespace ProjectReptile.AbstractClasses
         public Item item;
 
         public Landmark()
-        {
-            item = ItemFactory.CreateItem();
+        {            
         }
 
         public override void EncounterCheck(Player player)

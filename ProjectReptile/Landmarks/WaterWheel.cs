@@ -1,4 +1,5 @@
 ﻿using ProjectReptile.AbstractClasses;
+using ProjectReptile.Factories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace ProjectReptile.Landmarks
             string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 
             this.landmarkIcon = Image.FromFile(fullPath);
+
+            item = ItemFactory.CreatePotion();
         }
     }
 }
