@@ -91,6 +91,8 @@ namespace ProjectReptile.GameObjects
             ItemList.AddLast(new BookOfDagon());
             ItemList.AddLast(new BlackBookOfValusia());
             ItemList.AddLast(new RingOfWeakness());
+            ItemList.AddLast(new RingOfVulnerability());
+            ItemList.AddLast(new RingOfStupidity());
 
             this.equippedWeapon = (Weapon?)ItemList.FirstOrDefault(i => i is TotemClub); 
             this.equippedShield = (Shield?)ItemList.FirstOrDefault(i => i is SmallShield);

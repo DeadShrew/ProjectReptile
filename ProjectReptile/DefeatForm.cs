@@ -15,12 +15,25 @@ namespace ProjectReptile
     public partial class DefeatForm : Form
     {
         private MainForm _mainForm;
-
+        private static DefeatForm _instance;
+        private static readonly object _lock = new object();
 
         public DefeatForm(MainForm mainForm)
         {
             InitializeComponent();
             _mainForm = mainForm;
+        }
+
+        public static DefeatForm GetInstance(GameStateModel gameState, MainForm mainForm)
+        {
+            lock (_lock)
+            {
+                if (_instance == null || _instance.IsDisposed)
+                {
+                    _instance = new DefeatForm(mainForm);
+                }
+                return _instance;
+            }
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -32,6 +45,7 @@ namespace ProjectReptile
         {
             _mainForm.gameState = new GameStateModel(_mainForm);
             _mainForm.Invoke((MethodInvoker)(() => _mainForm.NewGameFormRefresh()));
+            GlobalStateManager.LensEquipped = false;
             this.Refresh();
             this.Dispose();
         }
@@ -50,12 +64,17 @@ namespace ProjectReptile
 
             _mainForm.gameState.ParcelList.Clear();
 
+            GlobalStateManager.LensEquipped = false;
+
             _mainForm.gameState.player.Strength = 20;  
 
             _mainForm.gameState.player.LocationX = GlobalStateManager.StartingLocationX;
             _mainForm.gameState.player.LocationY = GlobalStateManager.StartingLocationY;
 
             _mainForm.Invoke((MethodInvoker)(() => _mainForm.NewGameFormRefresh()));
+
+            _mainForm.ToggleMovementButtonsForCombat(); 
+
             this.Refresh();
             this.Dispose();
         }

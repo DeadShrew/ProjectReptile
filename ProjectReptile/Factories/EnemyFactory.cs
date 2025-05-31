@@ -15,7 +15,7 @@ namespace ProjectReptile.Factories
         {
             Random random = new Random();
 
-            int enemy = random.Next(1, 7);
+            int enemy = random.Next(1, 20);
 
             switch (enemy)
             {
@@ -36,6 +36,45 @@ namespace ProjectReptile.Factories
 
                 case 6:
                     return new Shoggoth();
+
+                case 7:
+                    return new Abomination();
+
+                case 8:
+                    return new DimensionalShambler();
+
+                case 9:
+                    return new Ghoul();
+
+                case 10:
+                    return new ManEatingPlant();
+
+                case 11:
+                    return new ManFacedRat();
+
+                case 12:
+                    return new NightGaunt();
+
+                case 13:
+                    return new ProtoShoggoth();
+
+                case 14:
+                    return new SpiderFamiliar();
+
+                case 15:
+                    return new ToadFamiliar();
+
+                case 16:
+                    return new ValusianChieftain();
+
+                case 17:
+                    return new ValusianFootsoldier();
+
+                case 18:
+                    return new Werewolf();
+
+                case 19:
+                    return new Zombie();
             }
 
             return null;
@@ -43,7 +82,26 @@ namespace ProjectReptile.Factories
 
         public static Enemy CreateMiniBoss()
         {
-            return new Dagon();
+            Random random = new Random();
+
+            int enemy = random.Next(1, 5);
+
+            switch (enemy)
+            {
+                case 1:
+                    return new Dagon();
+
+                case 2:
+                    return new YigAvatar();
+
+                case 3:
+                    return new StarSpawn();
+
+                case 4:
+                    return new HaunterOfTheDark();
+            }
+
+            return null;
         }
     }
 }

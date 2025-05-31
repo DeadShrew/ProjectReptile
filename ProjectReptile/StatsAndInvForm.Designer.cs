@@ -422,7 +422,7 @@
             Controls.Add(DoneButton);
             Controls.Add(PlayerInventoryListbox);
             Controls.Add(CharacterNameLabel);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            FormBorderStyle = FormBorderStyle.None;
             Location = new Point(385, 400);
             MaximizeBox = false;
             Name = "StatsAndInvForm";

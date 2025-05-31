@@ -929,11 +929,27 @@ namespace ProjectReptile
                 }
                 else
                 {
-                    StatsAndInvForm statsAndInvForm = StatsAndInvForm.GetInstance(this, _mainForm);
-                    statsAndInvForm.ShowDialog();
+                    var statsForm = StatsAndInvForm.GetInstance(this, _mainForm);
+
+                    statsForm.StartPosition = FormStartPosition.Manual;
+
+                    int offsetX = 700;
+                    int offsetY = 290;
+
+                    statsForm.Location = new Point(_mainForm.Location.X + offsetX, _mainForm.Location.Y + offsetY);
+
+                    statsForm.Owner = _mainForm;
 
                     player.LocationX = 10;
                     player.LocationY = 10;
+
+                    player.LocationX = 10;
+                    player.LocationY = 10;
+
+
+
+                    statsForm.ShowDialog();
+                    statsForm.BringToFront();
 
                     MessageBox.Show("You have interrupted the lead cultist as she opens the portal back to your home plane! She blasts you with a withering blast of pure magic!");
 
@@ -948,7 +964,22 @@ namespace ProjectReptile
 
             if (enemy is Boss && enemy.Strength <= 0)
             {
-                MessageBox.Show(" You win! Thanks for playing.");
+                var victoryForm = VictoryForm.GetInstance(this, _mainForm);
+
+                victoryForm.StartPosition = FormStartPosition.Manual;
+
+                int offsetX = 350;
+                int offsetY = 200;
+
+                victoryForm.Location = new Point(_mainForm.Location.X + offsetX, this._mainForm.Location.Y + offsetY);
+
+                victoryForm.Owner = _mainForm;
+
+
+                victoryForm.Show();
+                victoryForm.BringToFront();
+
+                victoryForm.Enabled = true; 
             }
         }
 

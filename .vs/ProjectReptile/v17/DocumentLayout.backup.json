@@ -3,32 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\landmarks\\mausoleum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\landmarks\\mausoleum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\landmarks\\waterwheel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\landmarks\\waterwheel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\victoryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\victoryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\abstractclasses\\landmark.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\abstractclasses\\landmark.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\victoryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\victoryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\landmarks\\occultchest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\landmarks\\occultchest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\defeatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\defeatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\factories\\itemfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\factories\\itemfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\defeatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\defeatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\landmarks\\waterfallhideout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\landmarks\\waterfallhideout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\landmarks\\bloodstainedaltar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\landmarks\\bloodstainedaltar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,93 +42,77 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Mausoleum.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Landmarks\\Mausoleum.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\Landmarks\\Mausoleum.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Landmarks\\Mausoleum.cs",
-              "RelativeToolTip": "ProjectReptile\\Landmarks\\Mausoleum.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAxAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "DefeatForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\DefeatForm.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\DefeatForm.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\DefeatForm.cs [Design]*",
+              "RelativeToolTip": "ProjectReptile\\DefeatForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T04:30:49.278Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OccultChest.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Landmarks\\OccultChest.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\Landmarks\\OccultChest.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Landmarks\\OccultChest.cs",
-              "RelativeToolTip": "ProjectReptile\\Landmarks\\OccultChest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T04:24:00.966Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T17:49:54.983Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "WaterWheel.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Landmarks\\WaterWheel.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\Landmarks\\WaterWheel.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Landmarks\\WaterWheel.cs",
-              "RelativeToolTip": "ProjectReptile\\Landmarks\\WaterWheel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAArAAAAAAAAAA==",
+              "Title": "VictoryForm.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\VictoryForm.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\VictoryForm.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\VictoryForm.cs*",
+              "RelativeToolTip": "ProjectReptile\\VictoryForm.cs*",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwEgAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T04:21:46.568Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "WaterfallHideout.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Landmarks\\WaterfallHideout.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\Landmarks\\WaterfallHideout.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Landmarks\\WaterfallHideout.cs",
-              "RelativeToolTip": "ProjectReptile\\Landmarks\\WaterfallHideout.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T04:20:07.245Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ItemFactory.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Factories\\ItemFactory.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\Factories\\ItemFactory.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Factories\\ItemFactory.cs",
-              "RelativeToolTip": "ProjectReptile\\Factories\\ItemFactory.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAswF4AAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T04:11:29.673Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BloodstainedAltar.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Landmarks\\BloodstainedAltar.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\Landmarks\\BloodstainedAltar.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Landmarks\\BloodstainedAltar.cs",
-              "RelativeToolTip": "ProjectReptile\\Landmarks\\BloodstainedAltar.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T04:09:18.121Z",
+              "WhenOpened": "2025-05-31T17:49:45.737Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Landmark.cs",
-              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\AbstractClasses\\Landmark.cs",
-              "RelativeDocumentMoniker": "ProjectReptile\\AbstractClasses\\Landmark.cs",
-              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\AbstractClasses\\Landmark.cs",
-              "RelativeToolTip": "ProjectReptile\\AbstractClasses\\Landmark.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAAAQAAAAAAAAAA==",
+              "Title": "VictoryForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\VictoryForm.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\VictoryForm.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\VictoryForm.cs [Design]*",
+              "RelativeToolTip": "ProjectReptile\\VictoryForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T04:03:08.351Z",
+              "WhenOpened": "2025-05-31T17:49:44.053Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\MainForm.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs*",
+              "RelativeToolTip": "ProjectReptile\\MainForm.cs*",
+              "ViewState": "AgIAAI8CAAAAAAAAAAAiwLACAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T17:48:04.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\MainForm.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs [Design]*",
+              "RelativeToolTip": "ProjectReptile\\MainForm.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T17:48:00.696Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DefeatForm.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\DefeatForm.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\DefeatForm.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\DefeatForm.cs*",
+              "RelativeToolTip": "ProjectReptile\\DefeatForm.cs*",
+              "ViewState": "AgIAACsAAAAAAAAAAAA1wEsAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T17:41:57.214Z",
               "EditorCaption": ""
             }
           ]

@@ -1,5 +1,6 @@
 ﻿using ProjectReptile.AbstractClasses;
 using ProjectReptile.Enemies;
+using ProjectReptile.EquippableItems;
 using ProjectReptile.Items;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace ProjectReptile.Factories
     internal class ItemFactory
     {
         
-        public static Item CreateItem()
+        public static Item CreateConsumable()
         {
             Random random = new Random();
 
@@ -60,7 +61,7 @@ namespace ProjectReptile.Factories
         {
             Random random = new Random();
 
-            int item = random.Next(1, 12);
+            int item = random.Next(1, 8);
 
             switch (item)
             {
@@ -84,6 +85,50 @@ namespace ProjectReptile.Factories
 
                 case 7:
                     return new PoisonPotion();
+            }
+            return null;
+        }
+
+        public static Item CreateEquippableItem()
+        {
+            Random random = new Random();
+
+            int item = random.Next(1, 12);
+
+            switch (item)
+            {
+                case 1:
+                    return new RingOfStrength();
+
+                case 2:
+                    return new RingOfWeakness();
+
+                case 3:
+                    return new RingOfWisdom();
+
+                case 4:
+                    return new RingOfStupidity();
+
+                case 5:
+                    return new RingOfDexterity();
+
+                case 6:
+                    return new RingOfClumsiness();
+
+                case 7:
+                    return new RingOfProtection();
+
+                case 8:
+                    return new RingOfVulnerability();
+
+                case 9:
+                    return new AmuletOfLife();
+
+                case 10:
+                    return new AmuletOfShielding();
+
+                case 11:
+                    return new AmuletOfTheLifeDrain();
             }
             return null;
         }

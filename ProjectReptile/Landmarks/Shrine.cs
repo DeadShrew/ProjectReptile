@@ -18,7 +18,7 @@ namespace ProjectReptile.Landmarks
 
             this.landmarkIcon = Image.FromFile(fullPath);
 
-            item = ItemFactory.CreateItem();
+            item = ArmourFactory.CreateArmor();
         }
     }
 }

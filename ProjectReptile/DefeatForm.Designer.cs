@@ -83,6 +83,7 @@
             Controls.Add(NewGameButton);
             Controls.Add(ExitButton);
             Controls.Add(DefeatLabel);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "DefeatForm";
             Text = "DefeatForm";
             ResumeLayout(false);

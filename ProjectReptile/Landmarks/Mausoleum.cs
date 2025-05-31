@@ -19,7 +19,34 @@ namespace ProjectReptile.Landmarks
 
             this.landmarkIcon = Image.FromFile(fullPath);
 
-            item = WeaponFactory.CreateWeapon(); 
+            Random random = new Random();
+
+            int roll = random.Next(1, 6);
+
+            if (roll == 1)
+            {
+                item = ItemFactory.CreateConsumable();
+            }
+
+            if (roll == 2)
+            {
+                item = WeaponFactory.CreateWeapon();
+            }
+
+            if (roll == 3)
+            {
+                item = ShieldFactory.CreateShield();
+            }
+
+            if (roll == 4)
+            {
+                item = ArmourFactory.CreateArmor();
+            }
+
+            if (roll == 5)
+            {
+                item = ItemFactory.CreateEquippableItem();
+            }
         }
     }
 }

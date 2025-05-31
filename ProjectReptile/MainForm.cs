@@ -258,9 +258,7 @@ namespace ProjectReptile
 
             statsForm.Location = new Point(this.Location.X + offsetX, this.Location.Y + offsetY);
 
-            // Optional: Set the parent (owner) form
             statsForm.Owner = this;
-
 
             statsForm.Show();
             statsForm.BringToFront();
@@ -346,7 +344,7 @@ namespace ProjectReptile
             }
         }
 
-        private void ToggleMovementButtonsForCombat()
+        public void ToggleMovementButtonsForCombat()
         {
             if (gameState.player.InCombat == true)
             {
@@ -540,8 +538,21 @@ namespace ProjectReptile
             if (gameState.player.Strength <= 0)
             {
                 gameState.player.Strength = 0;
-                var defeatForm = new DefeatForm(this);
+
+                var defeatForm = DefeatForm.GetInstance(gameState, this);
+
+                defeatForm.StartPosition = FormStartPosition.Manual;
+
+                int offsetX = 350;
+                int offsetY = 200;
+
+                defeatForm.Location = new Point(this.Location.X + offsetX, this.Location.Y + offsetY);
+
+                defeatForm.Owner = this;
+
+
                 defeatForm.Show();
+                defeatForm.BringToFront();
             }
         }
 
@@ -644,6 +655,7 @@ namespace ProjectReptile
         private void startNewGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.gameState = new GameStateModel(this);
+            GlobalStateManager.LensEquipped = false;
             this.NewGameFormRefresh();
             this.Refresh();
         }
@@ -669,8 +681,12 @@ namespace ProjectReptile
 
             gameState.player.Strength = 20;
 
+            GlobalStateManager.LensEquipped = false;
+
             gameState.player.LocationX = GlobalStateManager.StartingLocationX;
             gameState.player.LocationY = GlobalStateManager.StartingLocationY;
+
+            ToggleMovementButtonsForCombat();
 
             NewGameFormRefresh();
             this.Refresh();
