@@ -385,13 +385,13 @@ namespace ProjectReptile
                 EncounterList.AddLast(parcel);
 
                 Parcel parcel2 = new Parcel(10, 10);
-                var description2 = "You are in a dark room with occult sigils on the walls. You are in the inner sanctum.";
-                parcel.Description = description;
+                var description2 = "Blue light flashes as a portal swirls in the corner of the room. ";
+                parcel2.Description = description;
 
-                parcel.EnemyDescription = "A " + GetEnemyByCoordinates(10, 10).Name + " is here.";
+                parcel2.EnemyDescription = "A " + GetEnemyByCoordinates(10, 10).Name + " is here.";
 
-                ParcelList.AddLast(parcel);
-                EncounterList.AddLast(parcel);
+                ParcelList.AddLast(parcel2);
+                EncounterList.AddLast(parcel2);
 
             }           
         }
@@ -404,7 +404,16 @@ namespace ProjectReptile
             {
                 MessageBox.Show("You have found the entrance to the inner sanctum. Find the gold key to enter.");
             }
-            else if (bossRoom.LocationX == player.LocationX && bossRoom.LocationY == player.LocationY && player.GoldKeyFound == true)
+
+
+            else if (bossRoom.LocationX == player.LocationX && bossRoom.LocationY == player.LocationY && player.GoldKeyFound == true && player.InCombat == true)
+            {
+                MessageBox.Show("You have found the entrance to the inner sanctum. ");
+
+            }
+
+
+            else if (bossRoom.LocationX == player.LocationX && bossRoom.LocationY == player.LocationY && player.GoldKeyFound == true && player.InCombat == false)
             {
                 DialogResult result = MessageBox.Show("The entrance to the inner sanctum is here. Do you wish to enter?", "Question", MessageBoxButtons.YesNo);
 
@@ -976,7 +985,7 @@ namespace ProjectReptile
                 victoryForm.Owner = _mainForm;
 
 
-                victoryForm.Show();
+                victoryForm.ShowDialog();
                 victoryForm.BringToFront();
 
                 victoryForm.Enabled = true; 
@@ -1015,6 +1024,8 @@ namespace ProjectReptile
                     player.Gold += enemy.Gold;
                     GUIOutputManager.PlayerConsoleOutputList.AddLast("You find " + enemy.Gold + " gold on the " + enemy.Name + ".");
                 }
+
+                FinalBattleCheck(_mainForm); 
             }
         }
 

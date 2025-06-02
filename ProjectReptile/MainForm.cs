@@ -159,7 +159,7 @@ namespace ProjectReptile
         {
             gameState.AttackEnemyOffensively();
             gameState.EnemyDeathCheck();
-            PlayerDeathCheck();
+            //PlayerDeathCheck();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             AddParcelItemsToListbox();
@@ -169,6 +169,7 @@ namespace ProjectReptile
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();
+            PlayerDeathCheck();
             gameState.CheckBossDefeatStatus();
             this.Refresh();
         }
@@ -177,7 +178,7 @@ namespace ProjectReptile
         {
             gameState.AttackEnemyDefensively();
             gameState.EnemyDeathCheck();
-            PlayerDeathCheck();
+            //PlayerDeathCheck();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             AddParcelItemsToListbox();
@@ -187,6 +188,7 @@ namespace ProjectReptile
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();
+            PlayerDeathCheck();
             gameState.CheckBossDefeatStatus();
             this.Refresh();
         }
@@ -195,7 +197,7 @@ namespace ProjectReptile
         {
             gameState.UseSorcery();
             if (gameState.player.InCombat == true) { gameState.EnemyDeathCheck(); }
-            PlayerDeathCheck();
+            //PlayerDeathCheck();
             UpdatePlayerConsole();
             UpdateParcelInfoLabel();
             ParcelItemList.Items.Clear();
@@ -206,7 +208,8 @@ namespace ProjectReptile
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();
-            gameState.CheckBossDefeatStatus(); 
+            PlayerDeathCheck();
+            gameState.CheckBossDefeatStatus();
             this.Refresh();
         }
 
@@ -551,8 +554,9 @@ namespace ProjectReptile
                 defeatForm.Owner = this;
 
 
-                defeatForm.Show();
+                defeatForm.ShowDialog();
                 defeatForm.BringToFront();
+               
             }
         }
 
@@ -670,6 +674,7 @@ namespace ProjectReptile
             foreach (Enemy enemy in gameState.EnemyList)
             {
                 enemy.Strength = enemy.MaxStrength;
+                enemy.IsAlive = true;
             }
 
             foreach (Landmark landmark in gameState.LandmarkList)
@@ -685,6 +690,8 @@ namespace ProjectReptile
 
             gameState.player.LocationX = GlobalStateManager.StartingLocationX;
             gameState.player.LocationY = GlobalStateManager.StartingLocationY;
+
+            gameState.player.InCombat = false;
 
             ToggleMovementButtonsForCombat();
 

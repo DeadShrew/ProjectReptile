@@ -54,7 +54,8 @@ namespace ProjectReptile
         {
             foreach (Enemy enemy in _mainForm.gameState.EnemyList)
             {
-                enemy.Strength = enemy.MaxStrength; 
+                enemy.Strength = enemy.MaxStrength;
+                enemy.IsAlive = true;
             }
 
             foreach (Landmark landmark in _mainForm.gameState.LandmarkList)
@@ -72,6 +73,8 @@ namespace ProjectReptile
             _mainForm.gameState.player.LocationY = GlobalStateManager.StartingLocationY;
 
             _mainForm.Invoke((MethodInvoker)(() => _mainForm.NewGameFormRefresh()));
+
+            _mainForm.gameState.player.InCombat = false;
 
             _mainForm.ToggleMovementButtonsForCombat(); 
 
