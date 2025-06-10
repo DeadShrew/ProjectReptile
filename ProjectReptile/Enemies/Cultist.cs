@@ -52,10 +52,14 @@ public class Cultist : Enemy
         this.IsIntelligent = true;
         this.IsNegotiable = true; 
         this.Power = equippedWeapon.Power;
-        this.Strength = 4 + random.Next(-2, 2);
+        this.Strength = 12 + random.Next(-2, 2);
         this.MaxStrength = this.Strength; 
-        this.Dexterity = 15;
-        this.Armor = 15;
+        this.Dexterity = 10;
+        this.Armor = equippedArmour.Armor;
+        if (equippedShield != null)
+        {
+            this.Armor += equippedShield.Armor;
+        }
         this.Gold = 3 + random.Next(-2, 2);
         this.ThreatLevel = 0;
         this.Name = "cultist";

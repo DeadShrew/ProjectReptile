@@ -17,11 +17,11 @@ namespace ProjectReptile.Enemies
             string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 
             this.enemyIcon = Image.FromFile(fullPath);
-            this.Power = 2;
-            this.Strength = 4 + random.Next(-2, 2);
+            this.Power = 1;
+            this.Strength = 20 + random.Next(-2, 2);
             this.MaxStrength = this.Strength;
-            this.Dexterity = 15;
-            this.Armor = 15;
+            this.Dexterity = 10;
+            this.Armor = 4;
             this.Gold = 0 + random.Next(0, 2);
             this.ThreatLevel = 0;
             this.Name = "Avatar of Yig";

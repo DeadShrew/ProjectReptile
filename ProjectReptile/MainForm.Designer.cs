@@ -80,11 +80,11 @@
             // 
             // UpButton
             // 
-            UpButton.BackColor = Color.YellowGreen;
+            UpButton.BackColor = Color.Transparent;
             UpButton.BackgroundImage = (Image)resources.GetObject("UpButton.BackgroundImage");
             UpButton.BackgroundImageLayout = ImageLayout.Stretch;
             UpButton.FlatStyle = FlatStyle.Popup;
-            UpButton.Location = new Point(94, 31);
+            UpButton.Location = new Point(94, 4);
             UpButton.Name = "UpButton";
             UpButton.Size = new Size(85, 85);
             UpButton.TabIndex = 0;
@@ -94,11 +94,11 @@
             // 
             // DownButton
             // 
-            DownButton.BackColor = Color.YellowGreen;
+            DownButton.BackColor = Color.Transparent;
             DownButton.BackgroundImage = (Image)resources.GetObject("DownButton.BackgroundImage");
             DownButton.BackgroundImageLayout = ImageLayout.Stretch;
             DownButton.FlatStyle = FlatStyle.Popup;
-            DownButton.Location = new Point(94, 136);
+            DownButton.Location = new Point(94, 90);
             DownButton.Name = "DownButton";
             DownButton.Size = new Size(85, 85);
             DownButton.TabIndex = 1;
@@ -108,7 +108,7 @@
             // 
             // LeftButton
             // 
-            LeftButton.BackColor = Color.YellowGreen;
+            LeftButton.BackColor = Color.Transparent;
             LeftButton.BackgroundImage = (Image)resources.GetObject("LeftButton.BackgroundImage");
             LeftButton.BackgroundImageLayout = ImageLayout.Stretch;
             LeftButton.FlatStyle = FlatStyle.Popup;
@@ -122,7 +122,7 @@
             // 
             // RightButton
             // 
-            RightButton.BackColor = Color.YellowGreen;
+            RightButton.BackColor = Color.Transparent;
             RightButton.BackgroundImage = (Image)resources.GetObject("RightButton.BackgroundImage");
             RightButton.BackgroundImageLayout = ImageLayout.Stretch;
             RightButton.FlatStyle = FlatStyle.Popup;
@@ -271,7 +271,7 @@
             IntroPanel.Controls.Add(CharNameTextBox);
             IntroPanel.Controls.Add(EnterNameLabel);
             IntroPanel.Controls.Add(TitleLabel);
-            IntroPanel.Location = new Point(393, 95);
+            IntroPanel.Location = new Point(367, 116);
             IntroPanel.Name = "IntroPanel";
             IntroPanel.Size = new Size(479, 387);
             IntroPanel.TabIndex = 27;
@@ -338,9 +338,9 @@
             MovementPanel.Controls.Add(LeftButton);
             MovementPanel.Controls.Add(RightButton);
             MovementPanel.Controls.Add(DownButton);
-            MovementPanel.Location = new Point(474, 223);
+            MovementPanel.Location = new Point(475, 260);
             MovementPanel.Name = "MovementPanel";
-            MovementPanel.Size = new Size(274, 224);
+            MovementPanel.Size = new Size(274, 180);
             MovementPanel.TabIndex = 15;
             // 
             // ParcelInfoLabel
@@ -397,7 +397,7 @@
             ParcelContentsPanel.Controls.Add(RoomContentsLabel);
             ParcelContentsPanel.Controls.Add(LandmarkPictureBox);
             ParcelContentsPanel.Controls.Add(EnemyPictureBox);
-            ParcelContentsPanel.Location = new Point(442, 61);
+            ParcelContentsPanel.Location = new Point(443, 81);
             ParcelContentsPanel.Name = "ParcelContentsPanel";
             ParcelContentsPanel.Size = new Size(337, 173);
             ParcelContentsPanel.TabIndex = 20;

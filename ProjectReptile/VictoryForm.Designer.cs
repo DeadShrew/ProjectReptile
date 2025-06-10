@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VictoryForm));
             ReplayButton = new Button();
             NewGameButton = new Button();
             ExitButton = new Button();
-            VictoryLabel = new Label();
             SuspendLayout();
             // 
             // ReplayButton
             // 
             ReplayButton.Cursor = Cursors.No;
-            ReplayButton.Location = new Point(221, 234);
+            ReplayButton.Location = new Point(213, 270);
             ReplayButton.Name = "ReplayButton";
-            ReplayButton.Size = new Size(75, 23);
+            ReplayButton.Size = new Size(90, 34);
             ReplayButton.TabIndex = 7;
             ReplayButton.Text = "REPLAY";
             ReplayButton.UseVisualStyleBackColor = true;
@@ -48,9 +48,9 @@
             // NewGameButton
             // 
             NewGameButton.Cursor = Cursors.No;
-            NewGameButton.Location = new Point(111, 234);
+            NewGameButton.Location = new Point(103, 270);
             NewGameButton.Name = "NewGameButton";
-            NewGameButton.Size = new Size(79, 23);
+            NewGameButton.Size = new Size(90, 34);
             NewGameButton.TabIndex = 6;
             NewGameButton.Text = "NEW GAME";
             NewGameButton.UseVisualStyleBackColor = true;
@@ -59,41 +59,31 @@
             // ExitButton
             // 
             ExitButton.Cursor = Cursors.No;
-            ExitButton.Location = new Point(328, 234);
+            ExitButton.Location = new Point(323, 270);
             ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(75, 23);
+            ExitButton.Size = new Size(90, 34);
             ExitButton.TabIndex = 5;
             ExitButton.Text = "EXIT";
             ExitButton.UseVisualStyleBackColor = true;
             ExitButton.Click += ExitButton_Click;
             // 
-            // VictoryLabel
-            // 
-            VictoryLabel.AutoSize = true;
-            VictoryLabel.Cursor = Cursors.No;
-            VictoryLabel.Font = new Font("Segoe UI", 44F);
-            VictoryLabel.Location = new Point(138, 69);
-            VictoryLabel.Name = "VictoryLabel";
-            VictoryLabel.Size = new Size(262, 78);
-            VictoryLabel.TabIndex = 4;
-            VictoryLabel.Text = "VICTORY";
-            // 
             // VictoryForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(514, 326);
             Controls.Add(ReplayButton);
             Controls.Add(NewGameButton);
             Controls.Add(ExitButton);
-            Controls.Add(VictoryLabel);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "VictoryForm";
             Text = "VictoryForm";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

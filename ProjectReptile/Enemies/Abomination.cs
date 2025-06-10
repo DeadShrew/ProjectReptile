@@ -37,10 +37,10 @@ public class Abomination : Enemy
         this.IsIntelligent = true;
         this.IsNegotiable = true;
         this.Power = equippedWeapon.Power;
-        this.Strength = 4 + random.Next(-2, 2);
+        this.Strength = 15 + random.Next(-2, 2);
         this.MaxStrength = this.Strength;
-        this.Dexterity = 15;
-        this.Armor = 15;
+        this.Dexterity = 6;
+        this.Armor = 1;
         this.Gold = 3 + random.Next(-2, 2);
         this.ThreatLevel = 0;
         this.Name = "abomination";

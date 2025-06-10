@@ -26,11 +26,11 @@ namespace ProjectReptile.Enemies
             this.equippedArmour = ArmourFactory.CreateArmor();
             this.IsIntelligent = true;
             this.IsNegotiable = true;
-            this.Power = 2;
-            this.Strength = 10 + random.Next(-2, 2);
+            this.Power = 5;
+            this.Strength = 8 + random.Next(-2, 2);
             this.MaxStrength = this.Strength;
-            this.Dexterity = 15;
-            this.Armor = 15;
+            this.Dexterity = 10;
+            this.Armor = 2;
             this.Gold = 0 + random.Next(0, 2);
             this.ThreatLevel = 0;
             this.Name = "valusian footsoldier";

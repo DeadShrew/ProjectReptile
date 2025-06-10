@@ -28,27 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DefeatLabel = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DefeatForm));
             ExitButton = new Button();
             NewGameButton = new Button();
             ReplayButton = new Button();
             SuspendLayout();
             // 
-            // DefeatLabel
-            // 
-            DefeatLabel.AutoSize = true;
-            DefeatLabel.Font = new Font("Segoe UI", 44F);
-            DefeatLabel.Location = new Point(144, 60);
-            DefeatLabel.Name = "DefeatLabel";
-            DefeatLabel.Size = new Size(228, 78);
-            DefeatLabel.TabIndex = 0;
-            DefeatLabel.Text = "DEFEAT";
-            // 
             // ExitButton
             // 
-            ExitButton.Location = new Point(334, 225);
+            ExitButton.Location = new Point(322, 270);
             ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(75, 23);
+            ExitButton.Size = new Size(91, 32);
             ExitButton.TabIndex = 1;
             ExitButton.Text = "EXIT";
             ExitButton.UseVisualStyleBackColor = true;
@@ -56,9 +46,9 @@
             // 
             // NewGameButton
             // 
-            NewGameButton.Location = new Point(117, 225);
+            NewGameButton.Location = new Point(102, 270);
             NewGameButton.Name = "NewGameButton";
-            NewGameButton.Size = new Size(79, 23);
+            NewGameButton.Size = new Size(91, 32);
             NewGameButton.TabIndex = 2;
             NewGameButton.Text = "NEW GAME";
             NewGameButton.UseVisualStyleBackColor = true;
@@ -66,9 +56,9 @@
             // 
             // ReplayButton
             // 
-            ReplayButton.Location = new Point(227, 225);
+            ReplayButton.Location = new Point(212, 270);
             ReplayButton.Name = "ReplayButton";
-            ReplayButton.Size = new Size(75, 23);
+            ReplayButton.Size = new Size(90, 32);
             ReplayButton.TabIndex = 3;
             ReplayButton.Text = "REPLAY";
             ReplayButton.UseVisualStyleBackColor = true;
@@ -78,21 +68,21 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaptionText;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(514, 326);
             Controls.Add(ReplayButton);
             Controls.Add(NewGameButton);
             Controls.Add(ExitButton);
-            Controls.Add(DefeatLabel);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "DefeatForm";
             Text = "DefeatForm";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label DefeatLabel;
         private Button ExitButton;
         private Button NewGameButton;
         private Button ReplayButton;

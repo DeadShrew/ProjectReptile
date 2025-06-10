@@ -21,12 +21,12 @@ namespace ProjectReptile.Enemies
             this.equippedWeapon = WeaponFactory.CreateWeaponForCultist();
             this.IsIntelligent = true;
             this.IsNegotiable = true;
-            this.Power = 2;
-            this.Strength = 10 + random.Next(-2, 2);
+            this.Power = 5;
+            this.Strength = 9 + random.Next(-2, 2);
             this.MaxStrength = this.Strength;
-            this.Dexterity = 15;
-            this.Armor = 15;
-            this.Gold = 0 + random.Next(0, 2);
+            this.Dexterity = 5;
+            this.Armor = 1;
+            this.Gold = 3 + random.Next(0, 2);
             this.ThreatLevel = 0;
             this.Name = "valusian chieftain";
         }

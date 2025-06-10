@@ -17,11 +17,11 @@ namespace ProjectReptile.Enemies
             string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 
             this.enemyIcon = Image.FromFile(fullPath);
-            this.Power = 2;
-            this.Strength = 10 + random.Next(-2, 2);
+            this.Power = 4;
+            this.Strength = 5 + random.Next(-2, 2);
             this.MaxStrength = this.Strength;
-            this.Dexterity = 15;
-            this.Armor = 15;
+            this.Dexterity = 13;
+            this.Armor = 0;
             this.Gold = 0 + random.Next(0, 2);
             this.ThreatLevel = 0;
             this.Name = "toad familiar";

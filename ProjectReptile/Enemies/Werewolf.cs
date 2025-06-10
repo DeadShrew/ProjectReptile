@@ -17,12 +17,12 @@ namespace ProjectReptile.Enemies
             string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 
             this.enemyIcon = Image.FromFile(fullPath);
-            this.Power = 2;
-            this.Strength = 4 + random.Next(-2, 2);
+            this.Power = 0;
+            this.Strength = 15 + random.Next(-2, 2);
             this.MaxStrength = this.Strength;
-            this.Dexterity = 15;
-            this.Armor = 15;
-            this.Gold = 0 + random.Next(0, 2);
+            this.Dexterity = 14;
+            this.Armor = 1;
+            this.Gold = 1 + random.Next(0, 2);
             this.ThreatLevel = 0;
             this.Name = "werewolf";
         }
