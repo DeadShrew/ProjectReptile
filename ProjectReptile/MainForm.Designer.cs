@@ -392,6 +392,7 @@ namespace ProjectReptile
             ParcelItemList.Name = "ParcelItemList";
             ParcelItemList.Size = new Size(186, 94);
             ParcelItemList.TabIndex = 14;
+            ParcelItemList.Font = alkhemikal;
             // 
             // MovementPanel
             // 
@@ -417,6 +418,7 @@ namespace ProjectReptile
             ParcelInfoLabel.Size = new Size(972, 23);
             ParcelInfoLabel.TabIndex = 16;
             ParcelInfoLabel.Text = "ParcelInfoLabel";
+            ParcelInfoLabel.Font = alkhemikal;
             // 
             // EnemyInfoLabel
             // 
@@ -428,6 +430,7 @@ namespace ProjectReptile
             EnemyInfoLabel.Name = "EnemyInfoLabel";
             EnemyInfoLabel.Size = new Size(972, 23);
             EnemyInfoLabel.TabIndex = 17;
+            EnemyInfoLabel.Font = alkhemikal;
             // 
             // PlayerConsoleTextBox
             // 
@@ -440,6 +443,7 @@ namespace ProjectReptile
             PlayerConsoleTextBox.ScrollBars = ScrollBars.Vertical;
             PlayerConsoleTextBox.Size = new Size(1070, 170);
             PlayerConsoleTextBox.TabIndex = 18;
+            PlayerConsoleTextBox.Font = alkhemikal;
             // 
             // FleeButton
             // 
@@ -450,6 +454,7 @@ namespace ProjectReptile
             FleeButton.Text = "Flee";
             FleeButton.UseVisualStyleBackColor = true;
             FleeButton.Click += FleeButton_Click;
+            FleeButton.Font = alkhemikal;
             // 
             // ParcelContentsPanel
             // 
@@ -465,6 +470,7 @@ namespace ProjectReptile
             ParcelContentsPanel.Name = "ParcelContentsPanel";
             ParcelContentsPanel.Size = new Size(337, 173);
             ParcelContentsPanel.TabIndex = 20;
+            ParcelContentsPanel.Font = alkhemikal;
             // 
             // EnemiesLabel
             // 
@@ -475,6 +481,7 @@ namespace ProjectReptile
             EnemiesLabel.Size = new Size(51, 15);
             EnemiesLabel.TabIndex = 4;
             EnemiesLabel.Text = "Enemies";
+            EnemiesLabel.Font = alkhemikal;
             // 
             // TerrainLabel
             // 
@@ -485,6 +492,7 @@ namespace ProjectReptile
             TerrainLabel.Size = new Size(65, 15);
             TerrainLabel.TabIndex = 3;
             TerrainLabel.Text = "Landmarks";
+            TerrainLabel.Font = alkhemikal;
             // 
             // RoomContentsLabel
             // 
@@ -531,6 +539,7 @@ namespace ProjectReptile
             EnemyStrengthLabel.Size = new Size(142, 23);
             EnemyStrengthLabel.TabIndex = 21;
             EnemyStrengthLabel.Text = "EnemyStrengthLabel";
+            EnemyStrengthLabel.Font = alkhemikal;
             // 
             // PlayerStrengthLabel
             // 
@@ -542,6 +551,7 @@ namespace ProjectReptile
             PlayerStrengthLabel.Size = new Size(142, 23);
             PlayerStrengthLabel.TabIndex = 22;
             PlayerStrengthLabel.Text = "PlayerStrengthLabel";
+            PlayerStrengthLabel.Font = alkhemikal;
             // 
             // PlayerGoldLabel
             // 
@@ -553,6 +563,7 @@ namespace ProjectReptile
             PlayerGoldLabel.Size = new Size(142, 23);
             PlayerGoldLabel.TabIndex = 23;
             PlayerGoldLabel.Text = "PlayerGoldLabel";
+            PlayerGoldLabel.Font = alkhemikal;
             // 
             // EnemyThreatLabel
             // 
@@ -564,6 +575,7 @@ namespace ProjectReptile
             EnemyThreatLabel.Size = new Size(125, 23);
             EnemyThreatLabel.TabIndex = 24;
             EnemyThreatLabel.Text = "EnemyThreatLabel";
+            EnemyThreatLabel.Font = alkhemikal;
             // 
             // PlayerThreatLabel
             // 
@@ -575,6 +587,7 @@ namespace ProjectReptile
             PlayerThreatLabel.Size = new Size(125, 23);
             PlayerThreatLabel.TabIndex = 25;
             PlayerThreatLabel.Text = "PlayerThreatLabel";
+            PlayerThreatLabel.Font = alkhemikal;
             // 
             // DirectionAndCoordinatesLabel
             // 
@@ -586,6 +599,7 @@ namespace ProjectReptile
             DirectionAndCoordinatesLabel.Size = new Size(301, 23);
             DirectionAndCoordinatesLabel.TabIndex = 26;
             DirectionAndCoordinatesLabel.Text = "DirectionAndCoordinatesLabel";
+            DirectionAndCoordinatesLabel.Font = alkhemikal;
             // 
             // MainForm
             // 
