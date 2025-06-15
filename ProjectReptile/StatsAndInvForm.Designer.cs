@@ -1,4 +1,6 @@
-﻿namespace ProjectReptile
+﻿using System.Drawing.Text;
+
+namespace ProjectReptile
 {
     partial class StatsAndInvForm
     {
@@ -28,6 +30,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            PrivateFontCollection pfc = new PrivateFontCollection();
+            pfc.AddFontFile("QC_Assets\\Alkhemikal.ttf"); // Put the font file in the app folder
+            Font alkhemikal = new Font(pfc.Families[0], 12f);
+
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatsAndInvForm));
             CharacterNameLabel = new Label();
             PlayerInventoryListbox = new ListBox();
@@ -84,6 +90,7 @@
             PlayerInventoryListbox.Size = new Size(344, 184);
             PlayerInventoryListbox.TabIndex = 1;
             PlayerInventoryListbox.SelectedIndexChanged += PlayerInventoryListbox_SelectedIndexChanged;
+            PlayerInventoryListbox.Font = alkhemikal;
             // 
             // DoneButton
             // 
@@ -95,6 +102,7 @@
             DoneButton.Text = "Done";
             DoneButton.UseVisualStyleBackColor = true;
             DoneButton.Click += DoneButton_Click;
+            DoneButton.Font = alkhemikal;
             // 
             // ItemStatusLabel
             // 
@@ -105,6 +113,7 @@
             ItemStatusLabel.Name = "ItemStatusLabel";
             ItemStatusLabel.Size = new Size(106, 23);
             ItemStatusLabel.TabIndex = 3;
+            ItemStatusLabel.Font = alkhemikal;
             // 
             // UseItemButton
             // 
@@ -116,6 +125,7 @@
             UseItemButton.Text = "Use Item";
             UseItemButton.UseVisualStyleBackColor = true;
             UseItemButton.Click += UseItemButton_Click;
+            UseItemButton.Font = alkhemikal;
             // 
             // UnuseItemButton
             // 
@@ -127,6 +137,7 @@
             UnuseItemButton.Text = "Unuse Item";
             UnuseItemButton.UseVisualStyleBackColor = true;
             UnuseItemButton.Click += UnuseItemButton_Click;
+            UnuseItemButton.Font = alkhemikal;
             // 
             // DropItemButton
             // 
@@ -138,6 +149,7 @@
             DropItemButton.Text = "Drop Item";
             DropItemButton.UseVisualStyleBackColor = true;
             DropItemButton.Click += DropItemButton_Click;
+            DropItemButton.Font = alkhemikal;
             // 
             // CharNameTextBoxLabel
             // 
@@ -150,6 +162,7 @@
             CharNameTextBoxLabel.Size = new Size(100, 23);
             CharNameTextBoxLabel.TabIndex = 7;
             CharNameTextBoxLabel.Text = "Rolf";
+            CharNameTextBoxLabel.Font = alkhemikal;
             // 
             // MaxStrengthLabel
             // 
@@ -300,9 +313,10 @@
             GoldKeyLabel.ForeColor = Color.Yellow;
             GoldKeyLabel.Location = new Point(215, 144);
             GoldKeyLabel.Name = "GoldKeyLabel";
-            GoldKeyLabel.Size = new Size(108, 23);
+            GoldKeyLabel.Size = new Size(128, 23);
             GoldKeyLabel.TabIndex = 21;
             GoldKeyLabel.Text = "Gold Key needed.";
+            GoldKeyLabel.Font = alkhemikal;
             // 
             // MaxStrengthTextBoxLabel
             // 
