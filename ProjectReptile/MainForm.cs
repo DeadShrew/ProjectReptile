@@ -211,7 +211,11 @@ namespace ProjectReptile
             AddParcelItemsToListbox();
             UpdateEnemyInfoLabelsAndGUI();
             UpdatePlayerInfoLabelsAndGUI();
-            gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY).IsNegotiable = false;
+            var enemy = gameState.GetEnemyByCoordinates(gameState.player.LocationX, gameState.player.LocationY);
+            if (enemy != null)
+            {
+                enemy.IsNegotiable = false;
+            }
             DisableActionButtons();
             EnableActionButtons();
             EngagementCheck();

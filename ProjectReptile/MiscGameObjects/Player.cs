@@ -83,7 +83,7 @@ namespace ProjectReptile.GameObjects
             ItemList.AddLast(new SmallShield());
             ItemList.AddLast(new LeatherArmor());
             ItemList.AddLast(new RestorationPotion());
-            ItemList.AddLast(new Antidote()); 
+            ItemList.AddLast(new Antidote());
 
             this.equippedWeapon = (Weapon?)ItemList.FirstOrDefault(i => i is Machete); 
             this.equippedShield = (Shield?)ItemList.FirstOrDefault(i => i is SmallShield);
