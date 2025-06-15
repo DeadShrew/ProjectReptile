@@ -384,6 +384,16 @@ namespace ProjectReptile
                 }
             }
 
+            if (selectedItem != null && selectedItem is Consumable)
+            {
+                var node = _gameState.player.ItemList.Find(selectedItem);
+                if (node != null)
+                {
+                    _gameState.player.ItemList.Remove(node);
+
+                }
+            }
+
             if (selectedItem != null && selectedItem is EquippableItem equippableItem)
             {
                 if (equippableItem.IsEquipped == true)
@@ -399,6 +409,8 @@ namespace ProjectReptile
                     }
                 } 
             }
+
+
 
             PlayerInventoryListbox.Items.Clear();
             GetPlayerInventory(_gameState.player);

@@ -12,7 +12,7 @@ namespace ProjectReptile.EquippableItems
     {
         public AmuletOfTheLifeDrain()
         {
-            this.Name = "amulet of life drain";
+            this.Name = "amulet";
             this.TrueName = "amulet of life drain";
             this.IsCursed = true;
         }

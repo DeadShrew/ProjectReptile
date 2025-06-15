@@ -18,7 +18,7 @@ namespace ProjectReptile.Enemies
 
             this.enemyIcon = Image.FromFile(fullPath);
             this.Power = 1;
-            this.Strength = 1 + random.Next(-2, 2);
+            this.Strength = 1 + random.Next(0, 2);
             this.MaxStrength = this.Strength;
             this.Dexterity = 11;
             this.Armor = 0;

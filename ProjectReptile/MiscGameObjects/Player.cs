@@ -17,15 +17,16 @@ namespace ProjectReptile.GameObjects
     {
         public int LocationX;
         public int LocationY;
-        public int Strength = 20;
-        public int MaxStrength = 20;
+        public int Strength = 14;
+        public int MaxStrength = 14;
         public int Weapon = 0;
         public int Armor = 0;
-        public int Dexterity = 18;
+        public int Dexterity = 10;
         public int MaxDexterity = 18;
         public int Intelligence = 10;
         public int ModifiedInt = 10;
         public int Gold = 10;
+        public int CarryAmount = 15;
         public bool InCombat;
         public bool AtLandmark;
         public bool GoldKeyFound = false;
@@ -76,25 +77,15 @@ namespace ProjectReptile.GameObjects
             LocationX = GlobalStateManager.StartingLocationX;
             LocationY = GlobalStateManager.StartingLocationY;
 
-            //GlobalStateManager.StartingLocationX = LocationX;
-            //GlobalStateManager.StartingLocationY = LocationY;
-
             ItemList = new LinkedList<Item>();
 
-            ItemList.AddLast(new TotemClub()); 
+            ItemList.AddLast(new Machete()); 
             ItemList.AddLast(new SmallShield());
             ItemList.AddLast(new LeatherArmor());
             ItemList.AddLast(new RestorationPotion());
-            ItemList.AddLast(new RingOfStrength());
-            ItemList.AddLast(new LensOfIdentity());
-            ItemList.AddLast(new Necronomicon());
-            ItemList.AddLast(new BookOfDagon());
-            ItemList.AddLast(new BlackBookOfValusia());
-            ItemList.AddLast(new RingOfWeakness());
-            ItemList.AddLast(new RingOfVulnerability());
-            ItemList.AddLast(new RingOfStupidity());
+            ItemList.AddLast(new Antidote()); 
 
-            this.equippedWeapon = (Weapon?)ItemList.FirstOrDefault(i => i is TotemClub); 
+            this.equippedWeapon = (Weapon?)ItemList.FirstOrDefault(i => i is Machete); 
             this.equippedShield = (Shield?)ItemList.FirstOrDefault(i => i is SmallShield);
             this.equippedArmour = (Armour?)ItemList.FirstOrDefault(i => i is LeatherArmor);
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NegotiationForm));
             BribeAmountComboBox = new ComboBox();
             OkButton = new Button();
             CancelButton = new Button();
@@ -65,6 +66,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Location = new Point(66, 49);
             label1.Name = "label1";
             label1.Size = new Size(189, 15);
@@ -75,13 +77,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(428, 179);
             Controls.Add(label1);
             Controls.Add(CancelButton);
             Controls.Add(OkButton);
             Controls.Add(BribeAmountComboBox);
             Name = "NegotiationForm";
-            Text = "Form1";
+            Text = "Negotiation";
             ResumeLayout(false);
             PerformLayout();
         }

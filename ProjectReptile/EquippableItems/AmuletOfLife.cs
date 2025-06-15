@@ -13,7 +13,7 @@ namespace ProjectReptile
     {
         public AmuletOfLife()
         {
-            this.Name = "amulet of life";
+            this.Name = "amulet";
             this.TrueName = "amulet of life";
         }
 

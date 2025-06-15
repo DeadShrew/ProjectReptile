@@ -1,4 +1,10 @@
 ﻿using ProjectReptile.AbstractClasses;
+using ProjectReptile.Armor;
+using ProjectReptile.GameObjects;
+using ProjectReptile.Items;
+using ProjectReptile.Shields;
+using ProjectReptile.Tomes;
+using ProjectReptile.Weapons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace ProjectReptile
 {
@@ -51,6 +58,8 @@ namespace ProjectReptile
 
         private void ReplayButton_Click(object sender, EventArgs e)
         {
+            Player player = _mainForm.gameState.player;
+
             foreach (Enemy enemy in _mainForm.gameState.EnemyList)
             {
                 enemy.Strength = enemy.MaxStrength;
@@ -64,7 +73,17 @@ namespace ProjectReptile
 
             _mainForm.gameState.ParcelList.Clear();
 
-            _mainForm.gameState.player.Strength = 20;
+            player.Strength = 14;
+
+            player.ItemList.Clear();
+
+            player.ItemList.AddLast(new Machete());
+            player.ItemList.AddLast(new SmallShield());
+            player.ItemList.AddLast(new LeatherArmor());
+            player.ItemList.AddLast(new RestorationPotion());
+            player.ItemList.AddLast(new Antidote());
+
+            player.CarryAmount = 15;
 
             GlobalStateManager.LensEquipped = false;
 

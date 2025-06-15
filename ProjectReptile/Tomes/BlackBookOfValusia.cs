@@ -22,20 +22,30 @@ namespace ProjectReptile.Tomes
         {
             Random random = new Random();
 
-            int drainedHealth = random.Next(1, 3);
+            int role = random.Next(0, 7);
 
-            enemy.Strength -= drainedHealth;
-
-            if (player.Strength < player.MaxStrength)
+            if (role < 3)
             {
-                player.Strength += drainedHealth;
+                MessageBox.Show("The tome grows slick with a greenish ichor that chemically burns your palms. You are now poisoned.");
+                player.IsPoisoned = true;
+                player.Strength -= role;
+                 
             } else
             {
-                player.Strength = player.MaxStrength; 
+                int drainedHealth = random.Next(1, 3);
+
+                enemy.Strength -= drainedHealth;
+
+                if (player.Strength < player.MaxStrength)
+                {
+                    player.Strength += drainedHealth;
+                }
+                else
+                {
+                    player.Strength = player.MaxStrength;
+                }
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("You slurped up " + drainedHealth + " from the enemy!");
             }
-
-
-                GUIOutputManager.PlayerConsoleOutputList.AddLast("You slurped up " + drainedHealth + " from the enemy!"); 
         }
     }
 }

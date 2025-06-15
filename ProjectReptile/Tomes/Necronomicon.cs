@@ -19,8 +19,23 @@ namespace ProjectReptile.Tomes
 
         public override void CastSorcery(Player player, Enemy enemy)
         {
-            enemy.Strength = enemy.Strength - 5;
-            GUIOutputManager.PlayerConsoleOutputList.AddLast("You blasted that lil guy"); 
+            Random random = new Random();
+
+            int role = random.Next(0, 7);
+
+            if (role < 3)
+            {
+                MessageBox.Show("The tome bursts into flames.");
+                player.ItemList.Remove(this);
+
+            }
+            else
+            {
+                int dmgRole = random.Next(5, 10);
+
+                enemy.Strength -= dmgRole;
+                GUIOutputManager.PlayerConsoleOutputList.AddLast("A blast of eldritch consumes your foe.");
+            }
         }
     }
 }

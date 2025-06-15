@@ -12,8 +12,9 @@ namespace ProjectReptile.Weapons
         public TotemClub()
         {
             this.Power = 6;
-            this.TwoHanded = true;
+            this.TwoHanded = false;
             this.Name = "totem club";
         }
     }
 }
+ 

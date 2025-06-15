@@ -1,6 +1,12 @@
 using ProjectReptile.AbstractClasses;
+using ProjectReptile.Armor;
 using ProjectReptile.GameObjects;
+using ProjectReptile.Items;
+using ProjectReptile.Shields;
+using ProjectReptile.Tomes;
+using ProjectReptile.Weapons;
 using System;
+using System.Drawing.Text;
 using System.Numerics;
 using System.Reflection;
 using System.Text;
@@ -13,6 +19,7 @@ namespace ProjectReptile
         public GameStateModel gameState;
         static int Spacing = 1;
         static int GridSize = 30;
+
         public MainForm()
         {
             InitializeComponent();
@@ -69,7 +76,7 @@ namespace ProjectReptile
             NegotiationCheck();
             EnableActionButtons();
             this.Refresh();
-            gameState.FinalBattleCheck(this); 
+            gameState.FinalBattleCheck(this);
         }
 
         private void DownButton_Click(object sender, EventArgs e)
@@ -232,7 +239,7 @@ namespace ProjectReptile
 
         private void GetItemButton_Click(object sender, EventArgs e)
         {
-            if (ParcelItemList.SelectedItem != null)
+            if (ParcelItemList.SelectedItem != null && gameState.player.CarryAmount >= gameState.player.ItemList.Count)
             {
                 Item item = (Item)ParcelItemList.SelectedItem;
 
@@ -247,6 +254,9 @@ namespace ProjectReptile
                 UpdatePlayerConsole();
 
                 this.Refresh();
+            } else
+            {
+                MessageBox.Show("You cannot carry anymore items");
             }
         }
 
@@ -556,7 +566,7 @@ namespace ProjectReptile
 
                 defeatForm.ShowDialog();
                 defeatForm.BringToFront();
-               
+
             }
         }
 
@@ -590,7 +600,9 @@ namespace ProjectReptile
                 Brush myDrawingBrush3 = new SolidBrush(Color.Brown);
                 Brush myDrawingBrush4 = new SolidBrush(Color.DarkRed);
                 Brush myDrawingBrush5 = new SolidBrush(Color.Black);
-                Font drawFont = new Font("Arial", 16);
+                PrivateFontCollection pfc = new PrivateFontCollection();
+                pfc.AddFontFile("QC_Assets\\alkhemikal.ttf");  // Adjust path as needed
+                Font alkhemikal = new Font(pfc.Families[0], 18);
                 g.FillRectangle(myDrawingBrush, 0, 0, GridSize * (gameState.columns) + Spacing, GridSize * (gameState.rows) + Spacing);
                 for (int i = 0; i < gameState.columns; i++)
                 {
@@ -617,7 +629,7 @@ namespace ProjectReptile
                             {
                                 if (gameState.ParcelList.Any(o => o.LocationX == n && o.LocationY == m))
                                 {
-                                    g.DrawString(gameState.GetParcelByCoordinates(n, m).AdjacentTraps.ToString(), drawFont, myDrawingBrush, n * GridSize + 5, m * GridSize + 5);
+                                    g.DrawString(gameState.GetParcelByCoordinates(n, m).AdjacentTraps.ToString(), alkhemikal, myDrawingBrush, n * GridSize + 6, m * GridSize + 4);
                                 }
                             }
                         }
@@ -671,6 +683,8 @@ namespace ProjectReptile
 
         private void replayGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Player player = gameState.player;
+
             foreach (Enemy enemy in gameState.EnemyList)
             {
                 enemy.Strength = enemy.MaxStrength;
@@ -684,7 +698,17 @@ namespace ProjectReptile
 
             gameState.ParcelList.Clear();
 
-            gameState.player.Strength = 20;
+            gameState.player.Strength = 14;
+
+            player.ItemList.Clear();
+
+            player.ItemList.AddLast(new Machete());
+            player.ItemList.AddLast(new SmallShield());
+            player.ItemList.AddLast(new LeatherArmor());
+            player.ItemList.AddLast(new RestorationPotion());
+            player.ItemList.AddLast(new Antidote());
+
+            player.CarryAmount = 15;
 
             GlobalStateManager.LensEquipped = false;
 

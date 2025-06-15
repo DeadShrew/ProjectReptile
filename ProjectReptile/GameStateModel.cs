@@ -1,6 +1,7 @@
 ﻿using ProjectReptile.AbstractClasses;
 using ProjectReptile.Factories;
 using ProjectReptile.GameObjects;
+using ProjectReptile.Landmarks;
 using ProjectReptile.MiscGameObjects;
 using System;
 using System.Linq;
@@ -31,7 +32,15 @@ namespace ProjectReptile
             InitializeParcelDescriptions(); 
             GenerateEnemies();
             GenerateTraps(rows, columns);
-            GenerateLandmarks(); 
+            GenerateLandmarks();
+
+            Landmark alterWithLensOfId = new BloodstainedAltar();
+            alterWithLensOfId.item = new LensOfIdentity();
+            LandmarkList.AddLast(alterWithLensOfId);
+
+            Landmark alterWithMagicSatchel = new CrudeAltar();
+            alterWithLensOfId.item = new LensOfIdentity();
+            LandmarkList.AddLast(alterWithMagicSatchel);
 
             GenerateEnemyLocations();
             GenerateTrapLocations();
@@ -159,6 +168,7 @@ namespace ProjectReptile
             }
             return null;
         }
+
         public Parcel GetParcelByCoordinates(int x, int y) 
         {
             foreach (Parcel parcel in ParcelList)
@@ -618,7 +628,6 @@ namespace ProjectReptile
                 }
             }
         }
-        
 
         public void PlayerOffensiveAttack(Enemy enemy)
         {

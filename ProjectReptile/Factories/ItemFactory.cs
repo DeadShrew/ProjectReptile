@@ -2,6 +2,7 @@
 using ProjectReptile.Enemies;
 using ProjectReptile.EquippableItems;
 using ProjectReptile.Items;
+using ProjectReptile.Tomes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -149,6 +150,26 @@ namespace ProjectReptile.Factories
 
                 case 3:
                     return new ScrollOfStrength();
+            }
+            return null;
+        }
+
+        public static Item CreateTome()
+        {
+            Random random = new Random();
+
+            int item = random.Next(1, 4);
+
+            switch (item)
+            {
+                case 1:
+                    return new BlackBookOfValusia();
+
+                case 2:
+                    return new Necronomicon();
+
+                case 3:
+                    return new BookOfDagon();
             }
             return null;
         }

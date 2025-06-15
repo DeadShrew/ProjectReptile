@@ -1,11 +1,17 @@
 ﻿using ProjectReptile.AbstractClasses;
+using ProjectReptile.Armor;
 using ProjectReptile.GameObjects;
+using ProjectReptile.Items;
+using ProjectReptile.Shields;
+using ProjectReptile.Tomes;
+using ProjectReptile.Weapons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -52,6 +58,8 @@ namespace ProjectReptile
 
         private void ReplayButton_Click(object sender, EventArgs e)
         {
+            Player player = _mainForm.gameState.player;
+
             foreach (Enemy enemy in _mainForm.gameState.EnemyList)
             {
                 enemy.Strength = enemy.MaxStrength;
@@ -67,7 +75,17 @@ namespace ProjectReptile
 
             GlobalStateManager.LensEquipped = false;
 
-            _mainForm.gameState.player.Strength = 20;  
+            _mainForm.gameState.player.Strength = 14;
+
+            player.ItemList.Clear();
+
+            player.ItemList.AddLast(new Machete());
+            player.ItemList.AddLast(new SmallShield());
+            player.ItemList.AddLast(new LeatherArmor());
+            player.ItemList.AddLast(new RestorationPotion());
+            player.ItemList.AddLast(new Antidote());
+
+            player.CarryAmount = 15;
 
             _mainForm.gameState.player.LocationX = GlobalStateManager.StartingLocationX;
             _mainForm.gameState.player.LocationY = GlobalStateManager.StartingLocationY;

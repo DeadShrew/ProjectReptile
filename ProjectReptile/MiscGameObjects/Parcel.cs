@@ -26,10 +26,6 @@ namespace ProjectReptile.GameObjects
 
         public override void EncounterCheck(Player player)
         {
-            //if (player.LocationX == LocationX && player.LocationY == LocationY)
-            //{
-            //    Console.WriteLine("My adjacent trap count is: " + AdjacentTraps); 
-            //}
                 
         }
 

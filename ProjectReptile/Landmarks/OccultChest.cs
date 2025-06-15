@@ -18,7 +18,17 @@ namespace ProjectReptile.Landmarks
 
             this.landmarkIcon = Image.FromFile(fullPath);
 
-            item = ItemFactory.CreateScroll();
+            Random random = new Random();
+
+            int role = random.Next(0, 2);
+
+            if (role == 0)
+            {
+                item = ItemFactory.CreateScroll();
+            } else
+            {
+                item = ItemFactory.CreateTome();
+            }              
         }
     }
 }

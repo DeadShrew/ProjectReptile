@@ -1,4 +1,8 @@
-﻿namespace ProjectReptile
+﻿using System.Drawing.Text;
+using System.Drawing.Text;
+using System.Runtime.InteropServices;
+
+namespace ProjectReptile
 {
     partial class MainForm
     {
@@ -20,6 +24,7 @@
             base.Dispose(disposing);
         }
 
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,6 +33,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            PrivateFontCollection pfc = new PrivateFontCollection();
+            pfc.AddFontFile("QC_Assets\\Alkhemikal.ttf"); // Put the font file in the app folder
+            Font alkhemikal = new Font(pfc.Families[0], 12f);
+
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             UpButton = new Button();
             DownButton = new Button();
@@ -48,6 +57,10 @@
             helpToolStripMenuItem = new ToolStripMenuItem();
             MapGridPanel = new Panel();
             IntroPanel = new Panel();
+            pictureBox1 = new PictureBox();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             EnterButton = new Button();
             CharNameTextBox = new TextBox();
             EnterNameLabel = new Label();
@@ -72,6 +85,7 @@
             DirectionAndCoordinatesLabel = new Label();
             menuStrip1.SuspendLayout();
             IntroPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             MovementPanel.SuspendLayout();
             ParcelContentsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)LandmarkPictureBox).BeginInit();
@@ -88,7 +102,6 @@
             UpButton.Name = "UpButton";
             UpButton.Size = new Size(85, 85);
             UpButton.TabIndex = 0;
-            UpButton.Text = "Up";
             UpButton.UseVisualStyleBackColor = false;
             UpButton.Click += UpButton_Click;
             // 
@@ -102,7 +115,6 @@
             DownButton.Name = "DownButton";
             DownButton.Size = new Size(85, 85);
             DownButton.TabIndex = 1;
-            DownButton.Text = "Down";
             DownButton.UseVisualStyleBackColor = false;
             DownButton.Click += DownButton_Click;
             // 
@@ -116,7 +128,6 @@
             LeftButton.Name = "LeftButton";
             LeftButton.Size = new Size(85, 85);
             LeftButton.TabIndex = 2;
-            LeftButton.Text = "Left";
             LeftButton.UseVisualStyleBackColor = false;
             LeftButton.Click += LeftButton_Click;
             // 
@@ -130,82 +141,88 @@
             RightButton.Name = "RightButton";
             RightButton.Size = new Size(85, 85);
             RightButton.TabIndex = 3;
-            RightButton.Text = "Right";
             RightButton.UseVisualStyleBackColor = false;
             RightButton.Click += RightButton_Click;
             // 
             // AttackButton
             // 
-            AttackButton.Location = new Point(862, 182);
+            AttackButton.Location = new Point(819, 183);
             AttackButton.Name = "AttackButton";
-            AttackButton.Size = new Size(75, 23);
+            AttackButton.Size = new Size(78, 29);
             AttackButton.TabIndex = 4;
             AttackButton.Text = "Attack";
             AttackButton.UseVisualStyleBackColor = true;
             AttackButton.Click += AttackButton_Click;
+            AttackButton.Font = alkhemikal;
             // 
             // DefendButton
             // 
-            DefendButton.Location = new Point(943, 182);
+            DefendButton.Location = new Point(916, 183);
             DefendButton.Name = "DefendButton";
-            DefendButton.Size = new Size(75, 23);
+            DefendButton.Size = new Size(78, 29);
             DefendButton.TabIndex = 5;
             DefendButton.Text = "Defend";
             DefendButton.UseVisualStyleBackColor = true;
             DefendButton.Click += DefendButton_Click;
+            DefendButton.Font = alkhemikal;
             // 
             // SorceryButton
             // 
-            SorceryButton.Location = new Point(1024, 182);
+            SorceryButton.Location = new Point(1011, 215);
             SorceryButton.Name = "SorceryButton";
-            SorceryButton.Size = new Size(75, 23);
+            SorceryButton.Size = new Size(78, 29);
             SorceryButton.TabIndex = 6;
             SorceryButton.Text = "Sorcery";
             SorceryButton.UseVisualStyleBackColor = true;
             SorceryButton.Click += SorceryButton_Click;
+            SorceryButton.Font = alkhemikal;
             // 
             // SearchButton
             // 
-            SearchButton.Location = new Point(862, 211);
+            SearchButton.Location = new Point(819, 215);
             SearchButton.Name = "SearchButton";
-            SearchButton.Size = new Size(75, 23);
+            SearchButton.Size = new Size(78, 29);
             SearchButton.TabIndex = 7;
             SearchButton.Text = "Search";
             SearchButton.UseVisualStyleBackColor = true;
             SearchButton.Click += SearchButton_Click;
+            SearchButton.Font = alkhemikal;
             // 
             // TalkButton
             // 
-            TalkButton.Location = new Point(943, 211);
+            TalkButton.Location = new Point(916, 215);
             TalkButton.Name = "TalkButton";
-            TalkButton.Size = new Size(75, 23);
+            TalkButton.Size = new Size(78, 29);
             TalkButton.TabIndex = 8;
             TalkButton.Text = "Talk";
             TalkButton.UseVisualStyleBackColor = true;
             TalkButton.Click += TalkButton_Click;
+            TalkButton.Font = alkhemikal;
             // 
             // StatsAndInvButton
             // 
             StatsAndInvButton.BackColor = Color.Black;
             StatsAndInvButton.BackgroundImage = (Image)resources.GetObject("StatsAndInvButton.BackgroundImage");
             StatsAndInvButton.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            StatsAndInvButton.Location = new Point(862, 316);
+            StatsAndInvButton.Location = new Point(819, 410);
             StatsAndInvButton.Name = "StatsAndInvButton";
-            StatsAndInvButton.Size = new Size(246, 23);
+            StatsAndInvButton.Size = new Size(273, 23);
             StatsAndInvButton.TabIndex = 10;
             StatsAndInvButton.Text = "Statistics and Inventory";
             StatsAndInvButton.UseVisualStyleBackColor = false;
             StatsAndInvButton.Click += StatsAndInvButton_Click;
+            StatsAndInvButton.Font = alkhemikal;
             // 
             // GetItemButton
             // 
-            GetItemButton.Location = new Point(1024, 250);
+            GetItemButton.Location = new Point(1011, 260);
             GetItemButton.Name = "GetItemButton";
-            GetItemButton.Size = new Size(75, 23);
+            GetItemButton.Size = new Size(78, 23);
             GetItemButton.TabIndex = 11;
             GetItemButton.Text = "Get Item";
             GetItemButton.UseVisualStyleBackColor = true;
             GetItemButton.Click += GetItemButton_Click;
+            GetItemButton.Font = alkhemikal;
             // 
             // menuStrip1
             // 
@@ -267,18 +284,65 @@
             IntroPanel.BackColor = Color.DarkGray;
             IntroPanel.BackgroundImage = (Image)resources.GetObject("IntroPanel.BackgroundImage");
             IntroPanel.BackgroundImageLayout = ImageLayout.Stretch;
+            IntroPanel.Controls.Add(pictureBox1);
+            IntroPanel.Controls.Add(label3);
+            IntroPanel.Controls.Add(label2);
+            IntroPanel.Controls.Add(label1);
             IntroPanel.Controls.Add(EnterButton);
             IntroPanel.Controls.Add(CharNameTextBox);
             IntroPanel.Controls.Add(EnterNameLabel);
             IntroPanel.Controls.Add(TitleLabel);
-            IntroPanel.Location = new Point(367, 116);
+            IntroPanel.Location = new Point(363, 116);
             IntroPanel.Name = "IntroPanel";
             IntroPanel.Size = new Size(479, 387);
             IntroPanel.TabIndex = 27;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(173, 144);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(150, 150);
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Location = new Point(362, 372);
+            label3.Name = "label3";
+            label3.Size = new Size(117, 15);
+            label3.TabIndex = 6;
+            label3.Text = "V 0.1 BETA 2024-2025";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe Script", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.Location = new Point(170, 109);
+            label2.Name = "label2";
+            label2.Size = new Size(153, 19);
+            label2.TabIndex = 5;
+            label2.Text = "Art by Rachel Webster";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe Script", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(153, 93);
+            label1.Name = "label1";
+            label1.Size = new Size(187, 19);
+            label1.TabIndex = 4;
+            label1.Text = "A game by Edwin Copeland";
+            // 
             // EnterButton
             // 
-            EnterButton.Location = new Point(198, 293);
+            EnterButton.Location = new Point(197, 350);
             EnterButton.Name = "EnterButton";
             EnterButton.Size = new Size(75, 23);
             EnterButton.TabIndex = 3;
@@ -291,7 +355,7 @@
             CharNameTextBox.BackColor = Color.Black;
             CharNameTextBox.BorderStyle = BorderStyle.None;
             CharNameTextBox.ForeColor = Color.Gold;
-            CharNameTextBox.Location = new Point(238, 262);
+            CharNameTextBox.Location = new Point(237, 319);
             CharNameTextBox.Name = "CharNameTextBox";
             CharNameTextBox.Size = new Size(100, 16);
             CharNameTextBox.TabIndex = 2;
@@ -301,7 +365,7 @@
             EnterNameLabel.AutoSize = true;
             EnterNameLabel.BackColor = Color.Transparent;
             EnterNameLabel.Font = new Font("Segoe Script", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            EnterNameLabel.Location = new Point(143, 263);
+            EnterNameLabel.Location = new Point(142, 320);
             EnterNameLabel.Name = "EnterNameLabel";
             EnterNameLabel.Size = new Size(89, 20);
             EnterNameLabel.TabIndex = 1;
@@ -312,11 +376,11 @@
             TitleLabel.AutoSize = true;
             TitleLabel.BackColor = Color.Transparent;
             TitleLabel.Font = new Font("Segoe Script", 21.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            TitleLabel.Location = new Point(69, 136);
+            TitleLabel.Location = new Point(39, 41);
             TitleLabel.Name = "TitleLabel";
-            TitleLabel.Size = new Size(325, 48);
+            TitleLabel.Size = new Size(403, 48);
             TitleLabel.TabIndex = 0;
-            TitleLabel.Text = "PROJECT REPTILE";
+            TitleLabel.Text = "ESCAPE FROM VALUSIA";
             // 
             // ParcelItemList
             // 
@@ -324,9 +388,9 @@
             ParcelItemList.ForeColor = Color.Gold;
             ParcelItemList.FormattingEnabled = true;
             ParcelItemList.ItemHeight = 15;
-            ParcelItemList.Location = new Point(862, 246);
+            ParcelItemList.Location = new Point(819, 260);
             ParcelItemList.Name = "ParcelItemList";
-            ParcelItemList.Size = new Size(156, 64);
+            ParcelItemList.Size = new Size(186, 94);
             ParcelItemList.TabIndex = 14;
             // 
             // MovementPanel
@@ -379,9 +443,9 @@
             // 
             // FleeButton
             // 
-            FleeButton.Location = new Point(1024, 153);
+            FleeButton.Location = new Point(1011, 150);
             FleeButton.Name = "FleeButton";
-            FleeButton.Size = new Size(75, 23);
+            FleeButton.Size = new Size(78, 23);
             FleeButton.TabIndex = 19;
             FleeButton.Text = "Flee";
             FleeButton.UseVisualStyleBackColor = true;
@@ -406,10 +470,9 @@
             // 
             EnemiesLabel.AutoSize = true;
             EnemiesLabel.BackColor = Color.Transparent;
-            EnemiesLabel.Font = new Font("Segoe Script", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             EnemiesLabel.Location = new Point(226, 134);
             EnemiesLabel.Name = "EnemiesLabel";
-            EnemiesLabel.Size = new Size(62, 19);
+            EnemiesLabel.Size = new Size(51, 15);
             EnemiesLabel.TabIndex = 4;
             EnemiesLabel.Text = "Enemies";
             // 
@@ -417,10 +480,9 @@
             // 
             TerrainLabel.AutoSize = true;
             TerrainLabel.BackColor = Color.Transparent;
-            TerrainLabel.Font = new Font("Segoe Script", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TerrainLabel.Location = new Point(41, 134);
             TerrainLabel.Name = "TerrainLabel";
-            TerrainLabel.Size = new Size(79, 19);
+            TerrainLabel.Size = new Size(65, 15);
             TerrainLabel.TabIndex = 3;
             TerrainLabel.Text = "Landmarks";
             // 
@@ -428,10 +490,9 @@
             // 
             RoomContentsLabel.AutoSize = true;
             RoomContentsLabel.BackColor = Color.Transparent;
-            RoomContentsLabel.Font = new Font("Segoe Script", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RoomContentsLabel.Location = new Point(112, 3);
             RoomContentsLabel.Name = "RoomContentsLabel";
-            RoomContentsLabel.Size = new Size(118, 19);
+            RoomContentsLabel.Size = new Size(97, 15);
             RoomContentsLabel.TabIndex = 2;
             RoomContentsLabel.Text = "Local Encounters";
             // 
@@ -465,9 +526,9 @@
             EnemyStrengthLabel.ForeColor = SystemColors.ActiveCaptionText;
             EnemyStrengthLabel.Image = (Image)resources.GetObject("EnemyStrengthLabel.Image");
             EnemyStrengthLabel.ImageAlign = ContentAlignment.TopLeft;
-            EnemyStrengthLabel.Location = new Point(862, 81);
+            EnemyStrengthLabel.Location = new Point(819, 80);
             EnemyStrengthLabel.Name = "EnemyStrengthLabel";
-            EnemyStrengthLabel.Size = new Size(119, 23);
+            EnemyStrengthLabel.Size = new Size(142, 23);
             EnemyStrengthLabel.TabIndex = 21;
             EnemyStrengthLabel.Text = "EnemyStrengthLabel";
             // 
@@ -476,9 +537,9 @@
             PlayerStrengthLabel.BackColor = Color.IndianRed;
             PlayerStrengthLabel.BorderStyle = BorderStyle.FixedSingle;
             PlayerStrengthLabel.Image = (Image)resources.GetObject("PlayerStrengthLabel.Image");
-            PlayerStrengthLabel.Location = new Point(862, 116);
+            PlayerStrengthLabel.Location = new Point(819, 116);
             PlayerStrengthLabel.Name = "PlayerStrengthLabel";
-            PlayerStrengthLabel.Size = new Size(119, 23);
+            PlayerStrengthLabel.Size = new Size(142, 23);
             PlayerStrengthLabel.TabIndex = 22;
             PlayerStrengthLabel.Text = "PlayerStrengthLabel";
             // 
@@ -487,9 +548,9 @@
             PlayerGoldLabel.BackColor = Color.IndianRed;
             PlayerGoldLabel.BorderStyle = BorderStyle.FixedSingle;
             PlayerGoldLabel.Image = (Image)resources.GetObject("PlayerGoldLabel.Image");
-            PlayerGoldLabel.Location = new Point(862, 150);
+            PlayerGoldLabel.Location = new Point(819, 150);
             PlayerGoldLabel.Name = "PlayerGoldLabel";
-            PlayerGoldLabel.Size = new Size(119, 23);
+            PlayerGoldLabel.Size = new Size(142, 23);
             PlayerGoldLabel.TabIndex = 23;
             PlayerGoldLabel.Text = "PlayerGoldLabel";
             // 
@@ -498,9 +559,9 @@
             EnemyThreatLabel.BackColor = Color.Firebrick;
             EnemyThreatLabel.Image = (Image)resources.GetObject("EnemyThreatLabel.Image");
             EnemyThreatLabel.ImageAlign = ContentAlignment.TopLeft;
-            EnemyThreatLabel.Location = new Point(987, 81);
+            EnemyThreatLabel.Location = new Point(967, 80);
             EnemyThreatLabel.Name = "EnemyThreatLabel";
-            EnemyThreatLabel.Size = new Size(105, 23);
+            EnemyThreatLabel.Size = new Size(125, 23);
             EnemyThreatLabel.TabIndex = 24;
             EnemyThreatLabel.Text = "EnemyThreatLabel";
             // 
@@ -509,9 +570,9 @@
             PlayerThreatLabel.BackColor = Color.IndianRed;
             PlayerThreatLabel.BorderStyle = BorderStyle.FixedSingle;
             PlayerThreatLabel.Image = (Image)resources.GetObject("PlayerThreatLabel.Image");
-            PlayerThreatLabel.Location = new Point(987, 116);
+            PlayerThreatLabel.Location = new Point(967, 116);
             PlayerThreatLabel.Name = "PlayerThreatLabel";
-            PlayerThreatLabel.Size = new Size(105, 23);
+            PlayerThreatLabel.Size = new Size(125, 23);
             PlayerThreatLabel.TabIndex = 25;
             PlayerThreatLabel.Text = "PlayerThreatLabel";
             // 
@@ -559,14 +620,16 @@
             Controls.Add(AttackButton);
             Controls.Add(menuStrip1);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
-            Text = "Project Reptile";
+            Text = "Escape From Valusia";
             Load += ViewForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             IntroPanel.ResumeLayout(false);
             IntroPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             MovementPanel.ResumeLayout(false);
             ParcelContentsPanel.ResumeLayout(false);
             ParcelContentsPanel.PerformLayout();
@@ -619,5 +682,9 @@
         private Label RoomContentsLabel;
         private Label TerrainLabel;
         private Label EnemiesLabel;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private PictureBox pictureBox1;
     }
 }
