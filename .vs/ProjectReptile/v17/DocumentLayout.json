@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\factories\\shieldfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\factories\\shieldfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\factories\\weaponfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\factories\\weaponfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\factories\\landmarkfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\factories\\landmarkfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\factories\\enemyfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\factories\\enemyfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\factories\\itemfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\factories\\itemfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\enemies\\cultistadept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\enemies\\cultistadept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|c:\\users\\ym3438\\source\\repos\\projectreptile\\projectreptile\\gamestatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A0E4B221-8710-4D50-A4DC-A65CA652524E}|ProjectReptile\\ProjectReptile.csproj|solutionrelative:projectreptile\\gamestatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -22,15 +46,93 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ShieldFactory.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Factories\\ShieldFactory.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\Factories\\ShieldFactory.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Factories\\ShieldFactory.cs",
+              "RelativeToolTip": "ProjectReptile\\Factories\\ShieldFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:58:19.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WeaponFactory.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Factories\\WeaponFactory.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\Factories\\WeaponFactory.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Factories\\WeaponFactory.cs",
+              "RelativeToolTip": "ProjectReptile\\Factories\\WeaponFactory.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:54:16.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LandmarkFactory.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Factories\\LandmarkFactory.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\Factories\\LandmarkFactory.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Factories\\LandmarkFactory.cs",
+              "RelativeToolTip": "ProjectReptile\\Factories\\LandmarkFactory.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:52:48.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EnemyFactory.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Factories\\EnemyFactory.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\Factories\\EnemyFactory.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Factories\\EnemyFactory.cs",
+              "RelativeToolTip": "ProjectReptile\\Factories\\EnemyFactory.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:51:00.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ItemFactory.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Factories\\ItemFactory.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\Factories\\ItemFactory.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Factories\\ItemFactory.cs",
+              "RelativeToolTip": "ProjectReptile\\Factories\\ItemFactory.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:31:59.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CultistAdept.cs",
+              "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Enemies\\CultistAdept.cs",
+              "RelativeDocumentMoniker": "ProjectReptile\\Enemies\\CultistAdept.cs",
+              "ToolTip": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\Enemies\\CultistAdept.cs",
+              "RelativeToolTip": "ProjectReptile\\Enemies\\CultistAdept.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T22:31:40.012Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "GameStateModel.cs",
               "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\GameStateModel.cs",
               "RelativeDocumentMoniker": "ProjectReptile\\GameStateModel.cs",
@@ -43,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs",
               "RelativeDocumentMoniker": "ProjectReptile\\MainForm.cs",
@@ -56,7 +158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ym3438\\source\\repos\\ProjectReptile\\ProjectReptile\\MainForm.cs",
               "RelativeDocumentMoniker": "ProjectReptile\\MainForm.cs",
